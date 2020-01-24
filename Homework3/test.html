@@ -4,15 +4,52 @@
         <title>
             
         </title>
+
+        <!--write down style here and remove it later-->
+        <style>
+            .header {
+                color: black;
+                background-color: white;
+                border-style: solid;
+                border-color: black;
+                border-width: 2px;
+                text-align: center;
+            }
+            .header-title {
+                display: inline-block;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 50px;
+                text-align: center;
+                border-style: solid;
+            }
+            .header-navbar {
+                font-size: medium;
+                text-align: center;
+                border-style: solid;
+            }
+            .header-navbar li {
+                display: inline-block;
+                list-style: none;
+                text-align: center;
+                vertical-align: auto;
+            }
+            .header-navbar li a {
+                color: black;
+                text-decoration: none;
+            }
+            .header-navbar li a:hover {
+                color: black;
+            }
+        </style>
     </head>
     
     <body>
-        <header id="header">
-            <div>
+        <header class="header">
+            <div class="header-title">
                 James Jantz
             </div>
-            <nav id="">
-                <div id="navBar">
+            <nav class="header-navbar">
+                <div>
                     <ul>
                         <li>
                             <a href="#">home</a>
