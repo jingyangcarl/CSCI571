@@ -3,35 +3,35 @@
                 background-color: white;
                 border-style: solid;
                 border-color: black;
-                border-width: 2px;
+                border-width: 3px;
                 text-align: center;
-                margin-top: 52px;
-                margin-left: 30.15%;
-                margin-right: 30.15%;
-                width: 1000px;
+                margin-top: 77px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 1455px;
             }
             .header-title {
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-size: 84px;
+                font-size: 123px;
                 text-align: center;
-                margin-top: 27px;
-                margin-left: 2px;
-                margin-bottom: -2px;
+                margin-top: 40px;
+                margin-left: 12px;
             }
             .header-navbar {
                 font-size: medium;
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 text-align: center;
-                margin-right: 18px;
+                margin-left: 5px;
             }
             .header-navbar li {
                 display: inline-block;
-                font-size: 20px;
+                font-size: 28px;
                 list-style: none;
                 text-align: center;
-                margin-left: 2px;
-                margin-right: 28px;
-                margin-bottom: 19px;
+                margin-top: 5px;
+                margin-left: 5px;
+                margin-right: 45px;
+                margin-bottom: 35px;
             }
             .header-navbar li a {
                 color: grey;
@@ -41,16 +41,16 @@
                 color: black;
             }
             .main-image-grid {
-                width: 1145px;
-                height: 1145px;
+                width: 1680px;
+                height: 1680px;
                 margin-left: auto;
                 margin-right: auto;
-                margin-top: 80px;
-                margin-bottom: 100px;
+                margin-top: 113px;
+                margin-bottom: 153px;
             }
             .main-image-grid div {
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-size: 43px;
+                font-size: 60px;
                 margin-left: 10px;
                 margin-bottom: 10px;
             }
@@ -58,23 +58,23 @@
                 display: inline-block;
                 border: 1px solid white;
                 object-fit: cover;
-                width: 562px;
-                height: 562px;
-                margin: 2px;
+                width: 825px;
+                height: 825px;
+                margin: 5px;
             }
             .footer-copyright{
                 text-align: center;
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                font-size: 15px;
+                font-size: 21px;
             }
             .footer-image-grid {
                 text-align: center;
-                margin-top: 38px;
-                margin-bottom: 52px;
-                margin-right: 25px;
+                margin-top: 57px;
+                margin-bottom: 80px;
+                margin-right: 40px;
             }
             .footer-image-grid img {
-                height: 28px;
-                widows: 28px;
-                margin-left: 22px;
+                height: 42px;
+                widows: 42px;
+                margin-left: 36px;
             }
