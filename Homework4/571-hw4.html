@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>571-hw4</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.div1 {
+			width: 100%;
+			top: 200px;
+		}
+		.h1 {
+			font-weight: 600;
+			font-size: 30px;
+			color: black;
+			text-align: center;
+			margin-top: 200px;
+		}
+		input[type=text] {
+			width: 20%;
+			height: 40px;
+			margin-left: 40%;
+			margin-right: 40%; 
+			font-size: 34px;
+			margin-top: 50px;
+			border-radius: 2px;
+		}
+		input[type=submit] {
+			background-color: #F5F5F5;
+			font-size: 20px;
+			width: 16%;
+			height: 30px;
+			border: 1px solid #708090;
+			border-radius: 4px;
+			margin-top: 50px;
+			margin-left: 42%;
+			margin-right: 42%;
+		}
+	</style>
+	<script type="text/javascript">
+		function viewJSON(what) {
+			var URL = what.URL.value;
+			if(URL==null||URL=="") {
+				alert("You have to input a file name!");
+				return;
+			}
+			function loadJSON(url) {
+				xmlhttp=new XMLHttpRequest();
+				xmlhttp.open("GET",url,false); // "synchronous” (deprecated because it freezes the page while waiting for a response) *
+				try {
+					xmlhttp.send();
+				}
+				catch(e) {
+					throw "File not Found!";
+					return;
+				}							
+				if(xmlhttp.status==404||xmlhttp.status==0) {
+					throw "File not found!";
+				}				
+				try {
+					jsonObj= JSON.parse(xmlhttp.responseText);
+					return jsonObj;
+				}				
+				catch(e) {
+					throw "Empty File!";
+				}
+			}
+			try {
+				jsonObj = loadJSON(URL);
+				jsonObj.onload=generateHTML(jsonObj);
+				hWin = window.open("", "Assignment4", "height=1000,width=1200");
+				hWin.document.write(html_text);
+				hWin.document.close();
+			}
+			catch(e) {
+				alert(e);
+			}
+			
+		}
+		function generateHTML(jsonObj) {
+			root=jsonObj.DocumentElement;
+			html_text="<html><head><title>JSON Parse Result</title></head><body>";
+			html_text+="<table border='2'>";
+			// caption=jsonObj.catalog.title;
+			// html_text+="<caption align='left'><h1>"+caption+"</h1></caption>";
+			if(jsonObj.Mainline.Table.Row==null) {
+				throw "Empty Row Entries!";
+			}
+			buses=jsonObj.Mainline.Table.Row; // an array of planes
+			busNodeList=buses[0];
+			html_text+="<tbody>";
+			html_text+="<tr>";
+			x=200; y=200;
+			// output the headers
+			var header_keys = jsonObj.Mainline.Table.Header.Data;
+			for(i=0;i<header_keys.length;i++) {
+				header=header_keys[i];
+				// if(header=="Rank") { header="Rank"; x=120; y=55; }
+				// if(header=="Group") { header="Group"; x=100; y=67; }
+				// if(header=="Hubs") header="Country";
+				// if(header=="Vehicles") header="Vehicles";
+				// if(header=="HomePage") header="Wiki Page";
+				// if(header=="Logo") header="Logo";
+				html_text+="<th>"+header+"</th>";
+			}
+			html_text+="</tr>";
+			// output out the values
+			for(i=0;i<buses.length;i++) {
+				busNodeList=buses[i]; //get properties of a plane (an object)
+				html_text+="<tr>"; //start a new row of the output table
+				if(busNodeList==null) {
+					continue;
+				}
+				else {
+					var bus_keys = Object.keys(busNodeList);
+				}
+				for(j=0;j<bus_keys.length;j++) {
+					prop = bus_keys[j];
+					if(bus_keys[j]=="Logo") {//handle images separately
+						if(busNodeList[prop]==null) {
+							html_text+="<td></td>";
+						}
+						else {
+							html_text+="<td><img src='"+ busNodeList[prop] +"' width='"+x+"' height='"+y+"'></td>";
+						}						
+					} else if(bus_keys[j]=="HomePage") {
+						if(busNodeList[prop]==null) {
+							html_text+="<td></td>";
+						}
+						else {
+							html_text+="<td><a href='"+busNodeList[prop]+"'>"+busNodeList[prop]+"</a></td>";
+						}						
+					} else if(bus_keys[j]=="Hubs") {
+						var hb = busNodeList.Hubs.Hub;
+						html_text+="<td><ul>";
+						for(k=0;k<hb.length;k++) {
+							hub_data=hb[k];
+							if(hub_data==null) {
+								html_text+="<li>"+null+"</li>"
+							}
+							else {
+								if(k==0) {
+									html_text+="<li><b>"+hub_data+"</b></li>";
+								} else {
+									html_text+="<li>"+hub_data+"</li>";
+								}
+							}												
+						}
+						html_text+="</ul></td>";
+					} else {
+						if(busNodeList[prop]==null) {
+							html_text+="<td></td>";
+						}
+						else {
+							html_text+="<td>"+ busNodeList[prop] +"</td>";
+						}						
+					}
+				}
+				html_text+="</tr>";
+			}
+			html_text+="</tbody>";
+			html_text+="</table>";
+			html_text+="</body></html>"; 
+		} 
+	</script>
+</head>
+<body>
+	<div class="div1">
+		<h1 class="h1">Enter URL for largest manufactures by production (2017) List JSON Flie</h1>
+		<form name="myform" method="POST" id="location" style="width: 100%">
+			<input type="text" name="URL">
+			<input type="submit" value="Submit Query" onClick="viewJSON(this.form)">
+		</form>		
+	</div>
+</body>
+</html>
