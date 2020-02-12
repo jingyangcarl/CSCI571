@@ -1,143 +1,221 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Home
-        </title>
-        <style>
-            .header-title {
-                text-align: center;
+
+<head>
+    <title>
+        Home
+    </title>
+    <style>
+        .header-title {
+            color: black;
+            font-size: xx-large;
+            text-align: center;
+            width: 100%;
+            margin-top: 300px;
+        }
+        .header-form {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        .header-form input[type=text] {
+            background-color: white;
+            width: 20%;
+            height: 20px;
+            margin-top: 50px;
+        }
+        .header-form input[type=submit] {
+            background-color: white;
+            width: 20%;
+            height: 20px;
+            margin-top: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        var jsonOBJ;
+        /*
+        Description:
+        This function is used to 
+        Input:
+        @ what: submitted form
+        Reference: 
+        "JSON - JavaScript Object Notation", pp 44
+        */
+        function viewJSON(what) {
+            var URL = what.URL.value;
+            if (URL == null || URL == "") {
+                window.alert("Please input a file name!");
+                return;
             }
-            .header-form {
-                width: 100%;
-                text-align: center;
-            }
-        </style>
-        <script type="text/javascript">
-            var jsonOBJ;
+
             /*
             Description:
-            This function is used to 
+            This function is used to load JSON file from a given URL;
             Input:
-
+            @ URL: a given URL;
             Output:
-
+            @ jsonOBJ: a json object;
+            Reference: 
+            "JSON - JavaScript Object Notation", pp 44
             */
-            function viewJSON(what){
-                var URL = what.URL.value;
-
-                if (URL == null || URL == "") {
-                    window.alert("Please input a file name!");
-                    return;
-                }
-
-                /*
-                Description:
-                This function is used to load JSON file from a given URL;
-                Input:
-                @ URL: a given URL;
-                Output:
-                @ jsonOBJ: a json object;
-                */
-                function loadJSON(URL) {
-                    var xmlhttp = new XMLHttpRequest();
-                    // open, send, responseText are properties of XMLHTTPRequest
-                    xmlhttp.open("GET", URL, false)
-                    try {
-                        xmlhttp.send();
-                    } catch (error){
-                        throw "File not Found!";
-                        return;
-                    }
-
-                    jsonOBJ = JSON.parse(xmlhttp.responseText);
-                    return jsonOBJ;
-                }
-
+            function loadJSON(URL) {
+                var xmlhttp = new XMLHttpRequest();
+                // open, send, responseText are properties of XMLHTTPRequest
+                xmlhttp.open("GET", URL, false)
                 try {
-                    jsonOBJ = loadJSON(URL);
-                    jsonOBJ.onload = generateHTML(jsonOBJ);
-                    windowHandle = window.open("", "Largest Manufactures by Production (2017)", "height=1000, width=1200");
-                    windowHandle.document.write(htmlText);
-                    windowHandle.document.close();
-                } catch (error){
-                    window.alert(error)
+                    xmlhttp.send();
+                } catch (error) {
+                    throw "File not Found!";
                 }
+
+                jsonOBJ = JSON.parse(xmlhttp.responseText);
+                return jsonOBJ;
             }
 
-            function generateHTML(jsonOBJ) {
-                root = jsonOBJ.DocumentElement;
-                htmlText = "<html><head><title>JSON Parse Result</title></head><body>";
-                htmlText += "<table border='2'>";
-                if (jsonOBJ.Mainline.Table.Row == null) {
-                    throw "Empty"
-                }
-                buildings = jsonOBJ.Mainline.Table.Row; // an array of buildings
-                buildingNodeList = buildings[0];
-                htmlText += "<tbody>";
+            try {
+                jsonOBJ = loadJSON(URL);
+                jsonOBJ.onload = generateHTML(jsonOBJ);
+                windowHandle = window.open("", "Largest Manufactures by Production (2017)", "height=1000, width=1200");
+                windowHandle.document.write(htmlText);
+                windowHandle.document.close();
+            } catch (error) {
+                window.alert(error)
+            }
+        }
+
+        /*
+        Description:
+        This function is used to generate HTML content from retrived json object;
+        Input:
+        @ jsonOBJ: 
+        Output:
+        @ htmlTest: generated HTML contents'
+        Reference: 
+        "JSON - JavaScript Object Notation", pp 45
+        */
+        function generateHTML(jsonOBJ) {
+            root = jsonOBJ.DocumentElement;
+            htmlText = 
+            "<html>" + 
+                "<head>" + 
+                    "<title>" + 
+                        "Largest Manufacturers by Production (2017)" + 
+                    "</title>" + 
+                "</head>" + 
+                "<body>" + 
+                    "<table border='2'>";
+            if (jsonOBJ.Mainline.Table.Row == null) {
+                throw "Mainline.Table.Row is Empty"
+            }
+            buildings = jsonOBJ.Mainline.Table.Row; // an array of buildings
+            buildingNodeList = buildings[0];
+            htmlText += 
+                        "<tbody>" +
+                            "<tr>";
+            x = 200; y = 200;
+
+            // output the headers
+            var header_keys = jsonOBJ.Mainline.Table.Header.Data;
+            for (i = 0; i < header_keys.length; i++) {
+                header = header_keys[i];
+                htmlText += 
+                                "<th>" + 
+                                    header + 
+                                "</th>";
+            }
+            htmlText += 
+                            "</tr>";
+
+            // output the values
+            for (i = 0; i < buildings.length; i++) {
+                // get properties of a building (an object)
+                buildingNodeList = buildings[i];
+                // start a new row of the output table
                 htmlText += "<tr>";
-                x = 200; y = 200;
-
-                // output the headers
-                var header_keys = jsonOBJ.Mainline.Table.Header.Data;
-                for (i = 0; i < header_keys.length; i++) {
-                    header = header_keys[i];
-                    htmlText += "<th>"+header+"</th>";
+                if (buildingNodeList == null) {
+                    continue;
+                } else {
+                    var building_keys = Object.keys(buildingNodeList);
                 }
-                htmlText+="</tr>";
-
-                // output the values
-                for (i = 0; i < buildings.length; i++){
-                    // get properties of a plane (an object)
-                    buildingNodeList = buildings[i];
-                    // start a new row of the output table
-                    htmlText+="<tr>";
-                    if (buildingNodeList == null){
-                        continue;
-                    } else {
-                        var building_keys = Object.keys(buildingNodeList);
-                    }
-                    for (j = 0; j < building_keys.length; j++) {
-                        prop = building_keys[j];
-                        if (buildingNodeList[j] == "Logo") {
-                            if (buildingNodeList[prop] == null){
-                                htmlText += "<td></td>";
-                            } else {
-                                htmlText += "<td><img src='" + buildingNodeList[prop] + "' width='" + x + "' height='" + y + "'></td>";
-                            }
-                        } else if (buildingNodeList[j] == "HomePage") {
-                            if (buildingNodeList[prop] == null){
-                                htmlText += "<td></td>";
-                            } else {
-                                htmlText += "<td><a href='" + buildingNodeList[prop] + "'>"+ buildingNodeList[prop] + "</a></td>";
-                            }
-                        } else if (buildingNodeList[j] == "Hubs") {
-
+                for (j = 0; j < building_keys.length; j++) {
+                    prop = building_keys[j];
+                    if (building_keys[j] == "Logo") {
+                        if (buildingNodeList[prop] == null) {
+                            htmlText += 
+                                "<td></td>";
                         } else {
-                            if (buildingNodeList[prop] == null) {
-                                htmlText += "<td></td>";
+                            htmlText += 
+                                "<td>" + 
+                                    "<img src='" + buildingNodeList[prop] + "' width='" + x + "' height='" + y + "'>" + 
+                                "</td>";
+                        }
+                    } else if (building_keys[j] == "HomePage") {
+                        if (buildingNodeList[prop] == null) {
+                            htmlText += 
+                                "<td></td>";
+                        } else {
+                            htmlText += 
+                                "<td>" + 
+                                    "<a href='" + buildingNodeList[prop] + "'>" + buildingNodeList[prop] + "</a>" + 
+                                "</td>";
+                        }
+                    } else if (building_keys[j] == "Hubs") {
+                        var hub = buildingNodeList.Hubs.Hub;
+                        htmlText += 
+                                "<td>" + 
+                                    "<ul>";
+                        for (k = 0; k < hub.length; k++) {
+                            hub_content = hub[k]
+                            if (hub_content == null) {
+                                htmlText += 
+                                        "<li>" + null + "</li>"
                             } else {
-                                htmlText += "<td>"+ buildingNodeList[prop] + "</td>";
+                                if (k == 0) {
+                                    htmlText += 
+                                        "<li>" + 
+                                            "<b>" + hub_content + "</b>" + 
+                                        "</li>";
+                                } else {
+                                    htmlText += 
+                                        "<li>" + hub_content + "</li>";
+                                }
                             }
                         }
+                        htmlText += 
+                                    "</ul>" + 
+                                "</td>";
+                    } else {
+                        if (buildingNodeList[prop] == null) {
+                            htmlText += 
+                                "<td></td>";
+                        } else {
+                            htmlText += 
+                                "<td>" + buildingNodeList[prop] + "</td>";
+                        }
                     }
-				    htmlText+="</tr>";
                 }
-                htmlText+="</tbody>";
-                htmlText+="</table>";
-                htmlText+="</body></html>"; 
+                htmlText += "</tr>";
             }
-        </script>
-    </head>
-    <body>
-        <header>
-            <div class="header-title">
-                Enter URL for list of tallest buildings JSON File
-            </div>
-            <form method="POST" class="header-form">
-                <input type="text" name="URL">
-                <input type="submit" value="Submit Query" onClick="viewJSON(this.form)">
-            </form>	
-        </header>
-    </body>
+            htmlText += 
+                        "</tbody>" + 
+                    "</table>" + 
+                "</bo" + "<dy>" + 
+            "</html>";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="header-title">
+            Enter URL for list of tallest buildings JSON File
+        </div>
+        <form method="POST" class="header-form">
+            <input type="text" name="URL">
+            <br>
+            <input type="submit" value="Submit Query" onClick="viewJSON(this.form)">
+        </form>
+    </header>
+</body>
+
 </html>
