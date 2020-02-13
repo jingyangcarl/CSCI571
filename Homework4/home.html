@@ -66,10 +66,22 @@
                     xmlhttp.send();
                 } catch (error) {
                     throw "File not Found!";
+                    return;
                 }
 
+                // handle xmlhttprequest response
+                if (xmlhttp.status == 404 || xmlhttp.status == 0) {
+                    throw "File not found!";
+                    return;
+                }
+
+                try {
                 jsonOBJ = JSON.parse(xmlhttp.responseText);
                 return jsonOBJ;
+                } catch (error) {
+                    throw "JSON file is not correctly formatted!";
+                    return;
+                }
             }
 
             try {
@@ -80,6 +92,7 @@
                 windowHandle.document.close();
             } catch (error) {
                 window.alert(error)
+                return;
             }
         }
 
@@ -106,6 +119,7 @@
                     "<table border='2'>";
             if (jsonOBJ.Mainline.Table.Row == null) {
                 throw "Mainline.Table.Row is Empty"
+                return;
             }
             buildings = jsonOBJ.Mainline.Table.Row; // an array of buildings
             buildingNodeList = buildings[0];
@@ -137,19 +151,11 @@
                 } else {
                     var building_keys = Object.keys(buildingNodeList);
                 }
+
+                // handle different keys
                 for (j = 0; j < building_keys.length; j++) {
                     prop = building_keys[j];
-                    if (building_keys[j] == "Logo") {
-                        if (buildingNodeList[prop] == null) {
-                            htmlText += 
-                                "<td></td>";
-                        } else {
-                            htmlText += 
-                                "<td>" + 
-                                    "<img src='" + buildingNodeList[prop] + "' width='" + x + "' height='" + y + "'>" + 
-                                "</td>";
-                        }
-                    } else if (building_keys[j] == "HomePage") {
+                    if (building_keys[j] == "HomePage") {
                         if (buildingNodeList[prop] == null) {
                             htmlText += 
                                 "<td></td>";
@@ -166,11 +172,12 @@
                                     "<ul>";
                         for (k = 0; k < hub.length; k++) {
                             hub_content = hub[k]
-                            if (hub_content == null) {
+                            if (hub_content == null || buildingNodeList[prop] == "") {
                                 htmlText += 
                                         "<li>" + null + "</li>"
                             } else {
                                 if (k == 0) {
+                                    // handle the first hub element
                                     htmlText += 
                                         "<li>" + 
                                             "<b>" + hub_content + "</b>" + 
@@ -184,8 +191,18 @@
                         htmlText += 
                                     "</ul>" + 
                                 "</td>";
+                    } else if (building_keys[j] == "Logo") {
+                        if (buildingNodeList[prop] == null || buildingNodeList[prop] == "") {
+                            htmlText += 
+                                "<td></td>";
+                        } else {
+                            htmlText += 
+                                "<td>" + 
+                                    "<img src='" + buildingNodeList[prop] + "' width='" + x + "' height='" + y + "'>" + 
+                                "</td>";
+                        }
                     } else {
-                        if (buildingNodeList[prop] == null) {
+                        if (buildingNodeList[prop] == null || buildingNodeList[prop] == "") {
                             htmlText += 
                                 "<td></td>";
                         } else {
