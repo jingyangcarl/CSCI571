@@ -1,7 +1,7 @@
 # Google News api key: 99da284c213a46ecb176baabc4eb6b7c
 
 from newsapi import NewsApiClient
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 
 app = Flask(__name__)
@@ -58,10 +58,11 @@ def articles_clean(articles):
     for index in index_remove:
         articles.pop(index)
 
-@app.route('/search/')
+@app.route('/search/', methods=['GET', 'POST'])
 def search():
-    #
-    return 'Hello'
+    form = request.form
+    print(form)
+    return form
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App

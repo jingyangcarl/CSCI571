@@ -299,13 +299,15 @@
         </div>
     </div>
     <div id="search" class="header-tabcontent" style="display: none;">
-        <form action='/search/'>
+        <form action='/search/' method="POST">
             <label class="search-required">Keyword</label>
             <input type="text" id="search_input_keyword" required>
             <label class="search-required">From</label>
-            <input type="date" id="search_input_from" required>
+            <!-- <input type="date" id="search_input_from" required> -->
+            <input type="date" id="search_input_from">
             <label class="search-required">To</label>
-            <input type="date" id="search_input_to" required>
+            <!-- <input type="date" id="search_input_to" required> -->
+            <input type="date" id="search_input_to">
             <br>
             <label>Category</label>
             <select type="text" id="search_select_category">
@@ -323,7 +325,7 @@
                 <option value="all" selected>all</option>
             </select>
             <br>
-            <button type="submit" id="search_submit" value="Search" onclick="onClick_Submit()">Search</button>
+            <button type="submit" id="search_submit" value="Search">Search</button>
             <button type="reset" id="search_reset" value="Clear">Clear</button>
         </form>
     </div>
