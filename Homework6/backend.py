@@ -11,25 +11,30 @@ def index():
     # init api client
     newsapi = NewsApiClient(api_key='99da284c213a46ecb176baabc4eb6b7c')
 
-    # /v2/top-headlines
+    # get top headlines
     top_headlines = newsapi.get_top_headlines()
     article_top = top_headlines['articles'][0]
     
+    # get cnn headlines
+    cnn_headlines = newsapi.get_top_headlines(sources='cnn')
+    articles_cnn = cnn_headlines['articles']
 
+    # get fox headlines
+    fox_headlines = newsapi.get_top_headlines(sources='fox-news')
+    articles_fox = fox_headlines['articles']
+
+    # render
     return render_template('index.html', 
-                            card_headline_urlToImage = article_top['urlToImage'],
-                            card_headline_title = article_top['title'],
-                            card_headline_description = article_top['description'])
-
-@app.route('/get_top_headlines/')
-def get_top_headlines():
-
-    
-
-    # /v2/top-headlines
-    # top_headlines = newsapi.get_top_headlines()
-
-    return "Hello World!"
+                            headline_card_urlToImage = article_top['urlToImage'], headline_card_title = article_top['title'], headline_card_description = article_top['description'],
+                            gn_cnn_card_1_urlToImage = articles_cnn[0]['urlToImage'], gn_cnn_card_1_title = articles_cnn[0]['title'], gn_cnn_card_1_description = articles_cnn[0]['description'],
+                            gn_cnn_card_2_urlToImage = articles_cnn[1]['urlToImage'], gn_cnn_card_2_title = articles_cnn[1]['title'], gn_cnn_card_2_description = articles_cnn[1]['description'],
+                            gn_cnn_card_3_urlToImage = articles_cnn[2]['urlToImage'], gn_cnn_card_3_title = articles_cnn[2]['title'], gn_cnn_card_3_description = articles_cnn[2]['description'],
+                            gn_cnn_card_4_urlToImage = articles_cnn[3]['urlToImage'], gn_cnn_card_4_title = articles_cnn[3]['title'], gn_cnn_card_4_description = articles_cnn[3]['description'],
+                            gn_fox_card_1_urlToImage = articles_fox[0]['urlToImage'], gn_fox_card_1_title = articles_fox[0]['title'], gn_fox_card_1_description = articles_fox[0]['description'],
+                            gn_fox_card_2_urlToImage = articles_fox[1]['urlToImage'], gn_fox_card_2_title = articles_fox[1]['title'], gn_fox_card_2_description = articles_fox[1]['description'],
+                            gn_fox_card_3_urlToImage = articles_fox[2]['urlToImage'], gn_fox_card_3_title = articles_fox[2]['title'], gn_fox_card_3_description = articles_fox[2]['description'],
+                            gn_fox_card_4_urlToImage = articles_fox[3]['urlToImage'], gn_fox_card_4_title = articles_fox[3]['title'], gn_fox_card_4_description = articles_fox[3]['description'],
+                            )
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
@@ -37,27 +42,3 @@ if __name__ == '__main__':
     # can be configured by adding an `entrypoint` to app.yaml.
     app.run(host='127.0.0.1', port=8080, debug=True)
     # [END gae_python37_app]
-
-# # /v2/top-headlines
-# top_headlines = newsapi.get_top_headlines()
-# # print(top_headlines)
-
-# articles = top_headlines['articles']
-# article_top = articles[0]
-# print(article_top)
-# article_
-# article_urlToImage = article_top['urlToImage']
-# # /v2/everything
-# # all_articles = newsapi.get_everything()
-# # all_articles = newsapi.get_everything(q='bitcoin',
-# #                                       sources='bbc-news,the-verge',
-# #                                       domains='bbc.co.uk,techcrunch.com',
-# #                                       from_param='2019-12-01',
-# #                                       to='2019-12-12',
-# #                                       language='en',
-# #                                       sort_by='relevancy',
-# #                                       page=2)
-
-# # /v2/sources
-
-# # print(json_sources)
