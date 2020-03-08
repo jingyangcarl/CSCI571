@@ -75,6 +75,14 @@
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
         
+        #google_news .card a:link,
+        #google_news .card a:visited,
+        #google_news .card a:hover,
+        #google_news .card a:active {
+            color: black;
+            text-decoration: none;
+        }
+        
         #google_news .card_container {
             padding: 2px 16px;
         }
@@ -152,13 +160,15 @@
                 <tr>
                     <td>
                         <div id="gn_headline_card" class="card">
-                            <img src={{headline_card_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{headline_card_title}}</b>
-                                </h3>
-                                <p>{{headline_card_description}}</p>
-                            </div>
+                            <a href="{{headline_card_url}}" target="_blank">
+                                <img src={{headline_card_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{headline_card_title}}</b>
+                                    </h3>
+                                    <p>{{headline_card_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
@@ -174,46 +184,54 @@
                 <tr>
                     <td>
                         <div id="gn_cnn_card_1" class="card">
-                            <img src={{gn_cnn_card_1_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_cnn_card_1_title}}</b>
-                                </h3>
-                                <p>{{gn_cnn_card_1_description}}</p>
-                            </div>
+                            <a href={{gn_cnn_card_1_url}} target="_blank">
+                                <img src={{gn_cnn_card_1_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_cnn_card_1_title}}</b>
+                                    </h3>
+                                    <p>{{gn_cnn_card_1_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
                         <div id="gn_cnn_card_2" class="card">
-                            <img src={{gn_cnn_card_2_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_cnn_card_2_title}}</b>
-                                </h3>
-                                <p>{{gn_cnn_card_2_description}}</p>
-                            </div>
+                            <a href={{gn_cnn_card_2_url}} target="_blank">
+                                <img src={{gn_cnn_card_2_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_cnn_card_2_title}}</b>
+                                    </h3>
+                                    <p>{{gn_cnn_card_2_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
                         <div id="gn_cnn_card_3" class="card">
-                            <img src={{gn_cnn_card_4_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_cnn_card_3_title}}</b>
-                                </h3>
-                                <p>{{gn_cnn_card_3_description}}</p>
-                            </div>
+                            <a href={{gn_cnn_card_3_url}} target="_blank">
+                                <img src={{gn_cnn_card_3_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_cnn_card_3_title}}</b>
+                                    </h3>
+                                    <p>{{gn_cnn_card_3_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
                         <div id="gn_cnn_card_4" class="card">
-                            <img src={{gn_cnn_card_4_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_cnn_card_4_title}}</b>
-                                </h3>
-                                <p>{{gn_cnn_card_4_description}}</p>
-                            </div>
+                            <a href={{gn_cnn_card_4_url}} target="_blank">
+                                <img src={{gn_cnn_card_4_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_cnn_card_4_title}}</b>
+                                    </h3>
+                                    <p>{{gn_cnn_card_4_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                 </tr>
@@ -226,46 +244,54 @@
                 <tr>
                     <td>
                         <div id="gn_fox_card_1" class="card">
-                            <img src={{gn_fox_card_1_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_fox_card_1_title}}</b>
-                                </h3>
-                                <p>{{gn_fox_card_1_description}}</p>
-                            </div>
+                            <a href={{gn_fox_card_1_url}} target="_blank">
+                                <img src={{gn_fox_card_1_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_fox_card_1_title}}</b>
+                                    </h3>
+                                    <p>{{gn_fox_card_1_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
                         <div id="gn_fox_card_2" class="card">
-                            <img src={{gn_fox_card_2_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_fox_card_2_title}}</b>
-                                </h3>
-                                <p>{{gn_fox_card_2_description}}</p>
-                            </div>
+                            <a href={{gn_fox_card_2_url}} target="_blank">
+                                <img src={{gn_fox_card_2_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_fox_card_2_title}}</b>
+                                    </h3>
+                                    <p>{{gn_fox_card_2_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
                         <div id="gn_fox_card_3" class="card">
-                            <img src={{gn_fox_card_3_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_fox_card_3_title}}</b>
-                                </h3>
-                                <p>{{gn_fox_card_3_description}}</p>
-                            </div>
+                            <a href={{gn_fox_card_3_url}} target="_blank">
+                                <img src={{gn_fox_card_3_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_fox_card_3_title}}</b>
+                                    </h3>
+                                    <p>{{gn_fox_card_3_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                     <td>
                         <div id="gn_fox_card_4" class="card">
-                            <img src={{gn_fox_card_4_urlToImage}} style="width: 100%;">
-                            <div class="card_container">
-                                <h3>
-                                    <b>{{gn_fox_card_4_title}}</b>
-                                </h3>
-                                <p>{{gn_fox_card_4_description}}</p>
-                            </div>
+                            <a href={{gn_fox_card_4_url}} target="_blank">
+                                <img src={{gn_fox_card_4_urlToImage}} style="width: 100%;">
+                                <div class="card_container">
+                                    <h3>
+                                        <b>{{gn_fox_card_4_title}}</b>
+                                    </h3>
+                                    <p>{{gn_fox_card_4_description}}</p>
+                                </div>
+                            </a>
                         </div>
                     </td>
                 </tr>

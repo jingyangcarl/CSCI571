@@ -13,7 +13,20 @@ def index():
 
     # get top headlines
     top_headlines = newsapi.get_top_headlines()
-    article_top = top_headlines['articles'][0]
+    articles_top = top_headlines['articles']
+    print(type(articles_top))
+
+    index_remove = []
+    for index, article in enumerate(articles_top):
+        if article['urlToImage'] == None or article['urlToImage'] == '':
+            index_remove.append(index)
+        if article['title'] == None or article['title'] == '':
+            index_remove.append(index)
+        if article['description'] == None or article['description'] == '':
+            index_remove.append(index)
+
+    for index in index_remove:
+        articles_top.pop(index)
     
     # get cnn headlines
     cnn_headlines = newsapi.get_top_headlines(sources='cnn')
@@ -25,15 +38,15 @@ def index():
 
     # render
     return render_template('index.html', 
-                            headline_card_urlToImage = article_top['urlToImage'], headline_card_title = article_top['title'], headline_card_description = article_top['description'],
-                            gn_cnn_card_1_urlToImage = articles_cnn[0]['urlToImage'], gn_cnn_card_1_title = articles_cnn[0]['title'], gn_cnn_card_1_description = articles_cnn[0]['description'],
-                            gn_cnn_card_2_urlToImage = articles_cnn[1]['urlToImage'], gn_cnn_card_2_title = articles_cnn[1]['title'], gn_cnn_card_2_description = articles_cnn[1]['description'],
-                            gn_cnn_card_3_urlToImage = articles_cnn[2]['urlToImage'], gn_cnn_card_3_title = articles_cnn[2]['title'], gn_cnn_card_3_description = articles_cnn[2]['description'],
-                            gn_cnn_card_4_urlToImage = articles_cnn[3]['urlToImage'], gn_cnn_card_4_title = articles_cnn[3]['title'], gn_cnn_card_4_description = articles_cnn[3]['description'],
-                            gn_fox_card_1_urlToImage = articles_fox[0]['urlToImage'], gn_fox_card_1_title = articles_fox[0]['title'], gn_fox_card_1_description = articles_fox[0]['description'],
-                            gn_fox_card_2_urlToImage = articles_fox[1]['urlToImage'], gn_fox_card_2_title = articles_fox[1]['title'], gn_fox_card_2_description = articles_fox[1]['description'],
-                            gn_fox_card_3_urlToImage = articles_fox[2]['urlToImage'], gn_fox_card_3_title = articles_fox[2]['title'], gn_fox_card_3_description = articles_fox[2]['description'],
-                            gn_fox_card_4_urlToImage = articles_fox[3]['urlToImage'], gn_fox_card_4_title = articles_fox[3]['title'], gn_fox_card_4_description = articles_fox[3]['description'],
+                            headline_card_url = articles_top[0]['url'], headline_card_urlToImage = articles_top[0]['urlToImage'], headline_card_title = articles_top[0]['title'], headline_card_description = articles_top[0]['description'],
+                            gn_cnn_card_1_url = articles_cnn[0]['url'], gn_cnn_card_1_urlToImage = articles_cnn[0]['urlToImage'], gn_cnn_card_1_title = articles_cnn[0]['title'], gn_cnn_card_1_description = articles_cnn[0]['description'],
+                            gn_cnn_card_2_url = articles_cnn[1]['url'], gn_cnn_card_2_urlToImage = articles_cnn[1]['urlToImage'], gn_cnn_card_2_title = articles_cnn[1]['title'], gn_cnn_card_2_description = articles_cnn[1]['description'],
+                            gn_cnn_card_3_url = articles_cnn[2]['url'], gn_cnn_card_3_urlToImage = articles_cnn[2]['urlToImage'], gn_cnn_card_3_title = articles_cnn[2]['title'], gn_cnn_card_3_description = articles_cnn[2]['description'],
+                            gn_cnn_card_4_url = articles_cnn[3]['url'], gn_cnn_card_4_urlToImage = articles_cnn[3]['urlToImage'], gn_cnn_card_4_title = articles_cnn[3]['title'], gn_cnn_card_4_description = articles_cnn[3]['description'],
+                            gn_fox_card_1_url = articles_fox[0]['url'], gn_fox_card_1_urlToImage = articles_fox[0]['urlToImage'], gn_fox_card_1_title = articles_fox[0]['title'], gn_fox_card_1_description = articles_fox[0]['description'],
+                            gn_fox_card_2_url = articles_fox[1]['url'], gn_fox_card_2_urlToImage = articles_fox[1]['urlToImage'], gn_fox_card_2_title = articles_fox[1]['title'], gn_fox_card_2_description = articles_fox[1]['description'],
+                            gn_fox_card_3_url = articles_fox[2]['url'], gn_fox_card_3_urlToImage = articles_fox[2]['urlToImage'], gn_fox_card_3_title = articles_fox[2]['title'], gn_fox_card_3_description = articles_fox[2]['description'],
+                            gn_fox_card_4_url = articles_fox[3]['url'], gn_fox_card_4_urlToImage = articles_fox[3]['urlToImage'], gn_fox_card_4_title = articles_fox[3]['title'], gn_fox_card_4_description = articles_fox[3]['description'],
                             )
 
 if __name__ == '__main__':
