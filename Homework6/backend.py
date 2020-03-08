@@ -8,25 +8,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+
     # init api client
     newsapi = NewsApiClient(api_key='99da284c213a46ecb176baabc4eb6b7c')
 
     # get top headlines
     top_headlines = newsapi.get_top_headlines()
     articles_top = top_headlines['articles']
-    print(type(articles_top))
-
-    index_remove = []
-    for index, article in enumerate(articles_top):
-        if article['urlToImage'] == None or article['urlToImage'] == '':
-            index_remove.append(index)
-        if article['title'] == None or article['title'] == '':
-            index_remove.append(index)
-        if article['description'] == None or article['description'] == '':
-            index_remove.append(index)
-
-    for index in index_remove:
-        articles_top.pop(index)
     
     # get cnn headlines
     cnn_headlines = newsapi.get_top_headlines(sources='cnn')
@@ -35,6 +23,11 @@ def index():
     # get fox headlines
     fox_headlines = newsapi.get_top_headlines(sources='fox-news')
     articles_fox = fox_headlines['articles']
+
+    # clean imcomplete entries
+    articles_clean(articles_top)
+    articles_clean(articles_cnn)
+    articles_clean(articles_fox)
 
     # render
     return render_template('index.html', 
@@ -48,6 +41,27 @@ def index():
                             gn_fox_card_3_url = articles_fox[2]['url'], gn_fox_card_3_urlToImage = articles_fox[2]['urlToImage'], gn_fox_card_3_title = articles_fox[2]['title'], gn_fox_card_3_description = articles_fox[2]['description'],
                             gn_fox_card_4_url = articles_fox[3]['url'], gn_fox_card_4_urlToImage = articles_fox[3]['urlToImage'], gn_fox_card_4_title = articles_fox[3]['title'], gn_fox_card_4_description = articles_fox[3]['description'],
                             )
+
+def articles_clean(articles):
+    index_remove = []
+    for index, article in enumerate(articles):
+        if article['urlToImage'] == None or article['urlToImage'] == '':
+            index_remove.append(index)
+            continue
+        if article['title'] == None or article['title'] == '':
+            index_remove.append(index)
+            continue
+        if article['description'] == None or article['description'] == '':
+            index_remove.append(index)
+            continue
+
+    for index in index_remove:
+        articles.pop(index)
+
+@app.route('/search/')
+def search():
+    #
+    return 'Hello'
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
