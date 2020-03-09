@@ -134,7 +134,7 @@
         }
     </style>
     <script>
-        function onClick_Show(event, tabcontent_id) {
+        function onclick_show(event, tabcontent_id) {
             var tabcontents = document.getElementsByClassName("header-tabcontent");
             for (i = 0; i < tabcontents.length; i++) {
                 tabcontents[i].style.display = "none";
@@ -143,16 +143,32 @@
             tabcontent_toshow.style.display = "block";
         }
 
-        function onClick_Test() {
+        function onchange_fetch_source(selectedObject) {
+            var category = selectedObject.value;
+            // Make Ajax request and expect JSON-encoded data
+            $.getJSON('/fetch_source/' + category, function(data) {
 
+                // Remove old options
+                $('#search_select_source').find('option').remove();
+
+                // Add 'all' option
+                $('#search_select_source').append('<option value="all">all</option>');
+
+                // update new items
+                $.each(data['sources'], function(key, val) {
+                    var option_source_item = '<option value="' + val['name'] + '">' + val['name'] + "</option>";
+                    $('#search_select_source').append(option_source_item);
+                });
+            });
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <header class="header">
-        <button class="header-tablinks" onclick="onClick_Show(event, 'google_news')">Google News</button>
-        <button class="header-tablinks" onclick="onClick_Show(event, 'search')">Search</button>
+        <button class="header-tablinks" onclick="onclick_show(event, 'google_news')">Google News</button>
+        <button class="header-tablinks" onclick="onclick_show(event, 'search')">Search</button>
     </header>
     <div id="google_news" class="header-tabcontent">
         <div id="gn_home">
@@ -299,18 +315,16 @@
         </div>
     </div>
     <div id="search" class="header-tabcontent" style="display: none;">
-        <form action='/search/' method="POST">
+        <form action='/search' method="POST">
             <label class="search-required">Keyword</label>
-            <input type="text" id="search_input_keyword" required>
+            <input type="text" name="search_input_keyword" id="search_input_keyword" required>
             <label class="search-required">From</label>
-            <!-- <input type="date" id="search_input_from" required> -->
-            <input type="date" id="search_input_from">
+            <input type="date" name="search_input_from" id="search_input_from" required>
             <label class="search-required">To</label>
-            <!-- <input type="date" id="search_input_to" required> -->
-            <input type="date" id="search_input_to">
+            <input type="date" name="search_input_to" id="search_input_to" required>
             <br>
             <label>Category</label>
-            <select type="text" id="search_select_category">
+            <select type="text" name="search_select_category" id="search_select_category" onchange="onchange_fetch_source(this)">
                 <option value="all" selected>all</option>
                 <option value="business">business</option>
                 <option value="entertainment">entertainment</option>
@@ -321,13 +335,16 @@
                 <option value="technology">technology</option>
             </select>
             <label>Source</label>
-            <select type="text" id="search_select_source">
+            <select type="text" name="search_select_source" id="search_select_source">
                 <option value="all" selected>all</option>
             </select>
             <br>
             <button type="submit" id="search_submit" value="Search">Search</button>
             <button type="reset" id="search_reset" value="Clear">Clear</button>
         </form>
+        <div id=search_result>
+            {{}}
+        </div>
     </div>
 </body>
 
