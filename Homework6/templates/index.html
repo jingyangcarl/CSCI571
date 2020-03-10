@@ -154,7 +154,6 @@
             color: white;
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
     <script>
@@ -240,47 +239,6 @@
             }
             xhttp.open("POST", '/search', true);
             xhttp.send(new FormData(document.getElementById('search_form')));
-
-            // var form = $('#search_form');
-
-            // $.ajax({
-            //     type: form.attr('method'),
-            //     url: form.attr('action'),
-            //     data: form.serialize(),
-            //     success: function(data) {
-            //         // returned results
-
-            //         // remove all the <tr>
-            //         $('#result_result_cards').find('tr').remove();
-
-            //         // update searched items
-            //         $.each(data['articles'], function(key, val) {
-
-            //             var option_source_item =
-            //                 '<tr>' +
-            //                 '<td>' +
-            //                 '<div class="card">' +
-            //                 '<a href=' + val['url'] + ' target="_blank">' +
-            //                 '<img src="' + val['urlToImage'] + '" style="width: 10%;">' +
-            //                 '<div class="card_container">' +
-            //                 '<h3>' +
-            //                 '<b>' + val['title'] + '</b>' +
-            //                 '</h3>' +
-            //                 '<p>' + val['description'] + '</p>' +
-            //                 '</div>' +
-            //                 '</a>' +
-            //                 '</div>' +
-            //                 '</td>' +
-            //                 '</tr>';
-            //             $('#result_result_cards').append(option_source_item);
-            //         });
-            //     },
-            //     error: function(data) {
-            //         // error
-            //         alert(data);
-            //     }
-            // });
-
         }
     </script>
     <script>
