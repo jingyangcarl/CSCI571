@@ -1,0 +1,229 @@
+{
+    "sources": [{
+            "category": "general",
+            "country": "us",
+            "description": "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
+            "id": "abc-news",
+            "language": "en",
+            "name": "ABC News",
+            "url": "https://abcnews.go.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "News, analysis from the Middle East and worldwide, multimedia and interactives, opinions, documentaries, podcasts, long reads and broadcast schedule.",
+            "id": "al-jazeera-english",
+            "language": "en",
+            "name": "Al Jazeera English",
+            "url": "http://www.aljazeera.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "The AP delivers in-depth coverage on the international, politics, lifestyle, business, and entertainment news.",
+            "id": "associated-press",
+            "language": "en",
+            "name": "Associated Press",
+            "url": "https://apnews.com/"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Axios are a new media company delivering vital, trustworthy news and analysis in the most efficient, illuminating and shareable ways possible.",
+            "id": "axios",
+            "language": "en",
+            "name": "Axios",
+            "url": "https://www.axios.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Syndicated news and opinion website providing continuously updated headlines to top news and analysis sources.",
+            "id": "breitbart-news",
+            "language": "en",
+            "name": "Breitbart News",
+            "url": "http://www.breitbart.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "CBS News: dedicated to providing the best in journalism under standards it pioneered at the dawn of radio and television and continue in the digital age.",
+            "id": "cbs-news",
+            "language": "en",
+            "name": "CBS News",
+            "url": "http://www.cbsnews.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN",
+            "id": "cnn",
+            "language": "en",
+            "name": "CNN",
+            "url": "http://us.cnn.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Breaking News, Latest News and Current News from FOXNews.com. Breaking news and video. Latest Current News: U.S., World, Entertainment, Health, Business, Technology, Politics, Sports.",
+            "id": "fox-news",
+            "language": "en",
+            "name": "Fox News",
+            "url": "http://www.foxnews.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Comprehensive, up-to-date news coverage, aggregated from sources all over the world by Google News.",
+            "id": "google-news",
+            "language": "en",
+            "name": "Google News",
+            "url": "https://news.google.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Breaking news and in-depth analysis of the headlines, as well as commentary and informed perspectives from The Rachel Maddow Show, Morning Joe & more.",
+            "id": "msnbc",
+            "language": "en",
+            "name": "MSNBC",
+            "url": "http://www.msnbc.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "National Review: Conservative News, Opinion, Politics, Policy, & Current Events.",
+            "id": "national-review",
+            "language": "en",
+            "name": "National Review",
+            "url": "https://www.nationalreview.com/"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Breaking news, videos, and the latest top stories in world news, business, politics, health and pop culture.",
+            "id": "nbc-news",
+            "language": "en",
+            "name": "NBC News",
+            "url": "http://www.nbcnews.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Newsweek provides in-depth analysis, news and opinion about international issues, technology, business, culture and politics.",
+            "id": "newsweek",
+            "language": "en",
+            "name": "Newsweek",
+            "url": "https://www.newsweek.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "NYMAG and New York magazine cover the new, the undiscovered, the next in politics, culture, food, fashion, and behavior nationally, through a New York lens.",
+            "id": "new-york-magazine",
+            "language": "en",
+            "name": "New York Magazine",
+            "url": "http://nymag.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Political news about Congress, the White House, campaigns, lobbyists and issues.",
+            "id": "politico",
+            "language": "en",
+            "name": "Politico",
+            "url": "https://www.politico.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Reddit is an entertainment, social news networking service, and news website. Reddit's registered community members can submit content, such as text posts or direct links.",
+            "id": "reddit-r-all",
+            "language": "en",
+            "name": "Reddit /r/all",
+            "url": "https://www.reddit.com/r/all"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Reuters.com brings you the latest news from around the world, covering breaking news in business, politics, entertainment, technology, video and pictures.",
+            "id": "reuters",
+            "language": "en",
+            "name": "Reuters",
+            "url": "http://www.reuters.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Realism and reform. A new voice for a new generation of conservatives.",
+            "id": "the-american-conservative",
+            "language": "en",
+            "name": "The American Conservative",
+            "url": "http://www.theamericanconservative.com/"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "The Hill is a top US political website, read by the White House and more lawmakers than any other site -- vital for policy, politics and election campaigns.",
+            "id": "the-hill",
+            "language": "en",
+            "name": "The Hill",
+            "url": "http://thehill.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "The Huffington Post is a politically liberal American online news aggregator and blog that has both localized and international editions founded by Arianna Huffington, Kenneth Lerer, Andrew Breitbart, and Jonah Peretti, featuring columnists.",
+            "id": "the-huffington-post",
+            "language": "en",
+            "name": "The Huffington Post",
+            "url": "http://www.huffingtonpost.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Breaking news and analysis on politics, business, world national news, entertainment more. In-depth DC, Virginia, Maryland news coverage including traffic, weather, crime, education, restaurant reviews and more.",
+            "id": "the-washington-post",
+            "language": "en",
+            "name": "The Washington Post",
+            "url": "https://www.washingtonpost.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "The Washington Times delivers breaking news and commentary on the issues that affect the future of our nation.",
+            "id": "the-washington-times",
+            "language": "en",
+            "name": "The Washington Times",
+            "url": "https://www.washingtontimes.com/"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.",
+            "id": "time",
+            "language": "en",
+            "name": "Time",
+            "url": "http://time.com"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Get the latest national, international, and political news at USATODAY.com.",
+            "id": "usa-today",
+            "language": "en",
+            "name": "USA Today",
+            "url": "http://www.usatoday.com/news"
+        },
+        {
+            "category": "general",
+            "country": "us",
+            "description": "Vice News is Vice Media, Inc.'s current affairs channel, producing daily documentary essays and video through its website and YouTube channel. It promotes itself on its coverage of \"under - reported stories\".",
+            "id": "vice-news",
+            "language": "en",
+            "name": "Vice News",
+            "url": "https://news.vice.com"
+        }
+    ],
+    "status": "ok"
+}

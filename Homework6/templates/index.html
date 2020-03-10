@@ -155,6 +155,8 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
     <script>
         function onclick_show(event, tabcontent_id) {
             var tabcontents = document.getElementsByClassName("header-tabcontent");
@@ -166,67 +168,122 @@
         }
 
         function onchange_fetch_source(selectedObject) {
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // remove old options
+                    options_previous = document.getElementById('search_select_source').getElementsByTagName('option');
+                    while (options_previous.length > 0) {
+                        options_previous[0].parentNode.removeChild(options_previous[0]);
+                    }
+
+                    // add default option
+                    var node_option = document.createElement('option');
+                    node_option.appendChild(document.createTextNode('all'));
+                    document.getElementById('search_select_source').appendChild(node_option);
+
+                    // add retrived options
+                    var jsonobj = JSON.parse(this.response);
+                    for (var i = 0; i < jsonobj.sources.length; i++) {
+                        var node_option = document.createElement('option');
+                        node_option.appendChild(document.createTextNode(jsonobj.sources[i]['id']));
+                        document.getElementById('search_select_source').appendChild(node_option);
+                    }
+                }
+            }
+
             var category = selectedObject.value;
-            // Make Ajax request and expect JSON-encoded data
-            $.getJSON('/fetch_source/' + category, function(data) {
-
-                // Remove old options
-                $('#search_select_source').find('option').remove();
-
-                // Add 'all' option
-                $('#search_select_source').append('<option value="all">all</option>');
-
-                // update new items
-                $.each(data['sources'], function(key, val) {
-                    var option_source_item = '<option value="' + val['id'] + '">' + val['id'] + "</option>";
-                    $('#search_select_source').append(option_source_item);
-                });
-            });
+            xhttp.open("GET", '/fetch_source/' + category, true);
+            xhttp.send();
         }
 
         function onsubmit_search(event) {
             event.preventDefault();
 
-            var form = $('#search_form');
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // remove all the old <tr>
+                    cards_previous = document.getElementById('result_result_cards').getElementsByTagName('tr');
+                    while (cards_previous.length > 0) {
+                        cards_previous[0].parentNode.removeChild(cards_previous[0]);
+                    }
 
-            $.ajax({
-                type: form.attr('method'),
-                url: form.attr('action'),
-                data: form.serialize(),
-                success: function(data) {
-                    // returned results
-
-                    // remove all the <tr>
-                    $('#result_result_cards').find('tr').remove();
-
-                    // update searched items
-                    $.each(data['articles'], function(key, val) {
+                    // add retrived cards
+                    var jsonobj = JSON.parse(this.response);
+                    for (var i = 0; i < jsonobj.articles.length; i++) {
+                        if (!jsonobj.articles[i]['url']) continue;
+                        if (!jsonobj.articles[i]['urlToImage']) continue;
+                        if (!jsonobj.articles[i]['title']) continue;
+                        if (!jsonobj.articles[i]['description']) continue;
 
                         var option_source_item =
                             '<tr>' +
                             '<td>' +
                             '<div class="card">' +
-                            '<a href=' + val['url'] + ' target="_blank">' +
-                            '<img src="' + val['urlToImage'] + '" style="width: 10%;">' +
+                            '<a href=' + jsonobj.articles[i]['url'] + ' target="_blank">' +
+                            '<img src="' + jsonobj.articles[i]['urlToImage'] + '" style="width: 100%;">' +
                             '<div class="card_container">' +
                             '<h3>' +
-                            '<b>' + val['title'] + '</b>' +
+                            '<b>' + jsonobj.articles[i]['title'] + '</b>' +
                             '</h3>' +
-                            '<p>' + val['description'] + '</p>' +
+                            '<p>' + jsonobj.articles[i]['description'] + '</p>' +
                             '</div>' +
                             '</a>' +
                             '</div>' +
                             '</td>' +
                             '</tr>';
-                        $('#result_result_cards').append(option_source_item);
-                    });
-                },
-                error: function(data) {
-                    // error
-                    alert(data);
+                        document.getElementById('result_result_cards').innerHTML += option_source_item;
+                    }
                 }
-            });
+            }
+            xhttp.open("POST", '/search', true);
+            xhttp.send(new FormData(document.getElementById('search_form')));
+
+            // var form = $('#search_form');
+
+            // $.ajax({
+            //     type: form.attr('method'),
+            //     url: form.attr('action'),
+            //     data: form.serialize(),
+            //     success: function(data) {
+            //         // returned results
+
+            //         // remove all the <tr>
+            //         $('#result_result_cards').find('tr').remove();
+
+            //         // update searched items
+            //         $.each(data['articles'], function(key, val) {
+
+            //             var option_source_item =
+            //                 '<tr>' +
+            //                 '<td>' +
+            //                 '<div class="card">' +
+            //                 '<a href=' + val['url'] + ' target="_blank">' +
+            //                 '<img src="' + val['urlToImage'] + '" style="width: 10%;">' +
+            //                 '<div class="card_container">' +
+            //                 '<h3>' +
+            //                 '<b>' + val['title'] + '</b>' +
+            //                 '</h3>' +
+            //                 '<p>' + val['description'] + '</p>' +
+            //                 '</div>' +
+            //                 '</a>' +
+            //                 '</div>' +
+            //                 '</td>' +
+            //                 '</tr>';
+            //             $('#result_result_cards').append(option_source_item);
+            //         });
+            //     },
+            //     error: function(data) {
+            //         // error
+            //         alert(data);
+            //     }
+            // });
+
         }
+    </script>
+    <script>
     </script>
 </head>
 
@@ -253,7 +310,7 @@
                         </div>
                     </td>
                     <td>
-
+                        <div id="my_dataviz"></div>
                     </td>
                 </tr>
             </table>

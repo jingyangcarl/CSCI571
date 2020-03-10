@@ -66,6 +66,8 @@ def fetch_source(category):
     else:
         sources = newsapi.get_sources(language='en', country = 'us')
 
+    # with open('sources.json', 'w') as outfile:
+    #     json.dump(sources, outfile)
     return sources
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -99,9 +101,19 @@ def search():
                                             sort_by='publishedAt',
                                             page_size=30)
 
-    with open('all_articles.json', 'w') as outfile:
-        json.dump(all_articles, outfile)
     return all_articles
+
+# def articles_clean(articles):
+#     articles_filterd = []
+#     for article in articles:
+#         if article['urlToImage'] == None or article['urlToImage'] == '':
+#             continue
+#         if article['title'] == None or article['title'] == '':
+#             continue
+#         if article['description'] == None or article['description'] == '':
+#             continue
+#         articles_filterd.append(article)
+#     articles = articles_filterd
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
