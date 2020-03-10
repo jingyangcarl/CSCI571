@@ -63,14 +63,29 @@
             width: 70%;
         }
         
+        #google_news table tr {
+            margin: 0 0px;
+        }
+        
+        #google_news table td {
+            float: left;
+            width: 25%;
+            padding: 0 0px;
+        }
+        
         #google_news .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
             width: 100%;
+            height: 450px;
             background-color: #F4F3F4;
             color: black;
+            padding: 0px;
         }
         
+        #search .card {}
+        
+        #search .card,
         #google_news .card:hover {
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
@@ -90,6 +105,12 @@
         #google_news .card_container h3,
         #google_news .card_container p {
             text-align: center;
+        }
+        
+        #search .card_container h3,
+        #search .card_container p {
+            float: left;
+            text-align: left;
         }
         
         #search {
@@ -133,6 +154,7 @@
             color: white;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         function onclick_show(event, tabcontent_id) {
             var tabcontents = document.getElementsByClassName("header-tabcontent");
@@ -156,13 +178,56 @@
 
                 // update new items
                 $.each(data['sources'], function(key, val) {
-                    var option_source_item = '<option value="' + val['name'] + '">' + val['name'] + "</option>";
+                    var option_source_item = '<option value="' + val['id'] + '">' + val['id'] + "</option>";
                     $('#search_select_source').append(option_source_item);
                 });
             });
         }
+
+        function onsubmit_search(event) {
+            event.preventDefault();
+
+            var form = $('#search_form');
+
+            $.ajax({
+                type: form.attr('method'),
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function(data) {
+                    // returned results
+
+                    // remove all the <tr>
+                    $('#result_result_cards').find('tr').remove();
+
+                    // update searched items
+                    $.each(data['articles'], function(key, val) {
+
+                        var option_source_item =
+                            '<tr>' +
+                            '<td>' +
+                            '<div class="card">' +
+                            '<a href=' + val['url'] + ' target="_blank">' +
+                            '<img src="' + val['urlToImage'] + '" style="width: 10%;">' +
+                            '<div class="card_container">' +
+                            '<h3>' +
+                            '<b>' + val['title'] + '</b>' +
+                            '</h3>' +
+                            '<p>' + val['description'] + '</p>' +
+                            '</div>' +
+                            '</a>' +
+                            '</div>' +
+                            '</td>' +
+                            '</tr>';
+                        $('#result_result_cards').append(option_source_item);
+                    });
+                },
+                error: function(data) {
+                    // error
+                    alert(data);
+                }
+            });
+        }
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -315,13 +380,13 @@
         </div>
     </div>
     <div id="search" class="header-tabcontent" style="display: none;">
-        <form action='/search' method="POST">
+        <form id="search_form" action='/search' method="POST" onsubmit="onsubmit_search(event)">
             <label class="search-required">Keyword</label>
-            <input type="text" name="search_input_keyword" id="search_input_keyword" required>
+            <input type="text" name="search_input_keyword" id="search_input_keyword" required value="coronavirus">
             <label class="search-required">From</label>
-            <input type="date" name="search_input_from" id="search_input_from" required>
+            <input type="date" name="search_input_from" id="search_input_from" required value="2020-03-08">
             <label class="search-required">To</label>
-            <input type="date" name="search_input_to" id="search_input_to" required>
+            <input type="date" name="search_input_to" id="search_input_to" required value="2020-03-07">
             <br>
             <label>Category</label>
             <select type="text" name="search_select_category" id="search_select_category" onchange="onchange_fetch_source(this)">
@@ -343,7 +408,10 @@
             <button type="reset" id="search_reset" value="Clear">Clear</button>
         </form>
         <div id=search_result>
-            {{}}
+            <table id="result_result_cards">
+
+            </table>
+            <input type="button" id="search_result_more" value="Show More" style="display: none;">
         </div>
     </div>
 </body>

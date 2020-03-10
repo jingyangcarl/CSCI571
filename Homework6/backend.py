@@ -43,20 +43,16 @@ def index():
                             )
 
 def articles_clean(articles):
-    index_remove = []
-    for index, article in enumerate(articles):
+    articles_filterd = []
+    for article in articles:
         if article['urlToImage'] == None or article['urlToImage'] == '':
-            index_remove.append(index)
             continue
         if article['title'] == None or article['title'] == '':
-            index_remove.append(index)
             continue
         if article['description'] == None or article['description'] == '':
-            index_remove.append(index)
             continue
-
-    for index in index_remove:
-        articles.pop(index)
+        articles_filterd.append(article)
+    articles = articles_filterd
 
 @app.route('/fetch_source/<category>')
 def fetch_source(category):
@@ -103,7 +99,9 @@ def search():
                                             sort_by='publishedAt',
                                             page_size=30)
 
-    return render_template('index.html')
+    with open('all_articles.json', 'w') as outfile:
+        json.dump(all_articles, outfile)
+    return all_articles
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
