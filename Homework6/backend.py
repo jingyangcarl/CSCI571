@@ -41,6 +41,7 @@ def index():
                             gn_fox_card_3_url = articles_fox[2]['url'], gn_fox_card_3_urlToImage = articles_fox[2]['urlToImage'], gn_fox_card_3_title = articles_fox[2]['title'], gn_fox_card_3_description = articles_fox[2]['description'],
                             gn_fox_card_4_url = articles_fox[3]['url'], gn_fox_card_4_urlToImage = articles_fox[3]['urlToImage'], gn_fox_card_4_title = articles_fox[3]['title'], gn_fox_card_4_description = articles_fox[3]['description'],
                             )
+    # return render_template('word cloud.html')
 
 def articles_clean(articles):
     articles_filterd = []
