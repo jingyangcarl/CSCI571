@@ -68,7 +68,52 @@
             tabcontent_toshow.style.display = "block";
         }
 
-        function onchange_fetch_source(selectedObject) {
+        function onclick_expand(object_selected) {
+            var isExpand = object_selected.children[1].innerHTML;
+            if (isExpand == 'false') {
+                object_selected.children[2].children[1].style.display = "block"; // author
+                object_selected.children[2].children[2].style.display = "block"; // source
+                object_selected.children[2].children[3].style.display = "block"; // publishedAt
+                object_selected.children[2].children[4].style.display = "block"; // description
+                object_selected.children[2].children[5].style.display = "none"; // description_short
+                object_selected.children[2].children[6].style.display = "block"; // url
+                object_selected.children[2].children[7].style.display = "block"; // placeholder
+                object_selected.children[1].innerHTML = 'true';
+            } else {
+                object_selected.children[2].children[1].style.display = "none"; // author
+                object_selected.children[2].children[2].style.display = "none"; // source
+                object_selected.children[2].children[3].style.display = "none"; // publishedAt
+                object_selected.children[2].children[4].style.display = "none"; // description
+                object_selected.children[2].children[5].style.display = "block"; // description_short
+                object_selected.children[2].children[6].style.display = "none"; // url
+                object_selected.children[2].children[7].style.display = "none"; // placeholder
+                object_selected.children[1].innerHTML = 'false';
+            }
+        }
+
+        function onclick_moreOrLess(object_button) {
+            if (object_button.value == 'Show More') {
+                var search_results = document.getElementsByName('search_result_card');
+                for (var i = 0; i < search_results.length; i++) {
+                    // show all cards
+                    search_results[i].parentNode.parentNode.style.display = "table-row";
+                }
+                object_button.value = 'Show Less';
+            } else if (object_button.value == 'Show Less') {
+                var search_results = document.getElementsByName('search_result_card');
+                for (var i = 0; i < search_results.length; i++) {
+                    // hide all cards
+                    search_results[i].parentNode.parentNode.style.display = "none";
+                    if (i < 5) {
+                        // show the first five cards
+                        search_results[i].parentNode.parentNode.style.display = "table-row";
+                    }
+                }
+                object_button.value = 'Show More';
+            }
+        }
+
+        function onchange_fetch_source(object_selected) {
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -94,7 +139,7 @@
                 }
             }
 
-            var category = selectedObject.value;
+            var category = object_selected.value;
             xhttp.open("GET", '/fetch_source/' + category, true);
             xhttp.send();
         }
@@ -107,15 +152,19 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     // remove all the old <tr>
-                    cards_previous = document.getElementById('result_result_cards').getElementsByTagName('tr');
+                    cards_previous = document.getElementById('search_result_cards').getElementsByTagName('tr');
                     while (cards_previous.length > 0) {
                         cards_previous[0].parentNode.removeChild(cards_previous[0]);
                     }
 
+                    // set # of cards to load
+                    var card_to_load = 10;
+
                     // add retrived cards
                     var jsonobj = JSON.parse(this.response);
-                    var table_items = '<tbody><tr>';
+                    var table_items = '<tbody>';
                     for (var i = 0; i < jsonobj.articles.length; i++) {
+                        if (card_to_load <= 0) break;
                         if (!jsonobj.articles[i]['url']) continue;
                         if (!jsonobj.articles[i]['urlToImage']) continue;
                         if (!jsonobj.articles[i]['title']) continue;
@@ -124,23 +173,40 @@
                         var table_item =
                             '<tr>' +
                             '<td>' +
-                            '<div class="card">' +
-                            '<a href=' + jsonobj.articles[i]['url'] + ' target="_blank">' +
+                            '<div class="card" name="search_result_card" onclick="onclick_expand(this)">' +
                             '<img src="' + jsonobj.articles[i]['urlToImage'] + '">' +
+                            '<p name="isExpand" style="display: none;">false</p>' +
                             '<div class="card_container">' +
                             '<h3>' +
                             '<b>' + jsonobj.articles[i]['title'] + '</b>' +
                             '</h3>' +
-                            '<p>' + jsonobj.articles[i]['description'] + '</p>' +
+                            '<p name="author" style="display: none;"><b>Author: </b>' + jsonobj.articles[i]['author'] + '</p>' +
+                            '<p name="source" style="display: none;"><b>Source: </b>' + jsonobj.articles[i]['source']['name'] + '</p>' +
+                            '<p name="publishedAt" style="display: none;"><b>Date: </b>' + jsonobj.articles[i]['publishedAt'] + '</p>' +
+                            '<p name="description" style="display: none;">' + jsonobj.articles[i]['description'] + '</p>' +
+                            '<p name="description_short">' + jsonobj.articles[i]['description'].substring(0, 70) + '...</p>' +
+                            '<a name="url" style="display: none;" href=' + jsonobj.articles[i]['url'] + ' target="_blank">See Original Post</a>' +
+                            '<p name="placeholder" style="display: none;"></p>' +
                             '</div>' +
-                            '</a>' +
                             '</div>' +
                             '</td>' +
                             '</tr>';
                         table_items += table_item;
+                        card_to_load--;
                     }
-                    table_items += '</tr></tbody>';
-                    document.getElementById('result_result_cards').innerHTML = table_items;
+                    table_items += '</tbody>';
+                    document.getElementById('search_result_cards').innerHTML = table_items;
+
+                    // show the first five cards
+                    var search_results = document.getElementsByName('search_result_card');
+                    for (var i = 0; i < search_results.length; i++) {
+                        // hide all cards
+                        search_results[i].parentNode.parentNode.style.display = "none";
+                        if (i < 5) {
+                            // show the first five cards
+                            search_results[i].parentNode.parentNode.style.display = "table-row";
+                        }
+                    }
                 }
             }
             xhttp.open("POST", '/search', true);
@@ -302,16 +368,27 @@
             border-radius: 3px;
         }
         
+        #search input,
         #search button {
             background-color: #F0EFF1;
-            margin: 10px;
             border: none;
             transition: 0.4s;
         }
         
+        #search input:hover,
         #search button:hover {
             background-color: #47AE4F;
             color: white;
+        }
+        
+        #search button {
+            margin: 10px;
+            padding: 2px 10px;
+        }
+        
+        #search input {
+            margin: auto;
+            padding: 5px 15px;
         }
         /****************SEARCH CARD STYLE********************/
         
@@ -322,19 +399,22 @@
         
         #search_result td {
             height: 120px;
-            padding: 0px;
         }
         
         #search_result .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
-            margin: 10px auto;
             border-radius: 5px;
             background-color: #F4F3F4;
-            height: auto;
-            width: 90%;
+            height: 95%;
+            width: 95%;
             border: 1px solid gray;
             text-align: left;
+            margin: 0px auto;
+        }
+        
+        #search_result .card:hover {
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
         }
         
         #search_result img {
@@ -404,8 +484,8 @@
             <button type="reset" value="Clear">Clear</button>
         </form>
         <div id=search_result>
-            <table id="result_result_cards"></table>
-            <input type="button" id="search_result_more" value="Show More" style="display: none;">
+            <table id="search_result_cards"></table>
+            <input type="button" id="search_result_more" value="Show More" style="display: none;" onclick="onclick_moreOrLess(this)">
         </div>
     </div>
 </body>

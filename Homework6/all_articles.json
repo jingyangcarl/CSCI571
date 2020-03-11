@@ -1,0 +1,395 @@
+{
+    "status": "ok",
+    "totalResults": 10626,
+    "articles": [{
+            "source": {
+                "id": null,
+                "name": "Nature.com"
+            },
+            "author": "Flora Graham",
+            "title": "Daily briefing: A protein on the surface of the coronavirus might explain why it is so contagious",
+            "description": "Early results show why multiple organs might be vulnerable to the coronavirus. Plus, the month\u2019s best science images and what the academic paper of the future might look like.",
+            "url": "https://www.nature.com/articles/d41586-020-00705-1",
+            "urlToImage": "https://media.nature.com/lw1024/magazine-assets/d41586-020-00705-1/d41586-020-00705-1_17782154.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Hello Nature readers, would you like to get this Briefing in your inbox free every day? Sign up here\r\nCredit: The Institute of Cancer Research, London\r\nThe close-up shot above shows a cancer cell that has been cut open using an ion beam. The beam has blasted \u2026 [+5334 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Bloomberg",
+            "title": "Oil Plunges Most Since 1991",
+            "description": "Futures slumped by about 25 percent in New York and London Monday as Moscow and Riyadh began an all-out price war.",
+            "url": "https://www.rigzone.com/news/wire/oil_plunges_most_since_1991-09-mar-2020-161332-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161332_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "(Bloomberg) -- Oil crashed the most in 29 years as Saudi Arabia and Russia vowed to pump more in a battle for market share just as the coronavirus spurs the first decline in demand since 2009.\r\nFutures slumped by about 25% in New York and London Monday as Mos\u2026 [+2982 chars]"
+        },
+        {
+            "source": {
+                "id": "the-irish-times",
+                "name": "The Irish Times"
+            },
+            "author": "Conor Pope",
+            "title": "Cashless world: Will we be richer or poorer for it?",
+            "description": "How long could we last without money? That was the question Pricewatch asked itself at the start of February. To be clear we weren\u2019t asking how long we could go without buying something but how long it would take before we needed to handle cold, hard cash \u2013 a\u2026",
+            "url": "https://www.irishtimes.com/news/consumer/cashless-world-will-we-be-richer-or-poorer-for-it-1.4192721",
+            "urlToImage": "https://www.irishtimes.com/image-creator/?id=1.4192720&origw=1440",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "How long could we last without money? That was the question Pricewatch asked itself at the start of February.\r\nTo be clear we werent asking how long we could go without buying something but how long it would take before we needed to handle cold, hard cash and\u2026 [+13418 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Daemonology.net"
+            },
+            "author": null,
+            "title": "Daily Hacker News for 2020-03-08",
+            "description": "The 10 highest-rated articles on Hacker News on March 08, 2020 which have not appeared on any previous Hacker News Daily are: Hackers Can Clone Millions of Toyota, Hyundai, and Kia Keys (comments) Airlines flying empty planes to keep flight slots during coron\u2026",
+            "url": "http://www.daemonology.net/hn-daily/2020-03-08.html",
+            "urlToImage": null,
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "The 10 highest-rated articles on\r\nHacker News\r\non March 08, 2020 which have not appeared on any previous\r\nHacker News Daily\r\nare:\r\nHacker News Daily is sponsored by\r\nTriplebyte.\r\nBeat Triplebyte's online coding quiz. Get multiple job offers fast. Skip resumes\u2026 [+17 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Insurancejournal.com"
+            },
+            "author": "Christopher J. Boggs",
+            "title": "Coronavirus, Pandemics and Workers\u2019 Compensation",
+            "description": "A pandemic is defined as, \u201can outbreak of a disease that occurs over a wide geographic area and affects an exceptionally high proportion of the population.\u201d Although the media lives by the motto, \u201cIf it bleeds, it leads,\u201d declaring a \u2026",
+            "url": "https://www.insurancejournal.com/magazines/mag-features/2020/03/09/560425.htm",
+            "urlToImage": "https://www.insurancejournal.com/app/uploads/2020/03/Coronavirus3-580x441.jpeg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "A pandemic is defined as, \u201can outbreak of a disease that occurs over a wide geographic area and affects an exceptionally high proportion of the population.\u201d Although the media lives by the motto, \u201cIf it bleeds, it leads,\u201d declaring a pandemic anytime more tha\u2026 [+6343 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Andreas Exarheas",
+            "title": "Total Cuts International Travel to Strict Minimum",
+            "description": "Oil major Total revealed Friday that it has reduced international business travel to the 'strict minimum'.",
+            "url": "https://www.rigzone.com/news/total_cuts_international_travel_to_strict_minimum-09-mar-2020-161323-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161323_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Oil major Total S.A. revealed Friday that it has reduced international business travel to the \u201cstrict minimum\u201d following the global coronavirus outbreak.\r\nThe company also outlined late last week that employees who have travelled to risk countries, for either\u2026 [+1653 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Yahoo.com"
+            },
+            "author": "OFX Global Money Transfers",
+            "title": "Aussie bolstered by broad-based US sell off",
+            "description": "Posted by OFX AUD - Australian Dollar The Australian dollar edged higher through trade on Friday, benefiting from a broad-based US dollar sell off. Despite an evaporation in demand for risk the AUD extended moves beyond 0.66 testing 0.6650 as markets looked t\u2026",
+            "url": "https://news.yahoo.com/aussie-bolstered-broad-based-us-000000004.html",
+            "urlToImage": "https://s.yimg.com/ny/api/res/1.2/gJI2Y4JHK_HeZmSbNcQ1FQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyODA7aD03MTkuMjM4MDk1MjM4MDk1Mg--/https://s.yimg.com/uu/api/res/1.2/a3ZRualk23XX44H_v7ylhg--~B/aD00NzI7dz04NDA7c209MTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en-US/ofx_709/a0f328e9153ee700148e9ebf82b8f971",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "OFX Daily Market News\r\nPosted by OFX \r\nAUD Australian Dollar\r\nThe Australian dollar edged higher through trade on Friday, benefiting from a broad-based US dollar sell off. Despite an evaporation in demand for risk the AUD extended moves beyond 0.66 testing 0.\u2026 [+2677 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Moneysavingexpert.com"
+            },
+            "author": "Naomi Schraer",
+            "title": "Government warns against non-essential travel to more areas of northern Italy - here's what you need to know",
+            "description": "The Foreign and Commonwealth Office (FCO) has extended its coronavirus travel advice to warn against all but essential travel to more areas in northern Italy, after the Italian authorities imposed a lockdown on more than 16 million people. We've full help if \u2026",
+            "url": "https://www.moneysavingexpert.com/news/2020/03/government-warns-against-non-essential-travel-to-more-areas-of-n/",
+            "urlToImage": "https://www.moneysavingexpert.com/content/dam/hero-travel.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "I'm currently in northern Italy - what should I do?\u00a0\r\nThe FCO says that British nationals can still leave northern Italy without restrictions, but you should double-check your flight details with your airline.\u00a0\r\nIf you're returning to the UK from a lockdown a\u2026 [+987 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Bloomberg",
+            "title": "Oil Crash Sends Shock Through Virus Crippled World",
+            "description": "Another shockwave is about to rip through a world economy already reeling from the coronavirus.",
+            "url": "https://www.rigzone.com/news/wire/oil_crash_sends_shock_through_virus_crippled_world-09-mar-2020-161320-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161320_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "(Bloomberg) -- Another shockwave is about to rip through a world economy already reeling from the coronavirus.\r\nOil prices plunged after the dramatic breakdown of talks between OPEC and Russia prompted Saudi Arabia to launch a price war. Brent\u00a0crude\u00a0tumbled b\u2026 [+3734 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Edweek.org"
+            },
+            "author": "Mark Lieberman",
+            "title": "6 Lessons Learned About Remote Learning During the Coronavirus Outbreak",
+            "description": "Northshore School District teachers, parents, and students practiced remote learning in advance of the district's closure for two weeks.",
+            "url": "https://blogs.edweek.org/edweek/DigitalEducation/2020/03/covid_19_online_learning_school_district.html",
+            "urlToImage": "http://blogs.edweek.org/edweek/DigitalEducation/3_3-ClosedSchool-blog.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Email\r\nPassword\r\nSelect your primary connection to education\r\nDistrict Superintendent, Deputy/Asst. Superintendent\r\nDistrict Leadership - Technology\r\nDistrict Leadership - Curriculum, Instruction, Assessment, PD\r\nDistrict Leadership - Business, Communications\u2026 [+740 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Nature.com"
+            },
+            "author": "Joana Gon\u00e7alves-S\u00e1",
+            "title": "In the fight against the new coronavirus outbreak, we must also struggle with human bias",
+            "description": "A compounding factor of the outbreak is the potential for the general public to misunderstand the facts and design conspiracy theories.",
+            "url": "https://www.nature.com/articles/s41591-020-0802-y?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+nm%2Frss%2Fcurrent+%28Nature+Medicine+-+Issue%29",
+            "urlToImage": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41591-020-0802-y/MediaObjects/41591_2020_802_Figa_HTML.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Nature.com"
+            },
+            "author": "Flora Graham",
+            "title": "Daily briefing: A protein on the surface of the coronavirus might explain why it is so contagious",
+            "description": "Early results show why multiple organs might be vulnerable to the coronavirus. Plus, the month\u2019s best science images and what the academic paper of the future might look like.",
+            "url": "https://www.nature.com/articles/d41586-020-00705-1?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+nature%2Frss%2Fcurrent+%28Nature+-+Issue%29",
+            "urlToImage": "https://media.nature.com/lw1024/magazine-assets/d41586-020-00705-1/d41586-020-00705-1_17782154.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Hello Nature readers, would you like to get this Briefing in your inbox free every day? Sign up here\r\nCredit: The Institute of Cancer Research, London\r\nThe close-up shot above shows a cancer cell that has been cut open using an ion beam. The beam has blasted \u2026 [+5334 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Bloomberg",
+            "title": "Occidental to Slash Spending After Oil Crash",
+            "description": "Shares of Occidental dropped as much as 48 percent Monday amid a broad market sell-off.",
+            "url": "https://www.rigzone.com/news/wire/occidental_to_slash_spending_after_oil_crash-09-mar-2020-161330-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161330_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "(Bloomberg) -- Occidental Petroleum Corp. plans to cut capital spending after oil futures\u00a0plummeted\u00a0below some of its hedging levels and threatened its dividend, according to people familiar with the matter. The company\u2019s shares tumbled by a record.\r\nThe Hous\u2026 [+2212 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Andreas Exarheas",
+            "title": "OPEC+ Going to War with US Shale",
+            "description": "OPEC+ is going to war with U.S. shale, according to Sandhill Strategy co-founder Katie Bays.",
+            "url": "https://www.rigzone.com/news/opec_going_to_war_with_us_shale-09-mar-2020-161322-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161322_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "OPEC+ is going to war with U.S. shale.\r\nThat\u2019s according to Sandhill Strategy co-founder Katie Bays, who expressed the view in a television interview with Bloomberg on Sunday.\r\nThe move is something the group has \u201cavoided doing since they cut production in 20\u2026 [+1700 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Nature.com"
+            },
+            "author": "Ewen Callaway",
+            "title": "How monkeys, mice and ferrets are helping scientists to fight coronavirus",
+            "description": "Animal models can reveal how infections develop and aid efforts to develop drugs and vaccines \u2014 but some are in short supply.",
+            "url": "https://www.nature.com/articles/d41586-020-00698-x",
+            "urlToImage": "https://media.nature.com/lw1024/magazine-assets/d41586-020-00698-x/d41586-020-00698-x_17782138.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Rhesus macaques are one animal model for the new coronavirus.Credit: Neil Bowman/Flpa/imageBROKER/Shutterstock\r\nAs coronavirus marches around the globe, a sleepy town on the rugged Maine coast has become an unlikely nucleus in researchers efforts to combat th\u2026 [+7719 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Europa.eu"
+            },
+            "author": "European Central Bank",
+            "title": "Statement from the ECB",
+            "description": "The European Central Bank (ECB) is the central bank of the 19 European Union countries which have adopted the euro. Our main task is to maintain price stability in the euro area and so preserve the purchasing power of the single currency.",
+            "url": "https://www.ecb.europa.eu//press/pr/date/2020/html/ecb.pr200309~b2f27ebbb0.en.html",
+            "urlToImage": "https://www.ecb.europa.eu/press/shared/img/socialmedia/social-default.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "PRESS RELEASE\r\n9 March 2020\r\nThe European Central Bank (ECB) confirms that a member of staff has been diagnosed with coronavirus, COVID-19. In line with the advice of local health authorities the colleague is receiving the appropriate medical care. \r\nWe are c\u2026 [+949 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Mercola.com"
+            },
+            "author": "communities@mercola.com (Dr. Joseph Mercola)",
+            "title": "Essential Nutrition to Protect Yourself From Coronavirus",
+            "description": "As of March 5, 2020, there were 98,067 reported cases of novel coronavirus infections affecting 88 countries and territories, 80,430 of which were in China. Worldometer.info provides an easy overview of confirmed cases and deaths that you can check for the la\u2026",
+            "url": "https://articles.mercola.com/sites/articles/archive/2020/03/09/coronavirus-prevention.aspx",
+            "urlToImage": "https://media.mercola.com/ImageServer/Public/2020/March/FB/coronavirus-prevention-fb.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "As of March 5, 2020, there were 98,067 reported cases of novel coronavirus infections affecting 88 countries and territories, 80,430 of which were in China. Worldometer.info provides an easy overview of confirmed cases and deaths that you can check for the la\u2026 [+17023 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Jamanetwork.com"
+            },
+            "author": "Sharfstein JM, Becker SJ, Mello MM.",
+            "title": "Diagnostic Testing for the Novel Coronavirus",
+            "description": "This Viewpoint explains the technical and regulatory challenges that hampered diagnostic testing for severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) during the early spread of infection in the US and considers the unintended consequences of makin\u2026",
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/2762951",
+            "urlToImage": "https://cdn.jamanetwork.com/images/logos/JAMA.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Controversies over diagnostic testing have dominated US headlines about severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), the novel coronavirus responsible for coronavirus disease 2019 (COVID-19). Technical challenges with the first test developed\u2026 [+10714 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Bloomberg",
+            "title": "Oil Crashes 31 Percent After Price War Erupts",
+            "description": "Oil markets crashed more than 30 percent after the disintegration of the OPEC+ alliance triggered an all-out price war between Saudi Arabia and Russia.",
+            "url": "https://www.rigzone.com/news/wire/oil_crashes_31_percent_after_price_war_erupts-09-mar-2020-161319-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161319_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "(Bloomberg) -- Oil markets crashed more than 30% after the disintegration of the OPEC+ alliance triggered an all-out price war between Saudi Arabia and Russia that is likely to have sweeping political and economic consequences.\r\nBrent futures suffered the sec\u2026 [+4258 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Matthew V. Veazey",
+            "title": "What to Watch in the Oil Market This Week",
+            "description": "Here's a preview of oil market influences to pay attention to this week.",
+            "url": "https://www.rigzone.com/news/what_to_watch_in_the_oil_market_this_week-09-mar-2020-161318-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161318_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "The coronavirus outbreak and decisions by the OPEC+ alliance \u2013 or lack thereof \u2013 weighed heavily on the oil market last week. Some informed market observers told Rigzone that should not change this week, but one added that another factor should become increas\u2026 [+1733 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rigzone.com"
+            },
+            "author": "Andreas Exarheas",
+            "title": "Standard Chartered Cuts Oil Price Forecast by $29",
+            "description": "Standard Chartered revealed Monday that it has lowered its 2020 average Brent oil price forecast by $29 per barrel to $35 per barrel.",
+            "url": "https://www.rigzone.com/news/standard_chartered_cuts_oil_price_forecast_by_29-09-mar-2020-161324-article/",
+            "urlToImage": "https://images.rigzone.com/images/news/articles/161324_582x327.png",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Standard Chartered revealed Monday that it has lowered its 2020 average Brent oil price forecast by $29 per barrel to $35 per barrel.\r\nThe company, which believes the collapse of the OPEC+ agreement will lead to a \u201csevere and extended price war\u201d, lowered its \u2026 [+1818 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Un.org"
+            },
+            "author": "United Nations Headquarters",
+            "title": "Achieving Sustainable Development Goal 5 on Gender Equality \u2018a Question of Justice\u2019, Secretary-General Tells Commission on Status of Women",
+            "description": "Following are UN Secretary-General Ant\u00f3nio Guterres\u2019 remarks to the sixty\u2011fourth session of the Commission on the Status of Women, in New York today:",
+            "url": "https://www.un.org/press/en/2020/sgsm19999.doc.htm",
+            "urlToImage": null,
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Following are UN Secretary-General Ant\u00f3nio Guterres remarks to the sixtyfourth session of the Commission on the Status of Women, in New York today:\r\nI am very pleased to join you for the sixty-fourth Commission on the Status of Women (CSW).\u00a0 I am truly sadden\u2026 [+5163 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Haacked.com"
+            },
+            "author": "Phil Haack",
+            "title": "Geographically Distributed Teams",
+            "description": "Facebook, Microsoft, Google, and Amazon just told its Seattle area employees to work from home for the next three weeks to reduce the risk of spreading the coronavirus. Lucky for them, I just wrote two posts that will help.",
+            "url": "https://haacked.com/archive/2020/03/09/geographically-distributed-teams/",
+            "urlToImage": "https://user-images.githubusercontent.com/19977/76013609-11e8d680-5ecd-11ea-9176-f0d69087a111.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Facebook, Microsoft, Google, and Amazon just told its Seattle area employees to work from home for the next three weeks to reduce the risk of spreading the coronavirus. Lucky for them, I just wrote two posts that will help.\r\n<ol><li>How to work from home</li>\u2026 [+7962 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Cheezburger.com"
+            },
+            "author": "hauntedbreezy",
+            "title": "Pleasing Memes To Fuel Your Time-Wasting Schemes",
+            "description": "Are you suffering from any of the following symptoms? Listlessness, fatigue, depression, nausea, general malaise? Here's the good news: you probably don't have Coronavirus. Bad news? You're probably bored. Good news? We've got memes for that.",
+            "url": "https://cheezburger.com/10795781/pleasing-memes-to-fuel-your-time-wasting-schemes",
+            "urlToImage": "https://i.chzbgr.com/thumb800/10795781/h0C8B7ACA/safely-endangered-webtoon-honk-honk-honk-if-horny-honk-honk-honk-hon-hon-onk-geese-surrounding-car",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Thinkwithgoogle.com"
+            },
+            "author": "Natalie Zmuda",
+            "title": "Coronavirus: How Google is helping",
+            "description": "Coronavirus: How Google is helping - Think with Google",
+            "url": "https://www.thinkwithgoogle.com/marketing-resources/coronavirus-how-google-is-helping/",
+            "urlToImage": "https://storage.googleapis.com/twg-content/images/thumbnails-corona-virus.width-1200.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Recent days and weeks have been challenging for our industry, our customers, and our employees.\r\nAs our CEO Sundar Pichai wrote on Friday\r\n, COVID-19 is affecting our communities in different ways. Many in Europe and the Americas are just now beginning to exp\u2026 [+1412 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Un.org"
+            },
+            "author": "United Nations Headquarters",
+            "title": "Daily Press Briefing by the Office of the Spokesperson for the Secretary-General",
+            "description": "The International Atomic Energy Agency (IAEA) has identified a number of questions related to possible undeclared nuclear material and nuclear-related activities at three locations that Iran has not declared, Director-General Rafael Mariano Grossi said this m\u2026",
+            "url": "https://www.un.org/press/en/2020/db200309.doc.htm",
+            "urlToImage": null,
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "The following is a near-verbatim transcript of todays noon briefing by St\u00e9phane Dujarric, Spokesman for the Secretary-General.\r\n**Commission on the Status of Women\r\nThis morning, the Secretary-General of these United Nations spoke at the sixty-fourth Commissi\u2026 [+21360 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Un.org"
+            },
+            "author": "United Nations Headquarters",
+            "title": "Commission on the Status of Women",
+            "description": "Note: Following is a partial summary of statements made to today's meeting of the Commission on the Status of Women. A complete summary will be available later today as Press Release WOM/2204.",
+            "url": "https://www.un.org/press/en/2020/wom2204.doc.htm",
+            "urlToImage": null,
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Note: \u00a0Following is a partial summary of statements made to today's meeting of the Commission on the Status of Women. \u00a0A complete summary will be available later today as Press Release WOM/2204.\r\nOpening Remarks\r\nMHER MARGARYAN (Armenia), Chair, Commission on\u2026 [+13438 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Nature.com"
+            },
+            "author": "Ewen Callaway",
+            "title": "How monkeys, mice and ferrets are helping scientists to fight coronavirus",
+            "description": "Animal models can reveal how infections develop and aid efforts to develop drugs and vaccines \u2014 but some are in short supply.",
+            "url": "https://www.nature.com/articles/d41586-020-00698-x?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+nature%2Frss%2Fcurrent+%28Nature+-+Issue%29",
+            "urlToImage": "https://media.nature.com/lw1024/magazine-assets/d41586-020-00698-x/d41586-020-00698-x_17782138.jpg",
+            "publishedAt": "2020-03-09T00:00:00Z",
+            "content": "Rhesus macaques are one animal model for the new coronavirus.Credit: Neil Bowman/Flpa/imageBROKER/Shutterstock\r\nAs coronavirus marches around the globe, a sleepy town on the rugged Maine coast has become an unlikely nucleus in researchers efforts to combat th\u2026 [+7719 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Rawstory.com"
+            },
+            "author": "Sarah K. Burris",
+            "title": "\u2018This coronavirus situation has become a bigger threat to President Trump than impeachment\u2019: Conservative",
+            "description": "Conservative CNN commentator David Gergen said Sunday that the coronavirus is stacking up to be a more significant threat to President Donald Trump than impeachment ever was. In a discussion with host Ana Cabrera, Gergen explained that the Republican-led Sena\u2026",
+            "url": "https://www.rawstory.com/2020/03/this-coronavirus-situation-has-become-a-bigger-threat-to-president-trump-than-impeachment-conservative/",
+            "urlToImage": "https://www.rawstory.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-22-at-8.21.39-AM.png",
+            "publishedAt": "2020-03-08T23:59:53Z",
+            "content": "Conservative CNN commentator David Gergen said Sunday that the coronavirus is stacking up to be a more significant threat to President Donald Trump than impeachment ever was. \r\nIn a discussion with host Ana Cabrera, Gergen explained that the Republican-led Se\u2026 [+1459 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Mediaite.com"
+            },
+            "author": "Sarah Rumpf",
+            "title": "Ted Cruz Voluntarily Self Quarantines After Discovering He \u2018Briefly Interacted\u2019 With CPAC Coronavirus Patient",
+            "description": "Ted Cruz has voluntarily placed himself in quarantine at his home after learning that he had \"briefly interacted\" with the CPAC attendee who has coronavirus.",
+            "url": "https://www.mediaite.com/politics/ted-cruz-voluntarily-self-quarantines-after-discovering-he-briefly-interacted-with-cpac-coronavirus-patient/",
+            "urlToImage": "https://www.mediaite.com/wp-content/uploads/2019/05/cruz-1200x675.jpg",
+            "publishedAt": "2020-03-08T23:59:53Z",
+            "content": "Sen. Ted Cruz (R-TX) released a statement Sunday evening stating that he had voluntarily placed himself in quarantine at his home \u201cout of an abundance of caution\u201d after learning that he had \u201cbriefly interacted\u201d with the Conservative Political Action Committee\u2026 [+3972 chars]"
+        }
+    ]
+}
