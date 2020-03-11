@@ -250,11 +250,11 @@
     <div id="search" class="header-tabcontent" style="display: none;">
         <form id="search_form" action='/search' method="POST" onsubmit="onsubmit_search(event)">
             <label class="search-required">Keyword</label>
-            <input type="text" name="search_input_keyword" required value="coronavirus">
+            <input type="text" name="search_input_keyword" required>
             <label class="search-required">From</label>
-            <input type="date" name="search_input_from" required value="2020-03-08">
+            <input type="date" name="search_input_from" required>
             <label class="search-required">To</label>
-            <input type="date" name="search_input_to" required value="2020-03-07">
+            <input type="date" name="search_input_to" required>
             <br>
             <label>Category</label>
             <select type="text" name="search_select_category" onchange="onchange_fetch_source(this)">
