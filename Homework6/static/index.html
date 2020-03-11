@@ -7,215 +7,7 @@
         Homework 6
     </title>
     <!-- <link rel="stylesheet" href="static/styles.css"> -->
-    <script>
-        function onload_fetch_headlines() {
 
-            // let headlines_sources = ['all', 'cnn', 'fox'];
-            let headlines_sources = ['all', 'cnn', 'fox'];
-            for (var i = 0; i < headlines_sources.length; i++) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.source = headlines_sources[i];
-                xhttp.open("GET", '/fetch_headlines/' + xhttp.source, true);
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        if (this.source == 'all') {
-                            var card_to_load = 1;
-                        } else {
-                            var card_to_load = 4;
-                        }
-
-                        // add retrived cards 
-                        var jsonobj = JSON.parse(this.response);
-                        var table_items = '<tbody><tr>';
-                        for (var i = 0; i < jsonobj.articles.length; i++) {
-                            if (card_to_load <= 0) break;
-                            if (!jsonobj.articles[i]['url']) continue;
-                            if (!jsonobj.articles[i]['urlToImage']) continue;
-                            if (!jsonobj.articles[i]['title']) continue;
-                            if (!jsonobj.articles[i]['description']) continue;
-
-                            var table_item =
-                                '<td>' +
-                                '<div class="card">' +
-                                '<a href=' + jsonobj.articles[i]['url'] + ' target="_blank">' +
-                                '<img src="' + jsonobj.articles[i]['urlToImage'] + '">' +
-                                '<div class="card_container">' +
-                                '<h3>' +
-                                '<b>' + jsonobj.articles[i]['title'] + '</b>' +
-                                '</h3>' +
-                                '<p>' + jsonobj.articles[i]['description'] + '</p>' +
-                                '</div>' +
-                                '</a>' +
-                                '</div>' +
-                                '</td>';
-                            table_items += table_item;
-                            card_to_load--;
-                        }
-                        table_items += '</tr></tbody>';
-                    }
-                    document.getElementById('gn_' + this.source + '_table').innerHTML = table_items;
-                }
-                xhttp.send();
-            }
-        }
-
-        function onclick_show(event, tabcontent_id) {
-            var tabcontents = document.getElementsByClassName("header-tabcontent");
-            for (i = 0; i < tabcontents.length; i++) {
-                tabcontents[i].style.display = "none";
-            }
-            var tabcontent_toshow = document.getElementById(tabcontent_id);
-            tabcontent_toshow.style.display = "block";
-        }
-
-        function onclick_expand(object_selected) {
-            var isExpand = object_selected.children[1].innerHTML;
-            if (isExpand == 'false') {
-                object_selected.children[2].children[1].style.display = "block"; // author
-                object_selected.children[2].children[2].style.display = "block"; // source
-                object_selected.children[2].children[3].style.display = "block"; // publishedAt
-                object_selected.children[2].children[4].style.display = "block"; // description
-                object_selected.children[2].children[5].style.display = "none"; // description_short
-                object_selected.children[2].children[6].style.display = "block"; // url
-                object_selected.children[2].children[7].style.display = "block"; // placeholder
-                object_selected.children[1].innerHTML = 'true';
-            } else {
-                object_selected.children[2].children[1].style.display = "none"; // author
-                object_selected.children[2].children[2].style.display = "none"; // source
-                object_selected.children[2].children[3].style.display = "none"; // publishedAt
-                object_selected.children[2].children[4].style.display = "none"; // description
-                object_selected.children[2].children[5].style.display = "block"; // description_short
-                object_selected.children[2].children[6].style.display = "none"; // url
-                object_selected.children[2].children[7].style.display = "none"; // placeholder
-                object_selected.children[1].innerHTML = 'false';
-            }
-        }
-
-        function onclick_moreOrLess(object_button) {
-            if (object_button.value == 'Show More') {
-                var search_results = document.getElementsByName('search_result_card');
-                for (var i = 0; i < search_results.length; i++) {
-                    // show all cards
-                    search_results[i].parentNode.parentNode.style.display = "table-row";
-                }
-                object_button.value = 'Show Less';
-            } else if (object_button.value == 'Show Less') {
-                var search_results = document.getElementsByName('search_result_card');
-                for (var i = 0; i < search_results.length; i++) {
-                    // hide all cards
-                    search_results[i].parentNode.parentNode.style.display = "none";
-                    if (i < 5) {
-                        // show the first five cards
-                        search_results[i].parentNode.parentNode.style.display = "table-row";
-                    }
-                }
-                object_button.value = 'Show More';
-            }
-        }
-
-        function onchange_fetch_source(object_selected) {
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    // remove old options
-                    options_previous = document.getElementById('search_select_source').getElementsByTagName('option');
-                    while (options_previous.length > 0) {
-                        options_previous[0].parentNode.removeChild(options_previous[0]);
-                    }
-
-                    // add default option
-                    var node_option = document.createElement('option');
-                    node_option.appendChild(document.createTextNode('all'));
-                    document.getElementById('search_select_source').appendChild(node_option);
-
-                    // add retrived options
-                    var jsonobj = JSON.parse(this.response);
-                    for (var i = 0; i < jsonobj.sources.length; i++) {
-                        var node_option = document.createElement('option');
-                        node_option.appendChild(document.createTextNode(jsonobj.sources[i]['id']));
-                        document.getElementById('search_select_source').appendChild(node_option);
-                    }
-                }
-            }
-
-            var category = object_selected.value;
-            xhttp.open("GET", '/fetch_source/' + category, true);
-            xhttp.send();
-        }
-
-        function onsubmit_search(event) {
-            // disable default submit
-            event.preventDefault();
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    // remove all the old <tr>
-                    cards_previous = document.getElementById('search_result_cards').getElementsByTagName('tr');
-                    while (cards_previous.length > 0) {
-                        cards_previous[0].parentNode.removeChild(cards_previous[0]);
-                    }
-
-                    // set # of cards to load
-                    var card_to_load = 10;
-
-                    // add retrived cards
-                    var jsonobj = JSON.parse(this.response);
-                    var table_items = '<tbody>';
-                    for (var i = 0; i < jsonobj.articles.length; i++) {
-                        if (card_to_load <= 0) break;
-                        if (!jsonobj.articles[i]['url']) continue;
-                        if (!jsonobj.articles[i]['urlToImage']) continue;
-                        if (!jsonobj.articles[i]['title']) continue;
-                        if (!jsonobj.articles[i]['description']) continue;
-
-                        var table_item =
-                            '<tr>' +
-                            '<td>' +
-                            '<div class="card" name="search_result_card" onclick="onclick_expand(this)">' +
-                            '<img src="' + jsonobj.articles[i]['urlToImage'] + '">' +
-                            '<p name="isExpand" style="display: none;">false</p>' +
-                            '<div class="card_container">' +
-                            '<h3>' +
-                            '<b>' + jsonobj.articles[i]['title'] + '</b>' +
-                            '</h3>' +
-                            '<p name="author" style="display: none;"><b>Author: </b>' + jsonobj.articles[i]['author'] + '</p>' +
-                            '<p name="source" style="display: none;"><b>Source: </b>' + jsonobj.articles[i]['source']['name'] + '</p>' +
-                            '<p name="publishedAt" style="display: none;"><b>Date: </b>' + jsonobj.articles[i]['publishedAt'] + '</p>' +
-                            '<p name="description" style="display: none;">' + jsonobj.articles[i]['description'] + '</p>' +
-                            '<p name="description_short">' + jsonobj.articles[i]['description'].substring(0, 70) + '...</p>' +
-                            '<a name="url" style="display: none;" href=' + jsonobj.articles[i]['url'] + ' target="_blank">See Original Post</a>' +
-                            '<p name="placeholder" style="display: none;"></p>' +
-                            '</div>' +
-                            '</div>' +
-                            '</td>' +
-                            '</tr>';
-                        table_items += table_item;
-                        card_to_load--;
-                    }
-                    table_items += '</tbody>';
-                    document.getElementById('search_result_cards').innerHTML = table_items;
-
-                    // show the first five cards
-                    var search_results = document.getElementsByName('search_result_card');
-                    for (var i = 0; i < search_results.length; i++) {
-                        // hide all cards
-                        search_results[i].parentNode.parentNode.style.display = "none";
-                        if (i < 5) {
-                            // show the first five cards
-                            search_results[i].parentNode.parentNode.style.display = "table-row";
-                        }
-                    }
-                }
-            }
-            xhttp.open("POST", '/search', true);
-            xhttp.send(new FormData(document.getElementById('search_form')));
-
-            // enable button
-            document.getElementById('search_result_more').style.display = "block";
-        }
-    </script>
     <style>
         /****************HEADER STYLE********************/
         
@@ -368,14 +160,14 @@
             border-radius: 3px;
         }
         
-        #search input,
+        #search_result input,
         #search button {
             background-color: #F0EFF1;
             border: none;
             transition: 0.4s;
         }
         
-        #search input:hover,
+        #search_result input:hover,
         #search button:hover {
             background-color: #47AE4F;
             color: white;
@@ -386,7 +178,7 @@
             padding: 2px 10px;
         }
         
-        #search input {
+        #search_result input {
             margin: auto;
             padding: 5px 15px;
         }
@@ -399,6 +191,7 @@
         
         #search_result td {
             height: 120px;
+            width: 100%;
         }
         
         #search_result .card {
@@ -414,7 +207,7 @@
         }
         
         #search_result .card:hover {
-            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
         }
         
         #search_result img {
@@ -431,7 +224,7 @@
         <button class="header-tablinks" onclick="onclick_show(event, 'google_news')">Google News</button>
         <button class="header-tablinks" onclick="onclick_show(event, 'search')">Search</button>
     </header>
-    <div id="google_news" class="header-tabcontent" style="display: none;">
+    <div id="google_news" class="header-tabcontent">
         <div id="gn_home">
             <table>
                 <tr>
@@ -455,7 +248,7 @@
             <table id="gn_fox_table"></table>
         </div>
     </div>
-    <div id="search" class="header-tabcontent">
+    <div id="search" class="header-tabcontent" style="display: none;">
         <form id="search_form" action='/search' method="POST" onsubmit="onsubmit_search(event)">
             <label class="search-required">Keyword</label>
             <input type="text" name="search_input_keyword" required value="coronavirus">
@@ -481,7 +274,7 @@
             </select>
             <br>
             <button type="submit" value="Search">Search</button>
-            <button type="reset" value="Clear">Clear</button>
+            <button type="reset" value="Clear" onclick="onclick_clear()">Clear</button>
         </form>
         <div id=search_result>
             <table id="search_result_cards"></table>
@@ -497,86 +290,378 @@
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 <script>
-    // List of words
-    var myWords = [{
-        word: "Running",
-        size: "10"
-    }, {
-        word: "Surfing",
-        size: "20"
-    }, {
-        word: "Climbing",
-        size: "50"
-    }, {
-        word: "Kiting",
-        size: "30"
-    }, {
-        word: "Sailing",
-        size: "20"
-    }, {
-        word: "Snowboarding",
-        size: "60"
-    }]
+    var words_frequent = {};
 
-    // set the dimensions and margins of the graph
-    var margin = {
-            top: 10,
-            right: 10,
-            bottom: 10,
-            left: 10
-        },
-        width = 450 - margin.left - margin.right,
-        height = 450 - margin.top - margin.bottom;
+    function wordcloud(myWorlds_replace) {
 
-    // append the svg object to the body of the page
-    var svg = d3.select("#my_dataviz").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
 
-    // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
-    // Wordcloud features that are different from one word to the other must be here
-    var layout = d3.layout.cloud()
-        .size([width, height])
-        .words(myWords.map(function(d) {
-            return {
-                text: d.word,
-                size: d.size
-            };
-        }))
-        .padding(5) //space between words
-        .rotate(function() {
-            return ~~(Math.random() * 2) * 90;
-        })
-        .fontSize(function(d) {
-            return d.size;
-        }) // font size of words
-        .on("end", draw);
-    layout.start();
+        // List of words
+        var myWords = [{
+            word: "Running",
+            size: "10"
+        }, {
+            word: "Surfing",
+            size: "20"
+        }, {
+            word: "Climbing",
+            size: "50"
+        }, {
+            word: "Kiting",
+            size: "30"
+        }, {
+            word: "Sailing",
+            size: "20"
+        }, {
+            word: "Snowboarding",
+            size: "60"
+        }];
 
-    // This function takes the output of 'layout' above and draw the words
-    // Wordcloud features that are THE SAME from one word to the other can be here
-    function draw(words) {
-        svg
+        console.log(myWords);
+        for (var i = 0; i < myWords.length; i++) {
+            myWords[myWords.length - i - 1]['word'] = myWorlds_replace[i];
+        }
+
+        // set the dimensions and margins of the graph
+        var margin = {
+                top: 10,
+                right: 10,
+                bottom: 10,
+                left: 10
+            },
+            width = 450 - margin.left - margin.right,
+            height = 450 - margin.top - margin.bottom;
+
+        // append the svg object to the body of the page
+        var svg = d3.select("#my_dataviz").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
-            .selectAll("text")
-            .data(words)
-            .enter().append("text")
-            .style("font-size", function(d) {
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+        // Wordcloud features that are different from one word to the other must be here
+        var layout = d3.layout.cloud()
+            .size([width, height])
+            .words(myWords.map(function(d) {
+                return {
+                    text: d.word,
+                    size: d.size
+                };
+            }))
+            .padding(5) //space between words
+            .rotate(function() {
+                return ~~(Math.random() * 2) * 90;
+            })
+            .fontSize(function(d) {
                 return d.size;
-            })
-            .style("fill", "#69b3a2")
-            .attr("text-anchor", "middle")
-            .style("font-family", "Impact")
-            .attr("transform", function(d) {
-                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-            })
-            .text(function(d) {
-                return d.text;
-            });
+            }) // font size of words
+            .on("end", draw);
+        layout.start();
+
+        // This function takes the output of 'layout' above and draw the words
+        // Wordcloud features that are THE SAME from one word to the other can be here
+        function draw(words) {
+            svg
+                .append("g")
+                .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) {
+                    return d.size;
+                })
+                .style("fill", "#69b3a2")
+                .attr("text-anchor", "middle")
+                .style("font-family", "Impact")
+                .attr("transform", function(d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) {
+                    return d.text;
+                });
+        }
+    }
+
+    function onload_fetch_headlines() {
+
+        // let headlines_sources = ['all', 'cnn', 'fox'];
+        let headlines_sources = ['all', 'cnn', 'fox'];
+        for (var i = 0; i < headlines_sources.length; i++) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.source = headlines_sources[i];
+            xhttp.open("GET", '/fetch_headlines/' + xhttp.source, true);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if (this.source == 'all') {
+                        var card_to_load = 1;
+                        var draw_word_cloud = true;
+                    } else {
+                        var card_to_load = 4;
+                    }
+
+                    // add retrived cards 
+                    var jsonobj = JSON.parse(this.response);
+                    var table_items = '<tbody><tr>';
+                    for (var i = 0; i < jsonobj.articles.length; i++) {
+                        if (card_to_load <= 0) break;
+                        if (!jsonobj.articles[i]['url']) continue;
+                        if (!jsonobj.articles[i]['urlToImage']) continue;
+                        if (!jsonobj.articles[i]['title']) continue;
+                        if (!jsonobj.articles[i]['description']) continue;
+
+                        var table_item =
+                            '<td>' +
+                            '<div class="card">' +
+                            '<a href=' + jsonobj.articles[i]['url'] + ' target="_blank">' +
+                            '<img src="' + jsonobj.articles[i]['urlToImage'] + '">' +
+                            '<div class="card_container">' +
+                            '<h3>' +
+                            '<b>' + jsonobj.articles[i]['title'] + '</b>' +
+                            '</h3>' +
+                            '<p>' + jsonobj.articles[i]['description'] + '</p>' +
+                            '</div>' +
+                            '</a>' +
+                            '</div>' +
+                            '</td>';
+                        table_items += table_item;
+                        card_to_load--;
+                    }
+                    table_items += '</tr></tbody>';
+
+                    // draw work cloud
+                    if (draw_word_cloud) {
+                        // get top 30 frequent words;
+                        for (var i = 0; i < jsonobj.articles.length; i++) {
+                            if (!jsonobj.articles[i]['title']) continue;
+
+                            var words = jsonobj.articles[i]['title'].split(' ').filter(function(word) {
+                                return word != ' ' && word != null;
+                            });
+                            for (var j = 0; j < words.length; j++) {
+                                if (words_frequent[words[j].trim().toLowerCase()] == null) {
+                                    words_frequent[words[j].trim().toLowerCase()] = 1;
+                                } else {
+                                    words_frequent[words[j].trim().toLowerCase()] += 1;
+                                }
+                            }
+                        }
+
+                        // remove stop words;
+                        var stop_words_string = "a a's able about above according accordingly across actually after afterwards again against ain't all allow allows almost alone along already also although always am among amongst an and another any anybody anyhow anyone anything anyway anyways anywhere apart appear appreciate appropriate are aren't around as aside ask asking associated at available away awfully b be became because become becomes becoming been before beforehand behind being believe below beside besides best better between beyond both brief but by c c'mon c's came can can't cannot cant cause causes certain certainly changes clearly co com come comes concerning consequently consider considering contain containing contains corresponding could couldn't course currently d definitely described despite did didn't different do does doesn't doing don't done down downwards during e each edu eg eight either else elsewhere enough entirely especially et etc even ever every everybody everyone everything everywhere ex exactly example except f far few fifth first five followed following follows for former formerly forth four from further furthermore g get gets getting given gives go goes going gone got gotten greetings h had hadn't happens hardly has hasn't have haven't having he he's hello help hence her here here's hereafter hereby herein hereupon hers herself hi him himself his hither hopefully how howbeit however i i'd i'll i'm i've ie if ignored immediate in inasmuch inc indeed indicate indicated indicates inner insofar instead into inward is isn't it it'd it'll it's its itself j just k keep keeps kept know knows known l last lately later latter latterly least less lest let let's like liked likely little look looking looks ltd m mainly many may maybe me mean meanwhile merely might more moreover most mostly much must my myself n name namely nd near nearly necessary need needs neither never nevertheless new next nine no nobody non none noone nor normally not nothing novel now nowhere o obviously of off often oh ok okay old on once one ones only onto or other others otherwise ought our ours ourselves out outside over overall own p particular particularly per perhaps placed please plus possible presumably probably provides q que quite qv r rather rd re really reasonably regarding regardless regards relatively respectively right s said same saw say saying says second secondly see seeing seem seemed seeming seems seen self selves sensible sent serious seriously seven several shall she should shouldn't since six so some somebody somehow someone something sometime sometimes somewhat somewhere soon sorry specified specify specifying still sub such sup sure t t's take taken tell tends th than thank thanks thanx that that's thats the their theirs them themselves then thence there there's thereafter thereby therefore therein theres thereupon these they they'd they'll they're they've think third this thorough thoroughly those though three through throughout thru thus to together too took toward towards tried tries truly try trying twice two u un under unfortunately unless unlikely until unto up upon us use used useful uses using usually uucp v value various very via viz vs w want wants was wasn't way we we'd we'll we're we've welcome well went were weren't what what's whatever when whence whenever where where's whereafter whereas whereby wherein whereupon wherever whether which while whither who who's whoever whole whom whose why will willing wish with within without won't wonder would would wouldn't x y yes yet you you'd you'll you're you've your yours yourself yourselves z zero";
+                        var stop_words = stop_words_string.split(' ');
+
+                        for (var i = 0; i < stop_words.length; i++) {
+                            if (words_frequent[stop_words[i]] == null) continue;
+                            else delete words_frequent[stop_words[i]];
+                        }
+
+                        // Sort the array based on the second element;
+                        // Create items array
+                        var words_frequent_sorted = Object.keys(words_frequent).map(function(key) {
+                            return [key, words_frequent[key]];
+                        });
+
+                        // Sort the array based on the second element
+                        words_frequent_sorted.sort(function(first, second) {
+                            return second[1] - first[1];
+                        });
+
+                        words_frequent_sorted = words_frequent_sorted.slice(0, 20);
+                        var myWords = [];
+                        var word_to_load = 6;
+                        for (var i = 0; i < words_frequent_sorted.length; i++) {
+                            if (word_to_load <= 0) break;
+                            if (words_frequent_sorted[i][0].length <= 3) continue;
+                            myWords.push(words_frequent_sorted[i][0]);
+                            word_to_load--;
+                        }
+
+                        console.log(myWords);
+
+                        // draw word cloud;
+                        wordcloud(myWords);
+                        draw_word_cloud = false;
+                    }
+                }
+                document.getElementById('gn_' + this.source + '_table').innerHTML = table_items;
+
+            }
+            xhttp.send();
+        }
+    }
+
+    function onclick_show(event, tabcontent_id) {
+        var tabcontents = document.getElementsByClassName("header-tabcontent");
+        for (i = 0; i < tabcontents.length; i++) {
+            tabcontents[i].style.display = "none";
+        }
+        var tabcontent_toshow = document.getElementById(tabcontent_id);
+        tabcontent_toshow.style.display = "block";
+    }
+
+    function onclick_expand(object_selected) {
+        var isExpand = object_selected.children[1].innerHTML;
+        if (isExpand == 'false') {
+            object_selected.children[2].children[1].style.display = "block"; // author
+            object_selected.children[2].children[2].style.display = "block"; // source
+            object_selected.children[2].children[3].style.display = "block"; // publishedAt
+            object_selected.children[2].children[4].style.display = "block"; // description
+            object_selected.children[2].children[5].style.display = "none"; // description_short
+            object_selected.children[2].children[6].style.display = "block"; // url
+            object_selected.children[2].children[7].style.display = "block"; // placeholder
+            object_selected.children[1].innerHTML = 'true';
+        } else {
+            object_selected.children[2].children[1].style.display = "none"; // author
+            object_selected.children[2].children[2].style.display = "none"; // source
+            object_selected.children[2].children[3].style.display = "none"; // publishedAt
+            object_selected.children[2].children[4].style.display = "none"; // description
+            object_selected.children[2].children[5].style.display = "block"; // description_short
+            object_selected.children[2].children[6].style.display = "none"; // url
+            object_selected.children[2].children[7].style.display = "none"; // placeholder
+            object_selected.children[1].innerHTML = 'false';
+        }
+    }
+
+    function onclick_moreOrLess(object_button) {
+        if (object_button.value == 'Show More') {
+            var search_results = document.getElementsByName('search_result_card');
+            for (var i = 0; i < search_results.length; i++) {
+                // show all cards
+                search_results[i].parentNode.parentNode.style.display = "table-row";
+            }
+            object_button.value = 'Show Less';
+        } else if (object_button.value == 'Show Less') {
+            var search_results = document.getElementsByName('search_result_card');
+            for (var i = 0; i < search_results.length; i++) {
+                // hide all cards
+                search_results[i].parentNode.parentNode.style.display = "none";
+                if (i < 5) {
+                    // show the first five cards
+                    search_results[i].parentNode.parentNode.style.display = "table-row";
+                }
+            }
+            object_button.value = 'Show More';
+        }
+    }
+
+    function onclick_clear() {
+        // clear all cards
+        document.getElementById('search_result_cards').innerHTML = '';
+
+        // clear form
+        document.getElementsByName('search_input_keyword')[0].value = '';
+        document.getElementsByName('search_input_from')[0].value = '';
+        document.getElementsByName('search_input_to')[0].value = '';
+        document.getElementsByName('search_select_category')[0].value = 'all';
+        document.getElementsByName('search_select_source')[0].value = 'all';
+
+        // hide button
+        document.getElementById('search_result_more').value = 'Show More';
+        document.getElementById('search_result_more').style.display = "none";
+    }
+
+    function onchange_fetch_source(object_selected) {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // remove old options
+                options_previous = document.getElementById('search_select_source').getElementsByTagName('option');
+                while (options_previous.length > 0) {
+                    options_previous[0].parentNode.removeChild(options_previous[0]);
+                }
+
+                // add default option
+                var node_option = document.createElement('option');
+                node_option.appendChild(document.createTextNode('all'));
+                document.getElementById('search_select_source').appendChild(node_option);
+
+                // add retrived options
+                var jsonobj = JSON.parse(this.response);
+                for (var i = 0; i < jsonobj.sources.length; i++) {
+                    var node_option = document.createElement('option');
+                    node_option.appendChild(document.createTextNode(jsonobj.sources[i]['id']));
+                    document.getElementById('search_select_source').appendChild(node_option);
+                }
+            }
+        }
+
+        var category = object_selected.value;
+        xhttp.open("GET", '/fetch_source/' + category, true);
+        xhttp.send();
+    }
+
+    function onsubmit_search(event) {
+        // disable default submit
+        event.preventDefault();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // remove all the old <tr>
+                cards_previous = document.getElementById('search_result_cards').getElementsByTagName('tr');
+                while (cards_previous.length > 0) {
+                    cards_previous[0].parentNode.removeChild(cards_previous[0]);
+                }
+
+                // set # of cards to load
+                var card_to_load = 10;
+
+                // add retrived cards
+                var jsonobj = JSON.parse(this.response);
+                var table_items = '<tbody>';
+                for (var i = 0; i < jsonobj.articles.length; i++) {
+                    if (card_to_load <= 0) break;
+                    if (!jsonobj.articles[i]['url']) continue;
+                    if (!jsonobj.articles[i]['urlToImage']) continue;
+                    if (!jsonobj.articles[i]['title']) continue;
+                    if (!jsonobj.articles[i]['description']) continue;
+
+                    var table_item =
+                        '<tr>' +
+                        '<td>' +
+                        '<div class="card" name="search_result_card" onclick="onclick_expand(this)">' +
+                        '<img src="' + jsonobj.articles[i]['urlToImage'] + '">' +
+                        '<p name="isExpand" style="display: none;">false</p>' +
+                        '<div class="card_container">' +
+                        '<h3>' +
+                        '<b>' + jsonobj.articles[i]['title'] + '</b>' +
+                        '</h3>' +
+                        '<p name="author" style="display: none;"><b>Author: </b>' + jsonobj.articles[i]['author'] + '</p>' +
+                        '<p name="source" style="display: none;"><b>Source: </b>' + jsonobj.articles[i]['source']['name'] + '</p>' +
+                        '<p name="publishedAt" style="display: none;"><b>Date: </b>' + jsonobj.articles[i]['publishedAt'] + '</p>' +
+                        '<p name="description" style="display: none;">' + jsonobj.articles[i]['description'] + '</p>' +
+                        '<p name="description_short">' + jsonobj.articles[i]['description'].substring(0, 70) + '...</p>' +
+                        '<a name="url" style="display: none;" href=' + jsonobj.articles[i]['url'] + ' target="_blank">See Original Post</a>' +
+                        '<p name="placeholder" style="display: none;"></p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
+                    table_items += table_item;
+                    card_to_load--;
+                }
+                table_items += '</tbody>';
+                document.getElementById('search_result_cards').innerHTML = table_items;
+
+                // show the first five cards
+                var search_results = document.getElementsByName('search_result_card');
+                for (var i = 0; i < search_results.length; i++) {
+                    // hide all cards
+                    search_results[i].parentNode.parentNode.style.display = "none";
+                    if (i < 5) {
+                        // show the first five cards
+                        search_results[i].parentNode.parentNode.style.display = "table-row";
+                    }
+                }
+            }
+        }
+        xhttp.open("POST", '/search', true);
+        xhttp.send(new FormData(document.getElementById('search_form')));
+
+        // enable button
+        document.getElementById('search_result_more').style.display = "block";
     }
 </script>
 

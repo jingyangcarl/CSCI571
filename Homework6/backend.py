@@ -1,6 +1,6 @@
 # Google News api key: 99da284c213a46ecb176baabc4eb6b7c
 # Google News api key: b0697e5b6a0d4e29a7bc690687ec538c
-
+# Google News api key: cf6de82e0a034204b073376d55103619
 from newsapi import NewsApiClient
 from flask import Flask, render_template, request
 import json
@@ -9,13 +9,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    app.send_static_file('javascript.js')
     return app.send_static_file('index.html')
 
 @app.route('/fetch_headlines/<source>')
 def fetch_headlines(source):
     # init api client
-    newsapi = NewsApiClient(api_key='b0697e5b6a0d4e29a7bc690687ec538c')
+    newsapi = NewsApiClient(api_key='cf6de82e0a034204b073376d55103619')
 
     # get top headlines
     if 'cnn' in source:
@@ -31,7 +30,7 @@ def fetch_headlines(source):
 def fetch_source(category):
     
     # init api client
-    newsapi = NewsApiClient(api_key='b0697e5b6a0d4e29a7bc690687ec538c')
+    newsapi = NewsApiClient(api_key='cf6de82e0a034204b073376d55103619')
 
     # get corresponding sources based on category
     if 'all' not in category:
@@ -42,6 +41,11 @@ def fetch_source(category):
     # with open('sources.json', 'w') as outfile:
     #     json.dump(sources, outfile)
     return sources
+
+@app.route('/fetch_stopwords')
+def fetch_stopwords():
+    print('trigger')
+    return app.send_static_file('stopwords_en.txt')
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
@@ -54,7 +58,7 @@ def search():
     search_select_source = form['search_select_source']
     
     # init api client
-    newsapi = NewsApiClient(api_key='b0697e5b6a0d4e29a7bc690687ec538c')
+    newsapi = NewsApiClient(api_key='cf6de82e0a034204b073376d55103619')
 
     # get articles
     if 'all' in search_select_source:
