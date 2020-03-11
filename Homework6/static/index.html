@@ -6,7 +6,6 @@
     <title>
         Homework 6
     </title>
-    <!-- <link rel="stylesheet" href="static/styles.css"> -->
 
     <style>
         /****************HEADER STYLE********************/
@@ -221,8 +220,8 @@
 
 <body onload="onload_fetch_headlines()">
     <header class="header">
-        <button class="header-tablinks" onclick="onclick_show(event, 'google_news')">Google News</button>
-        <button class="header-tablinks" onclick="onclick_show(event, 'search')">Search</button>
+        <button class="header-tablinks" onclick="onclick_switch(event, 'google_news')">Google News</button>
+        <button class="header-tablinks" onclick="onclick_switch(event, 'search')">Search</button>
     </header>
     <div id="google_news" class="header-tabcontent">
         <div id="gn_home">
@@ -290,35 +289,22 @@
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 <script>
-    var words_frequent = {};
-
-    function wordcloud(myWorlds_replace) {
-
-
+    /*
+    Description:
+    This function is used to draw word cloud;
+    Input:
+    @ myWords_list: a list of words
+    */
+    function wordcloud(myWords_list) {
         // List of words
-        var myWords = [{
-            word: "Running",
-            size: "10"
-        }, {
-            word: "Surfing",
-            size: "20"
-        }, {
-            word: "Climbing",
-            size: "50"
-        }, {
-            word: "Kiting",
-            size: "30"
-        }, {
-            word: "Sailing",
-            size: "20"
-        }, {
-            word: "Snowboarding",
-            size: "60"
-        }];
-
+        myWords = [];
         console.log(myWords);
-        for (var i = 0; i < myWords.length; i++) {
-            myWords[myWords.length - i - 1]['word'] = myWorlds_replace[i];
+        for (var i = 0; i < myWords_list.length; i++) {
+            myWord = {}
+            myWords_list[i] = myWords_list[i].charAt(0).toUpperCase() + myWords_list[i].slice(1);
+            myWord['word'] = myWords_list[i];
+            myWord['size'] = 3 * (myWords_list.length - i);
+            myWords.push(myWord);
         }
 
         // set the dimensions and margins of the graph
@@ -371,9 +357,9 @@
                 .style("font-size", function(d) {
                     return d.size;
                 })
-                .style("fill", "#69b3a2")
+                .style("fill", "black")
                 .attr("text-anchor", "middle")
-                .style("font-family", "Impact")
+                .style("font-family", "Times New Roman")
                 .attr("transform", function(d) {
                     return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
                 })
@@ -383,10 +369,16 @@
         }
     }
 
+    /*
+    Description:
+    This function is used to update top headlines and headlines from cnn and fox news; Meanwhile, after receiving the titles of the headlines, top 30 hot words will be listed and displayed as a word cloud;
+    Input:
+    @ void;
+    */
     function onload_fetch_headlines() {
 
-        // let headlines_sources = ['all', 'cnn', 'fox'];
         let headlines_sources = ['all', 'cnn', 'fox'];
+        var words_frequent = {};
         for (var i = 0; i < headlines_sources.length; i++) {
             var xhttp = new XMLHttpRequest();
             xhttp.source = headlines_sources[i];
@@ -467,9 +459,9 @@
                             return second[1] - first[1];
                         });
 
-                        words_frequent_sorted = words_frequent_sorted.slice(0, 20);
+                        words_frequent_sorted = words_frequent_sorted.slice(0, 50);
                         var myWords = [];
-                        var word_to_load = 6;
+                        var word_to_load = 20;
                         for (var i = 0; i < words_frequent_sorted.length; i++) {
                             if (word_to_load <= 0) break;
                             if (words_frequent_sorted[i][0].length <= 3) continue;
@@ -491,7 +483,14 @@
         }
     }
 
-    function onclick_show(event, tabcontent_id) {
+    /*
+    Description:
+    This function is used to switch the current tab;
+    Input:
+    @ event: a javascript event;
+    @ tabcontent_id: the id refer to whom triggers the event;
+    */
+    function onclick_switch(event, tabcontent_id) {
         var tabcontents = document.getElementsByClassName("header-tabcontent");
         for (i = 0; i < tabcontents.length; i++) {
             tabcontents[i].style.display = "none";
@@ -500,31 +499,44 @@
         tabcontent_toshow.style.display = "block";
     }
 
-    function onclick_expand(object_selected) {
-        var isExpand = object_selected.children[1].innerHTML;
+    /*
+    Description:
+    This function is used to expand display when a click is triggered on a card;
+    Input:
+    @ card_selected: the card where the click is triggered;
+    */
+    function onclick_expand(card_selected) {
+        var isExpand = card_selected.children[1].innerHTML;
         if (isExpand == 'false') {
-            object_selected.children[2].children[1].style.display = "block"; // author
-            object_selected.children[2].children[2].style.display = "block"; // source
-            object_selected.children[2].children[3].style.display = "block"; // publishedAt
-            object_selected.children[2].children[4].style.display = "block"; // description
-            object_selected.children[2].children[5].style.display = "none"; // description_short
-            object_selected.children[2].children[6].style.display = "block"; // url
-            object_selected.children[2].children[7].style.display = "block"; // placeholder
-            object_selected.children[1].innerHTML = 'true';
+            card_selected.children[2].children[1].style.display = "block"; // author
+            card_selected.children[2].children[2].style.display = "block"; // source
+            card_selected.children[2].children[3].style.display = "block"; // publishedAt
+            card_selected.children[2].children[4].style.display = "block"; // description
+            card_selected.children[2].children[5].style.display = "none"; // description_short
+            card_selected.children[2].children[6].style.display = "block"; // url
+            card_selected.children[2].children[7].style.display = "block"; // placeholder
+            card_selected.children[1].innerHTML = 'true';
         } else {
-            object_selected.children[2].children[1].style.display = "none"; // author
-            object_selected.children[2].children[2].style.display = "none"; // source
-            object_selected.children[2].children[3].style.display = "none"; // publishedAt
-            object_selected.children[2].children[4].style.display = "none"; // description
-            object_selected.children[2].children[5].style.display = "block"; // description_short
-            object_selected.children[2].children[6].style.display = "none"; // url
-            object_selected.children[2].children[7].style.display = "none"; // placeholder
-            object_selected.children[1].innerHTML = 'false';
+            card_selected.children[2].children[1].style.display = "none"; // author
+            card_selected.children[2].children[2].style.display = "none"; // source
+            card_selected.children[2].children[3].style.display = "none"; // publishedAt
+            card_selected.children[2].children[4].style.display = "none"; // description
+            card_selected.children[2].children[5].style.display = "block"; // description_short
+            card_selected.children[2].children[6].style.display = "none"; // url
+            card_selected.children[2].children[7].style.display = "none"; // placeholder
+            card_selected.children[1].innerHTML = 'false';
         }
     }
 
+    /*
+    Description:
+    This function is used to switch between displaying more searched results or less;
+    Input:
+    @ object_button: a DOM button object;
+    */
     function onclick_moreOrLess(object_button) {
         if (object_button.value == 'Show More') {
+            // current status is 'Show More'
             var search_results = document.getElementsByName('search_result_card');
             for (var i = 0; i < search_results.length; i++) {
                 // show all cards
@@ -532,6 +544,7 @@
             }
             object_button.value = 'Show Less';
         } else if (object_button.value == 'Show Less') {
+            // current status is 'Show Less'
             var search_results = document.getElementsByName('search_result_card');
             for (var i = 0; i < search_results.length; i++) {
                 // hide all cards
@@ -545,6 +558,12 @@
         }
     }
 
+    /*
+    Description:
+    This function is used to clear form;
+    Input:
+    @ void;
+     */
     function onclick_clear() {
         // clear all cards
         document.getElementById('search_result_cards').innerHTML = '';
@@ -561,7 +580,13 @@
         document.getElementById('search_result_more').style.display = "none";
     }
 
-    function onchange_fetch_source(object_selected) {
+    /*
+    Description:
+    This function is used to fetch all sources availiable for the selected category;
+    Input:
+    @ category_selected: selected category
+    */
+    function onchange_fetch_source(category_selected) {
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -586,16 +611,21 @@
                 }
             }
         }
-
-        var category = object_selected.value;
-        xhttp.open("GET", '/fetch_source/' + category, true);
+        xhttp.open("GET", '/fetch_source/' + category_selected.value, true);
         xhttp.send();
     }
 
+    /*
+    Description:
+    This function is used to submit the form to the server and get searched results back;
+    Input:
+    @ event: javascript event;
+    */
     function onsubmit_search(event) {
         // disable default submit
         event.preventDefault();
 
+        // prepare Ajax to send request to the server
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -643,6 +673,8 @@
                     card_to_load--;
                 }
                 table_items += '</tbody>';
+
+                // update innerHTML
                 document.getElementById('search_result_cards').innerHTML = table_items;
 
                 // show the first five cards
@@ -664,7 +696,5 @@
         document.getElementById('search_result_more').style.display = "block";
     }
 </script>
-
-</html>
 
 </html>
