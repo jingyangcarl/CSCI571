@@ -38,14 +38,7 @@ def fetch_source(category):
     else:
         sources = newsapi.get_sources(language='en', country = 'us')
 
-    # with open('sources.json', 'w') as outfile:
-    #     json.dump(sources, outfile)
     return sources
-
-@app.route('/fetch_stopwords')
-def fetch_stopwords():
-    print('trigger')
-    return app.send_static_file('stopwords_en.txt')
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
