@@ -69,9 +69,6 @@ def search():
                                             language='en',
                                             sort_by='publishedAt',
                                             page_size=30)
-
-    with open('all_articles.json', 'w') as outfile:
-        json.dump(all_articles, outfile)
     return all_articles
 
 if __name__ == '__main__':

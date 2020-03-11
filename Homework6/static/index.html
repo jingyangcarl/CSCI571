@@ -188,6 +188,10 @@
             margin-top: 30px;
         }
         
+        #search_result table {
+            margin: auto;
+        }
+        
         #search_result td {
             height: 120px;
             width: 100%;
@@ -289,16 +293,9 @@
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 <script>
-    /*
-    Description:
-    This function is used to draw word cloud;
-    Input:
-    @ myWords_list: a list of words
-    */
     function wordcloud(myWords_list) {
         // List of words
         myWords = [];
-        console.log(myWords);
         for (var i = 0; i < myWords_list.length; i++) {
             myWord = {}
             myWords_list[i] = myWords_list[i].charAt(0).toUpperCase() + myWords_list[i].slice(1);
@@ -469,8 +466,6 @@
                             word_to_load--;
                         }
 
-                        console.log(myWords);
-
                         // draw word cloud;
                         wordcloud(myWords);
                         draw_word_cloud = false;
@@ -592,7 +587,7 @@
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 // remove old options
-                options_previous = document.getElementById('search_select_source').getElementsByTagName('option');
+                options_previous = document.getElementsByName('search_select_source')[0].getElementsByTagName('option');
                 while (options_previous.length > 0) {
                     options_previous[0].parentNode.removeChild(options_previous[0]);
                 }
@@ -600,14 +595,14 @@
                 // add default option
                 var node_option = document.createElement('option');
                 node_option.appendChild(document.createTextNode('all'));
-                document.getElementById('search_select_source').appendChild(node_option);
+                document.getElementsByName('search_select_source')[0].appendChild(node_option);
 
                 // add retrived options
                 var jsonobj = JSON.parse(this.response);
                 for (var i = 0; i < jsonobj.sources.length; i++) {
                     var node_option = document.createElement('option');
                     node_option.appendChild(document.createTextNode(jsonobj.sources[i]['id']));
-                    document.getElementById('search_select_source').appendChild(node_option);
+                    document.getElementsByName('search_select_source')[0].appendChild(node_option);
                 }
             }
         }
