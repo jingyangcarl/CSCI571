@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Customers from './Components/customers/customers';
+import Home from './Components/home/home';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Home></Home>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -21,7 +23,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <Customers></Customers>
+        {/* <Customers></Customers> */}
       </div>
     );
   };
