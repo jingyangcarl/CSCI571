@@ -6,7 +6,22 @@ import './home.css';
 
 
 class Home extends Component {
-    state = { results: [], selectedResult: null };
+    constructor() {
+        super();
+        this.state = {
+            results: [], 
+            selectedResult: null,
+            news: [],
+        }
+    }
+
+    componentDidMount() {
+        fetch('/home')
+            .then(res => res.json())
+            .then(res => this.setState({news: res.results}, () => {
+                console.log('fetched', res);
+            }));
+    }
 
     handleResultSelect = (e, { result }) =>
       this.setState({ selectedResult: result });
@@ -101,6 +116,13 @@ class Home extends Component {
                         </Nav.Item>
                     </Nav>
                 </Navbar>
+                <div>
+                    <ul>
+                        {this.state.news.map(news => 
+                                <li>{news.url}</li>
+                        )}
+                    </ul>
+                </div>
             </div>
         );
     };

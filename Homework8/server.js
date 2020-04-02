@@ -1,9 +1,12 @@
 const express = require('express');
-const homeRouter = require('./routes/home');
-const worldRouter = require('./routes/world');
+// const bodyParser = require('body-parser');
+const homeRouter = require('./routes/router_home');
+const worldRouter = require('./routes/router_world');
 
 const app = express();
 
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -21,6 +24,7 @@ app.get('/api/customers', (req, res) => {
   res.json(customers);
 });
 
+app.use("/", homeRouter);
 app.use("/home", homeRouter);
 app.use("/world", worldRouter);
 

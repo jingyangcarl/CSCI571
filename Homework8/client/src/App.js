@@ -23,7 +23,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        {/* <Customers></Customers> */}
+        <Customers></Customers>
       </div>
     );
   };
