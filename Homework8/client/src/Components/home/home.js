@@ -16,7 +16,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch('/home')
+        fetch('/home/static')
             .then(res => res.json())
             .then(res => this.setState({news: res.results}, () => {
                 console.log('fetched', res);
@@ -117,11 +117,9 @@ class Home extends Component {
                     </Nav>
                 </Navbar>
                 <div>
-                    <ul>
-                        {this.state.news.map(news => 
-                                <li>{news.url}</li>
-                        )}
-                    </ul>
+                    {this.state.news.map(news => 
+                        <p>{news.url}</p>
+                    )}
                 </div>
             </div>
         );
