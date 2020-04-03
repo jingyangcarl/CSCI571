@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Customers from './Components/customers/customers';
+// import Customers from './Components/customers/customers';
 import Home from './Components/home/home';
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <Customers></Customers>
+        {/* <Customers></Customers> */}
       </div>
     );
   };

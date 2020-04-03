@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Form } from 'react-bootstrap';
+import { Nav, Navbar, Form, Card, Container, Row, Col } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import _ from 'lodash';
 import './home.css';
@@ -9,7 +9,7 @@ class Home extends Component {
     constructor() {
         super();
         this.state = {
-            results: [], 
+            results: [],
             selectedResult: null,
             news: [],
         }
@@ -18,34 +18,34 @@ class Home extends Component {
     componentDidMount() {
         fetch('/home/static')
             .then(res => res.json())
-            .then(res => this.setState({news: res.results}, () => {
-                console.log('fetched', res);
+            .then(res => this.setState({ news: res.results }, () => {
+                console.log('fetched', res.results[0].multimedia[0]);
             }));
     }
 
     handleResultSelect = (e, { result }) =>
-      this.setState({ selectedResult: result });
-  
+        this.setState({ selectedResult: result });
+
     handleSearchChange = async (event, { value }) => {
-      try {
-        const response = await fetch(
-          `https://api.cognitive.microsoft.com/bing/v7.0/suggestions?mkt=fr-FR&q=${value}`,
-          {
-            headers: {
-              "Ocp-Apim-Subscription-Key": "79f5b5a589c74be4aa1d102ca11fadd2"
-            }
-          }
-        );
-        const data = await response.json();
-        const resultsRaw = data.suggestionGroups[0].searchSuggestions;
-        const results = resultsRaw.map(result => ({
-          title: result.displayText,
-          url: result.url
-        }));
-        this.setState({ results });
-      } catch (error) {
-        console.error(`Error fetching search ${value}`);
-      }
+        try {
+            const response = await fetch(
+                `https://api.cognitive.microsoft.com/bing/v7.0/suggestions?mkt=fr-FR&q=${value}`,
+                {
+                    headers: {
+                        "Ocp-Apim-Subscription-Key": "79f5b5a589c74be4aa1d102ca11fadd2"
+                    }
+                }
+            );
+            const data = await response.json();
+            const resultsRaw = data.suggestionGroups[0].searchSuggestions;
+            const results = resultsRaw.map(result => ({
+                title: result.displayText,
+                url: result.url
+            }));
+            this.setState({ results });
+        } catch (error) {
+            console.error(`Error fetching search ${value}`);
+        }
     };
 
     render() {
@@ -58,6 +58,7 @@ class Home extends Component {
                         })}
                         results={this.state.results}
                         onResultSelect={this.handleResultSelect}
+                        placeholder={'Enter Keyword'}
                     />
                     <Nav>
                         <Nav.Item>
@@ -116,9 +117,41 @@ class Home extends Component {
                         </Nav.Item>
                     </Nav>
                 </Navbar>
-                <div>
-                    {this.state.news.map(news => 
-                        <p>{news.url}</p>
+                <div id="cards">
+                    {this.state.news.map((news, id) =>
+                        <Card key={id} border="secondary" className="text-left card-center">
+                            <Container>
+                                <Row>
+                                    <Col sm={4}>
+                                        <Card.Img variant="top" src={news.multimedia && news.multimedia[0].url}></Card.Img>
+                                    </Col>
+                                    <Col sm={8}>
+                                        <Card.Body>
+                                            <Card.Title>{news.title}</Card.Title>
+                                            <Card.Text>{news.abstract}</Card.Text>
+                                            <Container>
+                                                <Row>
+                                                    <Col>
+                                                        <Card.Text>
+                                                            {news.published_date.substring(0, 10)}
+                                                        </Card.Text>
+                                                    </Col>
+                                                    <Col>
+                                                        <Card bg={news.section === 'world' ? 'success' :
+                                                            news.section === 'politics' ? 'info' :
+                                                                news.section === 'business' ? 'primary' :
+                                                                    news.section === 'technology' ? 'warning' :
+                                                                        news.section === 'sports' ? 'danger' : 'dark'} className='card-right'>
+                                                            <Card.Text style={{ 'text-align': 'center' }}>{news.section}</Card.Text>
+                                                        </Card>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </Card.Body>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Card>
                     )}
                 </div>
             </div>
