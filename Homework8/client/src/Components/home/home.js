@@ -119,38 +119,40 @@ class Home extends Component {
                 </Navbar>
                 <div id="cards">
                     {this.state.news.map((news, id) =>
-                        <Card key={id} border="secondary" className="text-left card-center">
-                            <Container>
-                                <Row>
-                                    <Col sm={4}>
-                                        <Card.Img variant="top" src={news.multimedia && news.multimedia[0].url}></Card.Img>
-                                    </Col>
-                                    <Col sm={8}>
-                                        <Card.Body>
-                                            <Card.Title>{news.title}</Card.Title>
-                                            <Card.Text>{news.abstract}</Card.Text>
-                                            <Container>
-                                                <Row>
-                                                    <Col>
-                                                        <Card.Text>
-                                                            {news.published_date.substring(0, 10)}
-                                                        </Card.Text>
-                                                    </Col>
-                                                    <Col>
-                                                        <Card bg={news.section === 'world' ? 'success' :
-                                                            news.section === 'politics' ? 'info' :
-                                                                news.section === 'business' ? 'primary' :
-                                                                    news.section === 'technology' ? 'warning' :
-                                                                        news.section === 'sports' ? 'danger' : 'dark'} className='card-right'>
-                                                            <Card.Text style={{ 'text-align': 'center' }}>{news.section}</Card.Text>
-                                                        </Card>
-                                                    </Col>
-                                                </Row>
-                                            </Container>
-                                        </Card.Body>
-                                    </Col>
-                                </Row>
-                            </Container>
+                        <Card key={id} border="secondary" className="text-left card">
+                            <a href={news.url} className="card-link">
+                                <Container>
+                                    <Row>
+                                        <Col sm={3}>
+                                            <Card.Img variant="top" className="card-image" src={news.multimedia && news.multimedia[0].url}></Card.Img>
+                                        </Col>
+                                        <Col sm={9}>
+                                            <Card.Body>
+                                                <Card.Title>{news.title}</Card.Title>
+                                                <Card.Text>{news.abstract}</Card.Text>
+                                                <Container>
+                                                    <Row>
+                                                        <Col>
+                                                            <Card.Text>
+                                                                {news.published_date.substring(0, 10)}
+                                                            </Card.Text>
+                                                        </Col>
+                                                        <Col>
+                                                            <Card bg={news.section === 'world' ? 'success' :
+                                                                news.section === 'politics' ? 'info' :
+                                                                    news.section === 'business' ? 'primary' :
+                                                                        news.section === 'technology' ? 'warning' :
+                                                                            news.section === 'sports' ? 'danger' : 'dark'} className='card-tag'>
+                                                                <Card.Text style={{ 'text-align': 'center' }}>{news.section}</Card.Text>
+                                                            </Card>
+                                                        </Col>
+                                                    </Row>
+                                                </Container>
+                                            </Card.Body>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </a>
                         </Card>
                     )}
                 </div>
