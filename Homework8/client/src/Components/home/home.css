@@ -25,3 +25,8 @@
     margin: 5% 0 ;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.modal-center {
+    text-align: center;
+    margin-top: 1%;
+}
