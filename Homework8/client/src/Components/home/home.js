@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Form, Card, Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import { Nav, Navbar, Form, Card, Container, Row, Col, Button, Modal, Spinner } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import _ from 'lodash';
 import './home.css';
-
 
 class Home extends Component {
     constructor() {
@@ -63,137 +62,146 @@ class Home extends Component {
         return (
             <div>
                 {/* ************************ Navigation Bar ************************* */}
-                <div id='page-main'>
-                    <Navbar bg="primary" variant="dark">
-                        <Search
-                            onSearchChange={_.debounce(this.handleSearchChange, 1000, {
-                                leading: true
-                            })}
-                            results={this.state.results}
-                            onResultSelect={this.handleResultSelect}
-                            placeholder={'Enter Keyword'}
-                        />
-                        <Nav>
-                            <Nav.Item>
-                                <Nav.Link href="/home">Home</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link
-                                    eventKey="world"
-                                    onSelect={value => this.onSelect_fetch(value)}
-                                >
-                                    World
+                <Navbar bg="primary" variant="dark">
+                    <Search
+                        onSearchChange={_.debounce(this.handleSearchChange, 1000, {
+                            leading: true
+                        })}
+                        results={this.state.results}
+                        onResultSelect={this.handleResultSelect}
+                        placeholder={'Enter Keyword'}
+                    />
+                    <Nav>
+                        <Nav.Item>
+                            <Nav.Link href="/home">Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link
+                                eventKey="world"
+                                onSelect={value => this.onSelect_fetch(value)}
+                            >
+                                World
                             </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link
-                                    eventKey="politics"
-                                    onSelect={value => this.onSelect_fetch(value)}
-                                >
-                                    Politics
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link
+                                eventKey="politics"
+                                onSelect={value => this.onSelect_fetch(value)}
+                            >
+                                Politics
                             </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link
-                                    eventKey="business"
-                                    onSelect={value => this.onSelect_fetch(value)}
-                                >
-                                    Business
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link
+                                eventKey="business"
+                                onSelect={value => this.onSelect_fetch(value)}
+                            >
+                                Business
                             </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link
-                                    eventKey="technology"
-                                    onSelect={value => this.onSelect_fetch(value)}
-                                >
-                                    Technology
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link
+                                eventKey="technology"
+                                onSelect={value => this.onSelect_fetch(value)}
+                            >
+                                Technology
                             </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link
-                                    eventKey="sports"
-                                    onSelect={value => this.onSelect_fetch(value)}
-                                >
-                                    Sports
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link
+                                eventKey="sports"
+                                onSelect={value => this.onSelect_fetch(value)}
+                            >
+                                Sports
                             </Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                        <Nav className="ml-auto">
-                            <Nav.Item>
-                                <Nav.Link>NYTimes</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Form.Switch label="" />
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link>Guardian</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                    </Navbar>
+                        </Nav.Item>
+                    </Nav>
+                    <Nav className="ml-auto">
+                        <Nav.Item>
+                            <Nav.Link>NYTimes</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Form.Switch label="" />
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link>Guardian</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Navbar>
 
-                    {/* ************************ Cards ************************* */}
-                    <div id="cards">
-                        {this.state.news.map((news, index) =>
-                            <Card key={index} border="secondary" className="text-left card">
-                                <a href={news.url} className="card-link" onClick={(event) => {
-                                    event.preventDefault();
-                                    // console.log("onclick");
-                                }}>
-                                    <Container>
-                                        <Row>
-                                            <Col sm={3}>
-                                                <Card.Img variant="top" className="card-image" src={news.multimedia && news.multimedia[0].url}></Card.Img>
-                                            </Col>
-                                            <Col sm={9}>
-                                                <Card.Body>
-                                                    <Card.Title>
-                                                        {news.title}
-                                                        <Button variant="light" key={index} onClick={(event) => {
-                                                            event.preventDefault();
-                                                            this.setState({
-                                                                modal: {
-                                                                    show: true,
-                                                                    news: {
-                                                                        title: this.state.news[index].title,
-                                                                        url: this.state.news[index].url
-                                                                    }
+                
+                {/* *************** Loading Page *************** */}
+                {/* ***** Spinner ***** */}
+                <div id="page-loading" className="loading">
+                    <Spinner animation="grow" variant="primary"></Spinner>
+                    <p>Loading</p>
+                </div>
+
+                {/* *************** Card Page *************** */}
+                {/* ***** Cards ***** */}
+                <div id="page-cards">
+                    {this.state.news.map((news, index) =>
+                        <Card key={index} border="secondary" className="text-left card">
+                            <a href={news.url} className="card-link" onClick={(event) => {
+                                event.preventDefault();
+                                document.getElementById('page-cards').style.display = "none";
+                                document.getElementById("page-loading").style.display = "block";
+                                fetch()
+                            }}>
+                                <Container>
+                                    <Row>
+                                        <Col sm={3}>
+                                            <Card.Img variant="top" className="card-image" src={news.multimedia && news.multimedia[0].url}></Card.Img>
+                                        </Col>
+                                        <Col sm={9}>
+                                            <Card.Body>
+                                                <Card.Title>
+                                                    {news.title}
+                                                    <Button variant="light" key={index} onClick={(event) => {
+                                                        event.preventDefault();
+                                                        this.setState({
+                                                            modal: {
+                                                                show: true,
+                                                                news: {
+                                                                    title: this.state.news[index].title,
+                                                                    url: this.state.news[index].url
                                                                 }
-                                                            }, () => {
-                                                                // console.log(this.state.modal);
-                                                            });
-                                                        }}>
-                                                            Share
+                                                            }
+                                                        }, () => {
+                                                            // console.log(this.state.modal);
+                                                        });
+                                                    }}>
+                                                        Share
                                                     </Button>
-                                                    </Card.Title>
-                                                    <Card.Text>{news.abstract}</Card.Text>
-                                                    <Container>
-                                                        <Row>
-                                                            <Col>
-                                                                <Card.Text>
-                                                                    {news.published_date.substring(0, 10)}
-                                                                </Card.Text>
-                                                            </Col>
-                                                            <Col>
-                                                                <Card bg={news.section === 'world' ? 'success' :
-                                                                    news.section === 'politics' ? 'info' :
-                                                                        news.section === 'business' ? 'primary' :
-                                                                            news.section === 'technology' ? 'warning' :
-                                                                                news.section === 'sports' ? 'danger' : 'dark'} className='card-tag'>
-                                                                    <Card.Text style={{ 'textAlign': 'center' }}>{news.section}</Card.Text>
-                                                                </Card>
-                                                            </Col>
-                                                        </Row>
-                                                    </Container>
-                                                </Card.Body>
-                                            </Col>
-                                        </Row>
-                                    </Container>
-                                </a>
-                            </Card>
-                        )}
-                    </div>
+                                                </Card.Title>
+                                                <Card.Text>{news.abstract}</Card.Text>
+                                                <Container>
+                                                    <Row>
+                                                        <Col>
+                                                            <Card.Text>
+                                                                {news.published_date.substring(0, 10)}
+                                                            </Card.Text>
+                                                        </Col>
+                                                        <Col>
+                                                            <Card bg={news.section === 'world' ? 'success' :
+                                                                news.section === 'politics' ? 'info' :
+                                                                    news.section === 'business' ? 'primary' :
+                                                                        news.section === 'technology' ? 'warning' :
+                                                                            news.section === 'sports' ? 'danger' : 'dark'} className='card-tag'>
+                                                                <Card.Text style={{ 'textAlign': 'center' }}>{news.section}</Card.Text>
+                                                            </Card>
+                                                        </Col>
+                                                    </Row>
+                                                </Container>
+                                            </Card.Body>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </a>
+                        </Card>
+                    )}
 
-                    {/* ************************ Modal ************************* */}
+                    {/* ***** Modal ***** */}
                     <Modal show={this.state.modal.show} onHide={() => {
                         this.setState({
                             modal: {
@@ -232,8 +240,8 @@ class Home extends Component {
                         </Modal.Body>
                     </Modal>
                 </div>
-
             </div>
+
         );
     };
 }
