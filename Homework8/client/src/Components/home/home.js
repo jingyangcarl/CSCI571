@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Nav, Navbar, Form, Card, Container, Row, Col, Button, Modal, Spinner } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
+import commentBox from 'commentbox.io';
 import _ from 'lodash';
 import './home.css';
 
@@ -20,16 +21,23 @@ class Home extends Component {
                     url: null,
                 }
             },
-            loading: false
-        }
+
+            news_detail: null
+        };
+        this.shareClicked = false;
     }
 
     componentDidMount() {
+        this.removeCommentBox = commentBox('5651135952060416-proj');
         fetch('/home/static')
             .then(res => res.json())
             .then(res => this.setState({ news: res.results }, () => {
                 // console.log('fetched', res.results[0].multimedia[0]);
             }));
+    }
+
+    componentWillUnmount() {
+        this.removeCommentBox();
     }
 
     handleResultSelect = (e, { result }) =>
@@ -129,7 +137,7 @@ class Home extends Component {
                     </Nav>
                 </Navbar>
 
-                
+
                 {/* *************** Loading Page *************** */}
                 {/* ***** Spinner ***** */}
                 <div id="page-loading" className="loading">
@@ -144,14 +152,33 @@ class Home extends Component {
                         <Card key={index} border="secondary" className="text-left card">
                             <a href={news.url} className="card-link" onClick={(event) => {
                                 event.preventDefault();
-                                document.getElementById('page-cards').style.display = "none";
-                                document.getElementById("page-loading").style.display = "block";
-                                fetch()
+                                if (this.shareClicked) {
+                                    // button clicked
+                                } else {
+                                    // link clicked
+                                    document.getElementById('page-cards').style.display = "none";
+                                    document.getElementById("page-loading").style.display = "block";
+                                    fetch('/home/detail/static', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            url: this.state.news[index].url
+                                        })
+                                    })
+                                        .then(res => res.json())
+                                        .then(res => this.setState({ news_detail: res.response.docs[0] }, () => {
+                                            // console.log('fetched', this.state.news_detail);
+                                        }));
+                                    document.getElementById("page-loading").style.display = "none";
+                                    document.getElementById("page-detail").style.display = "block";
+                                }
                             }}>
                                 <Container>
                                     <Row>
                                         <Col sm={3}>
-                                            <Card.Img variant="top" className="card-image" src={news.multimedia && news.multimedia[0].url}></Card.Img>
+                                            <Card.Img className="card-image" src={news.multimedia && news.multimedia[0].url}></Card.Img>
                                         </Col>
                                         <Col sm={9}>
                                             <Card.Body>
@@ -170,6 +197,7 @@ class Home extends Component {
                                                         }, () => {
                                                             // console.log(this.state.modal);
                                                         });
+                                                        this.shareClicked = true;
                                                     }}>
                                                         Share
                                                     </Button>
@@ -212,6 +240,7 @@ class Home extends Component {
                                 }
                             }
                         });
+                        this.shareClicked = false;
                     }} centered>
                         <Modal.Header closeButton>
                             <Modal.Title>{this.state.modal.news.title}</Modal.Title>
@@ -240,8 +269,49 @@ class Home extends Component {
                         </Modal.Body>
                     </Modal>
                 </div>
-            </div>
 
+                {/* *************** Detail Page *************** */}
+                <div id="page-detail" className="detail">
+                    <Card className="card">
+                        <Container>
+                            <Row className="card-row">
+                                <Col>
+                                    <Card.Title>{this.state.news_detail && this.state.news_detail.headline.main}</Card.Title>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <Card.Text>
+                                        {this.state.news_detail && this.state.news_detail.pub_date.substring(0, 10)}
+                                    </Card.Text>
+                                </Col>
+                                <Col>
+                                    <FacebookShareButton url={this.state.news_detail && this.state.news_detail.web_url} hashtag={'#CSCI_571_NewsApp'}>
+                                        <FacebookIcon size={16} round></FacebookIcon>
+                                    </FacebookShareButton>
+                                    <TwitterShareButton url={this.state.news_detail && this.state.news_detail.web_url} hashtag={'#CSCI_571_NewsApp'}>
+                                        <TwitterIcon size={16} round></TwitterIcon>
+                                    </TwitterShareButton>
+                                    <EmailShareButton url={this.state.news_detail && this.state.news_detail.web_url} subject={'#CSCI_571_NewsApp'}>
+                                        <EmailIcon size={16} round></EmailIcon>
+                                    </EmailShareButton>
+                                </Col>
+                            </Row>
+                            <Row className="card-row">
+                                <Card.Img src={this.state.news_detail && 'http://www.nytimes.com/' + this.state.news_detail.multimedia[0].url}></Card.Img>
+                            </Row>
+                            <Row className="card-row">
+                                <Col>
+                                    <Card.Text>
+                                        {this.state.news_detail && this.state.news_detail.abstract}
+                                    </Card.Text>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Card>
+                    <div class="commentbox"></div>
+                </div>
+            </div>
         );
     };
 }
