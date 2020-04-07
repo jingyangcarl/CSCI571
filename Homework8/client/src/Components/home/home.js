@@ -22,19 +22,19 @@ class Home extends Component {
                 }
             },
 
-            news_detail: null
+            news_detail: null,
         };
-        this.shareClicked = false;
+        this.shareButtonClicked = false;
     }
 
     componentDidMount() {
+
         this.removeCommentBox = commentBox('5651135952060416-proj');
 
-        // fetch('/home/static')
-        fetch('/home')
+        fetch('/home/static')
+            // fetch('/home')
             .then(res => res.json())
             .then(res => this.setState({ news: res.results }, () => {
-                // console.log('fetched', res.results[0].multimedia[0]);
                 document.getElementById('page-cards').style.display = "block";
                 document.getElementById("page-loading").style.display = "none";
             }));
@@ -87,47 +87,22 @@ class Home extends Component {
                     />
                     <Nav>
                         <Nav.Item>
-                            <Nav.Link href="/home">Home</Nav.Link>
+                            <Nav.Link eventKey="home" href="/home"> Home </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link
-                                eventKey="world"
-                                onSelect={value => this.onSelect_fetch(value)}
-                            >
-                                World
-                            </Nav.Link>
+                            <Nav.Link eventKey="world" href="/world"> World </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link
-                                eventKey="politics"
-                                onSelect={value => this.onSelect_fetch(value)}
-                            >
-                                Politics
-                            </Nav.Link>
+                            <Nav.Link eventKey="politics" href="/test"> Politics </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link
-                                eventKey="business"
-                                onSelect={value => this.onSelect_fetch(value)}
-                            >
-                                Business
-                            </Nav.Link>
+                            <Nav.Link eventKey="business" href="/business"> Business </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link
-                                eventKey="technology"
-                                onSelect={value => this.onSelect_fetch(value)}
-                            >
-                                Technology
-                            </Nav.Link>
+                            <Nav.Link eventKey="technology" href="/technology"> Technology </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link
-                                eventKey="sports"
-                                onSelect={value => this.onSelect_fetch(value)}
-                            >
-                                Sports
-                            </Nav.Link>
+                            <Nav.Link eventKey="sports" href="/sports"> Sports </Nav.Link>
                         </Nav.Item>
                     </Nav>
                     <Nav className="ml-auto">
@@ -158,7 +133,7 @@ class Home extends Component {
                         <Card key={index} border="secondary" className="text-left card">
                             <a href={news.url} className="card-link" onClick={(event) => {
                                 event.preventDefault();
-                                if (this.shareClicked) {
+                                if (this.shareButtonClicked) {
                                     // button clicked
                                 } else {
                                     // link clicked
@@ -174,7 +149,6 @@ class Home extends Component {
                                     })
                                         .then(res => res.json())
                                         .then(res => this.setState({ news_detail: res.response.docs[0] }, () => {
-                                            // console.log('fetched', this.state.news_detail);
                                             document.getElementById("page-loading").style.display = "none";
                                             document.getElementById("page-detail").style.display = "block";
                                         }));
@@ -204,7 +178,7 @@ class Home extends Component {
                                                         }, () => {
                                                             // console.log(this.state.modal);
                                                         });
-                                                        this.shareClicked = true;
+                                                        this.shareButtonClicked = true;
                                                     }}>
                                                         Share
                                                     </Button>
@@ -247,7 +221,7 @@ class Home extends Component {
                                 }
                             }
                         });
-                        this.shareClicked = false;
+                        this.shareButtonClicked = false;
                     }} centered>
                         <Modal.Header closeButton>
                             <Modal.Title>{this.state.modal.news.title}</Modal.Title>
