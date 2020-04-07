@@ -29,11 +29,17 @@ class Home extends Component {
 
     componentDidMount() {
         this.removeCommentBox = commentBox('5651135952060416-proj');
-        fetch('/home/static')
+
+        // fetch('/home/static')
+        fetch('/home')
             .then(res => res.json())
             .then(res => this.setState({ news: res.results }, () => {
                 // console.log('fetched', res.results[0].multimedia[0]);
+                document.getElementById('page-cards').style.display = "block";
+                document.getElementById("page-loading").style.display = "none";
             }));
+        document.getElementById('page-cards').style.display = "none";
+        document.getElementById("page-loading").style.display = "block";
     }
 
     componentWillUnmount() {
@@ -156,9 +162,8 @@ class Home extends Component {
                                     // button clicked
                                 } else {
                                     // link clicked
-                                    document.getElementById('page-cards').style.display = "none";
-                                    document.getElementById("page-loading").style.display = "block";
-                                    fetch('/home/detail/static', {
+                                    fetch('/home/detail', {
+                                        // fetch('/home/detail/static', {
                                         method: 'POST',
                                         headers: {
                                             'Content-Type': 'application/json'
@@ -170,9 +175,11 @@ class Home extends Component {
                                         .then(res => res.json())
                                         .then(res => this.setState({ news_detail: res.response.docs[0] }, () => {
                                             // console.log('fetched', this.state.news_detail);
+                                            document.getElementById("page-loading").style.display = "none";
+                                            document.getElementById("page-detail").style.display = "block";
                                         }));
-                                    document.getElementById("page-loading").style.display = "none";
-                                    document.getElementById("page-detail").style.display = "block";
+                                    document.getElementById('page-cards').style.display = "none";
+                                    document.getElementById("page-loading").style.display = "block";
                                 }
                             }}>
                                 <Container>
@@ -298,7 +305,7 @@ class Home extends Component {
                                 </Col>
                             </Row>
                             <Row className="card-row">
-                                <Card.Img src={this.state.news_detail && 'http://www.nytimes.com/' + this.state.news_detail.multimedia[0].url}></Card.Img>
+                                <Card.Img src={this.state.news_detail && this.state.news_detail.multimedia[0] && 'http://www.nytimes.com/' + this.state.news_detail.multimedia[0].url}></Card.Img>
                             </Row>
                             <Row className="card-row">
                                 <Col>
@@ -309,7 +316,7 @@ class Home extends Component {
                             </Row>
                         </Container>
                     </Card>
-                    <div class="commentbox"></div>
+                    <div className="commentbox"></div>
                 </div>
             </div>
         );
