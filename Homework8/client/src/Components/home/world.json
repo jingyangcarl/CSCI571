@@ -1,0 +1,2805 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2020 The New York Times Company. All Rights Reserved.",
+    "section": "World News",
+    "last_updated": "2020-04-08T00:12:11-04:00",
+    "num_results": 35,
+    "results": [
+        {
+            "section": "world",
+            "subsection": "",
+            "title": "Wuhan, Birthplace of Coronavirus, Lifts Lockdown After 11 Weeks: Live Coverage",
+            "abstract": "Prime Minister Boris Johnson spent a second night in intensive care, and President Trump threatened to cut funding for the World Health Organization.",
+            "url": "https://www.nytimes.com/2020/04/08/world/coronavirus-news.html",
+            "uri": "nyt://article/dcc970ce-d36b-5429-bac1-2879c2d2e9f4",
+            "byline": "",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:25:09-04:00",
+            "created_date": "2020-04-08T00:03:57-04:00",
+            "published_date": "2020-04-08T00:03:57-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-superJumbo-v251.png",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-thumbStandard-v257.png",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-thumbLarge-v257.png",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-mediumThreeByTwo210-v257.png",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-articleInline-v251.png",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/3aUjKhF"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "Spain’s Coronavirus Crisis Accelerated as Warnings Went Unheeded",
+            "abstract": "The Spanish epidemic has become a painful example of the tendency of one government after another to ignore the experiences of countries where the virus has already struck.",
+            "url": "https://www.nytimes.com/2020/04/07/world/europe/spain-coronavirus.html",
+            "uri": "nyt://article/fcaf0ea0-483a-596f-a3fa-4b327ab1e2fa",
+            "byline": "By Raphael Minder",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T23:51:35-04:00",
+            "created_date": "2020-04-07T05:00:25-04:00",
+            "published_date": "2020-04-07T05:00:25-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Politics and Government",
+                "Coronavirus (2019-nCoV)",
+                "Quarantines",
+                "Emergency Medical Treatment",
+                "Deaths (Fatalities)",
+                "Tests (Medical)",
+                "Hospitals",
+                "Epidemics"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Sanchez Perez-Castejon, Pedro (1972- )",
+                "Costa, Antonio (1961- )"
+            ],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/03/world/00virus-spain11-promo/00virus-spain11-promo-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1536,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coffins of coronavirus victims waiting to be buried or incinerated were stored in an underground parking lot at an unused funeral house in Barcelona on Thursday.",
+                    "copyright": "Samuel Aranda for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/03/world/00virus-spain11-promo/00virus-spain11-promo-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coffins of coronavirus victims waiting to be buried or incinerated were stored in an underground parking lot at an unused funeral house in Barcelona on Thursday.",
+                    "copyright": "Samuel Aranda for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/03/world/00virus-spain11-promo/00virus-spain11-promo-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coffins of coronavirus victims waiting to be buried or incinerated were stored in an underground parking lot at an unused funeral house in Barcelona on Thursday.",
+                    "copyright": "Samuel Aranda for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/03/world/00virus-spain11-promo/00virus-spain11-promo-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coffins of coronavirus victims waiting to be buried or incinerated were stored in an underground parking lot at an unused funeral house in Barcelona on Thursday.",
+                    "copyright": "Samuel Aranda for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/03/world/00virus-spain11-promo/00virus-spain11-promo-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 143,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coffins of coronavirus victims waiting to be buried or incinerated were stored in an underground parking lot at an unused funeral house in Barcelona on Thursday.",
+                    "copyright": "Samuel Aranda for The New York Times"
+                }
+            ],
+            "short_url": ""
+        },
+        {
+            "section": "world",
+            "subsection": "australia",
+            "title": "Cardinal Pell’s Acquittal Was as Opaque as His Sexual Abuse Trial",
+            "abstract": "Critics argue that Australia’s courts exhibited a penchant for secrecy and insular decision-making that resembled the Roman Catholic Church’s flawed response to sexual abuse within its ranks.",
+            "url": "https://www.nytimes.com/2020/04/07/world/australia/cardinal-george-pell-acquittal.html",
+            "uri": "nyt://article/a5f33d02-9ab7-56f1-a48d-6f9768bda916",
+            "byline": "By Damien Cave and Livia Albeck-Ripka",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:19:24-04:00",
+            "created_date": "2020-04-07T09:25:53-04:00",
+            "published_date": "2020-04-07T09:25:53-04:00",
+            "material_type_facet": "",
+            "kicker": "news analysis",
+            "des_facet": [
+                "Courts and the Judiciary",
+                "Decisions and Verdicts",
+                "Priests",
+                "Sex Crimes",
+                "Jury System",
+                "Child Abuse and Neglect",
+                "News and News Media"
+            ],
+            "org_facet": [
+                "Roman Catholic Church"
+            ],
+            "per_facet": [
+                "Pell, George (1941- )"
+            ],
+            "geo_facet": [
+                "Australia"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07oz-pell-1/merlin_137542122_b739ea81-e56f-47e4-9387-780c827e8cd8-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in 2018. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Joe Castro/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07oz-pell-1/07oz-pell-1-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in 2018. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Joe Castro/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07oz-pell-1/07oz-pell-1-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in 2018. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Joe Castro/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07oz-pell-1/07oz-pell-1-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in 2018. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Joe Castro/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07oz-pell-1/merlin_137542122_b739ea81-e56f-47e4-9387-780c827e8cd8-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in 2018. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Joe Castro/EPA, via Shutterstock"
+                }
+            ],
+            "short_url": "https://nyti.ms/3aSTRPg"
+        },
+        {
+            "section": "world",
+            "subsection": "asia",
+            "title": "China Ends Wuhan Lockdown, but Normal Life Is a Distant Dream",
+            "abstract": "In the city where the coronavirus outbreak was first reported, the reopening of outbound travel won’t end hard times, wariness or confinement.",
+            "url": "https://www.nytimes.com/2020/04/07/world/asia/wuhan-coronavirus.html",
+            "uri": "nyt://article/5a8a4ff3-aa73-5c6e-b6cf-357c9c5ab743",
+            "byline": "By Raymond Zhong and Vivian Wang",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:24:32-04:00",
+            "created_date": "2020-04-07T12:05:25-04:00",
+            "published_date": "2020-04-07T12:05:25-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Economic Conditions and Trends",
+                "Epidemics",
+                "Quarantines",
+                "Shopping and Retail"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [
+                "China",
+                "Hubei Province (China)",
+                "Wuhan (China)"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-wuhan-2/07virus-wuhan-2-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A shopping area on Monday.",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-wuhan-2/07virus-wuhan-2-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A shopping area on Monday.",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-wuhan-2/07virus-wuhan-2-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A shopping area on Monday.",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-wuhan-2/07virus-wuhan-2-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A shopping area on Monday.",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-wuhan-2/07virus-wuhan-2-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A shopping area on Monday.",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                }
+            ],
+            "short_url": "https://nyti.ms/3aRVhd4"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "With Boris Johnson in Intensive Care, U.K. Faces a Leadership Quandary",
+            "abstract": "Lacking a written constitution, Britain has no codified order of succession for prime minister. For now, the foreign secretary, Dominic Raab, will take the reins.",
+            "url": "https://www.nytimes.com/2020/04/07/world/europe/boris-johnson-coronavirus.html",
+            "uri": "nyt://article/30725c6b-fc12-5397-8ab6-2bfab2c55adc",
+            "byline": "By Mark Landler and Stephen Castle",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T23:45:50-04:00",
+            "created_date": "2020-04-07T08:44:26-04:00",
+            "published_date": "2020-04-07T08:44:26-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Politics and Government"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Johnson, Boris",
+                "Raab, Dominic (1974- )"
+            ],
+            "geo_facet": [
+                "Great Britain"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07VIRUS-BRITAIN1/merlin_171356220_4e914a20-8f03-4863-bbea-13a06b1cc251-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1326,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Dominic Raab, left, Britain’s foreign secretary, led government meetings about the pandemic on Monday and Tuesday, and will probably take on additional duties.",
+                    "copyright": "Matt Dunham/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07VIRUS-BRITAIN1/07VIRUS-BRITAIN1-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Dominic Raab, left, Britain’s foreign secretary, led government meetings about the pandemic on Monday and Tuesday, and will probably take on additional duties.",
+                    "copyright": "Matt Dunham/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07VIRUS-BRITAIN1/07VIRUS-BRITAIN1-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Dominic Raab, left, Britain’s foreign secretary, led government meetings about the pandemic on Monday and Tuesday, and will probably take on additional duties.",
+                    "copyright": "Matt Dunham/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07VIRUS-BRITAIN1/07VIRUS-BRITAIN1-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Dominic Raab, left, Britain’s foreign secretary, led government meetings about the pandemic on Monday and Tuesday, and will probably take on additional duties.",
+                    "copyright": "Matt Dunham/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07VIRUS-BRITAIN1/merlin_171356220_4e914a20-8f03-4863-bbea-13a06b1cc251-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 123,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Dominic Raab, left, Britain’s foreign secretary, led government meetings about the pandemic on Monday and Tuesday, and will probably take on additional duties.",
+                    "copyright": "Matt Dunham/Associated Press"
+                }
+            ],
+            "short_url": "https://nyti.ms/2UR5fWg"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "Coronavirus Puts to the Fore an Improbable U.K. Leader: Dominic Raab",
+            "abstract": "With Prime Minister Boris Johnson in intensive care, the untested foreign secretary is for now guiding Britain through one of its greatest peacetime crises.",
+            "url": "https://www.nytimes.com/2020/04/07/world/europe/who-is-dominic-raab.html",
+            "uri": "nyt://article/321aa5d2-9fd8-5cef-9918-0156ad57be12",
+            "byline": "By Benjamin Mueller",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T12:22:53-04:00",
+            "created_date": "2020-04-07T12:00:48-04:00",
+            "published_date": "2020-04-07T12:00:48-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Great Britain Withdrawal from EU (Brexit)",
+                "Coronavirus (2019-nCoV)",
+                "Politics and Government"
+            ],
+            "org_facet": [
+                "Conservative Party (Great Britain)"
+            ],
+            "per_facet": [
+                "Johnson, Boris",
+                "Raab, Dominic (1974- )"
+            ],
+            "geo_facet": [
+                "Great Britain"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-raab1/07virus-raab1-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1385,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The responsibilities of Dominic Raab, center, Britain’s foreign secretary, have grown far more quickly than anyone expected.",
+                    "copyright": "Simon Dawson/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-raab1/07virus-raab1-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The responsibilities of Dominic Raab, center, Britain’s foreign secretary, have grown far more quickly than anyone expected.",
+                    "copyright": "Simon Dawson/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-raab1/07virus-raab1-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The responsibilities of Dominic Raab, center, Britain’s foreign secretary, have grown far more quickly than anyone expected.",
+                    "copyright": "Simon Dawson/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-raab1/07virus-raab1-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The responsibilities of Dominic Raab, center, Britain’s foreign secretary, have grown far more quickly than anyone expected.",
+                    "copyright": "Simon Dawson/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-raab1/07virus-raab1-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 129,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The responsibilities of Dominic Raab, center, Britain’s foreign secretary, have grown far more quickly than anyone expected.",
+                    "copyright": "Simon Dawson/Reuters"
+                }
+            ],
+            "short_url": "https://nyti.ms/39KiMU0"
+        },
+        {
+            "section": "world",
+            "subsection": "americas",
+            "title": "Ecuador’s Former President Convicted on Corruption Charges",
+            "abstract": "The outcome of Rafael Correa’s closely watched trial is likely to affect Ecuador’s political landscape for years to come.",
+            "url": "https://www.nytimes.com/2020/04/07/world/americas/ecuador-correa-corruption-verdict.html",
+            "uri": "nyt://article/39c8ea8d-3ef8-585d-a3c4-0b472c48188b",
+            "byline": "By José María León Cabrera",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:18:20-04:00",
+            "created_date": "2020-04-07T13:44:10-04:00",
+            "published_date": "2020-04-07T13:44:10-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Ethics and Official Misconduct",
+                "Politics and Government",
+                "Bribery and Kickbacks"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Correa, Rafael"
+            ],
+            "geo_facet": [
+                "Ecuador"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/06/world/06ecuador/06ecuador-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Rafael Correa, the former president of Ecuador, during an interview last year in Brussels.",
+                    "copyright": "Francisco Seco/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/06/world/06ecuador/06ecuador-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Rafael Correa, the former president of Ecuador, during an interview last year in Brussels.",
+                    "copyright": "Francisco Seco/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/06/world/06ecuador/06ecuador-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Rafael Correa, the former president of Ecuador, during an interview last year in Brussels.",
+                    "copyright": "Francisco Seco/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/06/world/06ecuador/06ecuador-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Rafael Correa, the former president of Ecuador, during an interview last year in Brussels.",
+                    "copyright": "Francisco Seco/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/06/world/06ecuador/06ecuador-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Rafael Correa, the former president of Ecuador, during an interview last year in Brussels.",
+                    "copyright": "Francisco Seco/Associated Press"
+                }
+            ],
+            "short_url": "https://nyti.ms/2RhQCt0"
+        },
+        {
+            "section": "world",
+            "subsection": "canada",
+            "title": "‘What Rhymes With Purell?’ Franglais Rappers Push Language Boundaries in Quebec",
+            "abstract": "Critics in Montreal say hip-hop artists mixing French and English are threatening the future of the French language in the majority Francophone province.",
+            "url": "https://www.nytimes.com/2020/04/07/world/canada/quebec-montreal-hip-hop-rapping-franglais.html",
+            "uri": "nyt://article/575624c0-43b2-59c0-9b70-279c3aec6320",
+            "byline": "By Dan Bilefsky",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:17:24-04:00",
+            "created_date": "2020-04-07T12:54:38-04:00",
+            "published_date": "2020-04-07T12:54:38-04:00",
+            "material_type_facet": "",
+            "kicker": "Montreal dispatch",
+            "des_facet": [
+                "French Language",
+                "Rap and Hip-Hop",
+                "Music"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [
+                "Canada",
+                "Montreal (Quebec)",
+                "Quebec Province (Canada)"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/02/world/02dispatch-montreal/02dispatch-montreal-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Members of the Franglais rap group Dead Obies, in Montreal. From left: Pierre Savu-Massé, a.k.a. Ogee Rodman; Jonathan Quirion, a.k.a. Joe Rocca; Charles-André Vincelette, a.k.a. 20some; Gregory Beaudin, a.k.a. Snail Kid; and Vincent Banville, a.k.a. Vince Carter.",
+                    "copyright": "Nasuna Stuart-Ulin for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/02/world/02dispatch-montreal/02dispatch-montreal-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Members of the Franglais rap group Dead Obies, in Montreal. From left: Pierre Savu-Massé, a.k.a. Ogee Rodman; Jonathan Quirion, a.k.a. Joe Rocca; Charles-André Vincelette, a.k.a. 20some; Gregory Beaudin, a.k.a. Snail Kid; and Vincent Banville, a.k.a. Vince Carter.",
+                    "copyright": "Nasuna Stuart-Ulin for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/02/world/02dispatch-montreal/02dispatch-montreal-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Members of the Franglais rap group Dead Obies, in Montreal. From left: Pierre Savu-Massé, a.k.a. Ogee Rodman; Jonathan Quirion, a.k.a. Joe Rocca; Charles-André Vincelette, a.k.a. 20some; Gregory Beaudin, a.k.a. Snail Kid; and Vincent Banville, a.k.a. Vince Carter.",
+                    "copyright": "Nasuna Stuart-Ulin for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/02/world/02dispatch-montreal/02dispatch-montreal-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Members of the Franglais rap group Dead Obies, in Montreal. From left: Pierre Savu-Massé, a.k.a. Ogee Rodman; Jonathan Quirion, a.k.a. Joe Rocca; Charles-André Vincelette, a.k.a. 20some; Gregory Beaudin, a.k.a. Snail Kid; and Vincent Banville, a.k.a. Vince Carter.",
+                    "copyright": "Nasuna Stuart-Ulin for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/02/world/02dispatch-montreal/02dispatch-montreal-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Members of the Franglais rap group Dead Obies, in Montreal. From left: Pierre Savu-Massé, a.k.a. Ogee Rodman; Jonathan Quirion, a.k.a. Joe Rocca; Charles-André Vincelette, a.k.a. 20some; Gregory Beaudin, a.k.a. Snail Kid; and Vincent Banville, a.k.a. Vince Carter.",
+                    "copyright": "Nasuna Stuart-Ulin for The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/2xaF8Ri"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "To Fight Coronavirus, U.K. Asked for Some Volunteers. It Got an Army.",
+            "abstract": "More than 750,000 people are pitching in to help older and more vulnerable Britons, helping dispel the discord of the Brexit era.",
+            "url": "https://www.nytimes.com/2020/04/07/world/europe/coronavirus-united-kingdom.html",
+            "uri": "nyt://article/677dc6aa-efd3-5207-bf8b-f7129e891a33",
+            "byline": "By Mark Landler",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T23:46:39-04:00",
+            "created_date": "2020-04-07T08:06:35-04:00",
+            "published_date": "2020-04-07T08:06:35-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Volunteers and Community Service",
+                "Supermarkets and Grocery Stores",
+                "Quarantines",
+                "Great Britain Withdrawal from EU (Brexit)",
+                "Elderly"
+            ],
+            "org_facet": [
+                "National Health Service"
+            ],
+            "per_facet": [],
+            "geo_facet": [
+                "Great Britain"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/05/world/05VIRUS-UK-VOLUNTEERS1/05VIRUS-UK-VOLUNTEERS1-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Kate Sellars chatting with Garth D’lima as she delivered his groceries in the Hampstead neighborhood of London last week.",
+                    "copyright": "Andrew Testa for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/05/world/05VIRUS-UK-VOLUNTEERS1/05VIRUS-UK-VOLUNTEERS1-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Kate Sellars chatting with Garth D’lima as she delivered his groceries in the Hampstead neighborhood of London last week.",
+                    "copyright": "Andrew Testa for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/05/world/05VIRUS-UK-VOLUNTEERS1/05VIRUS-UK-VOLUNTEERS1-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Kate Sellars chatting with Garth D’lima as she delivered his groceries in the Hampstead neighborhood of London last week.",
+                    "copyright": "Andrew Testa for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/05/world/05VIRUS-UK-VOLUNTEERS1/05VIRUS-UK-VOLUNTEERS1-mediumThreeByTwo210-v3.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Kate Sellars chatting with Garth D’lima as she delivered his groceries in the Hampstead neighborhood of London last week.",
+                    "copyright": "Andrew Testa for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/05/world/05VIRUS-UK-VOLUNTEERS1/05VIRUS-UK-VOLUNTEERS1-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Kate Sellars chatting with Garth D’lima as she delivered his groceries in the Hampstead neighborhood of London last week.",
+                    "copyright": "Andrew Testa for The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/2XgQ1vv"
+        },
+        {
+            "section": "world",
+            "subsection": "asia",
+            "title": "Japan Declared a Coronavirus Emergency. Is It Too Late?",
+            "abstract": "Some medical experts said the move amounted to a tacit admission that the approach the country had adopted for months was no longer working.",
+            "url": "https://www.nytimes.com/2020/04/07/world/asia/japan-coronavirus-emergency.html",
+            "uri": "nyt://article/a97bab7f-d4e0-5ef5-a8dd-1215d35d7fd8",
+            "byline": "By Motoko Rich, Hisako Ueno and Makiko Inoue",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T23:48:04-04:00",
+            "created_date": "2020-04-07T09:01:13-04:00",
+            "published_date": "2020-04-07T09:01:13-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Disasters and Emergencies",
+                "Quarantines",
+                "Telecommuting"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Abe, Shinzo"
+            ],
+            "geo_facet": [
+                "Japan"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-japan01sub/merlin_171362310_a8723c72-6a24-493a-a7b2-1577d25ce4a5-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A quiet Osaka, Japan, on Tuesday after Prime Minister Shinzo Abe declared a state of emergency in large parts of the country.",
+                    "copyright": "Hiroko Masuike/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-japan01sub/merlin_171362310_a8723c72-6a24-493a-a7b2-1577d25ce4a5-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A quiet Osaka, Japan, on Tuesday after Prime Minister Shinzo Abe declared a state of emergency in large parts of the country.",
+                    "copyright": "Hiroko Masuike/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-japan01sub/merlin_171362310_a8723c72-6a24-493a-a7b2-1577d25ce4a5-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A quiet Osaka, Japan, on Tuesday after Prime Minister Shinzo Abe declared a state of emergency in large parts of the country.",
+                    "copyright": "Hiroko Masuike/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-japan01sub/merlin_171362310_a8723c72-6a24-493a-a7b2-1577d25ce4a5-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A quiet Osaka, Japan, on Tuesday after Prime Minister Shinzo Abe declared a state of emergency in large parts of the country.",
+                    "copyright": "Hiroko Masuike/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-japan01sub/merlin_171362310_a8723c72-6a24-493a-a7b2-1577d25ce4a5-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A quiet Osaka, Japan, on Tuesday after Prime Minister Shinzo Abe declared a state of emergency in large parts of the country.",
+                    "copyright": "Hiroko Masuike/The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/2xRvinn"
+        },
+        {
+            "section": "world",
+            "subsection": "middleeast",
+            "title": "Passover Under Lockdown: Israeli Jews Revise the Rituals",
+            "abstract": "Why is this night different from all other nights? Israelis celebrate a festival of freedom under isolation and shelter-in-place orders.",
+            "url": "https://www.nytimes.com/2020/04/07/world/middleeast/coronavirus-passover-israel.html",
+            "uri": "nyt://article/1c3a1760-fcf5-52ef-af32-21e248217558",
+            "byline": "By Isabel Kershner",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T23:52:17-04:00",
+            "created_date": "2020-04-07T12:16:37-04:00",
+            "published_date": "2020-04-07T12:16:37-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Passover",
+                "Jews and Judaism",
+                "Politics and Government",
+                "Travel Warnings",
+                "Rabbis",
+                "Videophones and Videoconferencing",
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [
+                "Israel",
+                "Jerusalem (Israel)"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-israel-passover/07virus-israel-passover-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A matzo bakery in Bnei Brak, Israel. Israelis are trying to celebrate a festival of freedom while under lockdown.",
+                    "copyright": " Guy Prives/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-israel-passover/07virus-israel-passover-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A matzo bakery in Bnei Brak, Israel. Israelis are trying to celebrate a festival of freedom while under lockdown.",
+                    "copyright": " Guy Prives/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-israel-passover/07virus-israel-passover-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A matzo bakery in Bnei Brak, Israel. Israelis are trying to celebrate a festival of freedom while under lockdown.",
+                    "copyright": " Guy Prives/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-israel-passover/07virus-israel-passover-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A matzo bakery in Bnei Brak, Israel. Israelis are trying to celebrate a festival of freedom while under lockdown.",
+                    "copyright": " Guy Prives/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-israel-passover/07virus-israel-passover-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A matzo bakery in Bnei Brak, Israel. Israelis are trying to celebrate a festival of freedom while under lockdown.",
+                    "copyright": " Guy Prives/Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/3c3lKVk"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "Turkey Orders All Citizens to Wear Masks as Infections Rise",
+            "abstract": "Resisting a total lockdown, Turkey has introduced gradual restrictions but sought to keep industry and construction working.",
+            "url": "https://www.nytimes.com/2020/04/07/world/europe/turkey-virus-erdogan-masks.html",
+            "uri": "nyt://article/a7c02876-8e21-55bb-91df-b37c5b0855df",
+            "byline": "By Carlotta Gall",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T16:30:13-04:00",
+            "created_date": "2020-04-07T15:02:22-04:00",
+            "published_date": "2020-04-07T15:02:22-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Curfews",
+                "Coronavirus (2019-nCoV)",
+                "Travel and Vacations",
+                "Epidemics",
+                "Quarantines"
+            ],
+            "org_facet": [
+                "Justice and Development Party (Turkey)"
+            ],
+            "per_facet": [
+                "Erdogan, Recep Tayyip"
+            ],
+            "geo_facet": [
+                "Istanbul (Turkey)",
+                "Ankara (Turkey)",
+                "Turkey"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-turkey-copy/07virus-turkey-copy-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Teachers monitoring a machine making surgical face masks at a technical school in Istanbul on Monday.",
+                    "copyright": "Chris Mcgrath/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-turkey-copy/07virus-turkey-copy-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Teachers monitoring a machine making surgical face masks at a technical school in Istanbul on Monday.",
+                    "copyright": "Chris Mcgrath/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-turkey-copy/07virus-turkey-copy-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Teachers monitoring a machine making surgical face masks at a technical school in Istanbul on Monday.",
+                    "copyright": "Chris Mcgrath/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-turkey-copy/07virus-turkey-copy-mediumThreeByTwo210-v3.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Teachers monitoring a machine making surgical face masks at a technical school in Istanbul on Monday.",
+                    "copyright": "Chris Mcgrath/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07virus-turkey-copy/07virus-turkey-copy-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Teachers monitoring a machine making surgical face masks at a technical school in Istanbul on Monday.",
+                    "copyright": "Chris Mcgrath/Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/2xTg8hA"
+        },
+        {
+            "section": "world",
+            "subsection": "asia",
+            "title": "China Investigates Critic of Xi’s Coronavirus Response",
+            "abstract": "The decision to investigate the tycoon, Ren Zhiqiang, reflects broad unease in the government about growing criticism of its early efforts to conceal the outbreak.",
+            "url": "https://www.nytimes.com/2020/04/07/world/asia/china-tycoon-coronavirus.html",
+            "uri": "nyt://article/30a40207-1b23-527f-ba53-64f01ba04460",
+            "byline": "By Javier C. Hernández",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:19:57-04:00",
+            "created_date": "2020-04-07T13:08:30-04:00",
+            "published_date": "2020-04-07T13:08:30-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [
+                "Communist Party of China"
+            ],
+            "per_facet": [
+                "Xi Jinping",
+                "Ren Zhiqiang"
+            ],
+            "geo_facet": [
+                "China"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07china-tycoon/merlin_105147913_1616b7f2-70d1-49b7-a93d-2ee4cac8bbab-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1301,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ren Zhiqiang in 2014. In an essay, he said the party’s strict limits on freedom of speech had exacerbated the epidemic.",
+                    "copyright": "ChinaFotoPress, via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07china-tycoon/07china-tycoon-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ren Zhiqiang in 2014. In an essay, he said the party’s strict limits on freedom of speech had exacerbated the epidemic.",
+                    "copyright": "ChinaFotoPress, via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07china-tycoon/07china-tycoon-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ren Zhiqiang in 2014. In an essay, he said the party’s strict limits on freedom of speech had exacerbated the epidemic.",
+                    "copyright": "ChinaFotoPress, via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07china-tycoon/07china-tycoon-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ren Zhiqiang in 2014. In an essay, he said the party’s strict limits on freedom of speech had exacerbated the epidemic.",
+                    "copyright": "ChinaFotoPress, via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07china-tycoon/merlin_105147913_1616b7f2-70d1-49b7-a93d-2ee4cac8bbab-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 121,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ren Zhiqiang in 2014. In an essay, he said the party’s strict limits on freedom of speech had exacerbated the epidemic.",
+                    "copyright": "ChinaFotoPress, via Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/3e8Se2j"
+        },
+        {
+            "section": "world",
+            "subsection": "asia",
+            "title": "Afghan Prisoner Swap Hits Wall as Taliban Pull Out of Talks",
+            "abstract": "Discussions with insurgents in Kabul unraveled as Afghan officials refused to include senior Taliban commanders in the first batch of prisoners to be released.",
+            "url": "https://www.nytimes.com/2020/04/07/world/asia/afghan-prisoner-talks-collapse.html",
+            "uri": "nyt://article/382ea3f4-dbf2-5646-a244-56774e14c4ed",
+            "byline": "By Mujib Mashal",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:20:33-04:00",
+            "created_date": "2020-04-07T12:38:41-04:00",
+            "published_date": "2020-04-07T12:38:41-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Afghanistan War (2001- )"
+            ],
+            "org_facet": [
+                "Taliban"
+            ],
+            "per_facet": [
+                "Ghani, Ashraf",
+                "Pompeo, Mike"
+            ],
+            "geo_facet": [
+                "Afghanistan"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07afghanistan/merlin_171145764_2c35907b-ddd8-4567-916d-a8d0c123cf54-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jailed members of the Taliban in Kabul in December. Plans for a prisoner swap have faced opposition and hurdles from the start, threatening to unravel a deal that would signal the end of America’s longest war.",
+                    "copyright": "Rahmat Gul/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07afghanistan/merlin_171145764_2c35907b-ddd8-4567-916d-a8d0c123cf54-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jailed members of the Taliban in Kabul in December. Plans for a prisoner swap have faced opposition and hurdles from the start, threatening to unravel a deal that would signal the end of America’s longest war.",
+                    "copyright": "Rahmat Gul/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07afghanistan/merlin_171145764_2c35907b-ddd8-4567-916d-a8d0c123cf54-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jailed members of the Taliban in Kabul in December. Plans for a prisoner swap have faced opposition and hurdles from the start, threatening to unravel a deal that would signal the end of America’s longest war.",
+                    "copyright": "Rahmat Gul/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07afghanistan/merlin_171145764_2c35907b-ddd8-4567-916d-a8d0c123cf54-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jailed members of the Taliban in Kabul in December. Plans for a prisoner swap have faced opposition and hurdles from the start, threatening to unravel a deal that would signal the end of America’s longest war.",
+                    "copyright": "Rahmat Gul/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07afghanistan/merlin_171145764_2c35907b-ddd8-4567-916d-a8d0c123cf54-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jailed members of the Taliban in Kabul in December. Plans for a prisoner swap have faced opposition and hurdles from the start, threatening to unravel a deal that would signal the end of America’s longest war.",
+                    "copyright": "Rahmat Gul/Associated Press"
+                }
+            ],
+            "short_url": "https://nyti.ms/2Rn08eC"
+        },
+        {
+            "section": "briefing",
+            "subsection": "",
+            "title": "Your Wednesday Briefing",
+            "abstract": "Coronavirus, Boris Johnson, Wuhan: Here’s what you need to know.",
+            "url": "https://www.nytimes.com/2020/04/08/briefing/coronavirus-boris-johnson-wuhan.html",
+            "uri": "nyt://article/018d4b38-1b0a-550e-8107-43e2b30999b5",
+            "byline": "By Isabella Kwai",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:17:12-04:00",
+            "created_date": "2020-04-08T00:05:56-04:00",
+            "published_date": "2020-04-08T00:05:56-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/08/briefing/08ambriefing-euro-promo/08ambriefing-euro-slide-2B49-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/08/briefing/08ambriefing-euro-promo/08ambriefing-euro-slide-2B49-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/08/briefing/08ambriefing-euro-promo/08ambriefing-euro-slide-2B49-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/08/briefing/08ambriefing-euro-promo/08ambriefing-euro-slide-2B49-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/08/briefing/08ambriefing-euro-promo/08ambriefing-euro-slide-2B49-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Roman Pilipey/EPA, via Shutterstock"
+                }
+            ],
+            "short_url": "https://nyti.ms/39RJ2f5"
+        },
+        {
+            "section": "us",
+            "subsection": "",
+            "title": "Coronavirus Briefing: What Happened Today",
+            "abstract": "China eased its lockdown of Wuhan, and Wisconsin went on with its elections.",
+            "url": "https://www.nytimes.com/2020/04/07/us/coronavirus-today.html",
+            "uri": "nyt://article/c5d80cf6-1c5f-5eed-9392-0362d5273829",
+            "byline": "By Patrick J. Lyons",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T21:53:56-04:00",
+            "created_date": "2020-04-07T19:45:18-04:00",
+            "published_date": "2020-04-07T19:45:18-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/us/oakImage-1586296206364/oakImage-1586296206364-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 687,
+                    "width": 750,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/us/oakImage-1586296206364/oakImage-1586296206364-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/us/oakImage-1586296206364/oakImage-1586296206364-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/us/oakImage-1586296206364/oakImage-1586296206364-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/us/oakImage-1586296206364/oakImage-1586296206364-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 174,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                }
+            ],
+            "short_url": "https://nyti.ms/2RgQDgQ"
+        },
+        {
+            "section": "briefing",
+            "subsection": "",
+            "title": "Wuhan, Boris Johnson, Japan’s Virus Emergency: Your Wednesday Briefing",
+            "abstract": "Here’s what you need to know.",
+            "url": "https://www.nytimes.com/2020/04/07/briefing/wuhan-japan-emergency-boris-johnson.html",
+            "uri": "nyt://article/01cd580e-e577-57e2-97e2-e11cf15164c2",
+            "byline": "By Melina Delkic",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T17:40:52-04:00",
+            "created_date": "2020-04-07T14:56:19-04:00",
+            "published_date": "2020-04-07T14:56:19-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/08Briefing-Asia-slide-HUOZ/08Briefing-Asia-slide-HUOZ-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Travelers returned to the Wuhan railway station on Wednesday after the Chinese authorities lifted a ban on outbound travel from the city. ",
+                    "copyright": "Noel Celis/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/08Briefing-Asia-slide-HUOZ/08Briefing-Asia-slide-HUOZ-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Travelers returned to the Wuhan railway station on Wednesday after the Chinese authorities lifted a ban on outbound travel from the city. ",
+                    "copyright": "Noel Celis/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/08Briefing-Asia-slide-HUOZ/08Briefing-Asia-slide-HUOZ-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Travelers returned to the Wuhan railway station on Wednesday after the Chinese authorities lifted a ban on outbound travel from the city. ",
+                    "copyright": "Noel Celis/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/08Briefing-Asia-slide-HUOZ/08Briefing-Asia-slide-HUOZ-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Travelers returned to the Wuhan railway station on Wednesday after the Chinese authorities lifted a ban on outbound travel from the city. ",
+                    "copyright": "Noel Celis/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/08Briefing-Asia-slide-HUOZ/08Briefing-Asia-slide-HUOZ-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Travelers returned to the Wuhan railway station on Wednesday after the Chinese authorities lifted a ban on outbound travel from the city. ",
+                    "copyright": "Noel Celis/Agence France-Presse — Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/2JKuKCj"
+        },
+        {
+            "section": "world",
+            "subsection": "asia",
+            "title": "Finally, Some Privacy: After 10 Years, Giant Pandas Mate in Shuttered Zoo",
+            "abstract": "It is by no means certain that cubs are on the way, but we’ll take good news where we can find it.",
+            "url": "https://www.nytimes.com/2020/04/07/world/asia/panda-mating-hong-kong.html",
+            "uri": "nyt://article/15d0c1a3-b1e2-5835-870d-86878fc9581b",
+            "byline": "By Daniel Victor",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T11:52:30-04:00",
+            "created_date": "2020-04-07T06:45:36-04:00",
+            "published_date": "2020-04-07T06:45:36-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Endangered and Extinct Species",
+                "Pandas",
+                "Zoos",
+                "Reproduction (Biological)"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [
+                "Hong Kong"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07pandas-1/merlin_171352533_0eca9d09-0fe4-4222-bbbd-7b7b4a748a16-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 823,
+                    "width": 1234,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ying Ying and Le Le at Ocean Park in Hong Kong. Pandas have a mating “season” of just a few days per year.",
+                    "copyright": "Ocean Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07pandas-1/07pandas-1-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ying Ying and Le Le at Ocean Park in Hong Kong. Pandas have a mating “season” of just a few days per year.",
+                    "copyright": "Ocean Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07pandas-1/07pandas-1-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ying Ying and Le Le at Ocean Park in Hong Kong. Pandas have a mating “season” of just a few days per year.",
+                    "copyright": "Ocean Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07pandas-1/merlin_171352533_0eca9d09-0fe4-4222-bbbd-7b7b4a748a16-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ying Ying and Le Le at Ocean Park in Hong Kong. Pandas have a mating “season” of just a few days per year.",
+                    "copyright": "Ocean Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07pandas-1/merlin_171352533_0eca9d09-0fe4-4222-bbbd-7b7b4a748a16-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Ying Ying and Le Le at Ocean Park in Hong Kong. Pandas have a mating “season” of just a few days per year.",
+                    "copyright": "Ocean Park"
+                }
+            ],
+            "short_url": "https://nyti.ms/2RhFGf6"
+        },
+        {
+            "section": "briefing",
+            "subsection": "",
+            "title": "Coronavirus, Boris Johnson, Wisconsin: Your Tuesday Briefing",
+            "abstract": "Here's what you need to know.",
+            "url": "https://www.nytimes.com/2020/04/07/briefing/coronavirus-boris-johnson-wisconsin.html",
+            "uri": "nyt://article/2bbcc44c-9c9a-5215-a1d7-5293071a1982",
+            "byline": "By Chris Stanford",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T07:47:04-04:00",
+            "created_date": "2020-04-07T05:22:09-04:00",
+            "published_date": "2020-04-07T05:22:09-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07ambriefing-us-navarro-AMCORE/merlin_171050499_598a6c80-3b61-4f06-bb3f-383199fd693d-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07ambriefing-us-navarro-AMCORE/07ambriefing-us-navarro-AMCORE-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07ambriefing-us-navarro-AMCORE/07ambriefing-us-navarro-AMCORE-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07ambriefing-us-navarro-AMCORE/merlin_171050499_598a6c80-3b61-4f06-bb3f-383199fd693d-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07ambriefing-us-navarro-AMCORE/merlin_171050499_598a6c80-3b61-4f06-bb3f-383199fd693d-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": ""
+                }
+            ],
+            "short_url": "https://nyti.ms/34eXVai"
+        },
+        {
+            "section": "business",
+            "subsection": "energy-environment",
+            "title": "Oil Companies Are Collapsing, but Wind and Solar Energy Keep Growing",
+            "abstract": "The renewable-energy business is expected to keep growing, though more slowly, in contrast to fossil fuel companies, which have been hammered by low oil and gas prices.",
+            "url": "https://www.nytimes.com/2020/04/07/business/energy-environment/coronavirus-oil-wind-solar-energy.html",
+            "uri": "nyt://article/48edfa26-ecf2-5d5f-9f93-56403833c744",
+            "byline": "By Ivan Penn",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T19:33:19-04:00",
+            "created_date": "2020-04-07T05:00:25-04:00",
+            "published_date": "2020-04-07T05:00:25-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Solar Energy",
+                "Alternative and Renewable Energy",
+                "Coronavirus Aid, Relief, and Economic Security Act (2020)",
+                "Layoffs and Job Reductions",
+                "Wind Power",
+                "Coronavirus (2019-nCoV)",
+                "Tax Credits, Deductions and Exemptions",
+                "Banking and Financial Institutions",
+                "Electric Light and Power",
+                "Energy and Power"
+            ],
+            "org_facet": [
+                "American Wind Energy Assn",
+                "Solar Energy Industries Assn"
+            ],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07virus-renewableenergy2/07virus-renewableenergy2-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1364,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "8minute Solar Energy temporarily stopped building a solar farm near Fresno, Calif., because of the coronavirus pandemic.",
+                    "copyright": "Deanne Fitzmaurice for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07virus-renewableenergy2/07virus-renewableenergy2-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "8minute Solar Energy temporarily stopped building a solar farm near Fresno, Calif., because of the coronavirus pandemic.",
+                    "copyright": "Deanne Fitzmaurice for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07virus-renewableenergy2/07virus-renewableenergy2-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "8minute Solar Energy temporarily stopped building a solar farm near Fresno, Calif., because of the coronavirus pandemic.",
+                    "copyright": "Deanne Fitzmaurice for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07virus-renewableenergy2/07virus-renewableenergy2-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "8minute Solar Energy temporarily stopped building a solar farm near Fresno, Calif., because of the coronavirus pandemic.",
+                    "copyright": "Deanne Fitzmaurice for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07virus-renewableenergy2/07virus-renewableenergy2-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "8minute Solar Energy temporarily stopped building a solar farm near Fresno, Calif., because of the coronavirus pandemic.",
+                    "copyright": "Deanne Fitzmaurice for The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/3e8Egxp"
+        },
+        {
+            "section": "travel",
+            "subsection": "",
+            "title": "We Can Still Travel — With Photoshop and a Dream",
+            "abstract": "There’s little choice now but to stay grounded because of the coronavirus, but avid travelers are devising creative and meaningful ways to celebrate the vacations they have had to cancel.",
+            "url": "https://www.nytimes.com/2020/04/07/travel/coronavirus-fake-travel.html",
+            "uri": "nyt://article/215df5f8-8df6-5998-a215-4ab07005bb49",
+            "byline": "By Sarah Firshein",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T22:50:30-04:00",
+            "created_date": "2020-04-07T05:00:21-04:00",
+            "published_date": "2020-04-07T05:00:21-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Travel Warnings",
+                "Coronavirus (2019-nCoV)",
+                "Computers and the Internet",
+                "Social Media",
+                "Photography",
+                "Travel and Vacations"
+            ],
+            "org_facet": [
+                "American Museum of Natural History"
+            ],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/travel/07vacations-honored-diptych/07vacations-honored-diptych-superJumbo-v3.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Monica Palenzuela and Marty Pollak in Brooklyn, despite appearances.",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/travel/07vacations-honored-diptych/07vacations-honored-diptych-thumbStandard-v3.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Monica Palenzuela and Marty Pollak in Brooklyn, despite appearances.",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/travel/07vacations-honored-diptych/07vacations-honored-diptych-thumbLarge-v3.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Monica Palenzuela and Marty Pollak in Brooklyn, despite appearances.",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/travel/07vacations-honored-diptych/07vacations-honored-diptych-mediumThreeByTwo210-v3.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Monica Palenzuela and Marty Pollak in Brooklyn, despite appearances.",
+                    "copyright": ""
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/travel/07vacations-honored-diptych/07vacations-honored-diptych-articleInline-v3.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Monica Palenzuela and Marty Pollak in Brooklyn, despite appearances.",
+                    "copyright": ""
+                }
+            ],
+            "short_url": "https://nyti.ms/2VaZPEu"
+        },
+        {
+            "section": "books",
+            "subsection": "",
+            "title": "A Voice in French Literature: Her Own",
+            "abstract": "Since the 1970s, Annie Ernaux has poured a lifetime of memories into her intensely personal books. Now, readers in English are catching on.",
+            "url": "https://www.nytimes.com/2020/04/07/books/annie-ernaux-a-girls-story.html",
+            "uri": "nyt://article/fb3dce4c-626a-5f11-b5c3-67f5fc87673e",
+            "byline": "By Laura Cappelle",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:03:56-04:00",
+            "created_date": "2020-04-07T04:00:07-04:00",
+            "published_date": "2020-04-07T04:00:07-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Books and Literature",
+                "#MeToo Movement",
+                "Women and Girls",
+                "Man Booker International Prize",
+                "Writing and Writers",
+                "A Girl's Story (Book)"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Ernaux, Annie",
+                "Louis, Edouard (1992- )"
+            ],
+            "geo_facet": [
+                "France"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/arts/07ernaux1/07ernaux1-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Annie Ernaux in her garden in Cergy Pontoise, a Paris suburb. Her latest book, “A Girl’s Story,” is out in the United States this week.",
+                    "copyright": "Isabelle Eshraghi for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/arts/07ernaux1/07ernaux1-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Annie Ernaux in her garden in Cergy Pontoise, a Paris suburb. Her latest book, “A Girl’s Story,” is out in the United States this week.",
+                    "copyright": "Isabelle Eshraghi for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/arts/07ernaux1/07ernaux1-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Annie Ernaux in her garden in Cergy Pontoise, a Paris suburb. Her latest book, “A Girl’s Story,” is out in the United States this week.",
+                    "copyright": "Isabelle Eshraghi for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/arts/07ernaux1/07ernaux1-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Annie Ernaux in her garden in Cergy Pontoise, a Paris suburb. Her latest book, “A Girl’s Story,” is out in the United States this week.",
+                    "copyright": "Isabelle Eshraghi for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/arts/07ernaux1/07ernaux1-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Annie Ernaux in her garden in Cergy Pontoise, a Paris suburb. Her latest book, “A Girl’s Story,” is out in the United States this week.",
+                    "copyright": "Isabelle Eshraghi for The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/2x8G0pz"
+        },
+        {
+            "section": "business",
+            "subsection": "",
+            "title": "Wall Street’s Rally Fades: Live Business Updates",
+            "abstract": "Live updates on stock market and business news during the coronavirus outbreak.",
+            "url": "https://www.nytimes.com/2020/04/07/business/stock-market-today-coronavirus.html",
+            "uri": "nyt://article/f9219962-1388-5ac5-90a9-bb8c23d859ad",
+            "byline": "",
+            "item_type": "Article",
+            "updated_date": "2020-04-08T00:13:10-04:00",
+            "created_date": "2020-04-07T00:32:00-04:00",
+            "published_date": "2020-04-07T00:32:00-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Standard \u0026 Poor's 500-Stock Index",
+                "United States Economy"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07markets-briefing-markets/merlin_171333501_a3b40619-22dd-4fe5-994a-0020686484e7-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The S\u0026P 500 fell 0.2 percent at the market close after trading 3 percent higher earlier in the day.",
+                    "copyright": "Ben Sklar for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07markets-briefing-markets/07markets-briefing-markets-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The S\u0026P 500 fell 0.2 percent at the market close after trading 3 percent higher earlier in the day.",
+                    "copyright": "Ben Sklar for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07markets-briefing-markets/07markets-briefing-markets-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The S\u0026P 500 fell 0.2 percent at the market close after trading 3 percent higher earlier in the day.",
+                    "copyright": "Ben Sklar for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07markets-briefing-markets/07markets-briefing-markets-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The S\u0026P 500 fell 0.2 percent at the market close after trading 3 percent higher earlier in the day.",
+                    "copyright": "Ben Sklar for The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/business/07markets-briefing-markets/07markets-briefing-markets-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 130,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "The S\u0026P 500 fell 0.2 percent at the market close after trading 3 percent higher earlier in the day.",
+                    "copyright": "Ben Sklar for The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/39Pezyv"
+        },
+        {
+            "section": "briefing",
+            "subsection": "",
+            "title": "Coronavirus, Boris Johnson, Climate Change: Your Tuesday Briefing",
+            "abstract": "Here’s what you need to know.",
+            "url": "https://www.nytimes.com/2020/04/07/briefing/coronavirus-boris-johnson-climate-change.html",
+            "uri": "nyt://article/f2f9c580-9af3-5ca5-92f6-a8315634209e",
+            "byline": "By Isabella Kwai",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T07:55:28-04:00",
+            "created_date": "2020-04-07T00:24:28-04:00",
+            "published_date": "2020-04-07T00:24:28-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/07ambriefing-euro-promo/07ambriefing-euro-slide-8QP3-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Will Oliver/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/07ambriefing-euro-promo/07ambriefing-euro-slide-8QP3-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Will Oliver/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/07ambriefing-euro-promo/07ambriefing-euro-slide-8QP3-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Will Oliver/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/07ambriefing-euro-promo/07ambriefing-euro-slide-8QP3-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Will Oliver/EPA, via Shutterstock"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/briefing/07ambriefing-euro-promo/07ambriefing-euro-slide-8QP3-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Will Oliver/EPA, via Shutterstock"
+                }
+            ],
+            "short_url": "https://nyti.ms/2wntd2c"
+        },
+        {
+            "section": "world",
+            "subsection": "africa",
+            "title": "Chad’s Ex-President, Sentenced to Life, Given Temporary Reprieve From Prison",
+            "abstract": "Hissène Habré, the former president of Chad who was convicted of crimes against humanity, was freed from his prison cell for 60 days for humanitarian reasons.",
+            "url": "https://www.nytimes.com/2020/04/06/world/africa/Hissene-Habre-chad-senegal.html",
+            "uri": "nyt://article/589fe69b-49af-5f58-ba2d-098660881609",
+            "byline": "By Ruth Maclean",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T12:00:23-04:00",
+            "created_date": "2020-04-06T21:46:20-04:00",
+            "published_date": "2020-04-06T21:46:20-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Politics and Government",
+                "Human Rights and Human Rights Violations",
+                "War Crimes, Genocide and Crimes Against Humanity",
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Habre, Hissene",
+                "Sall, Macky",
+                "Deby, Idriss"
+            ],
+            "geo_facet": [
+                "Africa",
+                "Chad",
+                "Senegal"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06chad1/06chad1-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1364,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Hissène Habré, the former president of Chad, leaving a courthouse after a hearing in Dakar, Senegal, in 2015.",
+                    "copyright": "Seyllou/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06chad1/06chad1-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Hissène Habré, the former president of Chad, leaving a courthouse after a hearing in Dakar, Senegal, in 2015.",
+                    "copyright": "Seyllou/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06chad1/06chad1-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Hissène Habré, the former president of Chad, leaving a courthouse after a hearing in Dakar, Senegal, in 2015.",
+                    "copyright": "Seyllou/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06chad1/06chad1-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Hissène Habré, the former president of Chad, leaving a courthouse after a hearing in Dakar, Senegal, in 2015.",
+                    "copyright": "Seyllou/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06chad1/06chad1-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Hissène Habré, the former president of Chad, leaving a courthouse after a hearing in Dakar, Senegal, in 2015.",
+                    "copyright": "Seyllou/Agence France-Presse — Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/34eK3Nj"
+        },
+        {
+            "section": "world",
+            "subsection": "australia",
+            "title": "George Pell Freed After Australian Court Overturns Sex Abuse Conviction",
+            "abstract": "The cardinal was the highest-ranking Roman Catholic leader ever found guilty of sexually abusing children.",
+            "url": "https://www.nytimes.com/2020/04/06/world/australia/cardinal-george-pell-conviction.html",
+            "uri": "nyt://article/548a4be5-c6df-5865-b4db-68b8077b716a",
+            "byline": "By Livia Albeck-Ripka and Damien Cave",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T16:23:16-04:00",
+            "created_date": "2020-04-06T20:20:04-04:00",
+            "published_date": "2020-04-06T20:20:04-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Child Abuse and Neglect",
+                "Priests",
+                "Sex Crimes",
+                "Decisions and Verdicts"
+            ],
+            "org_facet": [
+                "Roman Catholic Church"
+            ],
+            "per_facet": [
+                "Pell, George (1941- )"
+            ],
+            "geo_facet": [
+                "Australia"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-pell1/06oz-pell1-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in February. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Andy Brownbill/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-pell1/06oz-pell1-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in February. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Andy Brownbill/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-pell1/06oz-pell1-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in February. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Andy Brownbill/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-pell1/06oz-pell1-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in February. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Andy Brownbill/Associated Press"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-pell1/06oz-pell1-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Cardinal George Pell leaving court in Melbourne, Australia, in February. His conviction on sexual abuse charges was overturned on Tuesday.",
+                    "copyright": "Andy Brownbill/Associated Press"
+                }
+            ],
+            "short_url": "https://nyti.ms/2V6x1xd"
+        },
+        {
+            "section": "us",
+            "subsection": "",
+            "title": "Coronavirus Briefing: What Happened Today",
+            "abstract": "Boris Johnson is moved to intensive care, as the death toll in the United States tops 10,000.",
+            "url": "https://www.nytimes.com/2020/04/06/us/coronavirus-today.html",
+            "uri": "nyt://article/bd353257-fb60-5b10-a1d9-e8fbc3797a1e",
+            "byline": "By Patrick J. Lyons",
+            "item_type": "Article",
+            "updated_date": "2020-04-06T19:22:58-04:00",
+            "created_date": "2020-04-06T19:22:58-04:00",
+            "published_date": "2020-04-06T19:22:58-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-superJumbo-v251.png",
+                    "format": "superJumbo",
+                    "height": 1366,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-thumbStandard-v257.png",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-thumbLarge-v257.png",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-mediumThreeByTwo210-v257.png",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-articleInline-v251.png",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "  ",
+                    "copyright": "The New York Times"
+                }
+            ],
+            "short_url": "https://nyti.ms/2Xeb1D7"
+        },
+        {
+            "section": "world",
+            "subsection": "middleeast",
+            "title": "U.N. Inquiry Into Syria Bombings Is Silent on Russia’s Role",
+            "abstract": "Experts say a “mealy-mouthed” United Nations report failed to blame Russia for bombing hospitals and a school, for fear of alienating Moscow.",
+            "url": "https://www.nytimes.com/2020/04/06/world/middleeast/UN-Syria-Russia-hospital-bombings.html",
+            "uri": "nyt://article/dd2cee9b-a6c2-5c9d-944f-7a0312c8b702",
+            "byline": "By Evan Hill",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T00:19:28-04:00",
+            "created_date": "2020-04-06T18:13:37-04:00",
+            "published_date": "2020-04-06T18:13:37-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Civilian Casualties",
+                "Hospitals",
+                "Human Rights and Human Rights Violations"
+            ],
+            "org_facet": [
+                "Physicians for Human Rights",
+                "United Nations",
+                "International Crisis Group"
+            ],
+            "per_facet": [
+                "Assad, Bashar al-"
+            ],
+            "geo_facet": [
+                "Syria",
+                "Russia"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nations-syria/merlin_165006012_1d332fd0-a0d1-4a5a-b15e-f33231533797-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A medic checks the damage at the Adnan Kiwan hospital, which was hit during airstikes in the town of Kansafrah, in the south of Syria's Idlib province in November.\u0026nbsp;",
+                    "copyright": "Omar Haj Kadour/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nations-syria/merlin_165006012_1d332fd0-a0d1-4a5a-b15e-f33231533797-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A medic checks the damage at the Adnan Kiwan hospital, which was hit during airstikes in the town of Kansafrah, in the south of Syria's Idlib province in November.\u0026nbsp;",
+                    "copyright": "Omar Haj Kadour/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nations-syria/merlin_165006012_1d332fd0-a0d1-4a5a-b15e-f33231533797-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A medic checks the damage at the Adnan Kiwan hospital, which was hit during airstikes in the town of Kansafrah, in the south of Syria's Idlib province in November.\u0026nbsp;",
+                    "copyright": "Omar Haj Kadour/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nations-syria/merlin_165006012_1d332fd0-a0d1-4a5a-b15e-f33231533797-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A medic checks the damage at the Adnan Kiwan hospital, which was hit during airstikes in the town of Kansafrah, in the south of Syria's Idlib province in November.\u0026nbsp;",
+                    "copyright": "Omar Haj Kadour/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nations-syria/merlin_165006012_1d332fd0-a0d1-4a5a-b15e-f33231533797-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A medic checks the damage at the Adnan Kiwan hospital, which was hit during airstikes in the town of Kansafrah, in the south of Syria's Idlib province in November.\u0026nbsp;",
+                    "copyright": "Omar Haj Kadour/Agence France-Presse — Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/2RfVhMc"
+        },
+        {
+            "section": "world",
+            "subsection": "americas",
+            "title": "Where Is Daniel Ortega? Nicaragua’s Leader Drops From View",
+            "abstract": "The Nicaraguan government has promoted big public events, despite the coronavirus. But the president himself has been conspicuously absent from view for 25 days.",
+            "url": "https://www.nytimes.com/2020/04/06/world/americas/nicaragua-daniel-ortega-coronavirus.html",
+            "uri": "nyt://article/7f01ef5e-fdaa-5e7e-8762-a3268e404c92",
+            "byline": "By Frances Robles",
+            "item_type": "Article",
+            "updated_date": "2020-04-06T20:25:52-04:00",
+            "created_date": "2020-04-06T16:41:01-04:00",
+            "published_date": "2020-04-06T16:41:01-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Quarantines"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Ortega, Daniel"
+            ],
+            "geo_facet": [
+                "Nicaragua"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nicaragua-ortega/merlin_169318398_0e90a902-4d0a-45c4-b89a-88509677fca2-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1310,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "President Daniel Ortega in February. His absence from public life has led to speculation that he is in quarantine.",
+                    "copyright": "Oswaldo Rivas/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nicaragua-ortega/06nicaragua-ortega-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "President Daniel Ortega in February. His absence from public life has led to speculation that he is in quarantine.",
+                    "copyright": "Oswaldo Rivas/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nicaragua-ortega/06nicaragua-ortega-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "President Daniel Ortega in February. His absence from public life has led to speculation that he is in quarantine.",
+                    "copyright": "Oswaldo Rivas/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nicaragua-ortega/06nicaragua-ortega-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "President Daniel Ortega in February. His absence from public life has led to speculation that he is in quarantine.",
+                    "copyright": "Oswaldo Rivas/Reuters"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06nicaragua-ortega/merlin_169318398_0e90a902-4d0a-45c4-b89a-88509677fca2-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 122,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "President Daniel Ortega in February. His absence from public life has led to speculation that he is in quarantine.",
+                    "copyright": "Oswaldo Rivas/Reuters"
+                }
+            ],
+            "short_url": "https://nyti.ms/2UL3VV8"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "Boris Johnson Moved to Intensive Care; Foreign Minister Deputized",
+            "abstract": "The prime minister is in a debilitating battle after contracting a virus he initially viewed with characteristic nonchalance.",
+            "url": "https://www.nytimes.com/2020/04/06/world/europe/boris-johnson-coronavirus-hospital-intensive-care.html",
+            "uri": "nyt://article/8c3e73be-ac2b-5ee1-8d42-dd868d18eeb4",
+            "byline": "By Stephen Castle and Mark Landler",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T14:20:20-04:00",
+            "created_date": "2020-04-06T15:56:43-04:00",
+            "published_date": "2020-04-06T15:56:43-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Johnson, Boris",
+                "Raab, Dominic (1974- )"
+            ],
+            "geo_facet": [
+                "Great Britain"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06virus-britain/merlin_170946822_474dc734-591b-4282-a331-6acc752551d2-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Prime Minister Boris Johnson of Britain leaving Downing Street in mid-March, prior to announcing his coronavirus diagnosis.",
+                    "copyright": "Tolga Akmen/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06virus-britain/06virus-britain-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Prime Minister Boris Johnson of Britain leaving Downing Street in mid-March, prior to announcing his coronavirus diagnosis.",
+                    "copyright": "Tolga Akmen/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06virus-britain/06virus-britain-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Prime Minister Boris Johnson of Britain leaving Downing Street in mid-March, prior to announcing his coronavirus diagnosis.",
+                    "copyright": "Tolga Akmen/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06virus-britain/merlin_170946822_474dc734-591b-4282-a331-6acc752551d2-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Prime Minister Boris Johnson of Britain leaving Downing Street in mid-March, prior to announcing his coronavirus diagnosis.",
+                    "copyright": "Tolga Akmen/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06virus-britain/merlin_170946822_474dc734-591b-4282-a331-6acc752551d2-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Prime Minister Boris Johnson of Britain leaving Downing Street in mid-March, prior to announcing his coronavirus diagnosis.",
+                    "copyright": "Tolga Akmen/Agence France-Presse — Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/2UN18L7"
+        },
+        {
+            "section": "briefing",
+            "subsection": "",
+            "title": "Coronavirus, Japan’s State of Emergency, Tigers: Your Tuesday Briefing",
+            "abstract": "Here’s what you need to know.",
+            "url": "https://www.nytimes.com/2020/04/06/briefing/coronavirus-japan-state-of-emergency-iran.html",
+            "uri": "nyt://article/9331c9ef-96e0-503d-9e98-9054650b6fad",
+            "byline": "By Melina Delkic",
+            "item_type": "Article",
+            "updated_date": "2020-04-06T18:40:34-04:00",
+            "created_date": "2020-04-06T15:11:38-04:00",
+            "published_date": "2020-04-06T15:11:38-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07asiabriefing-promo/07asiabriefing1-superJumbo-v2.jpg",
+                    "format": "superJumbo",
+                    "height": 1363,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Philip Fong/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07asiabriefing-promo/07asiabriefing1-thumbStandard-v2.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Philip Fong/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07asiabriefing-promo/07asiabriefing1-thumbLarge-v2.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Philip Fong/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07asiabriefing-promo/07asiabriefing1-mediumThreeByTwo210-v2.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Philip Fong/Agence France-Presse — Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/07/world/07asiabriefing-promo/07asiabriefing1-articleInline-v2.jpg",
+                    "format": "Normal",
+                    "height": 126,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "",
+                    "copyright": "Philip Fong/Agence France-Presse — Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/3aMmvla"
+        },
+        {
+            "section": "world",
+            "subsection": "australia",
+            "title": "Great Barrier Reef Is Bleaching Again. It’s Getting More Widespread.",
+            "abstract": "New data shows example after example of overheating and damage along the 1,500-mile natural wonder.",
+            "url": "https://www.nytimes.com/2020/04/06/world/australia/great-barrier-reefs-bleaching-dying.html",
+            "uri": "nyt://article/762d8779-2ff0-55fd-9d14-f637e319acd2",
+            "byline": "By Damien Cave",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T00:19:06-04:00",
+            "created_date": "2020-04-06T15:00:08-04:00",
+            "published_date": "2020-04-06T15:00:08-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Reefs",
+                "Global Warming",
+                "Coral"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [
+                "Australia",
+                "Great Barrier Reef (Australia)"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-reef/merlin_171319851_306324e6-3364-46c7-bae4-413df1df9af7-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1367,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coral bleaching at the Great Barrier Reef in 2016.",
+                    "copyright": "Kyodo,  via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-reef/merlin_171319851_306324e6-3364-46c7-bae4-413df1df9af7-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coral bleaching at the Great Barrier Reef in 2016.",
+                    "copyright": "Kyodo,  via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-reef/merlin_171319851_306324e6-3364-46c7-bae4-413df1df9af7-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coral bleaching at the Great Barrier Reef in 2016.",
+                    "copyright": "Kyodo,  via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-reef/merlin_171319851_306324e6-3364-46c7-bae4-413df1df9af7-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coral bleaching at the Great Barrier Reef in 2016.",
+                    "copyright": "Kyodo,  via Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/world/06oz-reef/merlin_171319851_306324e6-3364-46c7-bae4-413df1df9af7-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Coral bleaching at the Great Barrier Reef in 2016.",
+                    "copyright": "Kyodo,  via Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/2xRghSw"
+        },
+        {
+            "section": "world",
+            "subsection": "europe",
+            "title": "Rare World War II Footage Is Released by Bletchley Park, British Spy Center",
+            "abstract": "An 11-minute silent film shows MI6 staff members at a site linked to the code-breaking facility Bletchley Park during World War II.",
+            "url": "https://www.nytimes.com/2020/04/06/world/europe/bletchley-park-footage.html",
+            "uri": "nyt://article/0a1ed6d9-3be3-5a2b-b5bd-d75efeff4cbd",
+            "byline": "By Johnny Diaz",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T21:44:18-04:00",
+            "created_date": "2020-04-06T14:38:33-04:00",
+            "published_date": "2020-04-06T14:38:33-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "World War II (1939-45)"
+            ],
+            "org_facet": [
+                "Bletchley Park",
+                "British Secret Intelligence Service"
+            ],
+            "per_facet": [
+                "Turing, Alan M"
+            ],
+            "geo_facet": [
+                "England"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06XP-SPYFOOTAGE-COMBO/06XP-SPYFOOTAGE-COMBO-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Stills of the staff members recorded in the footage at Whaddon Hall in Buckinghamshire, England.",
+                    "copyright": "Bletchley Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06XP-SPYFOOTAGE-COMBO/06XP-SPYFOOTAGE-COMBO-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Stills of the staff members recorded in the footage at Whaddon Hall in Buckinghamshire, England.",
+                    "copyright": "Bletchley Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06XP-SPYFOOTAGE-COMBO/06XP-SPYFOOTAGE-COMBO-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Stills of the staff members recorded in the footage at Whaddon Hall in Buckinghamshire, England.",
+                    "copyright": "Bletchley Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06XP-SPYFOOTAGE-COMBO/06XP-SPYFOOTAGE-COMBO-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Stills of the staff members recorded in the footage at Whaddon Hall in Buckinghamshire, England.",
+                    "copyright": "Bletchley Park"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06XP-SPYFOOTAGE-COMBO/06XP-SPYFOOTAGE-COMBO-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Stills of the staff members recorded in the footage at Whaddon Hall in Buckinghamshire, England.",
+                    "copyright": "Bletchley Park"
+                }
+            ],
+            "short_url": "https://nyti.ms/2wiYd3n"
+        },
+        {
+            "section": "world",
+            "subsection": "australia",
+            "title": "Easter Bunny and Tooth Fairy Deemed ‘Essential Workers’ in New Zealand",
+            "abstract": "Jacinda Ardern, the country’s prime minister, made the announcement on Monday.",
+            "url": "https://www.nytimes.com/2020/04/06/world/australia/jacinda-ardern-easter-bunny-essential-worker-tooth-fairy.html",
+            "uri": "nyt://article/19435cb2-338c-5ec3-85ab-29ade24099c6",
+            "byline": "By Sandra E. Garcia",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T18:37:33-04:00",
+            "created_date": "2020-04-06T13:17:37-04:00",
+            "published_date": "2020-04-06T13:17:37-04:00",
+            "material_type_facet": "",
+            "kicker": "",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Easter and Holy Week",
+                "Politics and Government",
+                "Quarantines",
+                "Children and Childhood",
+                "Parenting"
+            ],
+            "org_facet": [],
+            "per_facet": [
+                "Ardern, Jacinda"
+            ],
+            "geo_facet": [
+                "New Zealand"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06xp-virus-easter-bunny/merlin_171316161_5f318ca0-19ca-49a9-bd28-4931219185d9-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1330,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jacinda Ardern, New Zealand’s prime minister, on Monday. She announced that the Easter bunny and tooth fairy were considered essential workers during the pandemic.",
+                    "copyright": "Pool photo by Mark Mitchell"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06xp-virus-easter-bunny/06xp-virus-easter-bunny-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jacinda Ardern, New Zealand’s prime minister, on Monday. She announced that the Easter bunny and tooth fairy were considered essential workers during the pandemic.",
+                    "copyright": "Pool photo by Mark Mitchell"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06xp-virus-easter-bunny/06xp-virus-easter-bunny-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jacinda Ardern, New Zealand’s prime minister, on Monday. She announced that the Easter bunny and tooth fairy were considered essential workers during the pandemic.",
+                    "copyright": "Pool photo by Mark Mitchell"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06xp-virus-easter-bunny/06xp-virus-easter-bunny-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jacinda Ardern, New Zealand’s prime minister, on Monday. She announced that the Easter bunny and tooth fairy were considered essential workers during the pandemic.",
+                    "copyright": "Pool photo by Mark Mitchell"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/multimedia/06xp-virus-easter-bunny/merlin_171316161_5f318ca0-19ca-49a9-bd28-4931219185d9-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 123,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Jacinda Ardern, New Zealand’s prime minister, on Monday. She announced that the Easter bunny and tooth fairy were considered essential workers during the pandemic.",
+                    "copyright": "Pool photo by Mark Mitchell"
+                }
+            ],
+            "short_url": "https://nyti.ms/2JIcidR"
+        },
+        {
+            "section": "magazine",
+            "subsection": "",
+            "title": "Acting Navy Secretary Slams Fired Captain as ‘Stupid’",
+            "abstract": "Thomas B. Modly addressed the crew of the U.S.S. Theodore Roosevelt in a speech that one crew member described as “whiny, upset, irritated, condescending.”",
+            "url": "https://www.nytimes.com/2020/04/06/magazine/modly-crozier-coronavirus.html",
+            "uri": "nyt://article/b580c355-68dc-522d-a095-f613783f3fd8",
+            "byline": "By John Ismay and Geoff Ziezulewicz",
+            "item_type": "Article",
+            "updated_date": "2020-04-07T11:40:15-04:00",
+            "created_date": "2020-04-06T12:36:01-04:00",
+            "published_date": "2020-04-06T12:36:01-04:00",
+            "material_type_facet": "",
+            "kicker": "at war",
+            "des_facet": [
+                "Coronavirus (2019-nCoV)",
+                "Aircraft Carriers",
+                "United States Defense and Military Forces",
+                "Quarantines"
+            ],
+            "org_facet": [
+                "United States Navy"
+            ],
+            "per_facet": [
+                "Crozier, Brett E",
+                "Modly, Thomas B"
+            ],
+            "geo_facet": [
+                "Guam"
+            ],
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/magazine/06atwar-modly-letter/merlin_165371736_1cee7d41-db3b-4591-81eb-eabe26b0811b-superJumbo.jpg",
+                    "format": "superJumbo",
+                    "height": 1365,
+                    "width": 2048,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Secretary Thomas B. Modly, acting secretary of the Navy, testifying before the Senate Armed Services Committee in December 2019. Modly removed the captain of the U.S.S. Theodore Roosevelt last week.",
+                    "copyright": "Chip Somodevilla/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/magazine/06atwar-modly-letter/merlin_165371736_1cee7d41-db3b-4591-81eb-eabe26b0811b-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Secretary Thomas B. Modly, acting secretary of the Navy, testifying before the Senate Armed Services Committee in December 2019. Modly removed the captain of the U.S.S. Theodore Roosevelt last week.",
+                    "copyright": "Chip Somodevilla/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/magazine/06atwar-modly-letter/merlin_165371736_1cee7d41-db3b-4591-81eb-eabe26b0811b-thumbLarge.jpg",
+                    "format": "thumbLarge",
+                    "height": 150,
+                    "width": 150,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Secretary Thomas B. Modly, acting secretary of the Navy, testifying before the Senate Armed Services Committee in December 2019. Modly removed the captain of the U.S.S. Theodore Roosevelt last week.",
+                    "copyright": "Chip Somodevilla/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/magazine/06atwar-modly-letter/merlin_165371736_1cee7d41-db3b-4591-81eb-eabe26b0811b-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Secretary Thomas B. Modly, acting secretary of the Navy, testifying before the Senate Armed Services Committee in December 2019. Modly removed the captain of the U.S.S. Theodore Roosevelt last week.",
+                    "copyright": "Chip Somodevilla/Getty Images"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2020/04/06/magazine/06atwar-modly-letter/merlin_165371736_1cee7d41-db3b-4591-81eb-eabe26b0811b-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "Secretary Thomas B. Modly, acting secretary of the Navy, testifying before the Senate Armed Services Committee in December 2019. Modly removed the captain of the U.S.S. Theodore Roosevelt last week.",
+                    "copyright": "Chip Somodevilla/Getty Images"
+                }
+            ],
+            "short_url": "https://nyti.ms/2xPDrZw"
+        }
+    ]
+}

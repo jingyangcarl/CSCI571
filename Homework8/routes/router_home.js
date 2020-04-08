@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/static', function(req, res, next) {
+router.get('/static/', function(req, res, next) {
     // use static data for design
     const data = fs.readFileSync('D:/Project/CSCI571/Homework8/client/src/Components/home/home.json', 'utf8');
     res.send(data);

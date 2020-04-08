@@ -1,7 +1,7 @@
 const express = require('express');
 
 const routerHome = require('./routes/router_home');
-const routerWorld = require('./routes/router_world');
+const routerSection = require('./routes/router_section');
 const routerTest = require('./routes/router_test');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/", routerHome);
 app.use("/home", routerHome);
-app.use("/world", routerWorld);
+app.use("/section", routerSection);
 app.use("/test", routerTest);
 
 const port = 5000;

@@ -31,7 +31,7 @@ class Home extends Component {
 
         this.removeCommentBox = commentBox('5651135952060416-proj');
 
-        fetch('/home/static')
+        fetch('')
             // fetch('/home')
             .then(res => res.json())
             .then(res => this.setState({ news: res.results }, () => {
@@ -85,24 +85,24 @@ class Home extends Component {
                         onResultSelect={this.handleResultSelect}
                         placeholder={'Enter Keyword'}
                     />
-                    <Nav>
+                    <Nav defaultActiveKey="/home">
                         <Nav.Item>
                             <Nav.Link eventKey="home" href="/home"> Home </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="world" href="/world"> World </Nav.Link>
+                            <Nav.Link eventKey="world" href="/section/world"> World </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="politics" href="/test"> Politics </Nav.Link>
+                            <Nav.Link eventKey="politics" href="/section/politics"> Politics </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="business" href="/business"> Business </Nav.Link>
+                            <Nav.Link eventKey="business" href="/section/business"> Business </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="technology" href="/technology"> Technology </Nav.Link>
+                            <Nav.Link eventKey="technology" href="/section/technology"> Technology </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="sports" href="/sports"> Sports </Nav.Link>
+                            <Nav.Link eventKey="sports" href="/section/sports"> Sports </Nav.Link>
                         </Nav.Item>
                     </Nav>
                     <Nav className="ml-auto">
