@@ -35,11 +35,19 @@
     margin-top: 1%;
 }
 
-.loading {
+.page-loading {
     display: none;
     margin: 20% auto;
 }
 
-.detail {
+.page-detail {
     display: none;
+}
+
+.page-search {
+    display: none;
+}
+
+.card-search {
+    width: 20%;
 }

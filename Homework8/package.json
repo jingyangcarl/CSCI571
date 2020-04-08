@@ -17,6 +17,7 @@
     "commentbox.io": "^2.0.0",
     "concurrently": "^5.1.0",
     "express": "^4.17.1",
+    "react-icons": "^3.9.0",
     "request": "^2.88.2"
   },
   "devDependencies": {

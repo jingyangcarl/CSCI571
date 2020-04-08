@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Nav, Navbar, Form, Card, Container, Row, Col, Button, Modal, Spinner } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
+import { IoMdShare } from 'react-icons/io';
 import commentBox from 'commentbox.io';
 import _ from 'lodash';
 import './home.css';
+
 
 class Home extends Component {
     constructor() {
@@ -12,7 +14,11 @@ class Home extends Component {
         this.state = {
             results: [],
             selectedResult: null,
+
             news: [],
+            news_detail: null,
+
+            searches: [],
 
             modal: {
                 show: false,
@@ -22,7 +28,6 @@ class Home extends Component {
                 }
             },
 
-            news_detail: null,
         };
         this.shareButtonClicked = false;
     }
@@ -32,7 +37,6 @@ class Home extends Component {
         this.removeCommentBox = commentBox('5651135952060416-proj');
 
         fetch('')
-            // fetch('/home')
             .then(res => res.json())
             .then(res => this.setState({ news: res.results }, () => {
                 document.getElementById('page-cards').style.display = "block";
@@ -46,8 +50,17 @@ class Home extends Component {
         this.removeCommentBox();
     }
 
-    handleResultSelect = (e, { result }) =>
+    handleResultSelect = (e, { result }) => {
         this.setState({ selectedResult: result });
+        fetch('/keyword/' + result.title)
+            .then(res => res.json())
+            .then(res => this.setState({ searches: res.response.docs }, () => {
+                document.getElementById('page-search').style.display = "block";
+                document.getElementById("page-loading").style.display = "none";
+            }));
+        document.getElementById('page-cards').style.display = "none";
+        document.getElementById("page-loading").style.display = "block";
+    };
 
     handleSearchChange = async (event, { value }) => {
         try {
@@ -121,7 +134,7 @@ class Home extends Component {
 
                 {/* *************** Loading Page *************** */}
                 {/* ***** Spinner ***** */}
-                <div id="page-loading" className="loading">
+                <div id="page-loading" className="page-loading">
                     <Spinner animation="grow" variant="primary"></Spinner>
                     <p>Loading</p>
                 </div>
@@ -138,7 +151,6 @@ class Home extends Component {
                                 } else {
                                     // link clicked
                                     fetch('/home/detail', {
-                                        // fetch('/home/detail/static', {
                                         method: 'POST',
                                         headers: {
                                             'Content-Type': 'application/json'
@@ -165,7 +177,7 @@ class Home extends Component {
                                             <Card.Body>
                                                 <Card.Title>
                                                     {news.title}
-                                                    <Button variant="light" key={index} onClick={(event) => {
+                                                    <Button variant="link" key={index} onClick={(event) => {
                                                         event.preventDefault();
                                                         this.setState({
                                                             modal: {
@@ -180,7 +192,7 @@ class Home extends Component {
                                                         });
                                                         this.shareButtonClicked = true;
                                                     }}>
-                                                        Share
+                                                        <IoMdShare></IoMdShare>
                                                     </Button>
                                                 </Card.Title>
                                                 <Card.Text>{news.abstract}</Card.Text>
@@ -251,8 +263,67 @@ class Home extends Component {
                     </Modal>
                 </div>
 
+                {/* *************** Search Results Page *************** */}
+                <div id="page-search" className="page-search">
+                    {this.state.searches.map((search, index) =>
+                        <Card key={index} border="secondary" className="text-left card card-search">
+                            <a href={search.url} className="card-link" onClick={() => {
+
+                            }}>
+                                <Container>
+                                    <Row>
+                                        <Col>
+                                            <Card.Title>
+                                                {search.headline && search.headline.main}
+                                                <Button variant="link" key={index} onClick={(event) => {
+                                                    event.preventDefault();
+                                                    this.setState({
+                                                        modal: {
+                                                            show: true,
+                                                            news: {
+                                                                title: this.state.search[index].headline.main,
+                                                                url: this.state.search[index].url
+                                                            }
+                                                        }
+                                                    }, () => {
+
+                                                    });
+                                                    this.shareButtonClicked = true;
+                                                }}>
+                                                    <IoMdShare></IoMdShare>
+                                                </Button>
+                                            </Card.Title>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Card.Text></Card.Text>
+                                        <Card.Img src={search.multimedia && search.multimedia[0] && 'http://static01.nyt.com/' + search.multimedia[0].url}></Card.Img>
+                                    </Row>
+                                    <Container>
+                                        <Row>
+                                            <Col>
+                                                <Card.Text>{search.pub_date && search.pub_date.substring(0, 10)}</Card.Text>
+                                            </Col>
+                                            <Col>
+                                                <Card bg={search.news_desk === 'world' ? 'success' :
+                                                    search.news_desk === 'politics' ? 'info' :
+                                                        search.news_desk === 'business' ? 'primary' :
+                                                            search.news_desk === 'technology' ? 'warning' :
+                                                                search.news_desk === 'sports' ? 'danger' : 'dark'} className='card-tag'>
+                                                    <Card.Text style={{ 'textAlign': 'center' }}>{search.news_desk}</Card.Text>
+                                                </Card>
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                </Container>
+
+                            </a>
+                        </Card>
+                    )}
+                </div>
+
                 {/* *************** Detail Page *************** */}
-                <div id="page-detail" className="detail">
+                <div id="page-detail" className="page-detail">
                     <Card className="card">
                         <Container>
                             <Row className="card-row">
@@ -279,7 +350,7 @@ class Home extends Component {
                                 </Col>
                             </Row>
                             <Row className="card-row">
-                                <Card.Img src={this.state.news_detail && this.state.news_detail.multimedia[0] && 'http://www.nytimes.com/' + this.state.news_detail.multimedia[0].url}></Card.Img>
+                                <Card.Img src={this.state.news_detail && this.state.news_detail.multimedia[0] && 'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url}></Card.Img>
                             </Row>
                             <Row className="card-row">
                                 <Col>

@@ -16,7 +16,7 @@ router.get('/:section', function(req, res, next) {
         }
 
         res.json(json_obj);
-    })
+    });
 });
 
 module.exports = router;
