@@ -49,5 +49,10 @@
 }
 
 .card-search {
-    width: 20%;
+}
+
+.search-tag {
+    /* width: 10%;
+    margin-left: 70%; */
+    padding: 15% 5%;
 }

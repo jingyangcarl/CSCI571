@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Form, Card, Container, Row, Col, Button, Modal, Spinner } from 'react-bootstrap';
+import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
+import Switch from 'react-switch';
 import commentBox from 'commentbox.io';
 import _ from 'lodash';
 import './home.css';
@@ -27,9 +28,11 @@ class Home extends Component {
                     url: null,
                 }
             },
-
+            
+            checked: false,
         };
         this.shareButtonClicked = false;
+        this.handleSwitchChange = this.handleSwitchChange.bind(this);
     }
 
     componentDidMount() {
@@ -84,11 +87,16 @@ class Home extends Component {
         }
     };
 
+    handleSwitchChange(checked){
+        this.setState({checked});
+    }
+
 
     render() {
         return (
             <div>
                 {/* ************************ Navigation Bar ************************* */}
+                
                 <Navbar bg="primary" variant="dark">
                     <Search
                         onSearchChange={_.debounce(this.handleSearchChange, 1000, {
@@ -118,12 +126,13 @@ class Home extends Component {
                             <Nav.Link eventKey="sports" href="/section/sports"> Sports </Nav.Link>
                         </Nav.Item>
                     </Nav>
+                    
                     <Nav className="ml-auto">
                         <Nav.Item>
                             <Nav.Link>NYTimes</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Form.Switch label="" />
+                            <Switch uncheckedIcon={false} checkedIcon={false} onChange={this.handleSwitchChange} checked={this.state.checked}></Switch>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link>Guardian</Nav.Link>
@@ -265,61 +274,63 @@ class Home extends Component {
 
                 {/* *************** Search Results Page *************** */}
                 <div id="page-search" className="page-search">
-                    {this.state.searches.map((search, index) =>
-                        <Card key={index} border="secondary" className="text-left card card-search">
-                            <a href={search.url} className="card-link" onClick={() => {
+                    <CardColumns>
+                        {this.state.searches.map((search, index) =>
+                            <Card key={index} border="secondary" className="text-left card card-search">
+                                <a href={search.url} className="card-link" onClick={() => {
 
-                            }}>
-                                <Container>
-                                    <Row>
-                                        <Col>
-                                            <Card.Title>
-                                                {search.headline && search.headline.main}
-                                                <Button variant="link" key={index} onClick={(event) => {
-                                                    event.preventDefault();
-                                                    this.setState({
-                                                        modal: {
-                                                            show: true,
-                                                            news: {
-                                                                title: this.state.search[index].headline.main,
-                                                                url: this.state.search[index].url
-                                                            }
-                                                        }
-                                                    }, () => {
-
-                                                    });
-                                                    this.shareButtonClicked = true;
-                                                }}>
-                                                    <IoMdShare></IoMdShare>
-                                                </Button>
-                                            </Card.Title>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Card.Text></Card.Text>
-                                        <Card.Img src={search.multimedia && search.multimedia[0] && 'http://static01.nyt.com/' + search.multimedia[0].url}></Card.Img>
-                                    </Row>
+                                }}>
                                     <Container>
                                         <Row>
                                             <Col>
-                                                <Card.Text>{search.pub_date && search.pub_date.substring(0, 10)}</Card.Text>
-                                            </Col>
-                                            <Col>
-                                                <Card bg={search.news_desk === 'world' ? 'success' :
-                                                    search.news_desk === 'politics' ? 'info' :
-                                                        search.news_desk === 'business' ? 'primary' :
-                                                            search.news_desk === 'technology' ? 'warning' :
-                                                                search.news_desk === 'sports' ? 'danger' : 'dark'} className='card-tag'>
-                                                    <Card.Text style={{ 'textAlign': 'center' }}>{search.news_desk}</Card.Text>
-                                                </Card>
+                                                <Card.Title>
+                                                    {search.headline && search.headline.main}
+                                                    <Button variant="link" key={index} onClick={(event) => {
+                                                        event.preventDefault();
+                                                        this.setState({
+                                                            modal: {
+                                                                show: true,
+                                                                news: {
+                                                                    title: this.state.search[index].headline.main,
+                                                                    url: this.state.search[index].url
+                                                                }
+                                                            }
+                                                        }, () => {
+
+                                                        });
+                                                        this.shareButtonClicked = true;
+                                                    }}>
+                                                        <IoMdShare></IoMdShare>
+                                                    </Button>
+                                                </Card.Title>
                                             </Col>
                                         </Row>
+                                        <Row>
+                                            <Card.Text></Card.Text>
+                                            <Card.Img src={search.multimedia && search.multimedia[0] && 'http://static01.nyt.com/' + search.multimedia[0].url}></Card.Img>
+                                        </Row>
+                                        <Container>
+                                            <Row>
+                                                <Col>
+                                                    <Card.Text>{search.pub_date && search.pub_date.substring(0, 10)}</Card.Text>
+                                                </Col>
+                                                <Col>
+                                                    <Button variant={search.news_desk === 'world' ? 'success' :
+                                                        search.news_desk === 'politics' ? 'info' :
+                                                            search.news_desk === 'business' ? 'primary' :
+                                                                search.news_desk === 'technology' ? 'warning' :
+                                                                    search.news_desk === 'sports' ? 'danger' : 'dark'} size="sm" className='search-tag'>
+                                                        {search.news_desk}
+                                                    </Button>
+                                                </Col>
+                                            </Row>
+                                        </Container>
                                     </Container>
-                                </Container>
+                                </a>
+                            </Card>
+                        )}
+                    </CardColumns>
 
-                            </a>
-                        </Card>
-                    )}
                 </div>
 
                 {/* *************** Detail Page *************** */}

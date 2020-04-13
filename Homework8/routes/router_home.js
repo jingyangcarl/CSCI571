@@ -23,7 +23,6 @@ router.get('/static/', function(req, res, next) {
 router.post('/detail', function(req, res, next) {
     // request for detailed news
     const url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=web_url:("' + req.body.url + '")&api-key=' + YOUR_API_KEY;
-    console.log(url);
     request(url, function (error, response, body) {
         res.send(body);
     })
