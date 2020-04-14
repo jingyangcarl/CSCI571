@@ -234,7 +234,7 @@ class Home extends Component {
                                                 news_detail:
                                                     (this.state.checked ?
                                                         res.response.content /* guardian */ :
-                                                        res.response.docs[0]) /* nytimes */
+                                                        res.response.docs[0] /* nytimes */)
                                             }, () => {
                                                 // show results after fetching
                                                 document.getElementById("page-loading").style.display = "none";
@@ -264,8 +264,12 @@ class Home extends Component {
                                                             modal: {
                                                                 show: true,
                                                                 news: {
-                                                                    title: this.state.news[index].title,
-                                                                    url: this.state.news[index].url
+                                                                    title: (this.state.checked ?
+                                                                        this.state.news[index].webTitle /* guardian */ :
+                                                                        this.state.news[index].title /* nytimes */),
+                                                                    url: (this.state.checked ? 
+                                                                        this.state.news[index].webUrl /* guardian */ : 
+                                                                        this.state.news[index].url/* nytimes */)
                                                                 }
                                                             }
                                                         });
