@@ -3,6 +3,7 @@ import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardCol
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
+// import AsyncSelect from 'react-select/async';
 import Switch from 'react-switch';
 import commentBox from 'commentbox.io';
 import _ from 'lodash';
@@ -29,8 +30,9 @@ class Home extends Component {
                 }
             },
             
-            checked: false,
+            checked: localStorage.getItem('checked') === 'true' ? true : false,
         };
+        console.log(this.state.checked);
         this.shareButtonClicked = false;
         this.handleSwitchChange = this.handleSwitchChange.bind(this);
     }
@@ -39,9 +41,17 @@ class Home extends Component {
 
         this.removeCommentBox = commentBox('5651135952060416-proj');
 
-        fetch('')
+        fetch('', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                source: this.state.checked ? 'guardian' : 'nytimes'
+            })
+        })
             .then(res => res.json())
-            .then(res => this.setState({ news: res.results }, () => {
+            .then(res => this.setState({ news: this.state.checked ? res.response.results : res.results }, () => {
                 document.getElementById('page-cards').style.display = "block";
                 document.getElementById("page-loading").style.display = "none";
             }));
@@ -87,10 +97,18 @@ class Home extends Component {
         }
     };
 
-    handleSwitchChange(checked){
+    /*
+    Description:
+    This function is used to handle Switch onChange functions;
+    */
+    handleSwitchChange(checked) {
+        localStorage.setItem('checked', Boolean(checked));
         this.setState({checked});
-    }
+        try {
+        } catch (error) {
 
+        }
+    }
 
     render() {
         return (
@@ -151,9 +169,9 @@ class Home extends Component {
                 {/* *************** Card Page *************** */}
                 {/* ***** Cards ***** */}
                 <div id="page-cards">
-                    {this.state.news.map((news, index) =>
+                    {this.state.news && this.state.news.map((news, index) =>
                         <Card key={index} border="secondary" className="text-left card">
-                            <a href={news.url} className="card-link" onClick={(event) => {
+                            <a href={news && news.url} className="card-link" onClick={(event) => {
                                 event.preventDefault();
                                 if (this.shareButtonClicked) {
                                     // button clicked
