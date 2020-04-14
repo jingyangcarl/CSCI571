@@ -9,6 +9,7 @@ const YOUR_API_KEY_GUARDIAN = '70e39bf2-86c6-4c5f-a252-ab34d91a4946';
 /* GET home page. */
 router.post('/', function(req, res, next) {
     // use dynamic data for test
+    console.log(req.body.source)
     const url_nytimes = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=' + YOUR_API_KEY_NYTIMES;
     const url_guardian = 'https://content.guardianapis.com/search?api-key=' + YOUR_API_KEY_GUARDIAN + '&section=(sport|business|technology|politics)&show-blocks=all'
     request((req.body.source == 'guardian' ? url_guardian : url_nytimes), function (error, response, body) {

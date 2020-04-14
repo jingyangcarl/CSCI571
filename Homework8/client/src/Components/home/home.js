@@ -29,10 +29,10 @@ class Home extends Component {
                     url: null,
                 }
             },
-            
+
+            // if the switch is checked or not
             checked: localStorage.getItem('checked') === 'true' ? true : false,
         };
-        console.log(this.state.checked);
         this.shareButtonClicked = false;
         this.handleSwitchChange = this.handleSwitchChange.bind(this);
     }
@@ -43,9 +43,7 @@ class Home extends Component {
 
         fetch('', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 source: this.state.checked ? 'guardian' : 'nytimes'
             })
@@ -101,10 +99,35 @@ class Home extends Component {
     Description:
     This function is used to handle Switch onChange functions;
     */
-    handleSwitchChange(checked) {
-        localStorage.setItem('checked', Boolean(checked));
-        this.setState({checked});
+    async handleSwitchChange(checked) {
+
         try {
+            // set current switch status
+            this.setState({ checked });
+
+            // show loading page
+            document.getElementById('page-cards').style.display = "none";
+            document.getElementById("page-loading").style.display = "block";
+
+            // get data from backend server
+            const response = await fetch('', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    source: checked ? 'guardian' : 'nytimes'
+                })
+            });
+            const data = await response.json();
+
+            // set status
+            this.setState({ news: (checked ? data.response.results /* guardian */ : data.results /* nytimes */) });
+
+            // show results after fetching
+            document.getElementById('page-cards').style.display = "block";
+            document.getElementById("page-loading").style.display = "none";
+
+            // set local status
+            localStorage.setItem('checked', Boolean(checked));
         } catch (error) {
 
         }
@@ -114,7 +137,7 @@ class Home extends Component {
         return (
             <div>
                 {/* ************************ Navigation Bar ************************* */}
-                
+
                 <Navbar bg="primary" variant="dark">
                     <Search
                         onSearchChange={_.debounce(this.handleSearchChange, 1000, {
@@ -144,7 +167,7 @@ class Home extends Component {
                             <Nav.Link eventKey="sports" href="/section/sports"> Sports </Nav.Link>
                         </Nav.Item>
                     </Nav>
-                    
+
                     <Nav className="ml-auto">
                         <Nav.Item>
                             <Nav.Link>NYTimes</Nav.Link>
@@ -171,7 +194,7 @@ class Home extends Component {
                 <div id="page-cards">
                     {this.state.news && this.state.news.map((news, index) =>
                         <Card key={index} border="secondary" className="text-left card">
-                            <a href={news && news.url} className="card-link" onClick={(event) => {
+                            <a href={news && (this.state.checked ? news.webUrl /* guardian */ : news.url /* nytimes */)} className="card-link" onClick={(event) => {
                                 event.preventDefault();
                                 if (this.shareButtonClicked) {
                                     // button clicked
@@ -179,12 +202,8 @@ class Home extends Component {
                                     // link clicked
                                     fetch('/home/detail', {
                                         method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({
-                                            url: this.state.news[index].url
-                                        })
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ url: this.state.news[index].url })
                                     })
                                         .then(res => res.json())
                                         .then(res => this.setState({ news_detail: res.response.docs[0] }, () => {
@@ -198,12 +217,15 @@ class Home extends Component {
                                 <Container>
                                     <Row>
                                         <Col sm={3}>
-                                            <Card.Img className="card-image" src={news.multimedia && news.multimedia[0].url}></Card.Img>
+                                            <Card.Img className="card-image" src={news &&
+                                                (this.state.checked ?
+                                                    (news.blocks && news.blocks.main.elements[0] && news.blocks.main.elements[0].assets[0] && news.blocks.main.elements[0].assets[0].file) :
+                                                    (news.multimedia && news.multimedia[0].url))}></Card.Img>
                                         </Col>
                                         <Col sm={9}>
                                             <Card.Body>
                                                 <Card.Title>
-                                                    {news.title}
+                                                    {news && (this.state.checked ? news.webTitle : news.title)}
                                                     <Button variant="link" key={index} onClick={(event) => {
                                                         event.preventDefault();
                                                         this.setState({
@@ -214,29 +236,42 @@ class Home extends Component {
                                                                     url: this.state.news[index].url
                                                                 }
                                                             }
-                                                        }, () => {
-                                                            // console.log(this.state.modal);
                                                         });
                                                         this.shareButtonClicked = true;
                                                     }}>
                                                         <IoMdShare></IoMdShare>
                                                     </Button>
                                                 </Card.Title>
-                                                <Card.Text>{news.abstract}</Card.Text>
+                                                <Card.Text>{news &&
+                                                    (this.state.checked ?
+                                                        (news.blocks && news.blocks.body && news.blocks.body[0].bodyTextSummary) :
+                                                        (news.abstract))}</Card.Text>
                                                 <Container>
                                                     <Row>
                                                         <Col>
                                                             <Card.Text>
-                                                                {news.published_date.substring(0, 10)}
+                                                                {news &&
+                                                                    (this.state.checked ?
+                                                                        (news.webPublicationDate && news.webPublicationDate.substring(0, 10) /* guardian */) :
+                                                                        (news.published_date && news.published_date.substring(0, 10) /* nytimes */))}
                                                             </Card.Text>
                                                         </Col>
                                                         <Col>
-                                                            <Card bg={news.section === 'world' ? 'success' :
-                                                                news.section === 'politics' ? 'info' :
-                                                                    news.section === 'business' ? 'primary' :
-                                                                        news.section === 'technology' ? 'warning' :
-                                                                            news.section === 'sports' ? 'danger' : 'dark'} className='card-tag'>
-                                                                <Card.Text style={{ 'textAlign': 'center' }}>{news.section}</Card.Text>
+                                                            <Card bg={news &&
+                                                                (this.state.checked ?
+                                                                    /* guardian */
+                                                                    (news.sectionId === 'world' ? 'success' :
+                                                                        news.sectionId === 'politics' ? 'info' :
+                                                                            news.sectionId === 'business' ? 'primary' :
+                                                                                news.sectionId === 'technology' ? 'warning' :
+                                                                                    news.sectionId === 'sport' ? 'danger' : 'dark') :
+                                                                    /* nytimes */
+                                                                    (news.section === 'world' ? 'success' :
+                                                                        news.section === 'politics' ? 'info' :
+                                                                            news.section === 'business' ? 'primary' :
+                                                                                news.section === 'technology' ? 'warning' :
+                                                                                    news.section === 'sports' ? 'danger' : 'dark'))} className='card-tag'>
+                                                                <Card.Text style={{ 'textAlign': 'center' }}>{news && (this.state.checked ? news.sectionId /* guardian */ : news.section /* nytimes */)}</Card.Text>
                                                             </Card>
                                                         </Col>
                                                     </Row>
