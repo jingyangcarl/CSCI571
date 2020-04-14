@@ -106,8 +106,15 @@ class Home extends Component {
             this.setState({ checked });
 
             // show loading page
-            document.getElementById('page-cards').style.display = "none";
             document.getElementById("page-loading").style.display = "block";
+
+            // hide other pages and save page hiding status
+            var show_page_cards = document.getElementById('page-cards').style.display;
+            var show_page_search = document.getElementById('page-search').style.display;
+            var show_page_detail = document.getElementById('page-detail').style.display;
+            document.getElementById('page-cards').style.display = "none";
+            document.getElementById('page-search').style.display = "none";
+            document.getElementById('page-detail').style.display = "none";
 
             // get data from backend server
             const response = await fetch('', {
@@ -122,9 +129,13 @@ class Home extends Component {
             // set status
             this.setState({ news: (checked ? data.response.results /* guardian */ : data.results /* nytimes */) });
 
-            // show results after fetching
-            document.getElementById('page-cards').style.display = "block";
+            // hide loading page
             document.getElementById("page-loading").style.display = "none";
+
+            // recover page hiding status
+            document.getElementById('page-cards').style.display = show_page_cards;
+            document.getElementById('page-search').style.display = show_page_search;
+            document.getElementById('page-detail').style.display = show_page_detail;
 
             // set local status
             localStorage.setItem('checked', Boolean(checked));
@@ -194,26 +205,47 @@ class Home extends Component {
                 <div id="page-cards">
                     {this.state.news && this.state.news.map((news, index) =>
                         <Card key={index} border="secondary" className="text-left card">
-                            <a href={news && (this.state.checked ? news.webUrl /* guardian */ : news.url /* nytimes */)} className="card-link" onClick={(event) => {
-                                event.preventDefault();
-                                if (this.shareButtonClicked) {
-                                    // button clicked
-                                } else {
-                                    // link clicked
-                                    fetch('/home/detail', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ url: this.state.news[index].url })
-                                    })
-                                        .then(res => res.json())
-                                        .then(res => this.setState({ news_detail: res.response.docs[0] }, () => {
-                                            document.getElementById("page-loading").style.display = "none";
-                                            document.getElementById("page-detail").style.display = "block";
-                                        }));
-                                    document.getElementById('page-cards').style.display = "none";
-                                    document.getElementById("page-loading").style.display = "block";
-                                }
-                            }}>
+                            <a href={news &&
+                                (this.state.checked ?
+                                    news.webUrl /* guardian */ :
+                                    news.url /* nytimes */)}
+                                className="card-link"
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    if (this.shareButtonClicked) {
+                                        // button clicked
+                                    } else {
+                                        // link clicked
+
+                                        // fetch for details
+                                        fetch('/home/detail', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json' },
+                                            body: JSON.stringify({
+                                                source: this.state.checked ? 'guardian' : 'nytimes',
+                                                url:
+                                                    (this.state.checked ?
+                                                        this.state.news[index].id /* guardian */ :
+                                                        this.state.news[index].url /* nytimes */)
+                                            })
+                                        })
+                                            .then(res => res.json())
+                                            .then(res => this.setState({
+                                                news_detail:
+                                                    (this.state.checked ?
+                                                        res.response.content /* guardian */ :
+                                                        res.response.docs[0]) /* nytimes */
+                                            }, () => {
+                                                // show results after fetching
+                                                document.getElementById("page-loading").style.display = "none";
+                                                document.getElementById("page-detail").style.display = "block";
+                                                console.log(this.state.news_detail);
+                                            }));
+                                        // show loading page
+                                        document.getElementById('page-cards').style.display = "none";
+                                        document.getElementById("page-loading").style.display = "block";
+                                    }
+                                }}>
                                 <Container>
                                     <Row>
                                         <Col sm={3}>
@@ -392,34 +424,47 @@ class Home extends Component {
                         <Container>
                             <Row className="card-row">
                                 <Col>
-                                    <Card.Title>{this.state.news_detail && this.state.news_detail.headline.main}</Card.Title>
+                                    <Card.Title>{this.state.news_detail &&
+                                        (this.state.checked ?
+                                            this.state.news_detail.webTitle : /* guardian */
+                                            this.state.news_detail.headline.main /* nytimes */)}
+                                    </Card.Title>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
                                     <Card.Text>
-                                        {this.state.news_detail && this.state.news_detail.pub_date.substring(0, 10)}
+                                        {this.state.news_detail &&
+                                            (this.state.checked ?
+                                                (this.state.news_detail.webPublicationDate && this.state.news_detail.webPublicationDate.substring(0, 10)) : /* guardian */
+                                                (this.state.news_detail.pub_date && this.state.news_detail.pub_date.substring(0, 10)) /* nytimes */)}
                                     </Card.Text>
                                 </Col>
                                 <Col>
-                                    <FacebookShareButton url={this.state.news_detail && this.state.news_detail.web_url} hashtag={'#CSCI_571_NewsApp'}>
+                                    <FacebookShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
                                         <FacebookIcon size={16} round></FacebookIcon>
                                     </FacebookShareButton>
-                                    <TwitterShareButton url={this.state.news_detail && this.state.news_detail.web_url} hashtag={'#CSCI_571_NewsApp'}>
+                                    <TwitterShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
                                         <TwitterIcon size={16} round></TwitterIcon>
                                     </TwitterShareButton>
-                                    <EmailShareButton url={this.state.news_detail && this.state.news_detail.web_url} subject={'#CSCI_571_NewsApp'}>
+                                    <EmailShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} subject={'#CSCI_571_NewsApp'}>
                                         <EmailIcon size={16} round></EmailIcon>
                                     </EmailShareButton>
                                 </Col>
                             </Row>
                             <Row className="card-row">
-                                <Card.Img src={this.state.news_detail && this.state.news_detail.multimedia[0] && 'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url}></Card.Img>
+                                <Card.Img src={this.state.news_detail &&
+                                    (this.state.checked ?
+                                        (this.state.news_detail.blocks.main.elements && this.state.news_detail.blocks.main.elements[0].assets && this.state.news_detail.blocks.main.elements[0].assets[0].file) : /* guardian */
+                                        (this.state.news_detail.multimedia && this.state.news_detail.multimedia[0] && 'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url /* nytimes */))}></Card.Img>
                             </Row>
                             <Row className="card-row">
                                 <Col>
                                     <Card.Text>
-                                        {this.state.news_detail && this.state.news_detail.abstract}
+                                        {this.state.news_detail &&
+                                            (this.state.checked ?
+                                                this.state.news_detail.blocks.body && this.state.news_detail.blocks.body[0].bodyTextSummary : /* guardian */
+                                                this.state.news_detail.abstract /* nytimes */)}
                                     </Card.Text>
                                 </Col>
                             </Row>
@@ -427,7 +472,7 @@ class Home extends Component {
                     </Card>
                     <div className="commentbox"></div>
                 </div>
-            </div>
+            </div >
         );
     };
 }
