@@ -316,7 +316,11 @@ class Home extends Component {
                                                                             news.section === 'technology' ? { background: '#CEDC39', color: 'black' } :
                                                                                 news.section === 'sports' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }))}
                                                                 className='card-tag'>
-                                                                <Card.Text style={{ 'textAlign': 'center' }}>{news && (this.state.checked ? news.sectionId /* guardian */ : news.section /* nytimes */)}</Card.Text>
+                                                                <Card.Text style={{ 'textAlign': 'center' }}>
+                                                                    {news && (this.state.checked ?
+                                                                        (news.sectionId && news.sectionId.toUpperCase() /* guardian */) :
+                                                                        (news.section && news.section.toUpperCase() /* nytimes */))}
+                                                                </Card.Text>
                                                             </Card>
                                                         </Col>
                                                     </Row>
