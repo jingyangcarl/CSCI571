@@ -9,7 +9,6 @@ import commentBox from 'commentbox.io';
 import _ from 'lodash';
 import './home.css';
 
-
 class Home extends Component {
     constructor() {
         super();
@@ -249,6 +248,7 @@ class Home extends Component {
                                 <Container>
                                     <Row>
                                         <Col sm={3}>
+                                            {/* TODO: Only the first image URL with width >= 2000 is to be used. If no such URLs are found, a default image for NY Times News is to be displayed. */}
                                             <Card.Img className="card-image" src={news &&
                                                 (this.state.checked ?
                                                     (news.blocks && news.blocks.main && (news.blocks.main.elements[0].assets[0] ?
@@ -265,6 +265,7 @@ class Home extends Component {
                                                     <Button variant="link" key={index} onClick={(event) => {
                                                         event.preventDefault();
                                                         this.setState({
+                                                            // TODO: URLs should be modified
                                                             modal: {
                                                                 show: true,
                                                                 news: {
@@ -283,6 +284,7 @@ class Home extends Component {
                                                     </Button>
                                                 </Card.Title>
                                                 <Card.Text>
+                                                    {/* TODO: In the article description, no words should be cut in the middle and there MUST be the ellipsis whenever needed (limit to 3 lines) */}
                                                     {news && (this.state.checked ?
                                                         news.blocks && news.blocks.body[0].bodyTextSummary && (news.blocks.body[0].bodyTextSummary.length > 200 ?
                                                             news.blocks.body[0].bodyTextSummary.substring(0, 200) + '...' :
