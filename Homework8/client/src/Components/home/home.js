@@ -267,8 +267,8 @@ class Home extends Component {
                                                                     title: (this.state.checked ?
                                                                         this.state.news[index].webTitle /* guardian */ :
                                                                         this.state.news[index].title /* nytimes */),
-                                                                    url: (this.state.checked ? 
-                                                                        this.state.news[index].webUrl /* guardian */ : 
+                                                                    url: (this.state.checked ?
+                                                                        this.state.news[index].webUrl /* guardian */ :
                                                                         this.state.news[index].url/* nytimes */)
                                                                 }
                                                             }
@@ -278,10 +278,15 @@ class Home extends Component {
                                                         <IoMdShare></IoMdShare>
                                                     </Button>
                                                 </Card.Title>
-                                                <Card.Text>{news &&
-                                                    (this.state.checked ?
-                                                        (news.blocks && news.blocks.body && news.blocks.body[0].bodyTextSummary) :
-                                                        (news.abstract))}</Card.Text>
+                                                <Card.Text>
+                                                    {news && (this.state.checked ?
+                                                        news.blocks && news.blocks.body[0].bodyTextSummary && (news.blocks.body[0].bodyTextSummary.length > 200 ?
+                                                            news.blocks.body[0].bodyTextSummary.substring(0, 200) + '...' :
+                                                            news.blocks.body[0].bodyTextSummary) /* guardian */ :
+                                                        news.abstract && (news.abstract.length > 200 ?
+                                                            news.abstract.substring(0, 200 + '...') :
+                                                            news.abstract) /* nytimes */)}
+                                                </Card.Text>
                                                 <Container>
                                                     <Row>
                                                         <Col>
