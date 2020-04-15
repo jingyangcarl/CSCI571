@@ -251,8 +251,12 @@ class Home extends Component {
                                         <Col sm={3}>
                                             <Card.Img className="card-image" src={news &&
                                                 (this.state.checked ?
-                                                    (news.blocks && news.blocks.main.elements[0] && news.blocks.main.elements[0].assets[0] && news.blocks.main.elements[0].assets[0].file) :
-                                                    (news.multimedia && news.multimedia[0].url))}></Card.Img>
+                                                    (news.blocks && news.blocks.main.elements[0] && news.blocks.main.elements[0].assets && (news.blocks.main.elements[0].assets[0] ?
+                                                        news.blocks.main.elements[0].assets[0].file :
+                                                        'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png') /* guardian */) :
+                                                    (news.multimedia && (news.multimedia[0].url ?
+                                                        news.multimedia[0].url :
+                                                        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg') /* nytimes */))}></Card.Img>
                                         </Col>
                                         <Col sm={9}>
                                             <Card.Body>
