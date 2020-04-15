@@ -21,7 +21,6 @@ router.post('/:section', function(req, res, next) {
         });
     } else if (req.body.source == 'guardian') {
         const url = 'https://content.guardianapis.com/' + req.params.section + '?api-key=' + YOUR_API_KEY_GUARDIAN + '&show-blocks=all';
-        console.log(url);
         request(url, function (error, response, body) {
             res.send(body);
         })

@@ -254,7 +254,7 @@ class Home extends Component {
                                                     (news.blocks && news.blocks.main.elements[0] && news.blocks.main.elements[0].assets && (news.blocks.main.elements[0].assets[0] ?
                                                         news.blocks.main.elements[0].assets[0].file :
                                                         'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png') /* guardian */) :
-                                                    (news.multimedia && (news.multimedia[0].url ?
+                                                    (news.multimedia && (news.multimedia[0] ?
                                                         news.multimedia[0].url :
                                                         'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg') /* nytimes */))}></Card.Img>
                                         </Col>
@@ -468,8 +468,12 @@ class Home extends Component {
                             <Row className="card-row">
                                 <Card.Img src={this.state.news_detail &&
                                     (this.state.checked ?
-                                        (this.state.news_detail.blocks.main.elements && this.state.news_detail.blocks.main.elements[0].assets && this.state.news_detail.blocks.main.elements[0].assets[0].file) : /* guardian */
-                                        (this.state.news_detail.multimedia && this.state.news_detail.multimedia[0] && 'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url /* nytimes */))}></Card.Img>
+                                        (this.state.news_detail.blocks.main.elements && this.state.news_detail.blocks.main.elements[0].assets && (this.state.news_detail.blocks.main.elements[0].assets[0] ?
+                                            this.state.news_detail.blocks.main.elements[0].assets[0].file :
+                                            'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png')) : /* guardian */
+                                        (this.state.news_detail.multimedia && (this.state.news_detail.multimedia[0] ?
+                                            'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url :
+                                            'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg' /* nytimes */)))}></Card.Img>
                             </Row>
                             <Row className="card-row">
                                 <Col>
