@@ -251,7 +251,7 @@ class Home extends Component {
                                         <Col sm={3}>
                                             <Card.Img className="card-image" src={news &&
                                                 (this.state.checked ?
-                                                    (news.blocks && news.blocks.main.elements[0] && news.blocks.main.elements[0].assets && (news.blocks.main.elements[0].assets[0] ?
+                                                    (news.blocks && news.blocks.main && (news.blocks.main.elements[0].assets[0] ?
                                                         news.blocks.main.elements[0].assets[0].file :
                                                         'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png') /* guardian */) :
                                                     (news.multimedia && (news.multimedia[0] ?
@@ -302,20 +302,20 @@ class Home extends Component {
                                                             </Card.Text>
                                                         </Col>
                                                         <Col>
-                                                            <Card bg={news &&
-                                                                (this.state.checked ?
-                                                                    /* guardian */
-                                                                    (news.sectionId === 'world' ? 'success' :
-                                                                        news.sectionId === 'politics' ? 'info' :
-                                                                            news.sectionId === 'business' ? 'primary' :
-                                                                                news.sectionId === 'technology' ? 'warning' :
-                                                                                    news.sectionId === 'sport' ? 'danger' : 'dark') :
-                                                                    /* nytimes */
-                                                                    (news.section === 'world' ? 'success' :
-                                                                        news.section === 'politics' ? 'info' :
-                                                                            news.section === 'business' ? 'primary' :
-                                                                                news.section === 'technology' ? 'warning' :
-                                                                                    news.section === 'sports' ? 'danger' : 'dark'))} className='card-tag'>
+                                                            <Card style={news && (this.state.checked ?
+                                                                /* guardian */
+                                                                (news.sectionId === 'world' ? { background: '#7C4EFF', color: 'white' } :
+                                                                    news.sectionId === 'politics' ? { background: '#419488', color: 'white' } :
+                                                                        news.sectionId === 'business' ? { background: '#4696EC', color: 'white' } :
+                                                                            news.sectionId === 'technology' ? { background: '#CEDC39', color: 'black' } :
+                                                                                news.sectionId === 'sport' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }) :
+                                                                /* nytimes */
+                                                                (news.section === 'world' ? { background: '#7C4EFF', color: 'white' } :
+                                                                    news.section === 'politics' ? { background: '#419488', color: 'white' } :
+                                                                        news.section === 'business' ? { background: '#4696EC', color: 'white' } :
+                                                                            news.section === 'technology' ? { background: '#CEDC39', color: 'black' } :
+                                                                                news.section === 'sports' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }))}
+                                                                className='card-tag'>
                                                                 <Card.Text style={{ 'textAlign': 'center' }}>{news && (this.state.checked ? news.sectionId /* guardian */ : news.section /* nytimes */)}</Card.Text>
                                                             </Card>
                                                         </Col>
