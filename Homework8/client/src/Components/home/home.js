@@ -148,7 +148,7 @@ class Home extends Component {
             <div>
                 {/* ************************ Navigation Bar ************************* */}
 
-                <Navbar bg="primary" variant="dark">
+                <Navbar bg="primary" variant="dark" style={{background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)'}}>
                     <Search
                         onSearchChange={_.debounce(this.handleSearchChange, 1000, {
                             leading: true
