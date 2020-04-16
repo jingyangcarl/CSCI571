@@ -50,10 +50,12 @@ class Home extends Component {
             .then(res => res.json())
             .then(res => this.setState({ news: this.state.checked ? res.response.results : res.results }, () => {
                 document.getElementById('page-cards').style.display = "block";
-                document.getElementById("page-loading").style.display = "none";
+                document.getElementById('navbar-switch').style.display = "float";
+                document.getElementById('page-loading').style.display = "none";
             }));
         document.getElementById('page-cards').style.display = "none";
-        document.getElementById("page-loading").style.display = "block";
+        // document.getElementById('navbar-switch').style.display = "none";
+        document.getElementById('page-loading').style.display = "block";
     }
 
     componentWillUnmount() {
@@ -178,7 +180,7 @@ class Home extends Component {
                         </Nav.Item>
                     </Nav>
 
-                    <Nav className="ml-auto">
+                    <Nav className="ml-auto" id='navbar-switch'>
                         <Nav.Item>
                             <Nav.Link>NYTimes</Nav.Link>
                         </Nav.Item>
@@ -236,13 +238,14 @@ class Home extends Component {
                                                         res.response.docs[0] /* nytimes */)
                                             }, () => {
                                                 // show results after fetching
-                                                document.getElementById("page-loading").style.display = "none";
-                                                document.getElementById("page-detail").style.display = "block";
+                                                document.getElementById('page-loading').style.display = "none";
+                                                document.getElementById('navbar-switch').style.display = "none";
+                                                document.getElementById('page-detail').style.display = "block";
                                                 console.log(this.state.news_detail);
                                             }));
                                         // show loading page
                                         document.getElementById('page-cards').style.display = "none";
-                                        document.getElementById("page-loading").style.display = "block";
+                                        document.getElementById('page-loading').style.display = "block";
                                     }
                                 }}>
                                 <Container>
@@ -439,7 +442,7 @@ class Home extends Component {
 
                 {/* *************** Detail Page *************** */}
                 <div id="page-detail" className="page-detail">
-                    <Card className="card">
+                    <Card className="text-left card">
                         <Container>
                             <Row className="card-row">
                                 <Col>
@@ -474,7 +477,7 @@ class Home extends Component {
                             <Row className="card-row">
                                 <Card.Img src={this.state.news_detail &&
                                     (this.state.checked ?
-                                        (this.state.news_detail.blocks.main.elements && this.state.news_detail.blocks.main.elements[0].assets && (this.state.news_detail.blocks.main.elements[0].assets[0] ?
+                                        (this.state.news_detail.blocks && this.state.news_detail.blocks.main.elements[0].assets && (this.state.news_detail.blocks.main.elements[0].assets[0] ?
                                             this.state.news_detail.blocks.main.elements[0].assets[0].file :
                                             'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png')) : /* guardian */
                                         (this.state.news_detail.multimedia && (this.state.news_detail.multimedia[0] ?
@@ -486,7 +489,7 @@ class Home extends Component {
                                     <Card.Text>
                                         {this.state.news_detail &&
                                             (this.state.checked ?
-                                                this.state.news_detail.blocks.body && this.state.news_detail.blocks.body[0].bodyTextSummary : /* guardian */
+                                                this.state.news_detail.blocks && this.state.news_detail.blocks.body[0].bodyTextSummary : /* guardian */
                                                 this.state.news_detail.abstract /* nytimes */)}
                                     </Card.Text>
                                 </Col>

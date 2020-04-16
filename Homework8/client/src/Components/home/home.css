@@ -35,20 +35,20 @@
     margin-top: 1%;
 }
 
+/* Loading Page Initial Status */
 .page-loading {
     display: none;
     margin: 20% auto;
 }
 
+/* Detail Page Initial Status */
 .page-detail {
     display: none;
 }
 
+/* Search Page Initial Status */
 .page-search {
     display: none;
-}
-
-.card-search {
 }
 
 .search-tag {
