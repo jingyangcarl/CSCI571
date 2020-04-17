@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger, Toast } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
@@ -27,6 +27,11 @@ class Home extends Component {
                     title: '',
                     url: null,
                 }
+            },
+
+            toast: {
+                show: false,
+                content: null
             },
 
             // if the switch is checked or not
@@ -575,7 +580,7 @@ class Home extends Component {
                     <h1>Favorite</h1>
                     <CardColumns>
                         {localStorage.getItem('news_bookmark_list') && JSON.parse(localStorage.getItem('news_bookmark_list')).map((news, index) =>
-                            <Card border="secondary" className="card card-thin">
+                            <Card key={index} border="secondary" className="card card-thin">
                                 <a href={news} className="card-link">
                                     <Container>
                                         <Row>
@@ -681,7 +686,17 @@ class Home extends Component {
                                     <Button variant='link' onClick={() => {
 
                                         // show toast
-                                        
+                                        this.setState({
+                                            toast: {
+                                                show: true,
+                                                content: "Saving" + this.state.news_detail &&
+                                                    (this.state.checked ?
+                                                        this.state.news_detail.webTitle : /* guardian */
+                                                        this.state.news_detail.headline.main /* nytimes */)
+                                            }
+                                        });
+
+                                        console.log(this.state.toast);
 
                                         // get current news
                                         var news_bookmark = {
@@ -751,6 +766,22 @@ class Home extends Component {
                             </Row>
                         </Container>
                     </Card>
+
+                    {/* Toast */}
+                    <Toast show={this.state.toast.show} delay={1500} onClose={() => {
+                        this.setState({
+                            toast: {
+                                show: false,
+                                content: null
+                            }
+                        });
+                    }} style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, 0px)'}} autohide>
+                        <Toast.Header>
+                            {this.state.toast.content}
+                        </Toast.Header>
+                    </Toast>
+
+                    {/* Commentbox */}
                     <div>
                         <div className="commentbox" id={this.state.news_detail && (this.state.checked ? this.state.news_detail.id : this.state.news_detail.web_url)}> </div>
                     </div>
