@@ -3,7 +3,7 @@ import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardCol
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
-// import AsyncSelect from 'react-select/async';
+import { FaRegBookmark } from 'react-icons/fa';
 import Switch from 'react-switch';
 import commentBox from 'commentbox.io';
 import _ from 'lodash';
@@ -30,10 +30,13 @@ class Home extends Component {
             },
 
             // if the switch is checked or not
-            checked: localStorage.getItem('checked') === 'true' ? true : false,
+            checked: localStorage.getItem('switch_checked') === 'true' ? true : false,
         };
         this.shareButtonClicked = false;
+        this.bookmarkButtonClicked = false;
+
         this.handleSwitchChange = this.handleSwitchChange.bind(this);
+        this.handleBookMarkClicked = this.handleBookMarkClicked.bind(this);
     }
 
     componentDidMount() {
@@ -148,10 +151,48 @@ class Home extends Component {
             document.getElementById('page-detail').style.display = show_page_detail;
 
             // set local status
-            localStorage.setItem('checked', Boolean(checked));
+            localStorage.setItem('switch_checked', Boolean(checked));
         } catch (error) {
 
         }
+    }
+
+    handleBookMarkClicked() {
+
+        if (this.bookmarkButtonClicked) {
+            // bookmark page is current page
+
+            // hid bookmark page
+            document.getElementById('page-bookmark').style.display = "none";
+            this.bookmarkButtonClicked = false;
+
+            // recover other pages
+            document.getElementById('page-cards').style.display = localStorage.getItem('show_page_cards');
+            document.getElementById('page-search').style.display = localStorage.getItem('show_page_search');
+            document.getElementById('page-detail').style.display = localStorage.getItem('show_page_detail');
+            document.getElementById('page-loading').style.display = localStorage.getItem('show_page_loading');
+
+
+        } else {
+            // bookmark page is not current page
+
+            // save page hiding status
+            localStorage.setItem('show_page_cards', document.getElementById('page-cards').style.display);
+            localStorage.setItem('show_page_search', document.getElementById('page-search').style.display);
+            localStorage.setItem('show_page_detail', document.getElementById('page-detail').style.display);
+            localStorage.setItem('show_page_loading', document.getElementById('page-loading').style.display);
+
+            // hide all pages
+            document.getElementById('page-cards').style.display = "none";
+            document.getElementById('page-search').style.display = "none";
+            document.getElementById('page-detail').style.display = "none";
+            document.getElementById('page-loading').style.display = "none";
+
+            // show bookmark page
+            document.getElementById('page-bookmark').style.display = "block";
+            this.bookmarkButtonClicked = true;
+        }
+
     }
 
     render() {
@@ -189,7 +230,13 @@ class Home extends Component {
                         </Nav.Item>
                     </Nav>
 
+
                     <Nav className="ml-auto" id='navbar-switch'>
+                        <Nav.Item id='navbar-bookmark'>
+                            <Button variant='link' onClick={this.handleBookMarkClicked}>
+                                <FaRegBookmark></FaRegBookmark>
+                            </Button>
+                        </Nav.Item>
                         <Nav.Item>
                             <Nav.Link>NYTimes</Nav.Link>
                         </Nav.Item>
@@ -321,13 +368,15 @@ class Home extends Component {
                                                                     news.sectionId === 'politics' ? { background: '#419488', color: 'white' } :
                                                                         news.sectionId === 'business' ? { background: '#4696EC', color: 'white' } :
                                                                             news.sectionId === 'technology' ? { background: '#CEDC39', color: 'black' } :
-                                                                                news.sectionId === 'sport' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }) :
+                                                                                news.sectionId === 'sport' ? { background: '#F6C245', color: 'black' } :
+                                                                                    { background: '#6E757C', color: 'white' }) :
                                                                 /* nytimes */
                                                                 (news.section === 'world' ? { background: '#7C4EFF', color: 'white' } :
                                                                     news.section === 'politics' ? { background: '#419488', color: 'white' } :
                                                                         news.section === 'business' ? { background: '#4696EC', color: 'white' } :
                                                                             news.section === 'technology' ? { background: '#CEDC39', color: 'black' } :
-                                                                                news.section === 'sports' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }))}
+                                                                                news.section === 'sports' ? { background: '#F6C245', color: 'black' } :
+                                                                                    { background: '#6E757C', color: 'white' }))}
                                                                 className='card-tag'>
                                                                 <Card.Text style={{ 'textAlign': 'center' }}>
                                                                     {news && (this.state.checked ?
@@ -389,9 +438,10 @@ class Home extends Component {
 
                 {/* *************** Search Results Page *************** */}
                 <div id="page-search" className="page-search">
+                    <h1>Results</h1>
                     <CardColumns>
                         {this.state.searches.map((news, index) =>
-                            <Card key={index} border="secondary" className="card card-search">
+                            <Card key={index} border="secondary" className="card card-thin">
                                 <a href={news &&
                                     (this.state.checked ?
                                         news.webUrl : /* guardian */
@@ -495,13 +545,16 @@ class Home extends Component {
                                                             news.sectionId === 'politics' ? { background: '#419488', color: 'white' } :
                                                                 news.sectionId === 'business' ? { background: '#4696EC', color: 'white' } :
                                                                     news.sectionId === 'technology' ? { background: '#CEDC39', color: 'black' } :
-                                                                        news.sectionId === 'sport' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }) :
+                                                                        news.sectionId === 'sport' ? { background: '#F6C245', color: 'black' } :
+                                                                            { background: '#6E757C', color: 'white' }) :
                                                         /* nytimes */
                                                         (news.news_desk === 'world' ? { background: '#7C4EFF', color: 'white' } :
                                                             news.news_desk === 'politics' ? { background: '#419488', color: 'white' } :
                                                                 news.news_desk === 'business' ? { background: '#4696EC', color: 'white' } :
                                                                     news.news_desk === 'technology' ? { background: '#CEDC39', color: 'black' } :
-                                                                        news.news_desk === 'sports' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }))} size="sm" className='news-tag'>
+                                                                        news.news_desk === 'sports' ? { background: '#F6C245', color: 'black' } :
+                                                                            { background: '#6E757C', color: 'white' }))}
+                                                        size="sm" className='news-tag'>
                                                         {news &&
                                                             (this.state.checked ?
                                                                 news.sectionId && news.sectionId.toUpperCase() :  /* guardian */
@@ -515,7 +568,74 @@ class Home extends Component {
                             </Card>
                         )}
                     </CardColumns>
+                </div>
 
+                {/* *************** Bookmark Page *************** */}
+                <div id="page-bookmark" className="page-bookmark">
+                    <h1>Favorite</h1>
+                    <CardColumns>
+                        {localStorage.getItem('news_bookmark_list') && JSON.parse(localStorage.getItem('news_bookmark_list')).map((news, index) =>
+                            <Card border="secondary" className="card card-thin">
+                                <a href={news} className="card-link">
+                                    <Container>
+                                        <Row>
+                                            <Col>
+                                                <Card.Title>
+                                                    {news.title}
+                                                    <Button variant="link" key={index} onClick={(event) => {
+                                                        event.preventDefault();
+                                                        this.setState({
+                                                            modal: {
+                                                                show: true,
+                                                                news: {
+                                                                    title: news.title,
+                                                                    url: news.url
+                                                                }
+                                                            }
+                                                        }, () => {
+
+                                                        });
+                                                        this.shareButtonClicked = true;
+                                                    }}>
+                                                        <IoMdShare></IoMdShare>
+                                                    </Button>
+                                                </Card.Title>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Card.Text></Card.Text>
+                                            <Card.Img src={news.image}></Card.Img>
+                                        </Row>
+                                        <Container>
+                                            <Row>
+                                                <Col>
+                                                    <Card.Text> {news.date && news.date.substring(0, 10)} </Card.Text>
+                                                </Col>
+                                                <Col>
+                                                    <Button variant="outline-light" style={
+                                                        news.source === 'guardian' ? { background: '#14284A', color: 'white' } :
+                                                            { background: '#DDDDDD', color: 'black' }
+                                                    } size='sm'>
+                                                        {news.source && news.source.toUpperCase()}
+                                                    </Button>
+                                                    <Button variant='outline-light' style={
+                                                        news.section === 'world' ? { background: '#7C4EFF', color: 'white' } :
+                                                            news.section === 'politics' ? { background: '#419488', color: 'white' } :
+                                                                news.section === 'business' ? { background: '#4696EC', color: 'white' } :
+                                                                    news.section === 'technology' ? { background: '#CEDC39', color: 'black' } :
+                                                                        news.section === 'sport' ? { background: '#F6C245', color: 'black' } :
+                                                                            { background: '#6E757C', color: 'white' }}
+                                                        size="sm">
+                                                        {news.section && news.section.toUpperCase()}
+                                                    </Button>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+                                    </Container>
+                                </a>
+                            </Card>
+                        )}
+                    </CardColumns>
                 </div>
 
                 {/* *************** Detail Page *************** */}
@@ -556,6 +676,57 @@ class Home extends Component {
                                             <EmailIcon size={20} round></EmailIcon>
                                         </EmailShareButton>
                                     </OverlayTrigger>
+                                </Col>
+                                <Col>
+                                    <Button variant='link' onClick={() => {
+
+                                        // show toast
+                                        
+
+                                        // get current news
+                                        var news_bookmark = {
+                                            title: this.state.news_detail &&
+                                                (this.state.checked ?
+                                                    this.state.news_detail.webTitle : /* guardian */
+                                                    this.state.news_detail.headline.main /* nytimes */),
+                                            image: this.state.news_detail &&
+                                                (this.state.checked ?
+                                                    (this.state.news_detail.blocks && this.state.news_detail.blocks.main.elements[0].assets && (this.state.news_detail.blocks.main.elements[0].assets[0] ?
+                                                        this.state.news_detail.blocks.main.elements[0].assets[0].file :
+                                                        'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png')) : /* guardian */
+                                                    (this.state.news_detail.multimedia && (this.state.news_detail.multimedia[0] ?
+                                                        'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url :
+                                                        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg' /* nytimes */))),
+                                            date: this.state.news_detail &&
+                                                (this.state.checked ?
+                                                    this.state.news_detail.webPublicationDate : /* guardian */
+                                                    this.state.news_detail.pub_date /* nytimes */),
+                                            source: this.state.checked ? 'guardian' : 'nytimes',
+                                            section: this.state.news_detail &&
+                                                (this.state.checked ?
+                                                    this.state.news_detail.sectionId : /* guardian */
+                                                    this.state.news_detail.section_name /* nytimes */),
+                                            url: this.state.news_detail &&
+                                                (this.state.checked ?
+                                                    this.state.news_detail.webUrl : /* guardian */
+                                                    this.state.news_detail.web_url /* nytimes */)
+                                        };
+
+                                        var news_bookmark_list = JSON.parse(localStorage.getItem('news_bookmark_list'));
+
+                                        console.log(localStorage.getItem('news_bookmark_list'));
+                                        if (news_bookmark_list) {
+                                            // news_bookmark_list exists
+                                            news_bookmark_list.push(news_bookmark);
+                                        } else {
+                                            news_bookmark_list = [];
+                                            news_bookmark_list.push(news_bookmark);
+                                            localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
+                                        }
+
+                                    }}>
+                                        <FaRegBookmark></FaRegBookmark>
+                                    </Button>
                                 </Col>
                             </Row>
                             <Row className="card-row">
