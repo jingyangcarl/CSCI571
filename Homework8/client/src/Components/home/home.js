@@ -250,7 +250,6 @@ class Home extends Component {
                                                 document.getElementById('page-loading').style.display = "none";
                                                 document.getElementById('navbar-switch').style.display = "none";
                                                 document.getElementById('page-detail').style.display = "block";
-                                                console.log(this.state.news_detail);
                                             }));
                                         // show loading page
                                         document.getElementById('page-cards').style.display = "none";
@@ -393,9 +392,47 @@ class Home extends Component {
                     <CardColumns>
                         {this.state.searches.map((news, index) =>
                             <Card key={index} border="secondary" className="card card-search">
-                                <a href={news.url} className="card-link" onClick={() => {
-                                    
-                                }}>
+                                <a href={news &&
+                                    (this.state.checked ?
+                                        news.webUrl : /* guardian */
+                                        news.web_url /* nytimes */)}
+                                    className="card-link"
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        if (this.shareButtonClicked) {
+
+                                        } else {
+                                            // link clicked
+
+                                            // fetch for details
+                                            fetch('home/detail', {
+                                                method: 'POST',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({
+                                                    source: this.state.checked ? 'guardian' : 'nytimes',
+                                                    url:
+                                                        (this.state.checked ?
+                                                            this.state.searches[index].id /* guardian */ :
+                                                            this.state.searches[index].web_url /* nytimes */)
+                                                })
+                                            })
+                                                .then(res => res.json())
+                                                .then(res => this.setState({
+                                                    news_detail:
+                                                        (this.state.checked ?
+                                                            res.response.content /* guardian */ :
+                                                            res.response.docs[0] /* nytimes */)
+                                                }, () => {
+                                                    // show results after fetching
+                                                    document.getElementById('page-loading').style.display = "none";
+                                                    document.getElementById('navbar-switch').style.display = "none";
+                                                    document.getElementById('page-detail').style.display = "block";
+                                                }));
+                                            // show loading page
+                                            document.getElementById('page-search').style.display = "none";
+                                            document.getElementById('page-loading').style.display = "block";
+                                        }
+                                    }}>
                                     <Container>
                                         <Row>
                                             <Col>

@@ -26,8 +26,12 @@ router.post('/detail', function(req, res, next) {
     // request for detailed news
     const url_nytimes = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=web_url:("' + req.body.url + '")&api-key=' + YOUR_API_KEY_NYTIMES;
     const url_guardian = 'https://content.guardianapis.com/' + req.body.url + '?api-key=' + YOUR_API_KEY_GUARDIAN + '&show-blocks=all';
-    console.log(url_nytimes);
     request((req.body.source == 'guardian' ? url_guardian : url_nytimes), function (error, response, body) {
+        if (req.body.source == 'guardian') {
+            console.log(url_guardian);
+        } else if (req.body.source == 'nytimes') {
+            console.log(url_nytimes);
+        }
         res.send(body);
     })
 });
