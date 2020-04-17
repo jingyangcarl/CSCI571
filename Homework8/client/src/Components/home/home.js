@@ -665,7 +665,7 @@ class Home extends Component {
                                                 (this.state.news_detail.pub_date && this.state.news_detail.pub_date.substring(0, 10)) /* nytimes */)}
                                     </Card.Text>
                                 </Col>
-                                <Col>
+                                <Col style={{textAlign: 'right'}}>
                                     <OverlayTrigger placement='top' overlay={<Tooltip> Facebook </Tooltip>}>
                                         <FacebookShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
                                             <FacebookIcon size={20} round></FacebookIcon>
@@ -683,65 +683,67 @@ class Home extends Component {
                                     </OverlayTrigger>
                                 </Col>
                                 <Col>
-                                    <Button variant='link' onClick={() => {
+                                    <OverlayTrigger placement='top' overlay={<Tooltip> Bookmark </Tooltip>}>
+                                        <Button variant='link' onClick={() => {
 
-                                        // show toast
-                                        this.setState({
-                                            toast: {
-                                                show: true,
-                                                content: "Saving" + this.state.news_detail &&
+                                            // show toast
+                                            this.setState({
+                                                toast: {
+                                                    show: true,
+                                                    content: "Saving" + this.state.news_detail &&
+                                                        (this.state.checked ?
+                                                            this.state.news_detail.webTitle : /* guardian */
+                                                            this.state.news_detail.headline.main /* nytimes */)
+                                                }
+                                            });
+
+                                            console.log(this.state.toast);
+
+                                            // get current news
+                                            var news_bookmark = {
+                                                title: this.state.news_detail &&
                                                     (this.state.checked ?
                                                         this.state.news_detail.webTitle : /* guardian */
-                                                        this.state.news_detail.headline.main /* nytimes */)
+                                                        this.state.news_detail.headline.main /* nytimes */),
+                                                image: this.state.news_detail &&
+                                                    (this.state.checked ?
+                                                        (this.state.news_detail.blocks && this.state.news_detail.blocks.main.elements[0].assets && (this.state.news_detail.blocks.main.elements[0].assets[0] ?
+                                                            this.state.news_detail.blocks.main.elements[0].assets[0].file :
+                                                            'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png')) : /* guardian */
+                                                        (this.state.news_detail.multimedia && (this.state.news_detail.multimedia[0] ?
+                                                            'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url :
+                                                            'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg' /* nytimes */))),
+                                                date: this.state.news_detail &&
+                                                    (this.state.checked ?
+                                                        this.state.news_detail.webPublicationDate : /* guardian */
+                                                        this.state.news_detail.pub_date /* nytimes */),
+                                                source: this.state.checked ? 'guardian' : 'nytimes',
+                                                section: this.state.news_detail &&
+                                                    (this.state.checked ?
+                                                        this.state.news_detail.sectionId : /* guardian */
+                                                        this.state.news_detail.section_name /* nytimes */),
+                                                url: this.state.news_detail &&
+                                                    (this.state.checked ?
+                                                        this.state.news_detail.webUrl : /* guardian */
+                                                        this.state.news_detail.web_url /* nytimes */)
+                                            };
+
+                                            var news_bookmark_list = JSON.parse(localStorage.getItem('news_bookmark_list'));
+
+                                            console.log(localStorage.getItem('news_bookmark_list'));
+                                            if (news_bookmark_list) {
+                                                // news_bookmark_list exists
+                                                news_bookmark_list.push(news_bookmark);
+                                            } else {
+                                                news_bookmark_list = [];
+                                                news_bookmark_list.push(news_bookmark);
+                                                localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
                                             }
-                                        });
 
-                                        console.log(this.state.toast);
-
-                                        // get current news
-                                        var news_bookmark = {
-                                            title: this.state.news_detail &&
-                                                (this.state.checked ?
-                                                    this.state.news_detail.webTitle : /* guardian */
-                                                    this.state.news_detail.headline.main /* nytimes */),
-                                            image: this.state.news_detail &&
-                                                (this.state.checked ?
-                                                    (this.state.news_detail.blocks && this.state.news_detail.blocks.main.elements[0].assets && (this.state.news_detail.blocks.main.elements[0].assets[0] ?
-                                                        this.state.news_detail.blocks.main.elements[0].assets[0].file :
-                                                        'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png')) : /* guardian */
-                                                    (this.state.news_detail.multimedia && (this.state.news_detail.multimedia[0] ?
-                                                        'http://static01.nyt.com/' + this.state.news_detail.multimedia[0].url :
-                                                        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg' /* nytimes */))),
-                                            date: this.state.news_detail &&
-                                                (this.state.checked ?
-                                                    this.state.news_detail.webPublicationDate : /* guardian */
-                                                    this.state.news_detail.pub_date /* nytimes */),
-                                            source: this.state.checked ? 'guardian' : 'nytimes',
-                                            section: this.state.news_detail &&
-                                                (this.state.checked ?
-                                                    this.state.news_detail.sectionId : /* guardian */
-                                                    this.state.news_detail.section_name /* nytimes */),
-                                            url: this.state.news_detail &&
-                                                (this.state.checked ?
-                                                    this.state.news_detail.webUrl : /* guardian */
-                                                    this.state.news_detail.web_url /* nytimes */)
-                                        };
-
-                                        var news_bookmark_list = JSON.parse(localStorage.getItem('news_bookmark_list'));
-
-                                        console.log(localStorage.getItem('news_bookmark_list'));
-                                        if (news_bookmark_list) {
-                                            // news_bookmark_list exists
-                                            news_bookmark_list.push(news_bookmark);
-                                        } else {
-                                            news_bookmark_list = [];
-                                            news_bookmark_list.push(news_bookmark);
-                                            localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
-                                        }
-
-                                    }}>
-                                        <FaRegBookmark></FaRegBookmark>
-                                    </Button>
+                                        }}>
+                                            <FaRegBookmark></FaRegBookmark>
+                                        </Button>
+                                    </OverlayTrigger>
                                 </Col>
                             </Row>
                             <Row className="card-row">
@@ -775,7 +777,7 @@ class Home extends Component {
                                 content: null
                             }
                         });
-                    }} style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, 0px)'}} autohide>
+                    }} style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, 0px)' }} autohide>
                         <Toast.Header>
                             {this.state.toast.content}
                         </Toast.Header>
