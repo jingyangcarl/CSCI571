@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns } from 'react-bootstrap';
+import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
@@ -54,7 +54,6 @@ class Home extends Component {
                 document.getElementById('page-loading').style.display = "none";
             }));
         document.getElementById('page-cards').style.display = "none";
-        // document.getElementById('navbar-switch').style.display = "none";
         document.getElementById('page-loading').style.display = "block";
     }
 
@@ -64,9 +63,19 @@ class Home extends Component {
 
     handleResultSelect = (e, { result }) => {
         this.setState({ selectedResult: result });
-        fetch('/keyword/' + result.title)
+        fetch('/keyword/' + result.title, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                source: this.state.checked ? 'guardian' : 'nytimes'
+            })
+        })
             .then(res => res.json())
-            .then(res => this.setState({ searches: res.response.docs }, () => {
+            .then(res => this.setState({
+                searches: (this.state.checked ?
+                    res.response.results /* guardian */ :
+                    res.response.docs /* nytimes */)
+            }, () => {
                 document.getElementById('page-search').style.display = "block";
                 document.getElementById("page-loading").style.display = "none";
             }));
@@ -150,7 +159,7 @@ class Home extends Component {
             <div>
                 {/* ************************ Navigation Bar ************************* */}
 
-                <Navbar bg="primary" variant="dark" style={{background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)'}}>
+                <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
                     <Search
                         onSearchChange={_.debounce(this.handleSearchChange, 1000, {
                             leading: true
@@ -382,24 +391,33 @@ class Home extends Component {
                 {/* *************** Search Results Page *************** */}
                 <div id="page-search" className="page-search">
                     <CardColumns>
-                        {this.state.searches.map((search, index) =>
-                            <Card key={index} border="secondary" className="text-left card card-search">
-                                <a href={search.url} className="card-link" onClick={() => {
-
+                        {this.state.searches.map((news, index) =>
+                            <Card key={index} border="secondary" className="card card-search">
+                                <a href={news.url} className="card-link" onClick={() => {
+                                    
                                 }}>
                                     <Container>
                                         <Row>
                                             <Col>
                                                 <Card.Title>
-                                                    {search.headline && search.headline.main}
+                                                    {news &&
+                                                        (this.state.checked ?
+                                                            news.webTitle : /* guardian */
+                                                            news.headline.main/* nytimes */)}
                                                     <Button variant="link" key={index} onClick={(event) => {
                                                         event.preventDefault();
                                                         this.setState({
                                                             modal: {
                                                                 show: true,
                                                                 news: {
-                                                                    title: this.state.search[index].headline.main,
-                                                                    url: this.state.search[index].url
+                                                                    title: news &&
+                                                                        (this.state.checked ?
+                                                                            news.webTitle : /* guardian */
+                                                                            news.headline.main /* nytimes */),
+                                                                    url: news &&
+                                                                        (this.state.checked ?
+                                                                            news.webUrl : /* guardian */
+                                                                            news.web_url /* nytimes */)
                                                                 }
                                                             }
                                                         }, () => {
@@ -414,20 +432,43 @@ class Home extends Component {
                                         </Row>
                                         <Row>
                                             <Card.Text></Card.Text>
-                                            <Card.Img src={search.multimedia && search.multimedia[0] && 'http://static01.nyt.com/' + search.multimedia[0].url}></Card.Img>
+                                            <Card.Img src={
+                                                (this.state.checked ?
+                                                    (news.blocks && news.blocks.main.elements[0].assets && (news.blocks.main.elements[0].assets[0] ?
+                                                        news.blocks.main.elements[0].assets[0].file :
+                                                        'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png')) : /* guardian */
+                                                    (news.multimedia && (news.multimedia[0] ?
+                                                        'http://static01.nyt.com/' + news.multimedia[0].url :
+                                                        'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg' /* nytimes */)))}></Card.Img>
                                         </Row>
                                         <Container>
                                             <Row>
                                                 <Col>
-                                                    <Card.Text>{search.pub_date && search.pub_date.substring(0, 10)}</Card.Text>
+                                                    <Card.Text>
+                                                        {news &&
+                                                            (this.state.checked ?
+                                                                (news.webPublicationDate && news.webPublicationDate.substring(0, 10)) : /* guardian */
+                                                                (news.pub_date && news.pub_date.substring(0, 10)) /* nytimes */)}
+                                                    </Card.Text>
                                                 </Col>
                                                 <Col>
-                                                    <Button variant={search.news_desk === 'world' ? 'success' :
-                                                        search.news_desk === 'politics' ? 'info' :
-                                                            search.news_desk === 'business' ? 'primary' :
-                                                                search.news_desk === 'technology' ? 'warning' :
-                                                                    search.news_desk === 'sports' ? 'danger' : 'dark'} size="sm" className='search-tag'>
-                                                        {search.news_desk}
+                                                    <Button variant='outline-light' style={news && (this.state.checked ?
+                                                        /* guardian */
+                                                        (news.sectionId === 'world' ? { background: '#7C4EFF', color: 'white' } :
+                                                            news.sectionId === 'politics' ? { background: '#419488', color: 'white' } :
+                                                                news.sectionId === 'business' ? { background: '#4696EC', color: 'white' } :
+                                                                    news.sectionId === 'technology' ? { background: '#CEDC39', color: 'black' } :
+                                                                        news.sectionId === 'sport' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }) :
+                                                        /* nytimes */
+                                                        (news.news_desk === 'world' ? { background: '#7C4EFF', color: 'white' } :
+                                                            news.news_desk === 'politics' ? { background: '#419488', color: 'white' } :
+                                                                news.news_desk === 'business' ? { background: '#4696EC', color: 'white' } :
+                                                                    news.news_desk === 'technology' ? { background: '#CEDC39', color: 'black' } :
+                                                                        news.news_desk === 'sports' ? { background: '#F6C245', color: 'black' } : { background: '#6E757C', color: 'white' }))} size="sm" className='news-tag'>
+                                                        {news &&
+                                                            (this.state.checked ?
+                                                                news.sectionId && news.sectionId.toUpperCase() :  /* guardian */
+                                                                news.news_desk && news.news_desk.toUpperCase() /* nytimes */)}
                                                     </Button>
                                                 </Col>
                                             </Row>
@@ -463,15 +504,21 @@ class Home extends Component {
                                     </Card.Text>
                                 </Col>
                                 <Col>
-                                    <FacebookShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
-                                        <FacebookIcon size={16} round></FacebookIcon>
-                                    </FacebookShareButton>
-                                    <TwitterShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
-                                        <TwitterIcon size={16} round></TwitterIcon>
-                                    </TwitterShareButton>
-                                    <EmailShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} subject={'#CSCI_571_NewsApp'}>
-                                        <EmailIcon size={16} round></EmailIcon>
-                                    </EmailShareButton>
+                                    <OverlayTrigger placement='top' overlay={<Tooltip> Facebook </Tooltip>}>
+                                        <FacebookShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
+                                            <FacebookIcon size={20} round></FacebookIcon>
+                                        </FacebookShareButton>
+                                    </OverlayTrigger>
+                                    <OverlayTrigger placement='top' overlay={<Tooltip> Twitter </Tooltip>}>
+                                        <TwitterShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
+                                            <TwitterIcon size={20} round></TwitterIcon>
+                                        </TwitterShareButton>
+                                    </OverlayTrigger>
+                                    <OverlayTrigger placement='top' overlay={<Tooltip> Email </Tooltip>}>
+                                        <EmailShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} subject={'#CSCI_571_NewsApp'}>
+                                            <EmailIcon size={20} round></EmailIcon>
+                                        </EmailShareButton>
+                                    </OverlayTrigger>
                                 </Col>
                             </Row>
                             <Row className="card-row">
@@ -496,7 +543,9 @@ class Home extends Component {
                             </Row>
                         </Container>
                     </Card>
-                    <div className="commentbox"></div>
+                    <div>
+                        <div className="commentbox" id={this.state.news_detail && (this.state.checked ? this.state.news_detail.id : this.state.news_detail.web_url)}> </div>
+                    </div>
                 </div>
             </div >
         );

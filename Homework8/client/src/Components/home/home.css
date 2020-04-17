@@ -56,3 +56,19 @@
     margin-left: 70%; */
     padding: 15% 5%;
 }
+
+iframe {
+    height: 600px !important;
+}
+
+.card-search {
+    padding: 1.5% 0;
+}
+
+.card-search img {
+    height: 150px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
