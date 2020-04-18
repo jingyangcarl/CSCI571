@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger, Toast } from 'react-bootstrap';
+import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger, Toast, Accordion } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
@@ -38,6 +38,8 @@ class Home extends Component {
             // if the switch is checked or not
             checked: localStorage.getItem('switch_checked') === 'true' ? true : false,
         };
+        this.isMobile = window.innerWidth <= 500;
+
         this.shareButtonClicked = false;
         this.deleteButtonClicked = false;
         this.bookmarkButtonClicked = false;
@@ -207,54 +209,93 @@ class Home extends Component {
             <div>
                 {/* ************************ Navigation Bar ************************* */}
 
-                <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
-                    <Search
-                        onSearchChange={_.debounce(this.handleSearchChange, 1000, {
-                            leading: true
-                        })}
-                        results={this.state.results}
-                        onResultSelect={this.handleResultSelect}
-                        placeholder={'Enter Keyword'}
-                    />
-                    <Nav defaultActiveKey="/home">
-                        <Nav.Item>
-                            <Nav.Link eventKey="home" href="/home"> Home </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="world" href="/section/world"> World </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="politics" href="/section/politics"> Politics </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="business" href="/section/business"> Business </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="technology" href="/section/technology"> Technology </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="sports" href="/section/sports"> Sports </Nav.Link>
-                        </Nav.Item>
-                    </Nav>
+                {this.isMobile ?
+                    // mobile navbar
+                    <Accordion defaultActiveKey="0">
+                        <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
+                            <Search
+                                onSearchChange={_.debounce(this.handleSearchChange, 1000, {
+                                    leading: true
+                                })}
+                                results={this.state.results}
+                                onResultSelect={this.handleResultSelect}
+                                placeholder={'Enter Keyword'}
+                            />
 
+                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                                Click
+                            </Accordion.Toggle>
 
-                    <Nav className="ml-auto" id='navbar-switch'>
-                        <Nav.Item id='navbar-bookmark'>
-                            <Button variant='link' onClick={this.handleBookMarkClicked}>
-                                <FaRegBookmark></FaRegBookmark>
-                            </Button>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link>NYTimes</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Switch uncheckedIcon={false} checkedIcon={false} onChange={this.handleSwitchChange} checked={this.state.checked}></Switch>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link>Guardian</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                </Navbar>
+                            <Accordion.Collapse eventKey="0">
+                                <Nav className="ml-auto" id='navbar-switch'>
+                                    <Nav.Item id='navbar-bookmark'>
+                                        <Button variant='link' onClick={this.handleBookMarkClicked}>
+                                            <FaRegBookmark></FaRegBookmark>
+                                        </Button>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link>NYTimes</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Switch uncheckedIcon={false} checkedIcon={false} onChange={this.handleSwitchChange} checked={this.state.checked}></Switch>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link>Guardian</Nav.Link>
+                                    </Nav.Item>
+                                </Nav>
+                            </Accordion.Collapse>
+                        </Navbar>
+                    </Accordion>
+                    :
+                    // window view
+                    <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
+                        <Search
+                            onSearchChange={_.debounce(this.handleSearchChange, 1000, {
+                                leading: true
+                            })}
+                            results={this.state.results}
+                            onResultSelect={this.handleResultSelect}
+                            placeholder={'Enter Keyword'}
+                        />
+                        <Nav defaultActiveKey="/home">
+                            <Nav.Item>
+                                <Nav.Link eventKey="home" href="/home"> Home </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="world" href="/section/world"> World </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="politics" href="/section/politics"> Politics </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="business" href="/section/business"> Business </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="technology" href="/section/technology"> Technology </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="sports" href="/section/sports"> Sports </Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+
+                        <Nav className="ml-auto" id='navbar-switch'>
+                            <Nav.Item id='navbar-bookmark'>
+                                <Button variant='link' onClick={this.handleBookMarkClicked}>
+                                    <FaRegBookmark></FaRegBookmark>
+                                </Button>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link>NYTimes</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Switch uncheckedIcon={false} checkedIcon={false} onChange={this.handleSwitchChange} checked={this.state.checked}></Switch>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link>Guardian</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Navbar>
+                }
 
 
                 {/* *************** Loading Page *************** */}
