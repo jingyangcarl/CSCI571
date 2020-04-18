@@ -582,7 +582,7 @@ class Home extends Component {
                     <h1>Favorite</h1>
                     <CardColumns>
                         {localStorage.getItem('news_bookmark_list') && JSON.parse(localStorage.getItem('news_bookmark_list')).map((news, index) =>
-                            <Card key={index} id={'bookmark'+index} border="secondary" className="card card-thin">
+                            <Card key={index} id={'bookmark' + index} border="secondary" className="card card-thin">
                                 <a href={news.url} className="card-link" onClick={(event) => {
                                     event.preventDefault();
                                     if (this.shareButtonClicked) {
@@ -647,6 +647,14 @@ class Home extends Component {
                                                         // get bookmark list
                                                         var news_bookmark_list = JSON.parse(localStorage.getItem('news_bookmark_list'));
 
+                                                        // show toast
+                                                        this.setState({
+                                                            toast: {
+                                                                show: true,
+                                                                content: "Removing" + news_bookmark_list[index].title
+                                                            }
+                                                        });
+
                                                         // delete the item by index
                                                         news_bookmark_list.splice(index, 1);
 
@@ -654,7 +662,7 @@ class Home extends Component {
                                                         localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
 
                                                         // hide card
-                                                        document.getElementById('bookmark'+ index).style.display="none";
+                                                        document.getElementById('bookmark' + index).style.display = "none";
 
                                                         this.deleteButtonClicked = true;
                                                     }}>
@@ -697,6 +705,20 @@ class Home extends Component {
                             </Card>
                         )}
                     </CardColumns>
+
+                    {/* Toast */}
+                    <Toast show={this.state.toast.show} delay={1500} onClose={() => {
+                        this.setState({
+                            toast: {
+                                show: false,
+                                content: null
+                            }
+                        });
+                    }} style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, 0px)' }} autohide>
+                        <Toast.Header>
+                            {this.state.toast.content}
+                        </Toast.Header>
+                    </Toast>
                 </div>
 
                 {/* *************** Detail Page *************** */}
