@@ -4,6 +4,7 @@ import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
 import { IoMdShare } from 'react-icons/io';
 import { FaRegBookmark } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 import Switch from 'react-switch';
 import commentBox from 'commentbox.io';
 import _ from 'lodash';
@@ -38,6 +39,7 @@ class Home extends Component {
             checked: localStorage.getItem('switch_checked') === 'true' ? true : false,
         };
         this.shareButtonClicked = false;
+        this.deleteButtonClicked = false;
         this.bookmarkButtonClicked = false;
 
         this.handleSwitchChange = this.handleSwitchChange.bind(this);
@@ -580,14 +582,49 @@ class Home extends Component {
                     <h1>Favorite</h1>
                     <CardColumns>
                         {localStorage.getItem('news_bookmark_list') && JSON.parse(localStorage.getItem('news_bookmark_list')).map((news, index) =>
-                            <Card key={index} border="secondary" className="card card-thin">
-                                <a href={news} className="card-link">
+                            <Card key={index} id={'bookmark'+index} border="secondary" className="card card-thin">
+                                <a href={news.url} className="card-link" onClick={(event) => {
+                                    event.preventDefault();
+                                    if (this.shareButtonClicked) {
+                                        // button clicked
+                                        return;
+                                    }
+                                    if (this.deleteButtonClicked) {
+                                        // button clicked
+                                        return;
+                                    }
+
+                                    // fetch for details
+                                    fetch('/home/detail', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({
+                                            source: news.source,
+                                            url: news.url
+                                        })
+                                    })
+                                        .then(res => res.json())
+                                        .then(res => this.setState({
+                                            news_detail:
+                                                (news.source === 'guardian' ?
+                                                    res.response.content /* guardian */ :
+                                                    res.response.docs[0] /* nytimes */)
+                                        }, () => {
+                                            // show results after fetching
+                                            document.getElementById('page-loading').style.display = "none";
+                                            document.getElementById('navbar-switch').style.display = "none";
+                                            document.getElementById('page-detail').style.display = "block";
+                                        }));
+                                    // show loading page
+                                    document.getElementById('page-bookmark').style.display = "none";
+                                    document.getElementById('page-loading').style.display = "block";
+                                }}>
                                     <Container>
                                         <Row>
                                             <Col>
                                                 <Card.Title>
                                                     {news.title}
-                                                    <Button variant="link" key={index} onClick={(event) => {
+                                                    <Button variant="link" onClick={(event) => {
                                                         event.preventDefault();
                                                         this.setState({
                                                             modal: {
@@ -603,6 +640,25 @@ class Home extends Component {
                                                         this.shareButtonClicked = true;
                                                     }}>
                                                         <IoMdShare></IoMdShare>
+                                                    </Button>
+                                                    <Button variant='link' key={index} onClick={(event) => {
+                                                        event.preventDefault();
+
+                                                        // get bookmark list
+                                                        var news_bookmark_list = JSON.parse(localStorage.getItem('news_bookmark_list'));
+
+                                                        // delete the item by index
+                                                        news_bookmark_list.splice(index, 1);
+
+                                                        // save list
+                                                        localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
+
+                                                        // hide card
+                                                        document.getElementById('bookmark'+ index).style.display="none";
+
+                                                        this.deleteButtonClicked = true;
+                                                    }}>
+                                                        <MdDelete></MdDelete>
                                                     </Button>
                                                 </Card.Title>
                                             </Col>
@@ -665,7 +721,7 @@ class Home extends Component {
                                                 (this.state.news_detail.pub_date && this.state.news_detail.pub_date.substring(0, 10)) /* nytimes */)}
                                     </Card.Text>
                                 </Col>
-                                <Col style={{textAlign: 'right'}}>
+                                <Col style={{ textAlign: 'right' }}>
                                     <OverlayTrigger placement='top' overlay={<Tooltip> Facebook </Tooltip>}>
                                         <FacebookShareButton url={this.state.news_detail && (this.state.checked ? this.state.news_detail.webUrl /* guardian */ : this.state.news_detail.web_url /* nytimes */)} hashtag={'#CSCI_571_NewsApp'}>
                                             <FacebookIcon size={20} round></FacebookIcon>
@@ -697,8 +753,6 @@ class Home extends Component {
                                                 }
                                             });
 
-                                            console.log(this.state.toast);
-
                                             // get current news
                                             var news_bookmark = {
                                                 title: this.state.news_detail &&
@@ -724,21 +778,38 @@ class Home extends Component {
                                                         this.state.news_detail.section_name /* nytimes */),
                                                 url: this.state.news_detail &&
                                                     (this.state.checked ?
-                                                        this.state.news_detail.webUrl : /* guardian */
+                                                        this.state.news_detail.id : /* guardian */
                                                         this.state.news_detail.web_url /* nytimes */)
                                             };
 
+                                            // get bookmark list
                                             var news_bookmark_list = JSON.parse(localStorage.getItem('news_bookmark_list'));
 
-                                            console.log(localStorage.getItem('news_bookmark_list'));
                                             if (news_bookmark_list) {
                                                 // news_bookmark_list exists
-                                                news_bookmark_list.push(news_bookmark);
+
+                                                // filter out the existed bookmark
+                                                var i = 0;
+                                                for (; i < news_bookmark_list.length; i++) {
+                                                    if (news_bookmark_list[i].url === news_bookmark.url) {
+                                                        break;
+                                                    }
+                                                }
+
+                                                if (i < news_bookmark_list.length) {
+                                                    // the bookmark is already existed
+                                                } else {
+                                                    // the bookmark is not existed
+                                                    news_bookmark_list.push(news_bookmark);
+                                                }
                                             } else {
                                                 news_bookmark_list = [];
                                                 news_bookmark_list.push(news_bookmark);
-                                                localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
                                             }
+
+                                            // push bookmark list
+                                            console.log(localStorage.getItem('news_bookmark_list'));
+                                            localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
 
                                         }}>
                                             <FaRegBookmark></FaRegBookmark>
