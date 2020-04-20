@@ -16,12 +16,6 @@ router.post('/', function(req, res, next) {
     });
 });
 
-router.post('/static/', function(req, res, next) {
-    // use static data for design
-    const data = fs.readFileSync('D:/Project/CSCI571/Homework8/client/src/Components/home/home.json', 'utf8');
-    res.send(data);
-})
-
 router.post('/detail', function(req, res, next) {
     // request for detailed news
     const url_nytimes = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=web_url:("' + req.body.url + '")&api-key=' + YOUR_API_KEY_NYTIMES;
@@ -35,10 +29,5 @@ router.post('/detail', function(req, res, next) {
         res.send(body);
     })
 });
-
-router.post('/detail/static', function(req, res, next) {
-    const data = fs.readFileSync('D:/Project/CSCI571/Homework8/client/src/Components/home/homeDetail.json', 'utf8');
-    res.send(data);
-})
 
 module.exports = router;

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger, Toast, Accordion } from 'react-bootstrap';
+import { Nav, Navbar, Card, Container, Row, Col, Button, Modal, Spinner, CardColumns, Tooltip, OverlayTrigger, Toast, Accordion, NavItem } from 'react-bootstrap';
 import { Search } from 'semantic-ui-react';
 import { FacebookIcon, TwitterIcon, EmailIcon, FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
-import { IoMdShare } from 'react-icons/io';
-import { FaRegBookmark } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md';
+import { MdShare, MdDelete, MdMenu, MdBookmarkBorder } from 'react-icons/md';
 import Switch from 'react-switch';
 import commentBox from 'commentbox.io';
 import _ from 'lodash';
@@ -211,41 +209,88 @@ class Home extends Component {
 
                 {this.isMobile ?
                     // mobile navbar
-                    <Accordion defaultActiveKey="0">
-                        <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
-                            <Search
-                                onSearchChange={_.debounce(this.handleSearchChange, 1000, {
-                                    leading: true
-                                })}
-                                results={this.state.results}
-                                onResultSelect={this.handleResultSelect}
-                                placeholder={'Enter Keyword'}
-                            />
-
-                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                                Click
-                            </Accordion.Toggle>
+                    <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
+                        <Accordion>
+                            <Row>
+                                <Col>
+                                    <Search
+                                        onSearchChange={_.debounce(this.handleSearchChange, 1000, {
+                                            leading: true
+                                        })}
+                                        results={this.state.results}
+                                        onResultSelect={this.handleResultSelect}
+                                        placeholder={'Enter Keyword'}
+                                    />
+                                </Col>
+                                <Col>
+                                    <Accordion.Toggle as={Button} variant="outline-link" eventKey="0" className="test">
+                                        <NavItem>
+                                            <MdMenu></MdMenu>
+                                        </NavItem>
+                                    </Accordion.Toggle>
+                                </Col>
+                            </Row>
 
                             <Accordion.Collapse eventKey="0">
-                                <Nav className="ml-auto" id='navbar-switch'>
-                                    <Nav.Item id='navbar-bookmark'>
-                                        <Button variant='link' onClick={this.handleBookMarkClicked}>
-                                            <FaRegBookmark></FaRegBookmark>
-                                        </Button>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link>NYTimes</Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Switch uncheckedIcon={false} checkedIcon={false} onChange={this.handleSwitchChange} checked={this.state.checked}></Switch>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link>Guardian</Nav.Link>
-                                    </Nav.Item>
+                                <Nav id='navbar-switch' defaultActiveKey="/home">
+                                    <ul style={{listStyleType: 'none'}}>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="home" href="/home"> Home </Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="world" href="/section/world"> World </Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="politics" href="/section/politics"> Politics </Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="business" href="/section/business"> Business </Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="technology" href="/section/technology"> Technology </Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link eventKey="sports" href="/section/sports"> Sports </Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item id='navbar-bookmark'>
+                                                <Button variant='link' onClick={this.handleBookMarkClicked}>
+                                                    <MdBookmarkBorder></MdBookmarkBorder>
+                                                </Button>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link>NYTimes</Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Switch uncheckedIcon={false} checkedIcon={false} onChange={this.handleSwitchChange} checked={this.state.checked}></Switch>
+                                            </Nav.Item>
+                                        </li>
+                                        <li style={{textAlign: 'left'}}>
+                                            <Nav.Item>
+                                                <Nav.Link>Guardian</Nav.Link>
+                                            </Nav.Item>
+                                        </li>
+                                    </ul>
                                 </Nav>
                             </Accordion.Collapse>
-                        </Navbar>
-                    </Accordion>
+                        </Accordion>
+                    </Navbar>
                     :
                     // window view
                     <Navbar bg="primary" variant="dark" style={{ background: 'linear-gradient(90deg, rgba(20,41,75,1) 0%, rgba(50,77,132,1) 50%, rgba(76,108,183,1) 100%)' }}>
@@ -281,7 +326,7 @@ class Home extends Component {
                         <Nav className="ml-auto" id='navbar-switch'>
                             <Nav.Item id='navbar-bookmark'>
                                 <Button variant='link' onClick={this.handleBookMarkClicked}>
-                                    <FaRegBookmark></FaRegBookmark>
+                                    <MdBookmarkBorder></MdBookmarkBorder>
                                 </Button>
                             </Nav.Item>
                             <Nav.Item>
@@ -386,7 +431,7 @@ class Home extends Component {
                                                         });
                                                         this.shareButtonClicked = true;
                                                     }}>
-                                                        <IoMdShare></IoMdShare>
+                                                        <MdShare></MdShare>
                                                     </Button>
                                                 </Card.Title>
                                                 <Card.Text>
@@ -560,7 +605,7 @@ class Home extends Component {
                                                         });
                                                         this.shareButtonClicked = true;
                                                     }}>
-                                                        <IoMdShare></IoMdShare>
+                                                        <MdShare></MdShare>
                                                     </Button>
                                                 </Card.Title>
                                             </Col>
@@ -680,7 +725,7 @@ class Home extends Component {
                                                         });
                                                         this.shareButtonClicked = true;
                                                     }}>
-                                                        <IoMdShare></IoMdShare>
+                                                        <MdShare></MdShare>
                                                     </Button>
                                                     <Button variant='link' key={index} onClick={(event) => {
                                                         event.preventDefault();
@@ -875,7 +920,7 @@ class Home extends Component {
                                             localStorage.setItem('news_bookmark_list', JSON.stringify(news_bookmark_list));
 
                                         }}>
-                                            <FaRegBookmark></FaRegBookmark>
+                                            <MdBookmarkBorder></MdBookmarkBorder>
                                         </Button>
                                     </OverlayTrigger>
                                 </Col>
