@@ -20,6 +20,7 @@ router.post('/:section', function(req, res, next) {
             res.json(json_obj);
         });
     } else if (req.body.source == 'guardian') {
+        req.params.section = req.params.section == 'sports' ? 'sport' : req.params.section;
         const url = 'https://content.guardianapis.com/' + req.params.section + '?api-key=' + YOUR_API_KEY_GUARDIAN + '&show-blocks=all';
         request(url, function (error, response, body) {
             res.send(body);

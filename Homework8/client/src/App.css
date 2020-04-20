@@ -2,37 +2,85 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 1.5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-link {
+  color: black;
+}
+.card-link:hover {
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-tag {
+  width: 30%;
+  margin-left: 70%;
 }
 
-.App-link {
-  color: #61dafb;
+.card-image {
+  margin: 5% 0 ;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-row {
+  margin: 1.5% 0;
+}
+
+.modal-center {
+  text-align: center;
+  margin-top: 1%;
+}
+
+/* Loading Page Initial Status */
+.page-loading {
+  display: none;
+  margin: 20% auto;
+}
+
+/* Detail Page Initial Status */
+.page-detail {
+  display: none;
+}
+
+/* Search Page Initial Status */
+.page-search {
+  display: none;
+}
+
+.page-bookmark {
+  display: none;
+}
+
+.search-tag {
+  /* width: 10%;
+  margin-left: 70%; */
+  padding: 15% 5%;
+}
+
+iframe {
+  height: 600px !important;
+}
+
+.card-thin {
+  padding: 1.5% 0;
+}
+
+.card-thin img {
+  height: 150px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+}
+
+.button-tag {
+  border-radius: 15px;
 }
