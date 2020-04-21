@@ -14,7 +14,7 @@ app.use("/home", routerHome);
 app.use("/section", routerSection);
 app.use("/keyword", routerKeyword);
 
-const port = 5000;
+const port = 80;
 var listener = app.listen(port, function() {
   console.log("Listening on port " + listener.address().port);
 });
