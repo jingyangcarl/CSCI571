@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,16 +36,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Second-->
+        <!--Headlines-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="HeadlinesViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Headlines" image="table.fill" catalog="system" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,33 +97,33 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Trending-->
         <scene sceneID="9kk-gf-DJs">
             <objects>
-                <viewController id="BC1-Cu-Rnh" customClass="ThridViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BC1-Cu-Rnh" customClass="TrendingViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ysD-dg-1fL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="YHg-k3-xMZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6wY-54-SMF"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="trending" id="6wY-54-SMF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csP-OU-BWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1507" y="-320"/>
         </scene>
-        <!--Item-->
+        <!--Bookmarks-->
         <scene sceneID="OAw-FX-v7f">
             <objects>
-                <viewController id="YM8-ca-pEo" customClass="FourthViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YM8-ca-pEo" customClass="BookmarkViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BMG-dD-NZF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ffb-hY-N5h"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="4cq-3C-yc8"/>
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark.fill" catalog="system" id="4cq-3C-yc8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6o-Ss-Uz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,7 +131,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="table.fill" catalog="system" width="128" height="93"/>
+        <image name="trending" width="28" height="28"/>
     </resources>
 </document>

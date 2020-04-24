@@ -9,27 +9,27 @@
 /* Begin PBXBuildFile section */
 		EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94122452BF3C00563783 /* AppDelegate.swift */; };
 		EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94142452BF3C00563783 /* SceneDelegate.swift */; };
-		EC4E94172452BF3C00563783 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94162452BF3C00563783 /* FirstViewController.swift */; };
-		EC4E94192452BF3C00563783 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94182452BF3C00563783 /* SecondViewController.swift */; };
+		EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94162452BF3C00563783 /* HomeViewController.swift */; };
+		EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */; };
 		EC4E941C2452BF3C00563783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4E941A2452BF3C00563783 /* Main.storyboard */; };
 		EC4E941E2452BF3E00563783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC4E941D2452BF3E00563783 /* Assets.xcassets */; };
 		EC4E94212452BF3E00563783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4E941F2452BF3E00563783 /* LaunchScreen.storyboard */; };
-		EC4E94292452C4C400563783 /* ThridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94282452C4C400563783 /* ThridViewController.swift */; };
-		EC4E942B2452C57000563783 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E942A2452C57000563783 /* FourthViewController.swift */; };
+		EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94282452C4C400563783 /* TrendingViewController.swift */; };
+		EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E942A2452C57000563783 /* BookmarkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EC4E940F2452BF3C00563783 /* Homework9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4E94122452BF3C00563783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC4E94142452BF3C00563783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC4E94162452BF3C00563783 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		EC4E94182452BF3C00563783 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EC4E94162452BF3C00563783 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
 		EC4E941B2452BF3C00563783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC4E941D2452BF3E00563783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC4E94202452BF3E00563783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC4E94222452BF3E00563783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC4E94282452C4C400563783 /* ThridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThridViewController.swift; sourceTree = "<group>"; };
-		EC4E942A2452C57000563783 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		EC4E94282452C4C400563783 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		EC4E942A2452C57000563783 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +64,10 @@
 			children = (
 				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
-				EC4E94162452BF3C00563783 /* FirstViewController.swift */,
-				EC4E94182452BF3C00563783 /* SecondViewController.swift */,
-				EC4E94282452C4C400563783 /* ThridViewController.swift */,
-				EC4E942A2452C57000563783 /* FourthViewController.swift */,
+				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
+				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
+				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
+				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
 				EC4E941A2452BF3C00563783 /* Main.storyboard */,
 				EC4E941D2452BF3E00563783 /* Assets.xcassets */,
 				EC4E941F2452BF3E00563783 /* LaunchScreen.storyboard */,
@@ -147,10 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4E942B2452C57000563783 /* FourthViewController.swift in Sources */,
-				EC4E94192452BF3C00563783 /* SecondViewController.swift in Sources */,
-				EC4E94172452BF3C00563783 /* FirstViewController.swift in Sources */,
-				EC4E94292452C4C400563783 /* ThridViewController.swift in Sources */,
+				EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */,
+				EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */,
+				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
+				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */,
 				EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */,
 			);

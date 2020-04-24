@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class BookmarkViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
