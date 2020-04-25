@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import 
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -61,7 +60,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                         if httpResponse.statusCode == 200 {
                             // Http success
                             do {
-                                let jsonObject = try JSONDecoder().decode(Weather.self, from: data!)
+                                let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
                                 print(jsonObject)
                             } catch DecodingError.dataCorrupted(let context) {
                                 print(context.debugDescription)

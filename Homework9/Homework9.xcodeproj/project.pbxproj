@@ -17,7 +17,7 @@
 		EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94282452C4C400563783 /* TrendingViewController.swift */; };
 		EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E942A2452C57000563783 /* BookmarkViewController.swift */; };
 		EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E942D2453C13B00563783 /* OpenWeather.json */; };
-		EC4E94302453C7E000563783 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E942F2453C7E000563783 /* OpenWeather.swift */; };
+		EC4E94322453D1DD00563783 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94312453D1DD00563783 /* OpenWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		EC4E94282452C4C400563783 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		EC4E942A2452C57000563783 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		EC4E942D2453C13B00563783 /* OpenWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenWeather.json; sourceTree = "<group>"; };
-		EC4E942F2453C7E000563783 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
+		EC4E94312453D1DD00563783 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4E942D2453C13B00563783 /* OpenWeather.json */,
-				EC4E942F2453C7E000563783 /* OpenWeather.swift */,
+				EC4E94312453D1DD00563783 /* OpenWeather.swift */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4E94302453C7E000563783 /* OpenWeather.swift in Sources */,
+				EC4E94322453D1DD00563783 /* OpenWeather.swift in Sources */,
 				EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */,
 				EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */,
 				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,

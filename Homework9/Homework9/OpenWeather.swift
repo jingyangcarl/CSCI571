@@ -8,56 +8,56 @@
 
 import Foundation
 
-struct OpenWeather {
-    var coord: Coord;
-    var weather: [Weather];
-    var base: String;
-    var main: Main;
-    var visibility: Int;
-    var wind: Wind;
-    var clouds: Clouds;
-    var dt: Int64;
-    var sys: Sys;
-    var timezone: Int;
-    var id: Int;
-    var name: String;
-    var cod: Int;
+struct OpenWeather: Decodable {
+    let coord: Coord;
+    let weather: [Weather];
+    let base: String;
+    let main: Main;
+    let visibility: Int;
+    let wind: Wind;
+    let clouds: Clouds;
+    let dt: Int;
+    let sys: Sys;
+    let timezone: Int;
+    let id: Int;
+    let name: String;
+    let cod: Int;
 }
 
-struct Coord {
-    var lon: Float;
-    var lat: Float;
+struct Coord: Decodable {
+    let lon: Double;
+    let lat: Double;
 }
 
-struct Weather {
-    var id: Int;
-    var main: String;
-    var description: String;
-    var icon: String;
+struct Weather: Decodable {
+    let id: Int;
+    let main: String;
+    let description: String;
+    let icon: String;
 }
 
-struct Main {
-    var temp: Float;
-    var feels_like: Float;
-    var temp_min: Float;
-    var temp_max: Float;
-    var pressure: Int;
-    var humidity: Int;
+struct Main: Decodable {
+    let temp: Double;
+    let feels_like: Double;
+    let temp_min: Double;
+    let temp_max: Double;
+    let pressure: Int;
+    let humidity: Int;
 }
 
-struct Wind {
-    var speed: Float;
-    var deg: Int;
+struct Wind: Decodable {
+    let speed: Double;
+    let deg: Int;
 }
 
-struct Clouds {
-    var all: Int;
+struct Clouds: Decodable {
+    let all: Int;
 }
 
-struct Sys {
-    var type: Int;
-    var id: Int;
-    var country: String;
-    var sunrise: Int32;
-    var sunset: Int32;
+struct Sys: Decodable {
+    let type: Int;
+    let id: Int;
+    let country: String;
+    let sunrise: Int;
+    let sunset: Int;
 }
