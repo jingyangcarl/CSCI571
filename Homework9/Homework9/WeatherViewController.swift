@@ -14,7 +14,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     // IBOutlet to display JSON data
     @IBOutlet weak var labelCity: UILabel!
     @IBOutlet weak var labelState: UILabel!
+    @IBOutlet weak var labelTemperature: UILabel!
+    @IBOutlet weak var labelWeather: UILabel!
+    @IBOutlet weak var imageWeather: UIImageView!
     
+    // init location manager status
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
     
@@ -23,8 +27,20 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         "weather": [
             "city": "",
             "state": "",
+            "temp": 0.0,
+            "main": "",
         ]
     ]
+    
+    // define weather standard
+    enum MainWeather: String {
+        case Clear = "clear"
+        case Cloudy = "cloudy"
+        case Rainy = "rainy"
+        case Snowy = "snowy"
+        case Sunny = "sunny"
+        case Thunder = "thunder"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,10 +90,37 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                         if httpResponse.statusCode == 200 {
                             // Http success
                             do {
+                                // save json as an object
                                 let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
-                                print(jsonObject.coord.lon)
                                 
-//                                self.performSegue(withIdentifier: "toWeatherViewController", sender: self)
+                                // get current weather
+                                self.status["weather"]?["temp"]? = jsonObject.main.temp
+                                self.status["weather"]?["main"]? = jsonObject.weather[0].main
+                                
+                                // update UI in main thread
+                                DispatchQueue.main.async {
+                                    self.labelCity.text = self.status["weather"]?["city"] as? String
+                                    self.labelState.text = self.status["weather"]?["state"] as? String
+                                    self.labelTemperature.text = "\(self.status["weather"]?["temp"] ?? 0) °C"
+                                    self.labelWeather.text = self.status["weather"]?["main"] as? String
+                                    
+                                    switch self.labelWeather.text {
+                                    case MainWeather.Clear.rawValue:
+                                        self.imageWeather.image = UIImage(named: "weather_sunny"); break
+                                    case MainWeather.Cloudy.rawValue:
+                                        self.imageWeather.image = UIImage(named: "weather_cloudy"); break
+                                    case MainWeather.Rainy.rawValue:
+                                        self.imageWeather.image = UIImage(named: "weather_rainy"); break
+                                    case MainWeather.Snowy.rawValue:
+                                        self.imageWeather.image = UIImage(named: "weather_snowy"); break
+                                    case MainWeather.Sunny.rawValue:
+                                        self.imageWeather.image = UIImage(named: "weather_sunny"); break
+                                    case MainWeather.Thunder.rawValue:
+                                        self.imageWeather.image = UIImage(named: "weather_thunder"); break
+                                    default:
+                                        self.imageWeather.image = UIImage(named: "weather_sunny"); break
+                                    }
+                                }
                                 
                             } catch DecodingError.dataCorrupted(let context) {
                                 print(context.debugDescription)
