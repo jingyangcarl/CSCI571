@@ -72,6 +72,7 @@
 				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
 				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
+				EC4E9437245421CB00563783 /* WeatherViewController.swift */,
 				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
 				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
 				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
@@ -79,7 +80,6 @@
 				EC4E941D2452BF3E00563783 /* Assets.xcassets */,
 				EC4E941F2452BF3E00563783 /* LaunchScreen.storyboard */,
 				EC4E94222452BF3E00563783 /* Info.plist */,
-				EC4E9437245421CB00563783 /* WeatherViewController.swift */,
 			);
 			path = Homework9;
 			sourceTree = "<group>";
