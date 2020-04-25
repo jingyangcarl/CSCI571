@@ -49,7 +49,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                     let longitude = location.coordinate.longitude
                     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
                     let request = NSMutableURLRequest(url: URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude.description)&lon=\(longitude.description)&units=metric&appid=\(openWeatherKey)")!)
-                    print(request.url)
                     
                     // fetch data from openweathermap
                     URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in

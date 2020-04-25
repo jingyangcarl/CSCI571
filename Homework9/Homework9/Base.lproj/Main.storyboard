@@ -25,13 +25,22 @@
                                 <rect key="frame" x="0.0" y="87" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvM-bi-w68">
+                                <rect key="frame" x="0.0" y="143" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ucm-XJ-GFf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="0Bc-4w-Ddw"/>
+                            <constraint firstItem="DvM-bi-w68" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="46n-AQ-AT2"/>
+                            <constraint firstItem="DvM-bi-w68" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="5Cs-GN-bMM"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" id="9GA-eH-5dk"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="KQZ-1w-vlD" secondAttribute="trailing" constant="300" id="9yg-pa-5Bf"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="BGz-DZ-Tih"/>
+                            <constraint firstItem="DvM-bi-w68" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="BSf-3v-ZK3"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="ace-Nw-oV1"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="jGc-MR-6nL"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="vXf-x4-m5z"/>
@@ -42,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
         <!--Headlines-->
         <scene sceneID="wg7-f3-ORb">
