@@ -25,25 +25,29 @@
                                 <rect key="frame" x="0.0" y="87" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvM-bi-w68">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pik-2V-mY9">
                                 <rect key="frame" x="0.0" y="143" width="414" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ucm-XJ-GFf"/>
+                                    <constraint firstAttribute="height" constant="150" id="OZg-Bm-8Nk"/>
                                 </constraints>
-                            </imageView>
+                                <connections>
+                                    <segue destination="eIQ-FT-2Bg" kind="embed" identifier="toWeatherViewController" id="bZa-C5-2CX"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="0Bc-4w-Ddw"/>
-                            <constraint firstItem="DvM-bi-w68" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="46n-AQ-AT2"/>
-                            <constraint firstItem="DvM-bi-w68" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="5Cs-GN-bMM"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" id="9GA-eH-5dk"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="KQZ-1w-vlD" secondAttribute="trailing" constant="300" id="9yg-pa-5Bf"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="BGz-DZ-Tih"/>
-                            <constraint firstItem="DvM-bi-w68" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="BSf-3v-ZK3"/>
+                            <constraint firstItem="pik-2V-mY9" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="LEA-T2-v0V"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="ace-Nw-oV1"/>
+                            <constraint firstItem="pik-2V-mY9" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="bRK-zV-vEj"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="jGc-MR-6nL"/>
+                            <constraint firstItem="pik-2V-mY9" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="jON-qX-SFp"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="vXf-x4-m5z"/>
+                            <constraint firstItem="pik-2V-mY9" firstAttribute="top" secondItem="Yjl-pj-dSe" secondAttribute="bottom" id="z4C-QS-Rxj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -140,11 +144,57 @@
             </objects>
             <point key="canvasLocation" x="1506" y="360"/>
         </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="R2I-ua-tRr">
+            <objects>
+                <viewController id="eIQ-FT-2Bg" customClass="WeatherViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nXp-dR-0Yc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_clear" translatesAutoresizingMaskIntoConstraints="NO" id="waH-oU-Pru">
+                                <rect key="frame" x="10" y="0.0" width="394" height="150"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36D-Dw-GJT">
+                                <rect key="frame" x="50" y="84" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ee-8O-3CH">
+                                <rect key="frame" x="44" y="29" width="52" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="waH-oU-Pru" firstAttribute="leading" secondItem="nXp-dR-0Yc" secondAttribute="leading" constant="10" id="ACQ-Wh-7j5"/>
+                            <constraint firstItem="waH-oU-Pru" firstAttribute="centerY" secondItem="nXp-dR-0Yc" secondAttribute="centerY" id="JQP-Xd-RBb"/>
+                            <constraint firstAttribute="trailing" secondItem="waH-oU-Pru" secondAttribute="trailing" constant="10" id="Vgn-2D-rmH"/>
+                            <constraint firstItem="waH-oU-Pru" firstAttribute="centerX" secondItem="nXp-dR-0Yc" secondAttribute="centerX" id="Zmy-iD-8So"/>
+                            <constraint firstItem="waH-oU-Pru" firstAttribute="top" secondItem="nXp-dR-0Yc" secondAttribute="top" id="fJ0-PI-WnF"/>
+                            <constraint firstAttribute="bottom" secondItem="waH-oU-Pru" secondAttribute="bottom" id="kzH-4Q-J6h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelCity" destination="6ee-8O-3CH" id="j85-nU-qQ5"/>
+                        <outlet property="labelState" destination="36D-Dw-GJT" id="cR5-nn-09e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epK-vl-lcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="747.82608695652175" y="-725.22321428571422"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="table.fill" catalog="system" width="128" height="93"/>
         <image name="trending" width="28" height="28"/>
+        <image name="weather_clear" width="852" height="480"/>
     </resources>
 </document>

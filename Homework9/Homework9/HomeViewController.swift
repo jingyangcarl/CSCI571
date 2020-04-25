@@ -14,6 +14,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
     
+    var status = [
+        "weather": [
+            "city": "",
+            "state": "",
+        ]
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,9 +47,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             // Look up the location and pass it to the completion handler
             geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
                 if error == nil {
+                    // get current location
                     let readableLocation = placemarks?[0]
-                    print(readableLocation?.locality as Any)
-                    print(readableLocation?.administrativeArea as Any)
+                    self.status["weather"]?["city"]? = (readableLocation?.locality)!
+                    self.status["weather"]?["state"]? = (readableLocation?.administrativeArea)!
                     
                     // prepare request
                     let latitude = location.coordinate.latitude
@@ -63,7 +71,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                                 let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
                                 print(jsonObject.coord.lon)
                                 
-                                
+                                self.performSegue(withIdentifier: "toWeatherViewController", sender: self)
                                 
                             } catch DecodingError.dataCorrupted(let context) {
                                 print(context.debugDescription)
@@ -88,6 +96,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if (status == CLAuthorizationStatus.denied) {
             
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toWeatherViewController" {
+//            guard let weatherViewController = segue.destination as? WeatherViewController else {return}
         }
     }
     
