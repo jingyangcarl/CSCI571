@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if section == HomeSession.Weather.rawValue {
             return 1
         } else if section == HomeSession.News.rawValue {
-            return 10
+            return self.status.newsList.count
         } else {
             return 0
         }
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
+        if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home Weather Cell") as! HomeWeatherTableViewCell
 
@@ -108,18 +108,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             return cell
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == HomeSession.News.rawValue {
             // this should be the news cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home News Cell") as! HomeNewsTableViewCell
             
             // set up news cell
             if !self.status.newsList.isEmpty {
-                cell.labelTitle.text = self.status.newsList[
-                indexPath.row].title
-                cell.labelTime.text = self.status.newsList[
-                indexPath.row].time
-                cell.labelSection.text = self.status.newsList[
-                indexPath.row].section
+                cell.labelTitle.text = self.status.newsList[indexPath.row].title
+                cell.labelTime.text = self.status.newsList[indexPath.row].time
+                cell.labelSection.text = self.status.newsList[indexPath.row].section
             }
             return cell
         } else {
@@ -130,12 +127,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
+        if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             return 110
-        } else {
+        } else if indexPath.section == HomeSession.News.rawValue {
             // this should be the news cell
             return 150
+        } else {
+            return 50
         }
     }
     
