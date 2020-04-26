@@ -15,12 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="earth" translatesAutoresizingMaskIntoConstraints="NO" id="yJJ-Xp-Ssl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earth" translatesAutoresizingMaskIntoConstraints="NO" id="yJJ-Xp-Ssl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yJJ-Xp-Ssl" secondAttribute="bottom" id="KQd-oj-ACb"/>
+                            <constraint firstItem="yJJ-Xp-Ssl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PsK-oJ-Fq7"/>
+                            <constraint firstItem="yJJ-Xp-Ssl" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="WD4-Im-42Q"/>
+                            <constraint firstItem="yJJ-Xp-Ssl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ySb-In-di2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
