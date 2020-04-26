@@ -9,34 +9,38 @@
 import Foundation
 
 struct GuardianHome: Decodable {
-    let status: String;
-    let userTier: String;
-    let total: Int;
-    let startIndex: Int;
-    let pageSize: Int;
-    let currentPage: Int;
-    let pages: Int;
-    let orderBy: String;
-    let results: [Result];
+    let response: Response
+}
+
+struct Response: Decodable {
+    let status: String?;
+    let userTier: String?;
+    let total: Int?;
+    let startIndex: Int?;
+    let pageSize: Int?;
+    let currentPage: Int?;
+    let pages: Int?;
+    let orderBy: String?;
+    let results: [Result?];
 }
 
 struct Result: Decodable {
-    let id: String;
-    let type: String;
-    let sectionId: String;
-    let sectionName: String;
-    let webPublicationDate: String;
-    let webTitle: String;
-    let webUrl: String;
-    let apiUrl: String;
-    let fields: Fields;
-    let isHosted: Bool;
-    let pillarId: String;
-    let pillarName: String;
+    let id: String?;
+    let type: String?;
+    let sectionId: String?;
+    let sectionName: String?;
+    let webPublicationDate: String?;
+    let webTitle: String?;
+    let webUrl: String?;
+    let apiUrl: String?;
+    let fields: Fields?;
+    let isHosted: Bool?;
+    let pillarId: String?;
+    let pillarName: String?;
 }
 
 struct Fields: Decodable {
-    let headline: String;
-    let shortUrl: String;
-    let thumbnail: String;
+    let headline: String?;
+    let shortUrl: String?;
+    let thumbnail: String?;
 }

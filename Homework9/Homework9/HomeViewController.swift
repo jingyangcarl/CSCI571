@@ -22,7 +22,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // status to save current weather data
     struct News {
-        
+        var image: String
+        var title: String
+        var time: String
+        var section: String
+        var id: String
     }
     var status = [
         "weather": [
@@ -226,6 +230,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 do {
                     // save json as an object
                     let jsonObject = try JSONDecoder().decode(GuardianHome.self, from: data!)
+                    
+                    print(jsonObject.response.pageSize)
                     
                     // reload weather cell
                     DispatchQueue.main.async {
