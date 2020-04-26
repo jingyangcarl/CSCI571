@@ -21,6 +21,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var refreshControl = UIRefreshControl()
     
     // status to save current weather data
+    struct News {
+        
+    }
     var status = [
         "weather": [
             "city": "",
@@ -28,8 +31,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             "temp": 0.0,
             "main": "",
         ],
-        "news": [
-            "title": ""
+        "newsList": [
+            "size": 10,
+            "news": [News]()
         ]
     ]
     
@@ -221,7 +225,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // Http success
                 do {
                     // save json as an object
-//                    let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
+                    let jsonObject = try JSONDecoder().decode(GuardianHome.self, from: data!)
                     
                     // reload weather cell
                     DispatchQueue.main.async {
