@@ -114,8 +114,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // set up news cell
             if !self.status.newsList.isEmpty {
+                
+                let dateFormatter = Foundation.DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                
+                let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].time)
+                let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
+                let days = timeInterval! / 86400;
+                let hours = (timeInterval! % 86400) / 3600;
+                let minutes = ((timeInterval! % 86400) % 3600) / 60;
+                let seconds = ((timeInterval! % 86400) % 3600) % 60;
+                
+                if days != 0 {
+                    cell.labelTime.text = "\(days)d ago";
+                } else if hours != 0 {
+                    cell.labelTime.text = "\(hours)h ago";
+                } else if minutes != 0 {
+                    cell.labelTime.text = "\(minutes)m ago";
+                } else {
+                    cell.labelTime.text = "\(seconds)s ago"
+                }
+                
                 cell.labelTitle.text = self.status.newsList[indexPath.row].title
-                cell.labelTime.text = self.status.newsList[indexPath.row].time
                 cell.labelSection.text = self.status.newsList[indexPath.row].section
                 cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
             }
@@ -241,7 +261,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let title: String = result.webTitle ?? "webTitle"
                         let time: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
                         let section: String = result.sectionId ?? "sectionId"
-                        let id: String = result.id ?? "id"
+                        let id: String = result.id!
                         let news: News = News(imageUrl: imageUrl, title: title, time: time, section: section, id: id)
                         
                         self.status.newsList.append(news)
