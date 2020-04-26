@@ -19,7 +19,8 @@
 		EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E942D2453C13B00563783 /* OpenWeather.json */; };
 		EC4E94322453D1DD00563783 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94312453D1DD00563783 /* OpenWeather.swift */; };
 		EC4E9438245421CB00563783 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E9437245421CB00563783 /* WeatherViewController.swift */; };
-		EC4E943C24550C6300563783 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943B24550C6300563783 /* HomeTableViewCell.swift */; };
+		EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */; };
+		EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,8 @@
 		EC4E942D2453C13B00563783 /* OpenWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenWeather.json; sourceTree = "<group>"; };
 		EC4E94312453D1DD00563783 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
 		EC4E9437245421CB00563783 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		EC4E943B24550C6300563783 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsTableViewCell.swift; sourceTree = "<group>"; };
+		EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeatherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,8 @@
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
 				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
 				EC4E9437245421CB00563783 /* WeatherViewController.swift */,
-				EC4E943B24550C6300563783 /* HomeTableViewCell.swift */,
+				EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */,
+				EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */,
 				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
 				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
 				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
@@ -174,9 +177,10 @@
 				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E9438245421CB00563783 /* WeatherViewController.swift in Sources */,
-				EC4E943C24550C6300563783 /* HomeTableViewCell.swift in Sources */,
+				EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */,
 				EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */,
 				EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */,
+				EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

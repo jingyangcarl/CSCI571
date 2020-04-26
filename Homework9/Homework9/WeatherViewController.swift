@@ -58,6 +58,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        return
+        
         // trigger to fetch weather data
         locationManagerTrigger = (locationManagerTrigger + 1) % 5
         if locationManagerTrigger != 1 {return}
@@ -104,9 +106,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                                     self.labelTemperature.text = "\(self.status["weather"]?["temp"] ?? 0) °C"
                                     self.labelWeather.text = self.status["weather"]?["main"] as? String
                                     
-                                    switch self.labelWeather.text {
+                                    switch self.labelWeather.text?.lowercased() {
                                     case MainWeather.Clear.rawValue:
-                                        self.imageWeather.image = UIImage(named: "weather_sunny"); break
+                                        self.imageWeather.image = UIImage(named: "weather_clear"); break
                                     case MainWeather.Cloudy.rawValue:
                                         self.imageWeather.image = UIImage(named: "weather_cloudy"); break
                                     case MainWeather.Rainy.rawValue:
