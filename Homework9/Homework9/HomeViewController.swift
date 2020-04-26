@@ -210,7 +210,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 // reload weather cell
                                 DispatchQueue.main.async {
                                     let indexPath = IndexPath(row: 0, section: HomeSession.Weather.rawValue)
-                                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                                    self.tableView.reloadRows(at: [indexPath], with: .right)
                                 }
                                 
                             } catch DecodingError.dataCorrupted(let context) {
@@ -269,7 +269,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     // reload news cell
                     DispatchQueue.main.async {
-                        self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .left)
+                        self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .fade)
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
