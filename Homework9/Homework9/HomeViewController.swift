@@ -102,7 +102,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home News Cell") as! HomeNewsTableViewCell
             
             // set up news cell
-            
+            if !self.status.newsList.isEmpty {
+                cell.labelTitle.text = self.status.newsList[0].title
+                cell.labelTime.text = self.status.newsList[0].time
+                cell.labelSection.text = self.status.newsList[0].section
+            }
             return cell
         }
     }
@@ -223,10 +227,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         self.status.newsList.append(news)
                     }
                     
-                    print(self.status.newsList.count)
-                    
                     // reload weather cell
                     DispatchQueue.main.async {
+                        let indexPath = IndexPath(row: 1, section: 0)
+                        self.tableView.reloadRows(at: [indexPath], with: .left)
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
