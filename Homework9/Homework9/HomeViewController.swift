@@ -117,6 +117,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.labelTitle.text = self.status.newsList[indexPath.row].title
                 cell.labelTime.text = self.status.newsList[indexPath.row].time
                 cell.labelSection.text = self.status.newsList[indexPath.row].section
+                cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
             }
             return cell
         } else {
@@ -236,12 +237,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let jsonObject = try JSONDecoder().decode(GuardianHome.self, from: data!)
                     
                     for result in jsonObject.response.results {
-                        let image: String = result.fields.thumbnail ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+                        let imageUrl: String = result.fields.thumbnail ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
                         let title: String = result.webTitle ?? "webTitle"
                         let time: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
                         let section: String = result.sectionId ?? "sectionId"
                         let id: String = result.id ?? "id"
-                        let news: News = News(image: image, title: title, time: time, section: section, id: id)
+                        let news: News = News(imageUrl: imageUrl, title: title, time: time, section: section, id: id)
                         
                         self.status.newsList.append(news)
                     }

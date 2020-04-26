@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Status {
     var weather: WeatherStatus;
@@ -33,25 +34,34 @@ struct WeatherStatus {
 }
 
 struct News {
-    var image: String;
+    var imageUrl: String;
+    var image: UIImage;
     var title: String;
     var time: String;
     var section: String;
     var id: String;
     
     init() {
-        image = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
+        imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
+        image = UIImage()
         title = "title"
         time = "2020-04-26T03:02:14Z"
         section = "section"
         id = "id"
     }
     
-    init(image: String, title: String, time: String, section: String, id: String) {
-        self.image = image;
+    init(imageUrl: String, title: String, time: String, section: String, id: String) {
+        self.imageUrl = imageUrl;
+        self.image = UIImage();
         self.title = title;
         self.time = time;
         self.section = section;
         self.id = id;
+        
+        if let imageData = try? Data(contentsOf: URL(string: self.imageUrl)!) {
+            if let image = UIImage(data: imageData) {
+                self.image = image;
+            }
+        }
     }
 }
