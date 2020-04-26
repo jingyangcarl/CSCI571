@@ -163,6 +163,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 2
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "HomeNewsDetailSegue", sender: self)
+    }
+    
+    
     /*
      Description:
      This function is triggered everytime location is updated. Basically this function is called every second.
@@ -291,5 +296,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         refreshControl.endRefreshing()
     }
+    
+    
 }
 
