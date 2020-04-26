@@ -20,6 +20,8 @@
 		EC4E94322453D1DD00563783 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94312453D1DD00563783 /* OpenWeather.swift */; };
 		EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */; };
 		EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */; };
+		EC4E94432455319C00563783 /* GuardianHome.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E94422455319C00563783 /* GuardianHome.json */; };
+		EC4E9445245531D800563783 /* GuardianHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E9444245531D800563783 /* GuardianHome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		EC4E94312453D1DD00563783 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
 		EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsTableViewCell.swift; sourceTree = "<group>"; };
 		EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		EC4E94422455319C00563783 /* GuardianHome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianHome.json; sourceTree = "<group>"; };
+		EC4E9444245531D800563783 /* GuardianHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianHome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				EC4E942D2453C13B00563783 /* OpenWeather.json */,
 				EC4E94312453D1DD00563783 /* OpenWeather.swift */,
+				EC4E94422455319C00563783 /* GuardianHome.json */,
+				EC4E9444245531D800563783 /* GuardianHome.swift */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 				EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */,
 				EC4E94212452BF3E00563783 /* LaunchScreen.storyboard in Resources */,
 				EC4E941E2452BF3E00563783 /* Assets.xcassets in Resources */,
+				EC4E94432455319C00563783 /* GuardianHome.json in Resources */,
 				EC4E941C2452BF3C00563783 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +186,7 @@
 				EC4E94322453D1DD00563783 /* OpenWeather.swift in Sources */,
 				EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */,
 				EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */,
+				EC4E9445245531D800563783 /* GuardianHome.swift in Sources */,
 				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */,

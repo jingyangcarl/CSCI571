@@ -11,12 +11,14 @@ import CoreLocation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
-    @IBOutlet weak var weatherView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     // init location manager status
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
+    
+    // init pull to refresh
+    var refreshControl = UIRefreshControl()
     
     // status to save current weather data
     var status = [
@@ -41,6 +43,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         case Thunder = "thunder"
     }
     
+    // api keys
+    let openWeatherKey = "d32dc17259016e9927d18628475376ea"
+    let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,12 +62,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        
+        // enable pull down to refresh for table view
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
+    /*
+     Description:
+     This function is used to describe how each cell should look like.
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
@@ -143,13 +158,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     // prepare request
                     let latitude = location.coordinate.latitude
                     let longitude = location.coordinate.longitude
-                    let openWeatherKey = "d32dc17259016e9927d18628475376ea"
-                    let request = NSMutableURLRequest(url: URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude.description)&lon=\(longitude.description)&units=metric&appid=\(openWeatherKey)")!)
+                    let request = NSMutableURLRequest(url: URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude.description)&lon=\(longitude.description)&units=metric&appid=\(self.openWeatherKey)")!)
                     
                     // fetch data from openweathermap
                     URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
                         guard let httpResponse = response as? HTTPURLResponse else {
-                            // Error
+                            // rrror
                             return
                         }
                         
@@ -189,6 +203,49 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    
+    @objc func refresh(_ sender: AnyObject) {
+        // refresh table view
+        print("refresh")
+        
+        // prepare request
+        let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/search?orderby=newest&show-fields=starRating,headline,thumbnail,short-url&api-key=\(guardianKey)")!)
+        
+        // fetch data
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                // error
+                return
+            }
+            
+            if httpResponse.statusCode == 200 {
+                // Http success
+                do {
+                    // save json as an object
+//                    let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
+                    
+                    // reload weather cell
+                    DispatchQueue.main.async {
+                    }
+                    
+                } catch DecodingError.dataCorrupted(let context) {
+                    print(context.debugDescription)
+                } catch DecodingError.keyNotFound(let key, let context) {
+                    print("\(key.stringValue) was not found, \(context.debugDescription)")
+                } catch DecodingError.typeMismatch(let type, let context) {
+                    print("\(type) was expected, \(context.debugDescription)")
+                } catch DecodingError.valueNotFound(let type, let context) {
+                    print("no value was found for \(type), \(context.debugDescription)")
+                } catch let error {
+                    print(error)
+                }
+            } else {
+                // Http error
+            }
+            
+        }.resume()
+        
+        
+        refreshControl.endRefreshing()
+    }
 }
 
