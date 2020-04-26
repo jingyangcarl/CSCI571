@@ -24,13 +24,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var status = Status()
     
     // define weather standard
-    enum MainWeather: String {
+    enum HomeWeather: String {
         case Clear = "clear"
         case Cloudy = "cloudy"
         case Rainy = "rainy"
         case Snowy = "snowy"
         case Sunny = "sunny"
         case Thunder = "thunder"
+    }
+    
+    enum HomeSession: Int {
+        case Weather = 0
+        case News = 1
     }
     
     // api keys
@@ -60,7 +65,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if section == HomeSession.Weather.rawValue {
+            return 1
+        } else if section == HomeSession.News.rawValue {
+            return 10
+        } else {
+            return 0
+        }
     }
     
     /*
@@ -69,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home Weather Cell") as! HomeWeatherTableViewCell
 
@@ -80,33 +91,39 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.labelWeather.text = self.status.weather.weather
             
             switch cell.labelWeather.text?.lowercased() {
-            case MainWeather.Clear.rawValue:
+            case HomeWeather.Clear.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_clear"); break
-            case MainWeather.Cloudy.rawValue:
+            case HomeWeather.Cloudy.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_cloudy"); break
-            case MainWeather.Rainy.rawValue:
+            case HomeWeather.Rainy.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_rainy"); break
-            case MainWeather.Snowy.rawValue:
+            case HomeWeather.Snowy.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_snowy"); break
-            case MainWeather.Sunny.rawValue:
+            case HomeWeather.Sunny.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_sunny"); break
-            case MainWeather.Thunder.rawValue:
+            case HomeWeather.Thunder.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_thunder"); break
             default:
                 cell.imageWeather.image = UIImage(named: "weather_sunny"); break
             }
             
             return cell
-        } else {
+        } else if indexPath.section == 1 {
             // this should be the news cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home News Cell") as! HomeNewsTableViewCell
             
             // set up news cell
             if !self.status.newsList.isEmpty {
-                cell.labelTitle.text = self.status.newsList[0].title
-                cell.labelTime.text = self.status.newsList[0].time
-                cell.labelSection.text = self.status.newsList[0].section
+                cell.labelTitle.text = self.status.newsList[
+                indexPath.row].title
+                cell.labelTime.text = self.status.newsList[
+                indexPath.row].time
+                cell.labelSection.text = self.status.newsList[
+                indexPath.row].section
             }
+            return cell
+        } else {
+            let cell = UITableViewCell()
             return cell
         }
     }
@@ -123,7 +140,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     /*
@@ -172,7 +189,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 // reload weather cell
                                 DispatchQueue.main.async {
-                                    let indexPath = IndexPath(row: 0, section: 0)
+                                    let indexPath = IndexPath(row: 0, section: HomeSession.Weather.rawValue)
                                     self.tableView.reloadRows(at: [indexPath], with: .left)
                                 }
                                 
@@ -199,6 +216,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func refresh(_ sender: AnyObject) {
         // refresh table view
         print("refresh")
+        
+        // clear current news list
+        self.status.newsList.removeAll()
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/search?orderby=newest&show-fields=starRating,headline,thumbnail,short-url&api-key=\(guardianKey)")!)
@@ -227,10 +247,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         self.status.newsList.append(news)
                     }
                     
-                    // reload weather cell
+                    // reload news cell
                     DispatchQueue.main.async {
-                        let indexPath = IndexPath(row: 1, section: 0)
-                        self.tableView.reloadRows(at: [indexPath], with: .left)
+                        self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .left)
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
@@ -249,7 +268,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         }.resume()
-        
         
         refreshControl.endRefreshing()
     }
