@@ -58,7 +58,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svc-xq-JGo">
-                                                    <rect key="frame" x="329" y="69" width="65" height="21"/>
+                                                    <rect key="frame" x="329.5" y="69.5" width="64.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
@@ -93,7 +93,63 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NLM-p7-EqO" id="wH0-Ga-0v7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Hz-VnR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="IHl-gw-TwK"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Mg5-Ec-hg7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5J-IX-M65">
+                                                    <rect key="frame" x="158" y="11" width="236" height="99.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PpF-gh-uN9">
+                                                    <rect key="frame" x="158" y="118.5" width="127.5" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5h-l0-r6R">
+                                                            <rect key="frame" x="0.0" y="0.0" width="31" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3H-Ws-GzE">
+                                                            <rect key="frame" x="61" y="0.0" width="5.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX9-Tb-4ZR">
+                                                            <rect key="frame" x="96.5" y="0.0" width="31" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhL-Sr-Qsm">
+                                                    <rect key="frame" x="376.5" y="117" width="17.5" height="22"/>
+                                                    <state key="normal" image="bookmark" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T5J-IX-M65" firstAttribute="trailing" secondItem="wH0-Ga-0v7" secondAttribute="trailingMargin" id="0Sd-to-lBF"/>
+                                                <constraint firstItem="PpF-gh-uN9" firstAttribute="leading" secondItem="h9p-Hz-VnR" secondAttribute="trailing" constant="8" id="35g-i0-Cr8"/>
+                                                <constraint firstItem="h9p-Hz-VnR" firstAttribute="leading" secondItem="wH0-Ga-0v7" secondAttribute="leading" id="8Id-5t-bUv"/>
+                                                <constraint firstItem="T5J-IX-M65" firstAttribute="leading" secondItem="h9p-Hz-VnR" secondAttribute="trailing" constant="8" id="ASb-Xz-wfi"/>
+                                                <constraint firstItem="JhL-Sr-Qsm" firstAttribute="trailing" secondItem="wH0-Ga-0v7" secondAttribute="trailingMargin" id="Ca5-ZF-jiT"/>
+                                                <constraint firstItem="T5J-IX-M65" firstAttribute="top" secondItem="wH0-Ga-0v7" secondAttribute="topMargin" id="GmB-ey-AGu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PpF-gh-uN9" secondAttribute="bottom" id="OuP-fS-HlT"/>
+                                                <constraint firstItem="PpF-gh-uN9" firstAttribute="top" secondItem="T5J-IX-M65" secondAttribute="bottom" constant="8" id="PnL-rp-Ih3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JhL-Sr-Qsm" secondAttribute="bottom" id="W13-gN-6b8"/>
+                                                <constraint firstAttribute="bottom" secondItem="h9p-Hz-VnR" secondAttribute="bottom" id="fOo-Xn-oz7"/>
+                                                <constraint firstItem="h9p-Hz-VnR" firstAttribute="top" secondItem="wH0-Ga-0v7" secondAttribute="top" id="fsd-iQ-LU7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -212,6 +268,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="table.fill" catalog="system" width="128" height="93"/>

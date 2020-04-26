@@ -70,12 +70,10 @@
 		EC4E94112452BF3C00563783 /* Homework9 */ = {
 			isa = PBXGroup;
 			children = (
-				EC4E942C2453C0F600563783 /* New Group */,
+				EC4E942C2453C0F600563783 /* JSON */,
+				EC4E9441245522FF00563783 /* HomeView */,
 				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
-				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
-				EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */,
-				EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */,
 				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
 				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
 				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
@@ -87,13 +85,23 @@
 			path = Homework9;
 			sourceTree = "<group>";
 		};
-		EC4E942C2453C0F600563783 /* New Group */ = {
+		EC4E942C2453C0F600563783 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
 				EC4E942D2453C13B00563783 /* OpenWeather.json */,
 				EC4E94312453D1DD00563783 /* OpenWeather.swift */,
 			);
-			name = "New Group";
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		EC4E9441245522FF00563783 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
+				EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */,
+				EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */,
+			);
+			name = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -25,6 +25,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             "state": "",
             "temp": 0.0,
             "main": "",
+        ],
+        "news": [
+            "title": ""
         ]
     ]
     
@@ -92,7 +95,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             // this should be the news cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home News Cell") as! HomeNewsTableViewCell
+            
             // set up news cell
+            
             return cell
         }
     }
@@ -112,6 +117,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 1
     }
     
+    /*
+     Description:
+     This function is triggered everytime location is updated. Basically this function is called every second.
+     Everytime location is updated, weather should be updated as well.
+     */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // trigger to fetch weather data
