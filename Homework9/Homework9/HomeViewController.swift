@@ -218,10 +218,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let time: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
                         let section: String = result.sectionId ?? "sectionId"
                         let id: String = result.id ?? "id"
-                        var news: News = News(image: image, title: title, time: time, section: section, id: id)
+                        let news: News = News(image: image, title: title, time: time, section: section, id: id)
                         
-//                        self.status["newsList"]?["news"].append()
+                        self.status.newsList.append(news)
                     }
+                    
+                    print(self.status.newsList.count)
                     
                     // reload weather cell
                     DispatchQueue.main.async {

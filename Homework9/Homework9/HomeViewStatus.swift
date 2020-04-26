@@ -9,16 +9,16 @@
 import Foundation
 
 struct Status {
-    var weather: CurrentWeather;
-    var newsList: CurrentNewsList;
+    var weather: WeatherStatus;
+    var newsList: [News];
     
     init() {
-        weather = CurrentWeather();
-        newsList = CurrentNewsList();
+        weather = WeatherStatus();
+        newsList = [News]();
     }
 }
 
-struct CurrentWeather {
+struct WeatherStatus {
     var city: String;
     var state: String;
     var temp: Double;
@@ -29,16 +29,6 @@ struct CurrentWeather {
         state = "state";
         temp = 0.0;
         weather = "weather";
-    }
-}
-
-struct CurrentNewsList {
-    var pageSize: Int;
-    var newsList: [News]
-    
-    init() {
-        pageSize = 10;
-        newsList = [News]()
     }
 }
 
