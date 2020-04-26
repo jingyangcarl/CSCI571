@@ -22,6 +22,7 @@
 		EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */; };
 		EC4E94432455319C00563783 /* GuardianHome.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E94422455319C00563783 /* GuardianHome.json */; };
 		EC4E9445245531D800563783 /* GuardianHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E9444245531D800563783 /* GuardianHome.swift */; };
+		EC4E944724555C4800563783 /* HomeViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944624555C4800563783 /* HomeViewStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		EC4E94422455319C00563783 /* GuardianHome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianHome.json; sourceTree = "<group>"; };
 		EC4E9444245531D800563783 /* GuardianHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianHome.swift; sourceTree = "<group>"; };
+		EC4E944624555C4800563783 /* HomeViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
 				EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */,
 				EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */,
+				EC4E944624555C4800563783 /* HomeViewStatus.swift */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */,
 				EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */,
 				EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */,
+				EC4E944724555C4800563783 /* HomeViewStatus.swift in Sources */,
 				EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,7 @@ struct Response: Decodable {
     let currentPage: Int?;
     let pages: Int?;
     let orderBy: String?;
-    let results: [Result?];
+    let results: [Result];
 }
 
 struct Result: Decodable {
@@ -33,7 +33,7 @@ struct Result: Decodable {
     let webTitle: String?;
     let webUrl: String?;
     let apiUrl: String?;
-    let fields: Fields?;
+    let fields: Fields;
     let isHosted: Bool?;
     let pillarId: String?;
     let pillarName: String?;

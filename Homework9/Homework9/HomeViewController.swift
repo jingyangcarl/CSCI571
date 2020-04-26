@@ -21,25 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var refreshControl = UIRefreshControl()
     
     // status to save current weather data
-    struct News {
-        var image: String
-        var title: String
-        var time: String
-        var section: String
-        var id: String
-    }
-    var status = [
-        "weather": [
-            "city": "",
-            "state": "",
-            "temp": 0.0,
-            "main": "",
-        ],
-        "newsList": [
-            "size": 10,
-            "news": [News]()
-        ]
-    ]
+    var status = Status()
     
     // define weather standard
     enum MainWeather: String {
@@ -92,10 +74,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "Home Weather Cell") as! HomeWeatherTableViewCell
 
             // set up weather cell
-            cell.labelCity.text = self.status["weather"]?["city"] as? String
-            cell.labelState.text = self.status["weather"]?["state"] as? String
-            cell.labelTemp.text = "\(self.status["weather"]?["temp"] ?? 0) °C"
-            cell.labelWeather.text = self.status["weather"]?["main"] as? String
+            cell.labelCity.text = self.status.weather.city
+            cell.labelState.text = self.status.weather.state
+            cell.labelTemp.text = "\(self.status.weather.temp) °C"
+            cell.labelWeather.text = self.status.weather.weather
             
             switch cell.labelWeather.text?.lowercased() {
             case MainWeather.Clear.rawValue:
@@ -160,8 +142,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if error == nil {
                     // get current location
                     let readableLocation = placemarks?[0]
-                    self.status["weather"]?["city"]? = (readableLocation?.locality)!
-                    self.status["weather"]?["state"]? = (readableLocation?.administrativeArea)!
+                    self.status.weather.city = (readableLocation?.locality)!
+                    self.status.weather.state = (readableLocation?.administrativeArea)!
                     
                     // prepare request
                     let latitude = location.coordinate.latitude
@@ -181,9 +163,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 // save json as an object
                                 let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
                                 
-                                // get current weather
-                                self.status["weather"]?["temp"]? = jsonObject.main.temp
-                                self.status["weather"]?["main"]? = jsonObject.weather[0].main
+                                self.status.weather.temp = jsonObject.main.temp
+                                self.status.weather.weather = jsonObject.weather[0].main
                                 
                                 // reload weather cell
                                 DispatchQueue.main.async {
@@ -231,7 +212,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     // save json as an object
                     let jsonObject = try JSONDecoder().decode(GuardianHome.self, from: data!)
                     
-                    print(jsonObject.response.pageSize)
+                    for result in jsonObject.response.results {
+                        let image: String = result.fields.thumbnail ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+                        let title: String = result.webTitle ?? "webTitle"
+                        let time: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
+                        let section: String = result.sectionId ?? "sectionId"
+                        let id: String = result.id ?? "id"
+                        var news: News = News(image: image, title: title, time: time, section: section, id: id)
+                        
+//                        self.status["newsList"]?["news"].append()
+                    }
                     
                     // reload weather cell
                     DispatchQueue.main.async {
