@@ -133,7 +133,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return 110
         } else if indexPath.section == HomeSession.News.rawValue {
             // this should be the news cell
-            return 150
+            return 140
         } else {
             return 50
         }
