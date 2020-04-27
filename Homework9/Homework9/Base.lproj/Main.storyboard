@@ -15,12 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Home" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="20" y="88" width="94" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" placeholder="Enter keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-pj-dSe">
                                 <rect key="frame" x="0.0" y="131" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -174,21 +168,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Home" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="COv-n6-kbv">
+                                <rect key="frame" x="20" y="88" width="94" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="0Bc-4w-Ddw"/>
-                            <constraint firstItem="Yjl-pj-dSe" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" id="9GA-eH-5dk"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="KQZ-1w-vlD" secondAttribute="trailing" constant="300" id="9yg-pa-5Bf"/>
                             <constraint firstItem="yI6-9X-tqS" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="AI6-qW-r8E"/>
                             <constraint firstItem="yI6-9X-tqS" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="AiV-M9-HlP"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="BGz-DZ-Tih"/>
+                            <constraint firstItem="COv-n6-kbv" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="Loq-ep-loW"/>
                             <constraint firstItem="yI6-9X-tqS" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="M5K-Fq-nUz"/>
+                            <constraint firstItem="COv-n6-kbv" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="MuO-z7-mF1"/>
                             <constraint firstItem="yI6-9X-tqS" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="P3C-2j-4lA"/>
                             <constraint firstItem="yI6-9X-tqS" firstAttribute="top" secondItem="Yjl-pj-dSe" secondAttribute="bottom" id="YDf-dB-ec0"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="ace-Nw-oV1"/>
+                            <constraint firstItem="Yjl-pj-dSe" firstAttribute="top" secondItem="COv-n6-kbv" secondAttribute="bottom" id="eTK-kh-MFX"/>
                             <constraint firstItem="Yjl-pj-dSe" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="jGc-MR-6nL"/>
-                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="vXf-x4-m5z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -200,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1075" y="1445"/>
+            <point key="canvasLocation" x="-1075.3623188405797" y="1444.4196428571429"/>
         </scene>
         <!--Home News Detail View Controller-->
         <scene sceneID="t6l-fb-XdR">
@@ -313,7 +312,7 @@
             </objects>
             <point key="canvasLocation" x="-1075.3623188405797" y="2118.75"/>
         </scene>
-        <!--Headlines-->
+        <!--Headlines View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="HeadlinesViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,32 +320,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="106" y="426.5" width="202" height="43"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Headlines" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="20" y="88" width="154" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="99.5" y="477.5" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" placeholder="Enter keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="8aU-x1-gHY">
+                                <rect key="frame" x="0.0" y="131" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="8aU-x1-gHY" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" id="5Ie-ej-voq"/>
+                            <constraint firstItem="8aU-x1-gHY" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="EFt-Zg-1U7"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="F7q-3j-hek"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="Lif-Il-yqS"/>
+                            <constraint firstItem="8aU-x1-gHY" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="nlK-DC-RY5"/>
+                            <constraint firstItem="8aU-x1-gHY" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="nth-WU-uqo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Headlines" image="table.fill" catalog="system" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="wfa-QF-eY9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-330" y="722"/>
+            <point key="canvasLocation" x="-330" y="1444"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -359,7 +359,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="VVM-Nm-VQs" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="guc-uR-17n" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="BC1-Cu-Rnh" kind="relationship" relationship="viewControllers" id="6X2-hb-YQC"/>
                         <segue destination="YM8-ca-pEo" kind="relationship" relationship="viewControllers" id="82B-bZ-tXF"/>
                     </connections>
@@ -382,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csP-OU-BWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="387" y="722"/>
+            <point key="canvasLocation" x="419" y="722"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="OAw-FX-v7f">
@@ -398,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6o-Ss-Uz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="722"/>
+            <point key="canvasLocation" x="1158" y="722"/>
         </scene>
         <!--Home-->
         <scene sceneID="a6c-UE-Nd9">
@@ -418,6 +418,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ns-6f-Znn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1075" y="722"/>
+        </scene>
+        <!--Headlines-->
+        <scene sceneID="JpE-Iz-cY9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="guc-uR-17n" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Headlines" image="table.fill" catalog="system" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qij-V9-Y8f">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="48J-M8-HQH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKf-py-Gel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330.43478260869568" y="721.875"/>
         </scene>
     </scenes>
     <resources>
