@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,8 @@
 		EC4E944B2456570700563783 /* HomeNewsDetailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944A2456570700563783 /* HomeNewsDetailStatus.swift */; };
 		EC4E944D24565C5900563783 /* GuardianHomeDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E944C24565C5900563783 /* GuardianHomeDetail.json */; };
 		EC4E944F24565CE300563783 /* GuardianHomeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944E24565CE300563783 /* GuardianHomeDetail.swift */; };
+		EC4E94552456B43700563783 /* WorldTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94542456B43700563783 /* WorldTableViewController.swift */; };
+		EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94582456B92E00563783 /* BusinessTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		EC4E944A2456570700563783 /* HomeNewsDetailStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsDetailStatus.swift; sourceTree = "<group>"; };
 		EC4E944C24565C5900563783 /* GuardianHomeDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianHomeDetail.json; sourceTree = "<group>"; };
 		EC4E944E24565CE300563783 /* GuardianHomeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianHomeDetail.swift; sourceTree = "<group>"; };
+		EC4E94542456B43700563783 /* WorldTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTableViewController.swift; sourceTree = "<group>"; };
+		EC4E94582456B92E00563783 /* BusinessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewController.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,7 +88,6 @@
 				E1A9E94A73481113BF33631C /* Pods-Homework9.debug.xcconfig */,
 				7DF82567183642CD86415ACD /* Pods-Homework9.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -110,10 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				EC4E942C2453C0F600563783 /* JSON */,
-				EC4E9441245522FF00563783 /* HomeView */,
+				EC4E9441245522FF00563783 /* Home View */,
+				EC4E94502456AE4C00563783 /* Headlines View */,
 				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
-				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
 				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
 				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
 				EC4E941A2452BF3C00563783 /* Main.storyboard */,
@@ -137,7 +140,7 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
-		EC4E9441245522FF00563783 /* HomeView */ = {
+		EC4E9441245522FF00563783 /* Home View */ = {
 			isa = PBXGroup;
 			children = (
 				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
@@ -147,7 +150,17 @@
 				EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */,
 				EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */,
 			);
-			name = HomeView;
+			name = "Home View";
+			sourceTree = "<group>";
+		};
+		EC4E94502456AE4C00563783 /* Headlines View */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
+				EC4E94542456B43700563783 /* WorldTableViewController.swift */,
+				EC4E94582456B92E00563783 /* BusinessTableViewController.swift */,
+			);
+			name = "Headlines View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +285,10 @@
 				EC4E94492456528B00563783 /* HomeNewsDetailViewController.swift in Sources */,
 				EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */,
 				EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */,
+				EC4E94552456B43700563783 /* WorldTableViewController.swift in Sources */,
 				EC4E9445245531D800563783 /* GuardianHome.swift in Sources */,
 				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
+				EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */,
 				EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */,

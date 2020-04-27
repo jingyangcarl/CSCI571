@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
@@ -212,6 +213,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if httpResponse.statusCode == 200 {
                             // Http success
                             do {
+                                // TODO: use SwiftyJSON instead
+                                
                                 // save json as an object
                                 let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
                                 
@@ -264,6 +267,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if httpResponse.statusCode == 200 {
                 // Http success
                 do {
+                    // TODO: use SwiftyJSON instead
                     // save json as an object
                     let jsonObject = try JSONDecoder().decode(GuardianHome.self, from: data!)
                     
