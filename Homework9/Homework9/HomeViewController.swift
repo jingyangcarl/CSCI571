@@ -132,13 +132,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let seconds = ((timeInterval! % 86400) % 3600) % 60;
                 
                 if days != 0 {
-                    cell.labelTime.text = "\(days)d ago";
+                    cell.labelDate.text = "\(days)d ago";
                 } else if hours != 0 {
-                    cell.labelTime.text = "\(hours)h ago";
+                    cell.labelDate.text = "\(hours)h ago";
                 } else if minutes != 0 {
-                    cell.labelTime.text = "\(minutes)m ago";
+                    cell.labelDate.text = "\(minutes)m ago";
                 } else {
-                    cell.labelTime.text = "\(seconds)s ago"
+                    cell.labelDate.text = "\(seconds)s ago"
                 }
                 
                 cell.labelTitle.text = self.status.newsList[indexPath.row].title
@@ -221,7 +221,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 // reload weather cell
                                 DispatchQueue.main.async {
                                     let indexPath = IndexPath(row: 0, section: HomeSession.Weather.rawValue)
-                                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                                    self.tableView.reloadRows(at: [indexPath], with: .right)
                                 }
                                 
                             } catch DecodingError.dataCorrupted(let context) {
@@ -280,7 +280,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     // reload news cell
                     DispatchQueue.main.async {
-                        self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .fade)
+                        self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .automatic)
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {

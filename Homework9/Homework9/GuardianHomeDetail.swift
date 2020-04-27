@@ -51,14 +51,14 @@ struct DetailMain: Decodable {
     var publishedDate: String;
     var lastModifiedDate: String;
     var contributors: [DetailContributor];
-    var elements: [DetailMainElement]
+    var elements: [DetailMainElement?]
 }
 
 struct DetailAttribute: Decodable {}
 struct DetailContributor: Decodable {}
 struct DetailMainElement: Decodable {
     var type: String;
-    var assets: [DetailAsset];
+    var assets: [DetailAsset?]?;
     var imageTypeData: DetailImageTypeData?;
 }
 struct DetailImageTypeData: Decodable {}

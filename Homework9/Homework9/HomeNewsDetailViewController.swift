@@ -10,7 +10,11 @@ import UIKit
 
 class HomeNewsDetailViewController: UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelSection: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelDescription: UILabel!
     
     var status = HomeNewsDetailStatus()
 
@@ -33,6 +37,9 @@ class HomeNewsDetailViewController: UIViewController {
                 do {
                     // save json as an object
                     let jsonObject = try JSONDecoder().decode(GuardianHomeDetail.self, from: data!)
+                    if jsonObject.response.content.blocks.main?.elements[0]?.assets?.count != 0 {
+                        self.status.dataOut.imageUrl = jsonObject.response.content.blocks.main?.elements[0]?.assets?[0]?.file ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+                    }
                     self.status.dataOut.id = jsonObject.response.content.id
                     self.status.dataOut.title = jsonObject.response.content.webTitle
                     self.status.dataOut.date = jsonObject.response.content.webPublicationDate
@@ -42,7 +49,23 @@ class HomeNewsDetailViewController: UIViewController {
                     
                     // reload news cell
                     DispatchQueue.main.async {
+                        if let imageData = try? Data(contentsOf: URL(string: self.status.dataOut.imageUrl)!) {
+                            if let image = UIImage(data: imageData) {
+                                self.imageView.image = image;
+                            }
+                        }
+                        
                         self.labelTitle.text = self.status.dataOut.title
+                        self.labelSection.text = self.status.dataOut.section
+                        
+                        let dateFormatterFrom = Foundation.DateFormatter()
+                        let dateFormatterTo = Foundation.DateFormatter()
+                        dateFormatterFrom.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                        dateFormatterTo.dateFormat = "dd MMM yyyy"
+                        let date = dateFormatterFrom.date(from: self.status.dataOut.date)
+                        self.labelDate.text = dateFormatterTo.string(from: date!)
+                        
+                        self.labelDescription.attributedText = self.status.dataOut.description.htmlToAttributedString
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
@@ -62,7 +85,12 @@ class HomeNewsDetailViewController: UIViewController {
             
         }.resume()
     }
-
+    
+    @IBAction func DidClick(_ sender: Any) {
+        guard let url = URL(string: self.status.dataOut.url) else { return }
+        UIApplication.shared.open(url)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -73,4 +101,18 @@ class HomeNewsDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
 }
