@@ -38,8 +38,12 @@ class HeadlinesViewController: ButtonBarPagerTabStripViewController {
         
         let worldTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "worldTable")
         let businessTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "businessTable")
+        let politicsTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "politicsTable")
+        let sportsTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "sportsTable")
+        let technologyTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "technologyTable")
+        let scienceTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "scienceTable")
 
-        return [worldTable, businessTable]
+        return [worldTable, businessTable, politicsTable, sportsTable, technologyTable, scienceTable]
     }
 
 }

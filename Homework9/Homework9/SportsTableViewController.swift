@@ -1,15 +1,15 @@
 //
-//  WorldTableViewController.swift
+//  SportsTableViewController.swift
 //  Homework9
 //
-//  Created by Jing Yang on 4/26/20.
+//  Created by Jing Yang on 4/27/20.
 //  Copyright © 2020 Jing Yang. All rights reserved.
 //
 
 import UIKit
 import XLPagerTabStrip
 
-class WorldTableViewController: UITableViewController, IndicatorInfoProvider {
+class SportsTableViewController: UITableViewController, IndicatorInfoProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,7 @@ class WorldTableViewController: UITableViewController, IndicatorInfoProvider {
     }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "WORLD")
+        return IndicatorInfo(title: "SPORTS")
     }
-    
+
 }

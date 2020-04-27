@@ -88,6 +88,10 @@ class BusinessTableViewController: UITableViewController, IndicatorInfoProvider 
     }
     */
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+    
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "BUSINESS")
     }
