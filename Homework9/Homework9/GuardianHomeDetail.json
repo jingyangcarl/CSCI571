@@ -1,0 +1,225 @@
+{
+    "response": {
+        "status": "ok",
+        "userTier": "developer",
+        "total": 1,
+        "content": {
+            "id": "world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far",
+            "type": "article",
+            "sectionId": "world",
+            "sectionName": "World news",
+            "webPublicationDate": "2020-04-27T00:16:58Z",
+            "webTitle": "Australia's coronavirus contact tracing app Covidsafe: what we know so far",
+            "webUrl": "https://www.theguardian.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far",
+            "apiUrl": "https://content.guardianapis.com/world/2020/apr/17/australias-coronavirus-contact-tracing-app-what-we-know-so-far",
+            "blocks": {
+                "main": {
+                    "id": "5e9822aa8f0895d83068f0ad",
+                    "bodyHtml": "<figure class=\"element element-image\" data-media-id=\"d292c8666b5f56825313835ab305b8eaf02445ec\"> <img src=\"https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/1000.jpg\" alt=\"A Singapore government worker demonstrates their Covid-19 contact-tracing smartphone app. The Australian government has launched a similar coronavirus tracing app called Covidsafe.\" width=\"1000\" height=\"600\" class=\"gu-image\" /> <figcaption> <span class=\"element-image__caption\">A Singapore government worker demonstrates their Covid-19 contact-tracing smartphone app. The Australian government has launched a similar coronavirus tracing app called Covidsafe.</span> <span class=\"element-image__credit\">Photograph: Catherine Lai/AFP via Getty Images</span> </figcaption> </figure>",
+                    "bodyTextSummary": "",
+                    "attributes": {},
+                    "published": true,
+                    "createdDate": "2020-04-16T09:17:30Z",
+                    "firstPublishedDate": "2020-04-16T09:17:34Z",
+                    "publishedDate": "2020-04-26T10:34:30Z",
+                    "lastModifiedDate": "2020-04-26T10:34:17Z",
+                    "contributors": [],
+                    "elements": [
+                        {
+                            "type": "image",
+                            "assets": [
+                                {
+                                    "type": "image",
+                                    "mimeType": "image/jpeg",
+                                    "file": "https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/140.jpg",
+                                    "typeData": {
+                                        "aspectRatio": "5:3",
+                                        "width": 140,
+                                        "height": 84
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "mimeType": "image/jpeg",
+                                    "file": "https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/500.jpg",
+                                    "typeData": {
+                                        "aspectRatio": "5:3",
+                                        "width": 500,
+                                        "height": 300
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "mimeType": "image/jpeg",
+                                    "file": "https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/1000.jpg",
+                                    "typeData": {
+                                        "aspectRatio": "5:3",
+                                        "width": 1000,
+                                        "height": 600
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "mimeType": "image/jpeg",
+                                    "file": "https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/2000.jpg",
+                                    "typeData": {
+                                        "aspectRatio": "5:3",
+                                        "width": 2000,
+                                        "height": 1200
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "mimeType": "image/jpeg",
+                                    "file": "https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/3500.jpg",
+                                    "typeData": {
+                                        "aspectRatio": "5:3",
+                                        "width": 3500,
+                                        "height": 2101
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "mimeType": "image/jpeg",
+                                    "file": "https://media.guim.co.uk/d292c8666b5f56825313835ab305b8eaf02445ec/0_12_3500_2101/master/3500.jpg",
+                                    "typeData": {
+                                        "aspectRatio": "5:3",
+                                        "width": 3500,
+                                        "height": 2101,
+                                        "isMaster": true
+                                    }
+                                }
+                            ],
+                            "imageTypeData": {
+                                "caption": "A Singapore government worker demonstrates their Covid-19 contact-tracing smartphone app. The Australian government has launched a similar coronavirus tracing app called Covidsafe.",
+                                "copyright": "AFP or licensors",
+                                "displayCredit": true,
+                                "credit": "Photograph: Catherine Lai/AFP via Getty Images",
+                                "source": "AFP via Getty Images",
+                                "photographer": "Catherine Lai",
+                                "alt": "A Singapore government worker demonstrates their Covid-19 contact-tracing smartphone app. The Australian government has launched a similar coronavirus tracing app called Covidsafe.",
+                                "mediaId": "d292c8666b5f56825313835ab305b8eaf02445ec",
+                                "mediaApiUri": "https://api.media.gutools.co.uk/images/d292c8666b5f56825313835ab305b8eaf02445ec",
+                                "suppliersReference": "AFP_1Q18BW",
+                                "imageType": "Photograph"
+                            }
+                        }
+                    ]
+                },
+                "body": [
+                    {
+                        "id": "5e97f2dc8f08cf571cdb1ebf",
+                        "bodyHtml": "<p>The <a href=\"https://www.theguardian.com/australia-news/2020/apr/26/australias-coronavirus-tracing-app-set-to-launch-today-despite-lingering-privacy-concerns\">Australian government has launched Covidsafe</a>, an app that traces every person running the app who has been in contact with someone else using the app who has tested positive for coronavirus in the previous few weeks, in a bid to automate coronavirus contact tracing, and allow the easing of restrictions.</p> <p>Here’s what we know about the app so far.</p> <h2>How does the app work?</h2> <p>After you download the app on the Australian Apple App store or Google Play store, you’ll be asked to register your name (or pseudonym), age range, postcode and phone number.</p> <aside class=\"element element-rich-link element--thumbnail\"> <p> <span>Related: </span><a href=\"https://www.theguardian.com/australia-news/2020/apr/26/australias-coronavirus-tracing-app-set-to-launch-today-despite-lingering-privacy-concerns\">Covid safe: Australian government launches coronavirus tracing app amid lingering privacy concerns</a> </p> </aside>  <p>That information will be stored encrypted on a government server, and then passed on to state and territory health authorities in the event that someone you’ve been in contact with has tested positive.</p> <p>Using Bluetooth, the app records anyone you get close to (within 1.5 metres) for 15 minutes or more who also has the app. The two apps exchange anonymised IDs, which cycle every two hours and are stored encrypted on phones and deleted after 21 days.</p> <p>If someone is infected with coronavirus, you then in the app consent to upload the list of anonymised IDs for the past 14 days of contact for contact tracing.</p> <aside class=\"element element-rich-link element--thumbnail\"> <p> <span>Related: </span><a href=\"https://www.theguardian.com/australia-news/2020/apr/15/coronavirus-tracking-app-to-be-rolled-out-in-australia-only-with-privacy-safeguards-minister\">Coronavirus tracking app to be rolled out in Australia only with privacy safeguards – minister</a> </p> </aside>  <h2>What personal data is collected?</h2> <p>The name you choose to provide, your age range, your phone number, and your postcode, information about your encrypted user ID, information about testing positive for coronavirus, and then the contact IDs should you consent to that being uploaded.</p> <p>Bluetooth data is also uploaded to the server upon testing positive in order for the government to figure out, using signal strength, which contacts need to be notified.</p> <h2>Who can access the data?</h2> <p>The data will be held by the federal government on an Amazon Web Services server in Australia.</p> <p>Morrison said that while the data will be held by the federal government, only state health authorities charged with contact tracing will be able to access it. He says federal agencies including Centrelink, Home Affairs and others will not be able to access the data.</p> <p>Health minister Greg Hunt has written <a href=\"https://www.legislation.gov.au/Details/F2020L00480/Html/Text\">a direction</a> that sets out only health authorities or those maintaining the app can get access to the information. This will be backed up by legislation to be introduced into parliament in May.</p> <p>The government has said it will mean police will not be able to get the data, even with a warrant, and court orders will not be able to force the government to hand over the data.</p> <h2>Should I be worried Amazon is holding the data?</h2> <p>Amazon Web Services, which is hosting the data in Australia, is one of the biggest cloud companies in the world. Given the millions of people expected to use the app and outages will make the app less effective, as well as the government’s history with using AWS, it isn’t surprising Amazon was chosen for the contract.</p> <p>The company has the <a href=\"https://awsinsight.com.au/insight/aws-protected-status/\">highest data security certification</a> for its Sydney data centre.</p> <p>The 2017 postal survey was supported by AWS, and the 2021 Census will be hosted by AWS. </p> <p>Chances are, some of your data - be it through your bank, your airline, through Netflix or any number of services – is already hosted by Amazon.</p> <p>The government has said it will legislate to prevent data from the app being moved offshore, including for requests for data by the US government under laws such as the Patriot Act.</p> <h2>Can it trace my location?</h2> <p>The app does not track location. The Google version of the app does seek permission for location information but that is due to permissions needed for bluetooth.</p> <h2>Will it drain my battery?</h2> <p>Not significantly, however the Apple version of the app will need to be open in order for the bluetooth functionality to work.</p> <p>That will drain the battery more, however, the government made a change to the Singapore version of the app and you can now lock your phone screen as long as the app is open when you lock it.</p> <p>It is understood that the federal government <a href=\"https://www.theguardian.com/world/2020/apr/10/apple-google-coronavirus-us-app-privacy\">will implement the functionality developed by Apple and Google</a> in a few weeks that will eliminate this issue and allow iPhone users to have the app running in the background.</p> <h2>Will it be mandatory?</h2> <p>No. The prime minister has said consent would be key to the app, indicating it would not be mandatory, and people would share information through the app only if they consented to it.</p> <p>But he muddied the waters somewhat when he would not entirely rule out making it mandatory.</p> <p>“My preference is not to do that, my preference is to give Australians the go of getting it right ... I don’t want to be drawn on that [making it mandatory], I want to give Australians the opportunity to get it right,” he told Triple M. “That is my objective, that is my Plan A and I really want Plan A to work.”</p> <p>He later tweeted that the app would not be mandatory.</p>  <figure class=\"element element-tweet\" data-canonical-url=\"https://twitter.com/ScottMorrisonMP/status/1251304490952605696\">  <blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">The App we are working on to help our health workers trace people who have been in contact with coronavirus will not be mandatory.</p>&mdash; Scott Morrison (@ScottMorrisonMP) <a href=\"https://twitter.com/ScottMorrisonMP/status/1251304490952605696?ref_src=twsrc%5Etfw\">April 18, 2020</a></blockquote>  </figure>  <p>The national cabinet said that the app could be a valuable tool “if the numbers increase and the application is widely taken up”.</p> <p>Health minister Greg Hunt said the government’s target for uptake of the app is 40% of the population.</p> <p>Morrison said automatic contact tracing would be a key component in states and territories easing some restrictions on “high-value, low-risk economic activities” after the next four weeks.</p> <p>He compared using the app to buying bonds during the war.</p> <p>“In the war, people bought war bonds to get in behind the national effort. What we’re doing in fighting this fight is we’ll be asking people to download an app which helps us trace the virus quickly and the more people who do that, the more we can get back to a more liveable set of arrangements.”</p> <p>The state governments in NSW and Victoria have both indicated they will not make use of the app a condition for easing restrictions, and will not require a certain percentage of the population to be using the app before restrictions will be eased.</p> <p>People won’t be penalised for refusing to use the app or upload their data if they test positive, and the government has said it will be a criminal offence to refuse service, access to a venue or an event for failing to use the app.</p>  <figure class=\"element element-embed\" data-alt=\"Sign up for Guardian Australia’s daily coronavirus email newsletter\">  <iframe src=\"https://www.theguardian.com/email/form/plaintone/coronavirus-australia-at-a-glance\" height=\"52px\" data-form-title=\"Sign up for Coronavirus: Australia at a glance\" data-form-description=\"Get Guardian Australia's daily coronavirus email\" scrolling=\"no\" seamless frameborder=\"0\" class=\"iframed--overflow-hidden email-sub__iframe js-email-sub__iframe js-email-sub__iframe--article\" data-form-success-desc=\"Thanks for signing up\"></iframe> <figcaption><a href=\"https://www.theguardian.com/newsletters/2020/mar/28/sign-up-for-guardian-australias-daily-coronavirus-email\">Sign up for Guardian Australia’s daily coronavirus email newsletter</a></figcaption> </figure>  <h2>Should I be worried about the privacy implications?</h2> <p>Always. The government has stressed it has designed the app with privacy in mind, however.</p> <p>“In terms of privacy, no person can access what is on the phone, no other person can access what is on your phone,” Hunt said.</p> <p>The health minister added it will be against the law to use the data for a purpose other than contact tracing, and the data will be kept in Australia.</p> <p>“It cannot leave the country. It cannot be accessed by anybody other than a state public health official. It cannot be used for any purpose other than the provision of the data for the purposes of finding people with whom you have been in close contact with and it is punishable by jail if there is a breach of that.</p> <p>“There is no geolocation. There is no Commonwealth access and it is stored in Australia and importantly it is deleted from your phone after 21 days.”</p> <p>The government will have a repository of the names, phone numbers and postcodes of everyone who had downloaded the app, which could be a potential honeypot, but the key data of who you’ve been in contact with stays on your phone and is frequently deleted.</p> <p>The government has published <a href=\"https://www.health.gov.au/resources/publications/covidsafe-application-privacy-impact-assessment\">a privacy impact assessment</a> on potential concerns with the app. In <a href=\"https://www.health.gov.au/resources/publications/covidsafe-application-privacy-impact-assessment-agency-response\">its response</a>, the government has also indicated it will release the source code for the app, subject to the approval of the Australian Cyber Security Centre. It’s not clear yet whether the entire source code will be released.</p> <p>You can delete the app from your phone at any time, and the government has said all the information held will be deleted from its servers at the end of the pandemic. It is expected this sunset clause will be built into the legislation being introduced into parliament.</p>  <figure class=\"element element-atom\"> <gu-atom data-atom-id=\"783d38d7-bf50-42bc-ae36-fc21decf46a2\"         data-atom-type=\"guide\"    > </gu-atom> </figure>   <h2>Will police be able to access the data?</h2> <p>No. Attorney-general Christian Porter told Guardian Australia regulations would be developed to ensure that police and other government agencies would not be able to access the data.</p> <p>“Law enforcement agencies will not be provided access to information collected via the app,” he said.</p> <p>“Specific regulatory action will be taken to prevent such access for law enforcement agencies at both the Commonwealth and state/territory level.</p> <p>“The government has already made the decision not to make any information collected by the app available for other purposes, including law enforcement investigations.”</p> <h2>What if I’m using a non-Australian account?</h2> <p>At this stage it seems the app is only available in Australian app stores.</p>",
+                        "bodyTextSummary": "The Australian government has launched Covidsafe, an app that traces every person running the app who has been in contact with someone else using the app who has tested positive for coronavirus in the previous few weeks, in a bid to automate coronavirus contact tracing, and allow the easing of restrictions. Here’s what we know about the app so far. How does the app work? After you download the app on the Australian Apple App store or Google Play store, you’ll be asked to register your name (or pseudonym), age range, postcode and phone number.\nThat information will be stored encrypted on a government server, and then passed on to state and territory health authorities in the event that someone you’ve been in contact with has tested positive. Using Bluetooth, the app records anyone you get close to (within 1.5 metres) for 15 minutes or more who also has the app. The two apps exchange anonymised IDs, which cycle every two hours and are stored encrypted on phones and deleted after 21 days. If someone is infected with coronavirus, you then in the app consent to upload the list of anonymised IDs for the past 14 days of contact for contact tracing.\nWhat personal data is collected? The name you choose to provide, your age range, your phone number, and your postcode, information about your encrypted user ID, information about testing positive for coronavirus, and then the contact IDs should you consent to that being uploaded. Bluetooth data is also uploaded to the server upon testing positive in order for the government to figure out, using signal strength, which contacts need to be notified. Who can access the data? The data will be held by the federal government on an Amazon Web Services server in Australia. Morrison said that while the data will be held by the federal government, only state health authorities charged with contact tracing will be able to access it. He says federal agencies including Centrelink, Home Affairs and others will not be able to access the data. Health minister Greg Hunt has written a direction that sets out only health authorities or those maintaining the app can get access to the information. This will be backed up by legislation to be introduced into parliament in May. The government has said it will mean police will not be able to get the data, even with a warrant, and court orders will not be able to force the government to hand over the data. Should I be worried Amazon is holding the data? Amazon Web Services, which is hosting the data in Australia, is one of the biggest cloud companies in the world. Given the millions of people expected to use the app and outages will make the app less effective, as well as the government’s history with using AWS, it isn’t surprising Amazon was chosen for the contract. The company has the highest data security certification for its Sydney data centre. The 2017 postal survey was supported by AWS, and the 2021 Census will be hosted by AWS. Chances are, some of your data - be it through your bank, your airline, through Netflix or any number of services – is already hosted by Amazon. The government has said it will legislate to prevent data from the app being moved offshore, including for requests for data by the US government under laws such as the Patriot Act. Can it trace my location? The app does not track location. The Google version of the app does seek permission for location information but that is due to permissions needed for bluetooth. Will it drain my battery? Not significantly, however the Apple version of the app will need to be open in order for the bluetooth functionality to work. That will drain the battery more, however, the government made a change to the Singapore version of the app and you can now lock your phone screen as long as the app is open when you lock it. It is understood that the federal government will implement the functionality developed by Apple and Google in a few weeks that will eliminate this issue and allow iPhone users to have the app running in the background. Will it be mandatory? No. The prime minister has said consent would be key to the app, indicating it would not be mandatory, and people would share information through the app only if they consented to it. But he muddied the waters somewhat when he would not entirely rule out making it mandatory. “My preference is not to do that, my preference is to give Australians the go of getting it right ... I don’t want to be drawn on that [making it mandatory], I want to give Australians the opportunity to get it right,” he told Triple M. “That is my objective, that is my Plan A and I really want Plan A to work.” He later tweeted that the app would not be mandatory.\nThe national cabinet said that the app could be a valuable tool “if the numbers increase and the application is widely taken up”. Health minister Greg Hunt said the government’s target for uptake of the app is 40% of the population. Morrison said automatic contact tracing would be a key component in states and territories easing some restrictions on “high-value, low-risk economic activities” after the next four weeks. He compared using the app to buying bonds during the war. “In the war, people bought war bonds to get in behind the national effort. What we’re doing in fighting this fight is we’ll be asking people to download an app which helps us trace the virus quickly and the more people who do that, the more we can get back to a more liveable set of arrangements.” The state governments in NSW and Victoria have both indicated they will not make use of the app a condition for easing restrictions, and will not require a certain percentage of the population to be using the app before restrictions will be eased. People won’t be penalised for refusing to use the app or upload their data if they test positive, and the government has said it will be a criminal offence to refuse service, access to a venue or an event for failing to use the app.\nShould I be worried about the privacy implications? Always. The government has stressed it has designed the app with privacy in mind, however. “In terms of privacy, no person can access what is on the phone, no other person can access what is on your phone,” Hunt said. The health minister added it will be against the law to use the data for a purpose other than contact tracing, and the data will be kept in Australia. “It cannot leave the country. It cannot be accessed by anybody other than a state public health official. It cannot be used for any purpose other than the provision of the data for the purposes of finding people with whom you have been in close contact with and it is punishable by jail if there is a breach of that. “There is no geolocation. There is no Commonwealth access and it is stored in Australia and importantly it is deleted from your phone after 21 days.” The government will have a repository of the names, phone numbers and postcodes of everyone who had downloaded the app, which could be a potential honeypot, but the key data of who you’ve been in contact with stays on your phone and is frequently deleted. The government has published a privacy impact assessment on potential concerns with the app. In its response, the government has also indicated it will release the source code for the app, subject to the approval of the Australian Cyber Security Centre. It’s not clear yet whether the entire source code will be released. You can delete the app from your phone at any time, and the government has said all the information held will be deleted from its servers at the end of the pandemic. It is expected this sunset clause will be built into the legislation being introduced into parliament.\nWill police be able to access the data? No. Attorney-general Christian Porter told Guardian Australia regulations would be developed to ensure that police and other government agencies would not be able to access the data. “Law enforcement agencies will not be provided access to information collected via the app,” he said. “Specific regulatory action will be taken to prevent such access for law enforcement agencies at both the Commonwealth and state/territory level. “The government has already made the decision not to make any information collected by the app available for other purposes, including law enforcement investigations.” What if I’m using a non-Australian account? At this stage it seems the app is only available in Australian app stores.",
+                        "attributes": {},
+                        "published": true,
+                        "createdDate": "2020-04-16T05:53:32Z",
+                        "firstPublishedDate": "2020-04-16T05:53:34Z",
+                        "publishedDate": "2020-04-27T00:16:58Z",
+                        "lastModifiedDate": "2020-04-27T00:16:55Z",
+                        "contributors": [],
+                        "elements": [
+                            {
+                                "type": "text",
+                                "assets": [],
+                                "textTypeData": {
+                                    "html": "<p>The <a href=\"https://www.theguardian.com/australia-news/2020/apr/26/australias-coronavirus-tracing-app-set-to-launch-today-despite-lingering-privacy-concerns\">Australian government has launched Covidsafe</a>, an app that traces every person running the app who has been in contact with someone else using the app who has tested positive for coronavirus in the previous few weeks, in a bid to automate coronavirus contact tracing, and allow the easing of restrictions.</p> \n<p>Here’s what we know about the app so far.</p> \n<h2>How does the app work?</h2> \n<p>After you download the app on the Australian Apple App store or Google Play store, you’ll be asked to register your name (or pseudonym), age range, postcode and phone number.</p>"
+                                }
+                            },
+                            {
+                                "type": "rich-link",
+                                "assets": [],
+                                "richLinkTypeData": {
+                                    "url": "https://www.theguardian.com/australia-news/2020/apr/26/australias-coronavirus-tracing-app-set-to-launch-today-despite-lingering-privacy-concerns",
+                                    "originalUrl": "https://www.theguardian.com/australia-news/2020/apr/26/australias-coronavirus-tracing-app-set-to-launch-today-despite-lingering-privacy-concerns",
+                                    "linkText": "Covid safe: Australian government launches coronavirus tracing app amid lingering privacy concerns",
+                                    "linkPrefix": "Related: ",
+                                    "role": "thumbnail"
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "assets": [],
+                                "textTypeData": {
+                                    "html": "<p>That information will be stored encrypted on a government server, and then passed on to state and territory health authorities in the event that someone you’ve been in contact with has tested positive.</p> \n<p>Using Bluetooth, the app records anyone you get close to (within 1.5 metres) for 15 minutes or more who also has the app. The two apps exchange anonymised IDs, which cycle every two hours and are stored encrypted on phones and deleted after 21 days.</p> \n<p>If someone is infected with coronavirus, you then in the app consent to upload the list of anonymised IDs for the past 14 days of contact for contact tracing.</p>"
+                                }
+                            },
+                            {
+                                "type": "rich-link",
+                                "assets": [],
+                                "richLinkTypeData": {
+                                    "url": "https://www.theguardian.com/australia-news/2020/apr/15/coronavirus-tracking-app-to-be-rolled-out-in-australia-only-with-privacy-safeguards-minister",
+                                    "originalUrl": "https://www.theguardian.com/australia-news/2020/apr/15/coronavirus-tracking-app-to-be-rolled-out-in-australia-only-with-privacy-safeguards-minister",
+                                    "linkText": "Coronavirus tracking app to be rolled out in Australia only with privacy safeguards – minister",
+                                    "linkPrefix": "Related: ",
+                                    "role": "thumbnail"
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "assets": [],
+                                "textTypeData": {
+                                    "html": "<h2>What personal data is collected?</h2> \n<p>The name you choose to provide, your age range, your phone number, and your postcode, information about your encrypted user ID, information about testing positive for coronavirus, and then the contact IDs should you consent to that being uploaded.</p> \n<p>Bluetooth data is also uploaded to the server upon testing positive in order for the government to figure out, using signal strength, which contacts need to be notified.</p> \n<h2>Who can access the data?</h2> \n<p>The data will be held by the federal government on an Amazon Web Services server in Australia.</p> \n<p>Morrison said that while the data will be held by the federal government, only state health authorities charged with contact tracing will be able to access it. He says federal agencies including Centrelink, Home Affairs and others will not be able to access the data.</p> \n<p>Health minister Greg Hunt has written <a href=\"https://www.legislation.gov.au/Details/F2020L00480/Html/Text\">a direction</a> that sets out only health authorities or those maintaining the app can get access to the information. This will be backed up by legislation to be introduced into parliament in May.</p> \n<p>The government has said it will mean police will not be able to get the data, even with a warrant, and court orders will not be able to force the government to hand over the data.</p> \n<h2>Should I be worried Amazon is holding the data?</h2> \n<p>Amazon Web Services, which is hosting the data in Australia, is one of the biggest cloud companies in the world. Given the millions of people expected to use the app and outages will make the app less effective, as well as the government’s history with using AWS, it isn’t surprising Amazon was chosen for the contract.</p> \n<p>The company has the <a href=\"https://awsinsight.com.au/insight/aws-protected-status/\">highest data security certification</a> for its Sydney data centre.</p> \n<p>The 2017 postal survey was supported by AWS, and the 2021 Census will be hosted by AWS. </p> \n<p>Chances are, some of your data - be it through your bank, your airline, through Netflix or any number of services – is already hosted by Amazon.</p> \n<p>The government has said it will legislate to prevent data from the app being moved offshore, including for requests for data by the US government under laws such as the Patriot Act.</p> \n<h2>Can it trace my location?</h2> \n<p>The app does not track location. The Google version of the app does seek permission for location information but that is due to permissions needed for bluetooth.</p> \n<h2>Will it drain my battery?</h2>   \n<p>Not significantly, however the Apple version of the app will need to be open in order for the bluetooth functionality to work.</p> \n<p>That will drain the battery more, however, the government made a change to the Singapore version of the app and you can now lock your phone screen as long as the app is open when you lock it.</p> \n<p>It is understood that the federal government <a href=\"https://www.theguardian.com/world/2020/apr/10/apple-google-coronavirus-us-app-privacy\">will implement the functionality developed by Apple and Google</a> in a few weeks that will eliminate this issue and allow iPhone users to have the app running in the background.</p> \n<h2>Will it be mandatory?</h2> \n<p>No. The prime minister has said consent would be key to the app, indicating it would not be mandatory, and people would share information through the app only if they consented to it.</p> \n<p>But he muddied the waters somewhat when he would not entirely rule out making it mandatory.</p> \n<p>“My preference is not to do that, my preference is to give Australians the go of getting it right ... I don’t want to be drawn on that [making it mandatory], I want to give Australians the opportunity to get it right,” he told Triple M. “That is my objective, that is my Plan A and I really want Plan A to work.”</p> \n<p>He later tweeted that the app would not be mandatory.</p>"
+                                }
+                            },
+                            {
+                                "type": "tweet",
+                                "assets": [],
+                                "tweetTypeData": {
+                                    "source": "Twitter",
+                                    "url": "https://twitter.com/ScottMorrisonMP/status/1251304490952605696",
+                                    "id": "1251304490952605696",
+                                    "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">The App we are working on to help our health workers trace people who have been in contact with coronavirus will not be mandatory.</p>&mdash; Scott Morrison (@ScottMorrisonMP) <a href=\"https://twitter.com/ScottMorrisonMP/status/1251304490952605696?ref_src=twsrc%5Etfw\">April 18, 2020</a></blockquote>\n",
+                                    "originalUrl": "https://twitter.com/ScottMorrisonMP/status/1251304490952605696"
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "assets": [],
+                                "textTypeData": {
+                                    "html": "<p>The national cabinet said that the app could be a valuable tool “if the numbers increase and the application is widely taken up”.</p>  \n<p>Health minister Greg Hunt said the government’s target for uptake of the app is 40% of the population.</p> \n<p>Morrison said automatic contact tracing would be a key component in states and territories easing some restrictions on “high-value, low-risk economic activities” after the next four weeks.</p>  \n<p>He compared using the app to buying bonds during the war.</p> \n<p>“In the war, people bought war bonds to get in behind the national effort. What we’re doing in fighting this fight is we’ll be asking people to download an app which helps us trace the virus quickly and the more people who do that, the more we can get back to a more liveable set of arrangements.”</p> \n<p>The state governments in NSW and Victoria have both indicated they will not make use of the app a condition for easing restrictions, and will not require a certain percentage of the population to be using the app before restrictions will be eased.</p> \n<p>People won’t be penalised for refusing to use the app or upload their data if they test positive, and the government has said it will be a criminal offence to refuse service, access to a venue or an event for failing to use the app.</p>"
+                                }
+                            },
+                            {
+                                "type": "embed",
+                                "assets": [],
+                                "embedTypeData": {
+                                    "html": "<iframe src=\"https://www.theguardian.com/email/form/plaintone/coronavirus-australia-at-a-glance\" height=\"52px\" data-form-title=\"Sign up for Coronavirus: Australia at a glance\" data-form-description=\"Get Guardian Australia's daily coronavirus email\" scrolling=\"no\" seamless frameborder=\"0\" class=\"iframed--overflow-hidden email-sub__iframe js-email-sub__iframe js-email-sub__iframe--article\" data-form-success-desc=\"Thanks for signing up\"></iframe>",
+                                    "safeEmbedCode": true,
+                                    "alt": "Sign up for Guardian Australia’s daily coronavirus email newsletter",
+                                    "isMandatory": false
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "assets": [],
+                                "textTypeData": {
+                                    "html": "<h2>Should I be worried about the privacy implications?</h2> \n<p>Always. The government has stressed it has designed the app with privacy in mind, however.</p> \n<p>“In terms of privacy, no person can access what is on the phone, no other person can access what is on your phone,” Hunt said.</p> \n<p>The health minister added it will be against the law to use the data for a purpose other than contact tracing, and the data will be kept in Australia.</p> \n<p>“It cannot leave the country. It cannot be accessed by anybody other than a state public health official. It cannot be used for any purpose other than the provision of the data for the purposes of finding people with whom you have been in close contact with and it is punishable by jail if there is a breach of that.</p> \n<p>“There is no geolocation. There is no Commonwealth access and it is stored in Australia and importantly it is deleted from your phone after 21 days.”</p> \n<p>The government will have a repository of the names, phone numbers and postcodes of everyone who had downloaded the app, which could be a potential honeypot, but the key data of who you’ve been in contact with stays on your phone and is frequently deleted.</p> \n<p>The government has published <a href=\"https://www.health.gov.au/resources/publications/covidsafe-application-privacy-impact-assessment\">a privacy impact assessment</a> on potential concerns with the app. In <a href=\"https://www.health.gov.au/resources/publications/covidsafe-application-privacy-impact-assessment-agency-response\">its response</a>, the government has also indicated it will release the source code for the app, subject to the approval of the Australian Cyber Security Centre. It’s not clear yet whether the entire source code will be released.</p> \n<p>You can delete the app from your phone at any time, and the government has said all the information held will be deleted from its servers at the end of the pandemic. It is expected this sunset clause will be built into the legislation being introduced into parliament.</p>"
+                                }
+                            },
+                            {
+                                "type": "contentatom",
+                                "assets": [],
+                                "contentAtomTypeData": {
+                                    "atomId": "783d38d7-bf50-42bc-ae36-fc21decf46a2",
+                                    "atomType": "guide"
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "assets": [],
+                                "textTypeData": {
+                                    "html": "<h2>Will police be able to access the data?</h2> \n<p>No. Attorney-general Christian Porter told Guardian Australia regulations would be developed to ensure that police and other government agencies would not be able to access the data.</p> \n<p>“Law enforcement agencies will not be provided access to information collected via the app,” he said.</p> \n<p>“Specific regulatory action will be taken to prevent such access for law enforcement agencies at both the Commonwealth and state/territory level.</p> \n<p>“The government has already made the decision not to make any information collected by the app available for other purposes, including law enforcement investigations.”</p> \n<h2>What if I’m using a non-Australian account?</h2> \n<p>At this stage it seems the app is only available in Australian app stores.</p>"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "totalBodyBlocks": 1
+            },
+            "isHosted": false,
+            "pillarId": "pillar/news",
+            "pillarName": "News"
+        }
+    }
+}

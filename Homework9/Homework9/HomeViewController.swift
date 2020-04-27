@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var refreshControl = UIRefreshControl()
     
     // status to save current weather data
-    var status = Status()
+    var status = HomeStatus()
     
     // define weather standard
     enum HomeWeather: String {
@@ -62,6 +62,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // refersh tableview
+        refresh(self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -164,9 +170,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.status.selectedNewsIndex = indexPath.row
         performSegue(withIdentifier: "HomeNewsDetailSegue", sender: self)
     }
-    
     
     /*
      Description:
@@ -238,10 +244,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    /*
+     This function is used to perform refreshing from Guardian news
+     */
     @objc func refresh(_ sender: AnyObject) {
-        // refresh table view
-        print("refresh")
-        
         // clear current news list
         self.status.newsList.removeAll()
         
@@ -297,6 +303,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.endRefreshing()
     }
     
-    
+    /*
+     This function is used to prepare data and segue to Detialed View
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let newsDetailViewController = segue.destination as? HomeNewsDetailViewController else { return }
+        
+        // prepare data will be used in Detail View
+        newsDetailViewController.status.dataIn.id = self.status.newsList[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.dataIn.apiKey  = guardianKey
+    }
 }
 
