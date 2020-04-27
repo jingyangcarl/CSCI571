@@ -124,7 +124,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let dateFormatter = Foundation.DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                 
-                let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].time)
+                let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].date)
                 let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
                 let days = timeInterval! / 86400;
                 let hours = (timeInterval! % 86400) / 3600;
@@ -221,7 +221,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 // reload weather cell
                                 DispatchQueue.main.async {
                                     let indexPath = IndexPath(row: 0, section: HomeSession.Weather.rawValue)
-                                    self.tableView.reloadRows(at: [indexPath], with: .right)
+                                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
                                 }
                                 
                             } catch DecodingError.dataCorrupted(let context) {
@@ -270,10 +270,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     for result in jsonObject.response.results {
                         let imageUrl: String = result.fields.thumbnail ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
                         let title: String = result.webTitle ?? "webTitle"
-                        let time: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
+                        let date: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
                         let section: String = result.sectionId ?? "sectionId"
                         let id: String = result.id!
-                        let news: News = News(imageUrl: imageUrl, title: title, time: time, section: section, id: id)
+                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id)
                         
                         self.status.newsList.append(news)
                     }

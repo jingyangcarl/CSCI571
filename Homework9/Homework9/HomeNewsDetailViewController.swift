@@ -10,6 +10,8 @@ import UIKit
 
 class HomeNewsDetailViewController: UIViewController {
     
+    @IBOutlet weak var labelTitle: UILabel!
+    
     var status = HomeNewsDetailStatus()
 
     override func viewDidLoad() {
@@ -31,11 +33,16 @@ class HomeNewsDetailViewController: UIViewController {
                 do {
                     // save json as an object
                     let jsonObject = try JSONDecoder().decode(GuardianHomeDetail.self, from: data!)
-                    print(jsonObject.response.content.id)
+                    self.status.dataOut.id = jsonObject.response.content.id
+                    self.status.dataOut.title = jsonObject.response.content.webTitle
+                    self.status.dataOut.date = jsonObject.response.content.webPublicationDate
+                    self.status.dataOut.section = jsonObject.response.content.sectionName
+                    self.status.dataOut.description = jsonObject.response.content.blocks.body[0]?.bodyHtml ?? ""
+                    self.status.dataOut.url = jsonObject.response.content.webUrl
                     
                     // reload news cell
                     DispatchQueue.main.async {
-                        
+                        self.labelTitle.text = self.status.dataOut.title
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {

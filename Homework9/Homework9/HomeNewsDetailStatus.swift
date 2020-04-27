@@ -33,19 +33,21 @@ struct DataOut {
     var imageUrl: String;
     var image: UIImage;
     var title: String;
-    var time: String;
+    var date: String;
     var section: String;
     var id: String;
-    var content: String;
+    var description: String;
+    var url: String;
     
     init() {
         self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
         self.image = UIImage()
         self.title = "title"
-        self.time = "2020-04-26T03:02:14Z"
+        self.date = "2020-04-26T03:02:14Z"
         self.section = "section"
         self.id = "id"
-        self.content = "content"
+        self.description = "description"
+        self.url = "url"
         
         if let imageData = try? Data(contentsOf: URL(string: self.imageUrl)!) {
             if let image = UIImage(data: imageData) {

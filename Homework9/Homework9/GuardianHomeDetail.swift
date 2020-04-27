@@ -36,7 +36,7 @@ struct DetailContent: Decodable {
 
 struct DetailBlocks: Decodable {
     var main: DetailMain?;
-    var body: [DetailBody];
+    var body: [DetailBody?];
     var totalBodyBlocks: Int;
 }
 
@@ -59,17 +59,17 @@ struct DetailContributor: Decodable {}
 struct DetailMainElement: Decodable {
     var type: String;
     var assets: [DetailAsset];
-    var imageTypeData: HomeImageTypeData?;
+    var imageTypeData: DetailImageTypeData?;
 }
-struct HomeImageTypeData: Decodable {}
+struct DetailImageTypeData: Decodable {}
 
 struct DetailAsset: Decodable {
     var type: String;
     var mimeType: String;
     var file: String;
-    var typeData: HometypeData;
+    var typeData: DetailTypeData;
 }
-struct HometypeData: Decodable {}
+struct DetailTypeData: Decodable {}
 
 struct DetailBody: Decodable {
     var id: String;
