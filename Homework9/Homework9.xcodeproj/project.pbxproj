@@ -35,6 +35,7 @@
 		EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */; };
 		EC4E94612456C98700563783 /* ScienceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94602456C98700563783 /* ScienceTableViewController.swift */; };
 		EC4E94632456C9A700563783 /* HeadlinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */; };
+		EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94602456C98700563783 /* ScienceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewCell.swift; sourceTree = "<group>"; };
+		EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewController.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,13 +169,14 @@
 			isa = PBXGroup;
 			children = (
 				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
+				EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */,
+				EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */,
 				EC4E94542456B43700563783 /* WorldTableViewController.swift */,
 				EC4E94582456B92E00563783 /* BusinessTableViewController.swift */,
 				EC4E945A2456C95700563783 /* PoliticsTableViewController.swift */,
 				EC4E945C2456C96A00563783 /* SportsTableViewController.swift */,
 				EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */,
 				EC4E94602456C98700563783 /* ScienceTableViewController.swift */,
-				EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */,
 			);
 			name = "Headlines View";
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				EC4E94552456B43700563783 /* WorldTableViewController.swift in Sources */,
 				EC4E9445245531D800563783 /* GuardianHome.swift in Sources */,
 				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
+				EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */,
 				EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E945D2456C96A00563783 /* SportsTableViewController.swift in Sources */,
