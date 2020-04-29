@@ -266,9 +266,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // Http success
                 do {
                     // save json as an object
-                    let jsonObject_ = try JSON(data: data!)
+                    let jsonObject = try JSON(data: data!)
                     
-                    for (_, result): (String, JSON) in jsonObject_["response"]["results"] {
+                    for (_, result): (String, JSON) in jsonObject["response"]["results"] {
                         let imageUrl: String = result["fields"]["thumbnail"].stringValue
                         let title: String = result["webTitle"].stringValue
                         let date: String = result["webPublicationDate"].stringValue

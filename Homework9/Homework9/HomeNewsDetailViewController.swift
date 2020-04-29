@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class HomeNewsDetailViewController: UIViewController {
     
@@ -37,6 +38,7 @@ class HomeNewsDetailViewController: UIViewController {
                 do {
                     // save json as an object
                     let jsonObject = try JSONDecoder().decode(GuardianHomeDetail.self, from: data!)
+                    
                     if jsonObject.response.content.blocks.main?.elements[0]?.assets?.count != 0 {
                         self.status.dataOut.imageUrl = jsonObject.response.content.blocks.main?.elements[0]?.assets?[0]?.file ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
                     }
