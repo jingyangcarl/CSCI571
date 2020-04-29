@@ -7,22 +7,26 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class HeadlinesTableViewController: UITableViewController {
+class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider {
+    
+    // status to save current data
+    var status = Status()
+    
+    // api keys
+    let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        // enable pull down to refresh for table view
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl!)
+        
+        // get current section
     }
 
     // MARK: - Table view data source
@@ -52,6 +56,10 @@ class HeadlinesTableViewController: UITableViewController {
     
     @objc func refresh(_ ender: AnyObject) {
         print("refresh")
+    }
+    
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "HOME")
     }
 
 }

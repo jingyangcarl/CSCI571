@@ -9,29 +9,31 @@
 import Foundation
 import UIKit
 
-struct HomeStatus {
-    var weather: WeatherStatus;
-    var newsList: [News];
-    var selectedNewsIndex: Int;
+struct Status {
+    var newsSection: String
+    var newsList: [News]
+    var selectedNewsIndex: Int
+    var weather: Weather
     
     init() {
-        self.weather = WeatherStatus();
-        self.newsList = [News]();
-        self.selectedNewsIndex = 0;
+        self.newsSection = String()
+        self.newsList = [News]()
+        self.selectedNewsIndex = 0
+        self.weather = Weather()
     }
 }
 
-struct WeatherStatus {
+struct Weather {
     var city: String;
     var state: String;
     var temp: Double;
     var weather: String;
     
     init() {
-        self.city = "city";
-        self.state = "state";
-        self.temp = 0.0;
-        self.weather = "weather";
+        self.city = String();
+        self.state = String();
+        self.temp = Double();
+        self.weather = String();
     }
 }
 
@@ -42,21 +44,6 @@ struct News {
     var date: String;
     var section: String;
     var id: String;
-    
-    init() {
-        self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
-        self.image = UIImage()
-        self.title = "title"
-        self.date = "2020-04-26T03:02:14Z"
-        self.section = "section"
-        self.id = "id"
-        
-        if let imageData = try? Data(contentsOf: URL(string: self.imageUrl)!) {
-            if let image = UIImage(data: imageData) {
-                self.image = image;
-            }
-        }
-    }
     
     init(imageUrl: String, title: String, date: String, section: String, id: String) {
         self.imageUrl = imageUrl;

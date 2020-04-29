@@ -21,8 +21,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // init pull to refresh
     var refreshControl = UIRefreshControl()
     
-    // status to save current weather data
-    var status = HomeStatus()
+    // status to save current data
+    var status = Status()
     
     // define weather standard
     enum HomeWeather: String {
