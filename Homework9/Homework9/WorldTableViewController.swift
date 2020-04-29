@@ -9,8 +9,8 @@
 import UIKit
 import XLPagerTabStrip
 
-class WorldTableViewController: HeadlinesTableViewController, IndicatorInfoProvider {
-
+class WorldTableViewController: HeadlinesTableViewController, IndicatorInfoProvider  {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,9 +20,8 @@ class WorldTableViewController: HeadlinesTableViewController, IndicatorInfoProvi
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "WORLD")
     }
-    
 }
