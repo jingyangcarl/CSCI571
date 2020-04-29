@@ -1,15 +1,20 @@
 //
-//  HeadlinesTableViewCell.swift
+//  HomeTableViewCell.swift
 //  Homework9
 //
-//  Created by Jing Yang on 4/27/20.
+//  Created by Jing Yang on 4/25/20.
 //  Copyright © 2020 Jing Yang. All rights reserved.
 //
 
 import UIKit
 
-class HeadlinesTableViewCell: UITableViewCell {
+class NewsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageThumbnail: UIImageView!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelSection: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

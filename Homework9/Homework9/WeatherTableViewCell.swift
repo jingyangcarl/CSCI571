@@ -1,5 +1,5 @@
 //
-//  HomeWeatherTableViewCell.swift
+//  WeatherTableViewCell.swift
 //  Homework9
 //
 //  Created by Jing Yang on 4/25/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeWeatherTableViewCell: UITableViewCell {
+class WeatherTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelCity: UILabel!
     @IBOutlet weak var labelState: UILabel!

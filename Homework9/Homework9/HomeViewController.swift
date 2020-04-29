@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Home Weather Cell") as! HomeWeatherTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell") as! WeatherTableViewCell
 
             // set up weather cell
             cell.labelCity.text = self.status.weather.city
@@ -117,7 +117,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return cell
         } else if indexPath.section == HomeSession.News.rawValue {
             // this should be the news cell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Home News Cell") as! HomeNewsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "News Cell") as! NewsTableViewCell
             
             // set up news cell
             if !self.status.newsList.isEmpty {

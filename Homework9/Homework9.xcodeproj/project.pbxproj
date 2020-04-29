@@ -19,8 +19,8 @@
 		EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E942A2452C57000563783 /* BookmarkViewController.swift */; };
 		EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E942D2453C13B00563783 /* OpenWeather.json */; };
 		EC4E94322453D1DD00563783 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94312453D1DD00563783 /* OpenWeather.swift */; };
-		EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */; };
-		EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */; };
+		EC4E943C24550C6300563783 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943B24550C6300563783 /* NewsTableViewCell.swift */; };
+		EC4E9440245514DC00563783 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E943F245514DC00563783 /* WeatherTableViewCell.swift */; };
 		EC4E94432455319C00563783 /* GuardianHome.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E94422455319C00563783 /* GuardianHome.json */; };
 		EC4E9445245531D800563783 /* GuardianHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E9444245531D800563783 /* GuardianHome.swift */; };
 		EC4E944724555C4800563783 /* HomeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944624555C4800563783 /* HomeStatus.swift */; };
@@ -34,7 +34,6 @@
 		EC4E945D2456C96A00563783 /* SportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E945C2456C96A00563783 /* SportsTableViewController.swift */; };
 		EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */; };
 		EC4E94612456C98700563783 /* ScienceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94602456C98700563783 /* ScienceTableViewController.swift */; };
-		EC4E94632456C9A700563783 /* HeadlinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */; };
 		EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +53,8 @@
 		EC4E942A2452C57000563783 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		EC4E942D2453C13B00563783 /* OpenWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenWeather.json; sourceTree = "<group>"; };
 		EC4E94312453D1DD00563783 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
-		EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsTableViewCell.swift; sourceTree = "<group>"; };
-		EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		EC4E943B24550C6300563783 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		EC4E943F245514DC00563783 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		EC4E94422455319C00563783 /* GuardianHome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianHome.json; sourceTree = "<group>"; };
 		EC4E9444245531D800563783 /* GuardianHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianHome.swift; sourceTree = "<group>"; };
 		EC4E944624555C4800563783 /* HomeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatus.swift; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 		EC4E945C2456C96A00563783 /* SportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsTableViewController.swift; sourceTree = "<group>"; };
 		EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94602456C98700563783 /* ScienceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceTableViewController.swift; sourceTree = "<group>"; };
-		EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewCell.swift; sourceTree = "<group>"; };
 		EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewController.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,6 +122,7 @@
 		EC4E94112452BF3C00563783 /* Homework9 */ = {
 			isa = PBXGroup;
 			children = (
+				EC4E946624593ADB00563783 /* Shared Cell */,
 				EC4E942C2453C0F600563783 /* JSON */,
 				EC4E9441245522FF00563783 /* Home View */,
 				EC4E94502456AE4C00563783 /* Headlines View */,
@@ -159,8 +158,6 @@
 				EC4E944624555C4800563783 /* HomeStatus.swift */,
 				EC4E94482456528B00563783 /* HomeNewsDetailViewController.swift */,
 				EC4E944A2456570700563783 /* HomeNewsDetailStatus.swift */,
-				EC4E943F245514DC00563783 /* HomeWeatherTableViewCell.swift */,
-				EC4E943B24550C6300563783 /* HomeNewsTableViewCell.swift */,
 			);
 			name = "Home View";
 			sourceTree = "<group>";
@@ -170,7 +167,6 @@
 			children = (
 				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
 				EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */,
-				EC4E94622456C9A700563783 /* HeadlinesTableViewCell.swift */,
 				EC4E94542456B43700563783 /* WorldTableViewController.swift */,
 				EC4E94582456B92E00563783 /* BusinessTableViewController.swift */,
 				EC4E945A2456C95700563783 /* PoliticsTableViewController.swift */,
@@ -179,6 +175,15 @@
 				EC4E94602456C98700563783 /* ScienceTableViewController.swift */,
 			);
 			name = "Headlines View";
+			sourceTree = "<group>";
+		};
+		EC4E946624593ADB00563783 /* Shared Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E943F245514DC00563783 /* WeatherTableViewCell.swift */,
+				EC4E943B24550C6300563783 /* NewsTableViewCell.swift */,
+			);
+			name = "Shared Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,15 +317,14 @@
 				EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E945D2456C96A00563783 /* SportsTableViewController.swift in Sources */,
-				EC4E943C24550C6300563783 /* HomeNewsTableViewCell.swift in Sources */,
-				EC4E94632456C9A700563783 /* HeadlinesTableViewCell.swift in Sources */,
+				EC4E943C24550C6300563783 /* NewsTableViewCell.swift in Sources */,
 				EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */,
 				EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */,
 				EC4E944F24565CE300563783 /* GuardianHomeDetail.swift in Sources */,
 				EC4E944724555C4800563783 /* HomeStatus.swift in Sources */,
 				EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */,
 				EC4E944B2456570700563783 /* HomeNewsDetailStatus.swift in Sources */,
-				EC4E9440245514DC00563783 /* HomeWeatherTableViewCell.swift in Sources */,
+				EC4E9440245514DC00563783 /* WeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
