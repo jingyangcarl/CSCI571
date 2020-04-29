@@ -17,7 +17,7 @@ class HomeNewsDetailViewController: UIViewController {
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     
-    var status = HomeNewsDetailStatus()
+    var status = NewsStatus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class HomeNewsDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // prepare request
-        let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/\(self.status.dataIn.id    )?api-key=\(self.status.dataIn.apiKey)&show-blocks=all")!)
+        let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/\(self.status.key.id    )?api-key=\(self.status.key.apiKey)&show-blocks=all")!)
         
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -39,37 +39,36 @@ class HomeNewsDetailViewController: UIViewController {
                     // save json as an object
                     let jsonObject = try JSON(data: data!)
                     
-                    self.status.dataOut.imageUrl = jsonObject["response"]["content"]["blocks"]["main"]["elements"][0]["assets"][0]["file"].stringValue
-                    self.status.dataOut.id = jsonObject["response"]["content"]["id"].stringValue
-                    self.status.dataOut.title = jsonObject["response"]["content"]["webTitle"].stringValue
-                    self.status.dataOut.date = jsonObject["response"]["content"]["webPublicationDate"].stringValue
-                    self.status.dataOut.section = jsonObject["response"]["content"]["sectionName"].stringValue
-                    self.status.dataOut.description = jsonObject["response"]["content"]["blocks"]["body"][0]["bodyHtml"].stringValue
-                    self.status.dataOut.url = jsonObject["response"]["content"]["webUrl"].stringValue
+                    self.status.value.imageUrl = jsonObject["response"]["content"]["blocks"]["main"]["elements"][0]["assets"][0]["file"].stringValue
+                    self.status.value.title = jsonObject["response"]["content"]["webTitle"].stringValue
+                    self.status.value.date = jsonObject["response"]["content"]["webPublicationDate"].stringValue
+                    self.status.value.section = jsonObject["response"]["content"]["sectionName"].stringValue
+                    self.status.value.description = jsonObject["response"]["content"]["blocks"]["body"][0]["bodyHtml"].stringValue
+                    self.status.value.url = jsonObject["response"]["content"]["webUrl"].stringValue
                     
                     // reload news cell
                     DispatchQueue.main.async {
                         
-                        if self.status.dataOut.imageUrl.isEmpty {
-                            self.status.dataOut.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+                        if self.status.value.imageUrl.isEmpty {
+                            self.status.value.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
                         }
-                        if let imageData = try? Data(contentsOf: URL(string: self.status.dataOut.imageUrl)!) {
+                        if let imageData = try? Data(contentsOf: URL(string: self.status.value.imageUrl)!) {
                             if let image = UIImage(data: imageData) {
                                 self.imageView.image = image;
                             }
                         }
                         
-                        self.labelTitle.text = self.status.dataOut.title
-                        self.labelSection.text = self.status.dataOut.section
+                        self.labelTitle.text = self.status.value.title
+                        self.labelSection.text = self.status.value.section
                         
                         let dateFormatterFrom = Foundation.DateFormatter()
                         let dateFormatterTo = Foundation.DateFormatter()
                         dateFormatterFrom.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                         dateFormatterTo.dateFormat = "dd MMM yyyy"
-                        let date = dateFormatterFrom.date(from: self.status.dataOut.date)
+                        let date = dateFormatterFrom.date(from: self.status.value.date)
                         self.labelDate.text = dateFormatterTo.string(from: date!)
                         
-                        self.labelDescription.attributedText = self.status.dataOut.description.htmlToAttributedString
+                        self.labelDescription.attributedText = self.status.value.description.htmlToAttributedString
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
@@ -91,7 +90,7 @@ class HomeNewsDetailViewController: UIViewController {
     }
     
     @IBAction func DidClick(_ sender: Any) {
-        guard let url = URL(string: self.status.dataOut.url) else { return }
+        guard let url = URL(string: self.status.value.url) else { return }
         UIApplication.shared.open(url)
     }
     

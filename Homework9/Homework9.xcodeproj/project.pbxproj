@@ -23,7 +23,7 @@
 		EC4E94432455319C00563783 /* GuardianHome.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E94422455319C00563783 /* GuardianHome.json */; };
 		EC4E944724555C4800563783 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944624555C4800563783 /* Status.swift */; };
 		EC4E94492456528B00563783 /* HomeNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94482456528B00563783 /* HomeNewsDetailViewController.swift */; };
-		EC4E944B2456570700563783 /* HomeNewsDetailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944A2456570700563783 /* HomeNewsDetailStatus.swift */; };
+		EC4E944B2456570700563783 /* NewsStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E944A2456570700563783 /* NewsStatus.swift */; };
 		EC4E944D24565C5900563783 /* GuardianHomeDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E944C24565C5900563783 /* GuardianHomeDetail.json */; };
 		EC4E94552456B43700563783 /* WorldTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94542456B43700563783 /* WorldTableViewController.swift */; };
 		EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94582456B92E00563783 /* BusinessTableViewController.swift */; };
@@ -54,7 +54,7 @@
 		EC4E94422455319C00563783 /* GuardianHome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianHome.json; sourceTree = "<group>"; };
 		EC4E944624555C4800563783 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		EC4E94482456528B00563783 /* HomeNewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsDetailViewController.swift; sourceTree = "<group>"; };
-		EC4E944A2456570700563783 /* HomeNewsDetailStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsDetailStatus.swift; sourceTree = "<group>"; };
+		EC4E944A2456570700563783 /* NewsStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStatus.swift; sourceTree = "<group>"; };
 		EC4E944C24565C5900563783 /* GuardianHomeDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianHomeDetail.json; sourceTree = "<group>"; };
 		EC4E94542456B43700563783 /* WorldTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94582456B92E00563783 /* BusinessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewController.swift; sourceTree = "<group>"; };
@@ -146,9 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
-				EC4E944624555C4800563783 /* Status.swift */,
 				EC4E94482456528B00563783 /* HomeNewsDetailViewController.swift */,
-				EC4E944A2456570700563783 /* HomeNewsDetailStatus.swift */,
+				EC4E944A2456570700563783 /* NewsStatus.swift */,
 			);
 			name = "Home View";
 			sourceTree = "<group>";
@@ -173,6 +172,7 @@
 			children = (
 				EC4E943F245514DC00563783 /* WeatherTableViewCell.swift */,
 				EC4E943B24550C6300563783 /* NewsTableViewCell.swift */,
+				EC4E944624555C4800563783 /* Status.swift */,
 			);
 			name = "Shared Cell";
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 				EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */,
 				EC4E944724555C4800563783 /* Status.swift in Sources */,
 				EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */,
-				EC4E944B2456570700563783 /* HomeNewsDetailStatus.swift in Sources */,
+				EC4E944B2456570700563783 /* NewsStatus.swift in Sources */,
 				EC4E9440245514DC00563783 /* WeatherTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

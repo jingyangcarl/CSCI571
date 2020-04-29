@@ -311,8 +311,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let newsDetailViewController = segue.destination as? HomeNewsDetailViewController else { return }
         
         // prepare data will be used in Detail View
-        newsDetailViewController.status.dataIn.id = self.status.newsList[self.status.selectedNewsIndex].id
-        newsDetailViewController.status.dataIn.apiKey  = guardianKey
+        newsDetailViewController.status.key.id = self.status.newsList[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.key.apiKey  = guardianKey
     }
 }
 

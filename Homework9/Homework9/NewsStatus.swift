@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
-struct HomeNewsDetailStatus {
-    var dataIn: DataIn;
-    var dataOut: DataOut;
+struct NewsStatus {
+    var key: Key;
+    var value: Value;
     
     init() {
-        self.dataIn = DataIn();
-        self.dataOut = DataOut();
+        self.key = Key();
+        self.value = Value();
     }
 }
 
-struct DataIn {
+struct Key {
     var id: String;
     var apiKey: String;
     
@@ -29,30 +29,20 @@ struct DataIn {
     }
 }
 
-struct DataOut {
+struct Value {
     var imageUrl: String;
-    var image: UIImage;
     var title: String;
     var date: String;
     var section: String;
-    var id: String;
     var description: String;
     var url: String;
     
     init() {
         self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
-        self.image = UIImage()
         self.title = "title"
         self.date = "2020-04-26T03:02:14Z"
         self.section = "section"
-        self.id = "id"
         self.description = "description"
         self.url = "url"
-        
-        if let imageData = try? Data(contentsOf: URL(string: self.imageUrl)!) {
-            if let image = UIImage(data: imageData) {
-                self.image = image;
-            }
-        }
     }
 }
