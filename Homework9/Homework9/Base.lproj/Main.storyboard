@@ -315,8 +315,7 @@
         <!--World Table View Controller-->
         <scene sceneID="Uvq-5d-H1Q">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6xQ-EG-syD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="worldTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mxE-kj-ChP" customClass="WorldTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="world" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mxE-kj-ChP" customClass="WorldTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeO-zP-lUN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -337,14 +336,14 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xQ-EG-syD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="419" y="2140"/>
         </scene>
         <!--Business Table View Controller-->
         <scene sceneID="49U-WB-cBW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nys-DL-2a5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="businessTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qlx-tQ-QoP" customClass="BusinessTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="business" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qlx-tQ-QoP" customClass="BusinessTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="807-5J-pDS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -365,13 +364,14 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nys-DL-2a5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1158" y="2140"/>
         </scene>
         <!--Politics Table View Controller-->
         <scene sceneID="ScL-5u-AmP">
             <objects>
-                <tableViewController storyboardIdentifier="politicsTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C7j-AP-fru" customClass="PoliticsTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="politics" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C7j-AP-fru" customClass="PoliticsTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jdz-lh-jg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -399,7 +399,7 @@
         <!--Sports Table View Controller-->
         <scene sceneID="sDz-h4-2Qq">
             <objects>
-                <tableViewController storyboardIdentifier="sportsTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tFF-fQ-Tar" customClass="SportsTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="sport" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tFF-fQ-Tar" customClass="SportsTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dg6-TG-oKA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -427,7 +427,7 @@
         <!--Technology Table View Controller-->
         <scene sceneID="VOo-LO-BON">
             <objects>
-                <tableViewController storyboardIdentifier="technologyTable" id="gDp-Fe-Bto" customClass="TechnologyTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="technology" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gDp-Fe-Bto" customClass="TechnologyTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="A8G-XW-ZxF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -455,7 +455,7 @@
         <!--Science Table View Controller-->
         <scene sceneID="xU0-IR-Xpj">
             <objects>
-                <tableViewController storyboardIdentifier="scienceTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmA-Ir-LoP" customClass="ScienceTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="science" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmA-Ir-LoP" customClass="ScienceTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZQ3-BA-m48">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

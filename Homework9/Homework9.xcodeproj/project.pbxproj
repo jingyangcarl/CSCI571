@@ -32,6 +32,7 @@
 		EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */; };
 		EC4E94612456C98700563783 /* ScienceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94602456C98700563783 /* ScienceTableViewController.swift */; };
 		EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */; };
+		EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E9467245955AC00563783 /* GuardianWorld.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologyTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94602456C98700563783 /* ScienceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewController.swift; sourceTree = "<group>"; };
+		EC4E9467245955AC00563783 /* GuardianWorld.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianWorld.json; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 				EC4E942D2453C13B00563783 /* OpenWeather.json */,
 				EC4E94422455319C00563783 /* GuardianHome.json */,
 				EC4E944C24565C5900563783 /* GuardianHomeDetail.json */,
+				EC4E9467245955AC00563783 /* GuardianWorld.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */,
+				EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */,
 				EC4E94212452BF3E00563783 /* LaunchScreen.storyboard in Resources */,
 				EC4E941E2452BF3E00563783 /* Assets.xcassets in Resources */,
 				EC4E94432455319C00563783 /* GuardianHome.json in Resources */,

@@ -36,12 +36,12 @@ class HeadlinesViewController: ButtonBarPagerTabStripViewController {
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
-        let worldTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "worldTable")
-        let businessTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "businessTable")
-        let politicsTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "politicsTable")
-        let sportsTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "sportsTable")
-        let technologyTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "technologyTable")
-        let scienceTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "scienceTable")
+        let worldTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "world")
+        let businessTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "business")
+        let politicsTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "politics")
+        let sportsTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "sport")
+        let technologyTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "technology")
+        let scienceTable = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "science")
 
         return [worldTable, businessTable, politicsTable, sportsTable, technologyTable, scienceTable]
     }

@@ -122,6 +122,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             // set up news cell
             if !self.status.newsList.isEmpty {
                 
+                cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
+                cell.labelTitle.text = self.status.newsList[indexPath.row].title
+                cell.labelSection.text = self.status.newsList[indexPath.row].section
+                
                 let dateFormatter = Foundation.DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                 
@@ -142,9 +146,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     cell.labelDate.text = "\(seconds)s ago"
                 }
                 
-                cell.labelTitle.text = self.status.newsList[indexPath.row].title
-                cell.labelSection.text = self.status.newsList[indexPath.row].section
-                cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
             }
             return cell
         } else {

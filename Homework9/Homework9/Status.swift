@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 
 struct Status {
-    var newsSection: String
     var newsList: [News]
     var selectedNewsIndex: Int
     var weather: Weather
     
     init() {
-        self.newsSection = String()
         self.newsList = [News]()
         self.selectedNewsIndex = 0
         self.weather = Weather()
@@ -53,6 +51,9 @@ struct News {
         self.section = section;
         self.id = id;
         
+        if self.imageUrl.isEmpty {
+            self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+        }
         if let imageData = try? Data(contentsOf: URL(string: self.imageUrl)!) {
             if let image = UIImage(data: imageData) {
                 self.image = image;
