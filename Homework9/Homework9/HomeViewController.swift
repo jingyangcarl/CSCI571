@@ -90,7 +90,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell") as! WeatherTableViewCell
-
+            
             // set up weather cell
             cell.labelCity.text = self.status.weather.city
             cell.labelState.text = self.status.weather.state
@@ -265,18 +265,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if httpResponse.statusCode == 200 {
                 // Http success
                 do {
-                    // TODO: use SwiftyJSON instead
                     // save json as an object
-                    let jsonObject = try JSONDecoder().decode(GuardianHome.self, from: data!)
+                    let jsonObject_ = try JSON(data: data!)
                     
-                    for result in jsonObject.response.results {
-                        let imageUrl: String = result.fields.thumbnail ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
-                        let title: String = result.webTitle ?? "webTitle"
-                        let date: String = result.webPublicationDate ?? "2020-04-26T03:02:14Z"
-                        let section: String = result.sectionId ?? "sectionId"
-                        let id: String = result.id!
-                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id)
+                    for (_, result): (String, JSON) in jsonObject_["response"]["results"] {
+                        let imageUrl: String = result["fields"]["thumbnail"].stringValue
+                        let title: String = result["webTitle"].stringValue
+                        let date: String = result["webPublicationDate"].stringValue
+                        let section: String = result["sectionId"].stringValue
+                        let id: String = result["id"].stringValue
                         
+                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id)
                         self.status.newsList.append(news)
                     }
                     
