@@ -213,13 +213,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if httpResponse.statusCode == 200 {
                             // Http success
                             do {
-                                // TODO: use SwiftyJSON instead
-                                
                                 // save json as an object
-                                let jsonObject = try JSONDecoder().decode(OpenWeather.self, from: data!)
+                                let jsonObject_ = try JSON(data: data!)
                                 
-                                self.status.weather.temp = jsonObject.main.temp
-                                self.status.weather.weather = jsonObject.weather[0].main
+                                self.status.weather.temp = jsonObject_["main"]["temp"].double!
+                                self.status.weather.weather = jsonObject_["weather"][0]["main"].stringValue
                                 
                                 // reload weather cell
                                 DispatchQueue.main.async {

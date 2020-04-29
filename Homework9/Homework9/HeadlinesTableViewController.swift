@@ -18,6 +18,11 @@ class HeadlinesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
 
     // MARK: - Table view data source
@@ -43,6 +48,10 @@ class HeadlinesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    @objc func refresh(_ ender: AnyObject) {
+        print("refresh")
     }
 
 }
