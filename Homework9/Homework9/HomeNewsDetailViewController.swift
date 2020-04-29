@@ -18,10 +18,10 @@ class HomeNewsDetailViewController: UIViewController {
     @IBOutlet weak var labelDescription: UILabel!
     
     var status = HomeNewsDetailStatus()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         // prepare request
@@ -37,20 +37,22 @@ class HomeNewsDetailViewController: UIViewController {
                 // Http success
                 do {
                     // save json as an object
-                    let jsonObject = try JSONDecoder().decode(GuardianHomeDetail.self, from: data!)
+                    let jsonObject = try JSON(data: data!)
                     
-                    if jsonObject.response.content.blocks.main?.elements[0]?.assets?.count != 0 {
-                        self.status.dataOut.imageUrl = jsonObject.response.content.blocks.main?.elements[0]?.assets?[0]?.file ?? "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
-                    }
-                    self.status.dataOut.id = jsonObject.response.content.id
-                    self.status.dataOut.title = jsonObject.response.content.webTitle
-                    self.status.dataOut.date = jsonObject.response.content.webPublicationDate
-                    self.status.dataOut.section = jsonObject.response.content.sectionName
-                    self.status.dataOut.description = jsonObject.response.content.blocks.body[0]?.bodyHtml ?? ""
-                    self.status.dataOut.url = jsonObject.response.content.webUrl
+                    self.status.dataOut.imageUrl = jsonObject["response"]["content"]["blocks"]["main"]["elements"][0]["assets"][0]["file"].stringValue
+                    self.status.dataOut.id = jsonObject["response"]["content"]["id"].stringValue
+                    self.status.dataOut.title = jsonObject["response"]["content"]["webTitle"].stringValue
+                    self.status.dataOut.date = jsonObject["response"]["content"]["webPublicationDate"].stringValue
+                    self.status.dataOut.section = jsonObject["response"]["content"]["sectionName"].stringValue
+                    self.status.dataOut.description = jsonObject["response"]["content"]["blocks"]["body"][0]["bodyHtml"].stringValue
+                    self.status.dataOut.url = jsonObject["response"]["content"]["webUrl"].stringValue
                     
                     // reload news cell
                     DispatchQueue.main.async {
+                        
+                        if self.status.dataOut.imageUrl.isEmpty {
+                            self.status.dataOut.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+                        }
                         if let imageData = try? Data(contentsOf: URL(string: self.status.dataOut.imageUrl)!) {
                             if let image = UIImage(data: imageData) {
                                 self.imageView.image = image;
@@ -94,15 +96,15 @@ class HomeNewsDetailViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension String {
