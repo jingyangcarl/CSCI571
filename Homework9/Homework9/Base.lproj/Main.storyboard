@@ -194,23 +194,23 @@
                     <navigationItem key="navigationItem" id="2Oc-21-etI"/>
                     <connections>
                         <outlet property="tableView" destination="yI6-9X-tqS" id="A7y-Ma-0qy"/>
-                        <segue destination="VPw-Y4-1UV" kind="show" identifier="HomeNewsDetailSegue" id="n3v-O6-Zes"/>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="n3v-O6-Zes"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1075.3623188405797" y="1444.4196428571429"/>
         </scene>
-        <!--Home News Detail View Controller-->
+        <!--News Detail View Controller-->
         <scene sceneID="t6l-fb-XdR">
             <objects>
-                <viewController id="VPw-Y4-1UV" customClass="HomeNewsDetailViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VPw-Y4-1UV" customClass="NewsDetailViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2X5-Ge-yW5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-Jy-jM6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-GZ-9Ke">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMT-oU-iv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-330" y="1444"/>
+            <point key="canvasLocation" x="1906" y="1444"/>
         </scene>
         <!--World Table View Controller-->
         <scene sceneID="Uvq-5d-H1Q">
@@ -412,6 +412,9 @@
                             <outlet property="delegate" destination="mxE-kj-ChP" id="XV9-Wc-f0F"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="u9w-CZ-oy3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xQ-EG-syD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,6 +520,9 @@
                             <outlet property="delegate" destination="qlx-tQ-QoP" id="NAs-00-DXw"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="Q8w-UY-5hl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nys-DL-2a5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -622,6 +628,9 @@
                             <outlet property="delegate" destination="C7j-AP-fru" id="5W9-Up-9he"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="GU2-FO-IxI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bX-oZ-0qW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -727,6 +736,9 @@
                             <outlet property="delegate" destination="tFF-fQ-Tar" id="e4J-NR-B4j"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="Q8B-TO-f0l"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ses-CQ-qky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -832,6 +844,9 @@
                             <outlet property="delegate" destination="gDp-Fe-Bto" id="waS-dV-zLd"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="IVu-ho-Xdv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBN-vo-pZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -937,6 +952,9 @@
                             <outlet property="delegate" destination="HmA-Ir-LoP" id="xZ8-BB-10k"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="1VV-MD-al0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMi-vZ-i4n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1097,6 +1115,9 @@
             <point key="canvasLocation" x="-330.43478260869568" y="721.875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1VV-MD-al0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>

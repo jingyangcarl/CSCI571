@@ -82,6 +82,11 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         return 140
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.status.selectedNewsIndex = indexPath.row
+        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+    }
+    
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "HOME")
     }
@@ -142,6 +147,14 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         }.resume()
         
         self.refreshControl?.endRefreshing()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+        
+        // prepare data will be used in Detail View
+        newsDetailViewController.status.key.id = self.status.newsList[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.key.apiKey = guardianKey
     }
 
 }

@@ -71,6 +71,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         refresh(self)
     }
     
+    // MARK: - Table view data source
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == HomeSession.Weather.rawValue {
             return 1
@@ -173,7 +175,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.status.selectedNewsIndex = indexPath.row
-        performSegue(withIdentifier: "HomeNewsDetailSegue", sender: self)
+        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
     }
     
     /*
@@ -305,11 +307,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.endRefreshing()
     }
     
+    // MARK: - Table view segue
+    
     /*
      This function is used to prepare data and segue to Detialed View
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let newsDetailViewController = segue.destination as? HomeNewsDetailViewController else { return }
+        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
         
         // prepare data will be used in Detail View
         newsDetailViewController.status.key.id = self.status.newsList[self.status.selectedNewsIndex].id
