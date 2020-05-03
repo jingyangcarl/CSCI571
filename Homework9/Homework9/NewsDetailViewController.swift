@@ -95,7 +95,6 @@ class NewsDetailViewController: UIViewController {
     }
     
     @IBAction func DidTwitterClick(_ sender: Any) {
-        print("clicked")
         let tweetText = "Check out this Article!"
         let tweetUrl = self.status.value.url
         let tweetHashtag = "CSCI_571_NewsApp"

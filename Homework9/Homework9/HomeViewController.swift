@@ -17,9 +17,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // init location manager status
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
-    
+
     // init pull to refresh
-    var refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
+
     
     // status to save current data
     var status = Status()
@@ -61,14 +62,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // enable pull down to refresh for table view
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        
+
+        // init long press gesture recognizer
+        let longPressGrestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(_:)))
+        tableView.addGestureRecognizer(longPressGrestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // refersh tableview
-        refresh(self)
+        handleRefresh(self)
     }
     
     // MARK: - Table view data source
@@ -147,8 +151,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     cell.labelDate.text = "\(seconds)s ago"
                 }
-                
             }
+            
             return cell
         } else {
             let cell = UITableViewCell()
@@ -251,7 +255,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     /*
      This function is used to perform refreshing from Guardian news
      */
-    @objc func refresh(_ sender: AnyObject) {
+    @objc func handleRefresh(_ sender: AnyObject) {
         // clear current news list
         self.status.newsList.removeAll()
         
@@ -305,6 +309,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }.resume()
         
         refreshControl.endRefreshing()
+    }
+    
+    @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
+        let touchPoint = sender.location(in: tableView)
+        if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+            print(indexPath.row)
+        }
     }
     
     // MARK: - Table view segue

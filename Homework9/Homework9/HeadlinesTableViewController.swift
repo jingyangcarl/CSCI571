@@ -24,12 +24,12 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         // enable pull down to refresh for table view
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        refreshControl?.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        refresh(self)
+        handleRefresh(self)
     }
 
     // MARK: - Table view data source
@@ -91,7 +91,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         return IndicatorInfo(title: "HOME")
     }
     
-    @objc func refresh(_ ender: AnyObject) {
+    @objc func handleRefresh(_ ender: AnyObject) {
         print(self.restorationIdentifier!)
         
         // clear current news List

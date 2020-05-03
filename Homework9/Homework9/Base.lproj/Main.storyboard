@@ -141,6 +141,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="JhL-Sr-Qsm" firstAttribute="trailing" secondItem="wH0-Ga-0v7" secondAttribute="trailingMargin" id="Ca5-ZF-jiT"/>
                                                 <constraint firstItem="JhL-Sr-Qsm" firstAttribute="top" secondItem="T5J-IX-M65" secondAttribute="bottom" constant="8" id="JGk-lD-VtC"/>
@@ -159,6 +160,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="imageThumbnail" destination="h9p-Hz-VnR" id="qfb-2R-lu4"/>
                                             <outlet property="labelDate" destination="U5h-l0-r6R" id="j1D-Lm-5S4"/>
