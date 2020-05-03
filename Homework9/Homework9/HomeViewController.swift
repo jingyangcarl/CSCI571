@@ -157,17 +157,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
-            return self.makeContextMenu(for: self.status.newsList[indexPath.row])
+
+            let twitterMenu = UIAction(title: "Share with Twitter", image: UIImage(named: "twitter")) { action in
+                // share
+            }
+            let bookMarkMenu = UIAction(title: "Bookmark", image: UIImage(systemName: "bookmark")) { action in
+                //
+            }
+            
+            // Create and return a UIMenu with the share action
+            return UIMenu(title: "Main Menu", children: [twitterMenu, bookMarkMenu])
         })
-    }
-    
-    func makeContextMenu(for: Any) -> UIMenu {
-        let share = UIAction(title: "Share Pupper", image: UIImage(systemName: "square.and.arrow.up")) { action in
-            // Show system share sheet
-        }
-        
-        // Create and return a UIMenu with the share action
-        return UIMenu(title: "Main Menu", children: [share])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
