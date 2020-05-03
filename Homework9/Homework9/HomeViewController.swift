@@ -72,16 +72,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Table view data source
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == HomeSession.Weather.rawValue {
-            return 1
-        } else if section == HomeSession.News.rawValue {
-            return self.status.newsList.count
-        } else {
-            return 0
-        }
-    }
-    
     /*
      Description:
      This function is used to describe how each cell should look like.
@@ -180,6 +170,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.status.selectedNewsIndex = indexPath.row
+        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == HomeSession.Weather.rawValue {
@@ -193,13 +188,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == HomeSession.Weather.rawValue {
+            return 1
+        } else if section == HomeSession.News.rawValue {
+            return self.status.newsList.count
+        } else {
+            return 0
+        }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.status.selectedNewsIndex = indexPath.row
-        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     /*
