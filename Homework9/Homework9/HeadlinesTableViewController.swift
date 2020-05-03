@@ -27,6 +27,10 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl!)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refresh(self)
+    }
 
     // MARK: - Table view data source
     
@@ -45,29 +49,29 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
 
         // Configure the cell...
         if !self.status.newsList.isEmpty {
-            cell.imageView?.image = self.status.newsList[indexPath.row].image
-//            cell.labelTitle.text = self.status.newsList[indexPath.row].title
-//            cell.labelSection.text = self.status.newsList[indexPath.row].section
-//            
-//            let dateFormatter = Foundation.DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-//            
-//            let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].date)
-//            let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
-//            let days = timeInterval! / 86400;
-//            let hours = (timeInterval! % 86400) / 3600;
-//            let minutes = ((timeInterval! % 86400) % 3600) / 60;
-//            let seconds = ((timeInterval! % 86400) % 3600) % 60;
-//            
-//            if days != 0 {
-//                cell.labelDate.text = "\(days)d ago";
-//            } else if hours != 0 {
-//                cell.labelDate.text = "\(hours)h ago";
-//            } else if minutes != 0 {
-//                cell.labelDate.text = "\(minutes)m ago";
-//            } else {
-//                cell.labelDate.text = "\(seconds)s ago"
-//            }
+            cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
+            cell.labelTitle.text = self.status.newsList[indexPath.row].title
+            cell.labelSection.text = self.status.newsList[indexPath.row].section
+
+            let dateFormatter = Foundation.DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+
+            let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].date)
+            let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
+            let days = timeInterval! / 86400;
+            let hours = (timeInterval! % 86400) / 3600;
+            let minutes = ((timeInterval! % 86400) % 3600) / 60;
+            let seconds = ((timeInterval! % 86400) % 3600) % 60;
+
+            if days != 0 {
+                cell.labelDate.text = "\(days)d ago";
+            } else if hours != 0 {
+                cell.labelDate.text = "\(hours)h ago";
+            } else if minutes != 0 {
+                cell.labelDate.text = "\(minutes)m ago";
+            } else {
+                cell.labelDate.text = "\(seconds)s ago"
+            }
             
         }
 
@@ -108,7 +112,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                         let imageUrl: String = result["blocks"]["main"]["elements"][0]["assets"][0]["file"].stringValue
                         let title: String = result["webTitle"].stringValue
                         let date: String = result["webPublicationDate"].stringValue
-                        let section: String = result["sectionName"].stringValue
+                        let section: String = result["sectionId"].stringValue
                         let id: String = result["id"].stringValue
                         
                         let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id)
