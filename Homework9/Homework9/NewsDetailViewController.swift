@@ -49,6 +49,8 @@ class NewsDetailViewController: UIViewController {
                     // reload news cell
                     DispatchQueue.main.async {
                         
+                        self.navigationItem.title = self.status.value.title
+                        
                         if self.status.value.imageUrl.isEmpty {
                             self.status.value.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
                         }
@@ -89,7 +91,23 @@ class NewsDetailViewController: UIViewController {
         }.resume()
     }
     
-    @IBAction func DidClick(_ sender: Any) {
+    @IBAction func DidBookmarkClick(_ sender: Any) {
+    }
+    
+    @IBAction func DidTwitterClick(_ sender: Any) {
+        print("clicked")
+        let tweetText = "Check out this Article!"
+        let tweetUrl = self.status.value.url
+        let tweetHashtag = "CSCI_571_NewsApp"
+        
+        let shareUrl = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)&hashtags=\(tweetHashtag)"
+        
+        guard let url = URL(string: shareUrl.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
+        
+        UIApplication.shared.open(url)
+    }
+    
+    @IBAction func DidViewMoreClick(_ sender: Any) {
         guard let url = URL(string: self.status.value.url) else { return }
         UIApplication.shared.open(url)
     }

@@ -201,16 +201,16 @@
             </objects>
             <point key="canvasLocation" x="-1075.3623188405797" y="1444.4196428571429"/>
         </scene>
-        <!--News Detail View Controller-->
+        <!--Title-->
         <scene sceneID="t6l-fb-XdR">
             <objects>
                 <viewController id="VPw-Y4-1UV" customClass="NewsDetailViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2X5-Ge-yW5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-Jy-jM6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-GZ-9Ke">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -265,7 +265,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="View Full Article"/>
                                         <connections>
-                                            <action selector="DidClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="eKB-Md-uYt"/>
+                                            <action selector="DidViewMoreClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="eKB-Md-uYt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -299,7 +299,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Ny-tP-3Rn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gze-8g-FvX"/>
+                    <navigationItem key="navigationItem" title="Title" id="gze-8g-FvX">
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="C6j-ZF-N6h">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l7D-FD-Ddz">
+                                    <rect key="frame" x="370" y="10" width="24" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="twitter"/>
+                                    <connections>
+                                        <action selector="DidTwitterClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="96q-wT-Ghc"/>
+                                    </connections>
+                                </button>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="YFT-zz-DOZ">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Eo-Of-9ic">
+                                    <rect key="frame" x="330.5" y="11" width="31.5" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="   " image="bookmark" catalog="system"/>
+                                    <connections>
+                                        <action selector="DidBookmarkClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="NLk-PH-YHh"/>
+                                    </connections>
+                                </button>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="aF7-GZ-9Ke" id="01I-ac-8aS"/>
                         <outlet property="labelDate" destination="vTj-8X-DYL" id="lAT-x8-Ekv"/>
@@ -1116,7 +1141,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1VV-MD-al0"/>
+        <segue reference="n3v-O6-Zes"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
@@ -1124,6 +1149,7 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="table.fill" catalog="system" width="128" height="93"/>
         <image name="trending" width="28" height="28"/>
+        <image name="twitter" width="24" height="24"/>
         <image name="weather_clear" width="852" height="480"/>
     </resources>
 </document>
