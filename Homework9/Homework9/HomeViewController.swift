@@ -20,7 +20,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // init pull to refresh
     let refreshControl = UIRefreshControl()
-
     
     // status to save current data
     var status = Status()
@@ -64,10 +63,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
-
-        // init long press gesture recognizer
-        let longPressGrestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(_:)))
-        tableView.addGestureRecognizer(longPressGrestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,6 +153,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = UITableViewCell()
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
+            return self.makeContextMenu(for: self.status.newsList[indexPath.row])
+        })
+    }
+    
+    func makeContextMenu(for: Any) -> UIMenu {
+        let share = UIAction(title: "Share Pupper", image: UIImage(systemName: "square.and.arrow.up")) { action in
+            // Show system share sheet
+        }
+        
+        // Create and return a UIMenu with the share action
+        return UIMenu(title: "Main Menu", children: [share])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -309,13 +319,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }.resume()
         
         refreshControl.endRefreshing()
-    }
-    
-    @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
-        let touchPoint = sender.location(in: tableView)
-        if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-            print(indexPath.row)
-        }
     }
     
     // MARK: - Table view segue
