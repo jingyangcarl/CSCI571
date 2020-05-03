@@ -42,14 +42,16 @@ struct News {
     var date: String;
     var section: String;
     var id: String;
+    var url: String;
     
-    init(imageUrl: String, title: String, date: String, section: String, id: String) {
+    init(imageUrl: String, title: String, date: String, section: String, id: String, url: String) {
         self.imageUrl = imageUrl;
         self.image = UIImage();
         self.title = title;
         self.date = date;
         self.section = section;
         self.id = id;
+        self.url = url
         
         if self.imageUrl.isEmpty {
             self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"

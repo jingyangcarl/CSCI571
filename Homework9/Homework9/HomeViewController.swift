@@ -160,6 +160,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             let twitterMenu = UIAction(title: "Share with Twitter", image: UIImage(named: "twitter")) { action in
                 // share
+
+                let tweetText = "Check out this Article!"
+                let tweetUrl = self.status.newsList[indexPath.row].url
+                let tweetHashtag = "CSCI_571_NewsApp"
+                
+                let shareUrl = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)&hashtags=\(tweetHashtag)"
+                
+                guard let url = URL(string: shareUrl.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
+                
+                UIApplication.shared.open(url)
             }
             let bookMarkMenu = UIAction(title: "Bookmark", image: UIImage(systemName: "bookmark")) { action in
                 //
@@ -291,8 +301,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let date: String = result["webPublicationDate"].stringValue
                         let section: String = result["sectionId"].stringValue
                         let id: String = result["id"].stringValue
+                        let url: String = result["webUrl"].stringValue
                         
-                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id)
+                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
                         self.status.newsList.append(news)
                     }
                     

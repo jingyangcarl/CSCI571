@@ -119,8 +119,9 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                         let date: String = result["webPublicationDate"].stringValue
                         let section: String = result["sectionId"].stringValue
                         let id: String = result["id"].stringValue
+                        let url: String = result["webUrl"].stringValue
                         
-                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id)
+                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
                         self.status.newsList.append(news)
                     }
                     
