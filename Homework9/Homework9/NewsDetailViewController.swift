@@ -24,6 +24,11 @@ class NewsDetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        handleFetch(self)
+    }
+    
+    @objc func handleFetch(_ sender: AnyObject) {
+        
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/\(self.status.key.id    )?api-key=\(self.status.key.apiKey)&show-blocks=all")!)
         

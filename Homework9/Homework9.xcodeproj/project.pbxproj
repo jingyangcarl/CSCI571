@@ -122,9 +122,9 @@
 				EC4E942C2453C0F600563783 /* JSON */,
 				EC4E9441245522FF00563783 /* Home View */,
 				EC4E94502456AE4C00563783 /* Headlines View */,
-				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
+				EC4E946B245F9F0D00563783 /* Trending View */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
-				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
+				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
 				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
 				EC4E941A2452BF3C00563783 /* Main.storyboard */,
 				EC4E941D2452BF3E00563783 /* Assets.xcassets */,
@@ -178,6 +178,14 @@
 				EC4E944A2456570700563783 /* NewsStatus.swift */,
 			);
 			name = "Shared Cell";
+			sourceTree = "<group>";
+		};
+		EC4E946B245F9F0D00563783 /* Trending View */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
+			);
+			name = "Trending View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
