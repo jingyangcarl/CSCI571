@@ -3,7 +3,9 @@ const googleTrends = require("google-trends-api");
 const router = express.Router();
 
 router.get('/:keyword', (req, res, next) => {
-    googleTrends.interestOverTime({keyword: req.params.keyword})
+    console.log(req.params.keyword)
+
+    googleTrends.interestOverTime({keyword: req.params.keyword, startTime: new Date('2019-06-01')})
     .then(results => {
         res.send(results)
     })
