@@ -1078,7 +1078,7 @@
                                         <rect key="frame" x="0.0" y="93" width="374" height="552"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="U32-Of-7Cz">
+                                    <searchBar contentMode="redraw" placeholder="Enter Search Term" translatesAutoresizingMaskIntoConstraints="NO" id="U32-Of-7Cz">
                                         <rect key="frame" x="0.0" y="29" width="374" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>

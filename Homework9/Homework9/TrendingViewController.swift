@@ -8,45 +8,86 @@
 
 import UIKit
 import Charts
+import SwiftyJSON
 
 class TrendingViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet var lineChartView: LineChartView!
     @IBOutlet var searchBar: UISearchBar!
     
+    var chartDataEntries: [ChartDataEntry]!
+    var keyword: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.searchBar.delegate = self
         
-        setChartValues()
-    }
-    
-    func setChartValues(_ count: Int = 20) {
-        let values = (0..<count).map{(i) -> ChartDataEntry in
-            let val = Double(arc4random_uniform(UInt32(count)) + 3)
-            return ChartDataEntry(x: Double(i), y: val)
-        }
-        
-        let set = LineChartDataSet(entries: values, label: "DataSet 1")
-        let data = LineChartData(dataSet: set)
-        
-        self.lineChartView.data = data
+        searchBarSearchButtonClicked(self.searchBar)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        self.keyword = searchBar.text == "" ? "coronavirus": searchBar.text!
+        
+        // prepare request
+        let request = NSMutableURLRequest(url: URL(string: "http://ec2-3-22-175-5.us-east-2.compute.amazonaws.com:5000/trending/\(self.keyword!)")!)
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                // error
+                return
+            }
+            
+            if httpResponse.statusCode == 200 {
+                // Http success
+                do {
+                    // save json as an object
+                    let jsonObject = try JSON(data: data!)
+                    
+                    self.chartDataEntries = [ChartDataEntry]()
+                    
+                    for (index, result): (String, JSON) in jsonObject["default"]["timelineData"] {
+                        self.chartDataEntries.append(ChartDataEntry(x: (index as NSString).doubleValue, y: result["value"][0].double!))
+                    }
+                    
+                    let dataSet = LineChartDataSet(entries: self.chartDataEntries, label: "Trending Chart for \(self.keyword!)")
+                    let data = LineChartData(dataSet: dataSet)
+                    
+                    // reload news cell
+                    DispatchQueue.main.async {
+                        self.lineChartView.data = data
+                    }
+                    
+                } catch DecodingError.dataCorrupted(let context) {
+                    print(context.debugDescription)
+                } catch DecodingError.keyNotFound(let key, let context) {
+                    print("\(key.stringValue) was not found, \(context.debugDescription)")
+                } catch DecodingError.typeMismatch(let type, let context) {
+                    print("\(type) was expected, \(context.debugDescription)")
+                } catch DecodingError.valueNotFound(let type, let context) {
+                    print("no value was found for \(type), \(context.debugDescription)")
+                } catch let error {
+                    print(error)
+                }
+            } else {
+                // Http error
+            }
+            
+        }.resume()
+        
+        searchBar.endEditing(true)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

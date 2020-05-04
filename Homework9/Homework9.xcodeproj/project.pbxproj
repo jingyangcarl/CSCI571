@@ -33,6 +33,7 @@
 		EC4E94612456C98700563783 /* ScienceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94602456C98700563783 /* ScienceTableViewController.swift */; };
 		EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */; };
 		EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E9467245955AC00563783 /* GuardianWorld.json */; };
+		EC4E946D245FB40400563783 /* Trending.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E946C245FB40400563783 /* Trending.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		EC4E94602456C98700563783 /* ScienceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceTableViewController.swift; sourceTree = "<group>"; };
 		EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewController.swift; sourceTree = "<group>"; };
 		EC4E9467245955AC00563783 /* GuardianWorld.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianWorld.json; sourceTree = "<group>"; };
+		EC4E946C245FB40400563783 /* Trending.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trending.json; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				EC4E94422455319C00563783 /* GuardianHome.json */,
 				EC4E944C24565C5900563783 /* GuardianHomeDetail.json */,
 				EC4E9467245955AC00563783 /* GuardianWorld.json */,
+				EC4E946C245FB40400563783 /* Trending.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC4E946D245FB40400563783 /* Trending.json in Resources */,
 				EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */,
 				EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */,
 				EC4E94212452BF3E00563783 /* LaunchScreen.storyboard in Resources */,
