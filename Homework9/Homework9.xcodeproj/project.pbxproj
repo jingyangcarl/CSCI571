@@ -34,6 +34,7 @@
 		EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */; };
 		EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E9467245955AC00563783 /* GuardianWorld.json */; };
 		EC4E946D245FB40400563783 /* Trending.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E946C245FB40400563783 /* Trending.json */; };
+		EC4E94702460D83100563783 /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewController.swift; sourceTree = "<group>"; };
 		EC4E9467245955AC00563783 /* GuardianWorld.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianWorld.json; sourceTree = "<group>"; };
 		EC4E946C245FB40400563783 /* Trending.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trending.json; sourceTree = "<group>"; };
+		EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,9 +127,9 @@
 				EC4E9441245522FF00563783 /* Home View */,
 				EC4E94502456AE4C00563783 /* Headlines View */,
 				EC4E946B245F9F0D00563783 /* Trending View */,
+				EC4E946E2460D36600563783 /* Bookmark View */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
 				EC4E94122452BF3C00563783 /* AppDelegate.swift */,
-				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
 				EC4E941A2452BF3C00563783 /* Main.storyboard */,
 				EC4E941D2452BF3E00563783 /* Assets.xcassets */,
 				EC4E941F2452BF3E00563783 /* LaunchScreen.storyboard */,
@@ -189,6 +191,15 @@
 				EC4E94282452C4C400563783 /* TrendingViewController.swift */,
 			);
 			name = "Trending View";
+			sourceTree = "<group>";
+		};
+		EC4E946E2460D36600563783 /* Bookmark View */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E942A2452C57000563783 /* BookmarkViewController.swift */,
+				EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */,
+			);
+			name = "Bookmark View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +336,7 @@
 				EC4E943C24550C6300563783 /* NewsTableViewCell.swift in Sources */,
 				EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */,
 				EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */,
+				EC4E94702460D83100563783 /* BookmarkCollectionViewCell.swift in Sources */,
 				EC4E944724555C4800563783 /* Status.swift in Sources */,
 				EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */,
 				EC4E944B2456570700563783 /* NewsStatus.swift in Sources */,
