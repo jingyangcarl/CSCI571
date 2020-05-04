@@ -1068,35 +1068,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-S6-F81">
                                 <rect key="frame" x="20" y="160" width="374" height="653"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Search Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fin-Am-fIX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Enter Search Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fin-Am-fIX">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEt-KH-aaX">
-                                        <rect key="frame" x="0.0" y="29" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZi-dM-Aln" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="71" width="374" height="574"/>
+                                        <rect key="frame" x="0.0" y="93" width="374" height="552"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="U32-Of-7Cz">
+                                        <rect key="frame" x="0.0" y="29" width="374" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rZi-dM-Aln" secondAttribute="trailing" id="3R9-x2-OLS"/>
                                     <constraint firstAttribute="bottom" secondItem="rZi-dM-Aln" secondAttribute="bottom" constant="8" id="Cmy-aa-YFO"/>
-                                    <constraint firstItem="TEt-KH-aaX" firstAttribute="top" secondItem="Fin-Am-fIX" secondAttribute="bottom" constant="8" id="K4p-D7-Pol"/>
-                                    <constraint firstItem="TEt-KH-aaX" firstAttribute="leading" secondItem="3cC-S6-F81" secondAttribute="leading" id="LyC-Bq-LTN"/>
+                                    <constraint firstItem="U32-Of-7Cz" firstAttribute="leading" secondItem="3cC-S6-F81" secondAttribute="leading" id="Ff9-Si-P3b"/>
+                                    <constraint firstAttribute="trailing" secondItem="U32-Of-7Cz" secondAttribute="trailing" id="K6k-XA-OAm"/>
                                     <constraint firstItem="rZi-dM-Aln" firstAttribute="centerX" secondItem="3cC-S6-F81" secondAttribute="centerX" id="NWj-dl-HxL"/>
                                     <constraint firstItem="rZi-dM-Aln" firstAttribute="leading" secondItem="3cC-S6-F81" secondAttribute="leading" id="Udt-jL-3tX"/>
-                                    <constraint firstItem="rZi-dM-Aln" firstAttribute="top" secondItem="TEt-KH-aaX" secondAttribute="bottom" constant="8" id="UgK-xw-Vg7"/>
                                     <constraint firstItem="Fin-Am-fIX" firstAttribute="leading" secondItem="3cC-S6-F81" secondAttribute="leading" id="UzP-cz-aek"/>
-                                    <constraint firstAttribute="trailing" secondItem="TEt-KH-aaX" secondAttribute="trailing" id="VTK-PX-3Fq"/>
+                                    <constraint firstItem="U32-Of-7Cz" firstAttribute="top" secondItem="Fin-Am-fIX" secondAttribute="bottom" constant="8" id="VU0-Zy-7SU"/>
+                                    <constraint firstItem="rZi-dM-Aln" firstAttribute="top" secondItem="U32-Of-7Cz" secondAttribute="bottom" constant="8" id="Vxa-Zs-0R5"/>
                                     <constraint firstItem="Fin-Am-fIX" firstAttribute="centerX" secondItem="3cC-S6-F81" secondAttribute="centerX" id="Z7E-77-qBF"/>
-                                    <constraint firstItem="TEt-KH-aaX" firstAttribute="centerX" secondItem="3cC-S6-F81" secondAttribute="centerX" id="dt3-Nh-3G0"/>
                                     <constraint firstItem="Fin-Am-fIX" firstAttribute="top" secondItem="3cC-S6-F81" secondAttribute="top" id="qig-M3-wC1"/>
                                     <constraint firstAttribute="trailing" secondItem="Fin-Am-fIX" secondAttribute="trailing" id="yhZ-Uf-0En"/>
                                 </constraints>
@@ -1115,6 +1113,7 @@
                     <navigationItem key="navigationItem" title="Trending" id="LVo-T5-9Nx"/>
                     <connections>
                         <outlet property="lineChartView" destination="rZi-dM-Aln" id="GAa-Yk-ge5"/>
+                        <outlet property="searchBar" destination="U32-Of-7Cz" id="W6g-9v-fon"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csP-OU-BWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

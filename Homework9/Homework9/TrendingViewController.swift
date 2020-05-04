@@ -9,14 +9,17 @@
 import UIKit
 import Charts
 
-class TrendingViewController: UIViewController {
+class TrendingViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet var lineChartView: LineChartView!
-
+    @IBOutlet var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.searchBar.delegate = self
+        
         setChartValues()
     }
     
@@ -26,10 +29,14 @@ class TrendingViewController: UIViewController {
             return ChartDataEntry(x: Double(i), y: val)
         }
         
-        let set1 = LineChartDataSet(entries: values, label: "DataSet 1")
-        let data = LineChartData(dataSet: set1)
+        let set = LineChartDataSet(entries: values, label: "DataSet 1")
+        let data = LineChartData(dataSet: set)
         
         self.lineChartView.data = data
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
     }
 
     /*
