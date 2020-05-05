@@ -10,15 +10,27 @@ import UIKit
 
 class BookmarkCollectionViewCell: UICollectionViewCell {
     
+    var id: String!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var labelSection: UILabel!
     @IBOutlet var buttonBookmark: UIButton!
     
-    @IBAction func DidBookmarkClick(_ sender: Any) {
+    var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
+    
+    @IBAction func didBookmarkClicked(_ sender: Any) {
         // only need to perform bookmark remove
-        
+        if newsBookmarkOperationDelegate != nil {
+            self.newsBookmarkOperationDelegate.removeBookmark(id: id)
+        }
+    }
+}
+
+extension BookmarkCollectionViewCell {
+    
+    func setId(id: String) {
+        self.id = id
     }
     
     func setImage(image: UIImage) {

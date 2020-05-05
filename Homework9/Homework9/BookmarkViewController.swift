@@ -34,6 +34,7 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Bookmark Cell", for: indexPath) as! BookmarkCollectionViewCell
         
         if !self.newsDict.isEmpty {
+            cell.setId(id: Array(self.newsDict.values)[indexPath.row].id)
             cell.setImage(image: Array(self.newsDict.values)[indexPath.row].image)
             cell.setTitle(title: Array(self.newsDict.values)[indexPath.row].title)
             cell.setSection(section: Array(self.newsDict.values)[indexPath.row].section)
@@ -41,6 +42,7 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.setBookmark(bookmark: Array(self.newsDict.values)[indexPath.row].bookmark)
         }
         
+        cell.newsBookmarkOperationDelegate = self
         return cell
     }
     
