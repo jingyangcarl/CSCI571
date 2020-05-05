@@ -119,39 +119,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // set up news cell
             if !self.status.newsDict.isEmpty {
-                
-                cell.imageThumbnail.image = Array(self.status.newsDict.values)[indexPath.row].image
-                cell.labelTitle.text = Array(self.status.newsDict.values)[indexPath.row].title
-                cell.labelSection.text = Array(self.status.newsDict.values)[indexPath.row].section
-                cell.id = Array(self.status.newsDict.values)[indexPath.row].id
-                cell.bookmark = Array(self.status.newsDict.values)[indexPath.row].bookmark
-                cell.indexPath = indexPath
-                
-                if cell.bookmark {
-                    cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                } else {
-                    cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-                }
-                
-                let dateFormatter = Foundation.DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-                
-                let webPublicationDate = dateFormatter.date(from: Array(self.status.newsDict.values)[indexPath.row].date)
-                let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
-                let days = timeInterval! / 86400;
-                let hours = (timeInterval! % 86400) / 3600;
-                let minutes = ((timeInterval! % 86400) % 3600) / 60;
-                let seconds = ((timeInterval! % 86400) % 3600) % 60;
-                
-                if days != 0 {
-                    cell.labelDate.text = "\(days)d ago";
-                } else if hours != 0 {
-                    cell.labelDate.text = "\(hours)h ago";
-                } else if minutes != 0 {
-                    cell.labelDate.text = "\(minutes)m ago";
-                } else {
-                    cell.labelDate.text = "\(seconds)s ago"
-                }
+                cell.setNews(news: Array(self.status.newsDict.values)[indexPath.row])
             }
             
             cell.newsBookmarkDelegate = self

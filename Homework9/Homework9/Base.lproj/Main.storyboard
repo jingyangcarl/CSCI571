@@ -147,7 +147,7 @@
                                                                 <constraint firstItem="U5h-l0-r6R" firstAttribute="centerY" secondItem="6wb-e4-2KI" secondAttribute="centerY" id="xax-Tb-YbB"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Hz-VnR">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-Hz-VnR">
                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="140" id="eeo-fM-N5K"/>
@@ -176,7 +176,8 @@
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outlet property="buttonBookmark" destination="JhL-Sr-Qsm" id="7Yp-kH-9b7"/>
-                                                    <outlet property="imageThumbnail" destination="h9p-Hz-VnR" id="qfb-2R-lu4"/>
+                                                    <outlet property="imageThumbnail" destination="h9p-Hz-VnR" id="Lad-G9-4jB"/>
+                                                    <outlet property="imageView" destination="h9p-Hz-VnR" id="qfb-2R-lu4"/>
                                                     <outlet property="labelDate" destination="U5h-l0-r6R" id="j1D-Lm-5S4"/>
                                                     <outlet property="labelSection" destination="cX9-Tb-4ZR" id="MKE-yH-7Z2"/>
                                                     <outlet property="labelTitle" destination="T5J-IX-M65" id="G9w-xo-ZSu"/>
@@ -447,7 +448,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="I4z-jQ-GfJ" id="i8I-RG-23N"/>
+                                    <outlet property="imageView" destination="I4z-jQ-GfJ" id="i8I-RG-23N"/>
                                     <outlet property="labelDate" destination="ttP-F3-nEv" id="cTU-sT-nEL"/>
                                     <outlet property="labelSection" destination="2Ms-ID-pWC" id="M5W-xV-kxU"/>
                                     <outlet property="labelTitle" destination="MgI-K8-Mfz" id="NVf-ND-CtW"/>
@@ -557,7 +558,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="UFT-Uc-doG" id="hLn-fB-Ynf"/>
+                                    <outlet property="imageView" destination="UFT-Uc-doG" id="hLn-fB-Ynf"/>
                                     <outlet property="labelDate" destination="303-Em-3bT" id="7Cp-Pf-LdI"/>
                                     <outlet property="labelSection" destination="WmO-LC-UOR" id="kVR-I7-pc2"/>
                                     <outlet property="labelTitle" destination="Zfx-BU-VET" id="MvX-EA-HQg"/>
@@ -667,7 +668,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="nG2-3K-3Ez" id="3aE-oG-eJ9"/>
+                                    <outlet property="imageView" destination="nG2-3K-3Ez" id="3aE-oG-eJ9"/>
                                     <outlet property="labelDate" destination="PJD-vt-kjo" id="1ak-z1-INM"/>
                                     <outlet property="labelSection" destination="5ie-gk-Wa1" id="bmS-No-YuY"/>
                                     <outlet property="labelTitle" destination="1tQ-es-x4U" id="PcJ-l8-EGZ"/>
@@ -777,7 +778,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="g5l-Jm-axN" id="MUz-a2-VpQ"/>
+                                    <outlet property="imageView" destination="g5l-Jm-axN" id="MUz-a2-VpQ"/>
                                     <outlet property="labelDate" destination="rjo-6W-htw" id="GXN-KD-5XI"/>
                                     <outlet property="labelSection" destination="4Ex-sd-WeL" id="RVz-OG-HNA"/>
                                     <outlet property="labelTitle" destination="9Gf-Fv-PVO" id="gEF-kF-ZSK"/>
@@ -887,7 +888,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="MaO-Vv-L0w" id="tYc-IQ-jtr"/>
+                                    <outlet property="imageView" destination="MaO-Vv-L0w" id="tYc-IQ-jtr"/>
                                     <outlet property="labelDate" destination="1q5-3h-hod" id="AgR-Xh-7UA"/>
                                     <outlet property="labelSection" destination="ren-U2-2Uj" id="7Qf-SW-O32"/>
                                     <outlet property="labelTitle" destination="5o6-Qn-7du" id="Giy-ef-pZG"/>
@@ -997,7 +998,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="eai-sU-rO8" id="Xr1-wJ-zoK"/>
+                                    <outlet property="imageView" destination="eai-sU-rO8" id="Xr1-wJ-zoK"/>
                                     <outlet property="labelDate" destination="4Um-l6-WCn" id="J6Q-01-hGo"/>
                                     <outlet property="labelSection" destination="ivH-SR-ieI" id="zcm-O0-TT9"/>
                                     <outlet property="labelTitle" destination="8rW-AX-24f" id="kjF-bQ-VL2"/>
@@ -1380,6 +1381,7 @@
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="first" width="30" height="30"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="table.fill" catalog="system" width="128" height="93"/>
         <image name="trending" width="28" height="28"/>

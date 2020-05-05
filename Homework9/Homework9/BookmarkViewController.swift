@@ -34,35 +34,11 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Bookmark Cell", for: indexPath) as! BookmarkCollectionViewCell
         
         if !self.newsDict.isEmpty {
-            cell.imageView.image = Array(self.newsDict.values)[indexPath.row].image
-            cell.labelTitle.text = Array(self.newsDict.values)[indexPath.row].title
-            cell.labelSection.text = Array(self.newsDict.values)[indexPath.row].section
-            
-            if Array(self.newsDict.values)[indexPath.row].bookmark {
-                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            } else {
-                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            }
-
-            let dateFormatter = Foundation.DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-
-            let webPublicationDate = dateFormatter.date(from: Array(self.newsDict.values)[indexPath.row].date)
-            let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
-            let days = timeInterval! / 86400;
-            let hours = (timeInterval! % 86400) / 3600;
-            let minutes = ((timeInterval! % 86400) % 3600) / 60;
-            let seconds = ((timeInterval! % 86400) % 3600) % 60;
-
-            if days != 0 {
-                cell.labelDate.text = "\(days)d ago";
-            } else if hours != 0 {
-                cell.labelDate.text = "\(hours)h ago";
-            } else if minutes != 0 {
-                cell.labelDate.text = "\(minutes)m ago";
-            } else {
-                cell.labelDate.text = "\(seconds)s ago"
-            }
+            cell.setImage(image: Array(self.newsDict.values)[indexPath.row].image)
+            cell.setTitle(title: Array(self.newsDict.values)[indexPath.row].title)
+            cell.setSection(section: Array(self.newsDict.values)[indexPath.row].section)
+            cell.setDate(date: Array(self.newsDict.values)[indexPath.row].date)
+            cell.setBookmark(bookmark: Array(self.newsDict.values)[indexPath.row].bookmark)
         }
         
         return cell

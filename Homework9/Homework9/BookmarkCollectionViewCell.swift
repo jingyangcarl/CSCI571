@@ -17,6 +17,49 @@ class BookmarkCollectionViewCell: UICollectionViewCell {
     @IBOutlet var buttonBookmark: UIButton!
     
     @IBAction func DidBookmarkClick(_ sender: Any) {
+        // only need to perform bookmark remove
         
+    }
+    
+    func setImage(image: UIImage) {
+        self.imageView.image = image;
+    }
+    
+    func setTitle(title: String) {
+        self.labelTitle.text = title
+    }
+    
+    func setDate(date: String) {
+        let dateFormatter = Foundation.DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        let webPublicationDate = dateFormatter.date(from: date)
+        let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
+        let days = timeInterval! / 86400;
+        let hours = (timeInterval! % 86400) / 3600;
+        let minutes = ((timeInterval! % 86400) % 3600) / 60;
+        let seconds = ((timeInterval! % 86400) % 3600) % 60;
+        
+        if days != 0 {
+            self.labelDate.text = "\(days)d ago";
+        } else if hours != 0 {
+            self.labelDate.text = "\(hours)h ago";
+        } else if minutes != 0 {
+            self.labelDate.text = "\(minutes)m ago";
+        } else {
+            self.labelDate.text = "\(seconds)s ago"
+        }
+    }
+    
+    func setSection(section: String) {
+        self.labelSection.text = section
+    }
+    
+    func setBookmark(bookmark: Bool) {
+        if bookmark {
+            self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
     }
 }
