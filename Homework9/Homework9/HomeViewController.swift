@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import SwiftyJSON
+import SwiftSpinner
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsBookmarkDelegate {
     
@@ -273,6 +274,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      This function is used to perform refreshing from Guardian news
      */
     @objc func handleRefresh(_ sender: AnyObject) {
+        // show loading spinner
+        SwiftSpinner.show("Loading Home Page", animated: true)
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/search?orderby=newest&show-fields=starRating,headline,thumbnail,short-url&api-key=\(guardianKey)")!)
@@ -304,10 +307,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     }
                     
-                    // reload news cell
                     DispatchQueue.main.async {
+                        // reload news cell
                         self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .automatic)
+                        // hide loading spinner
+                        SwiftSpinner.hide()
                     }
+
                     
                 } catch DecodingError.dataCorrupted(let context) {
                     print(context.debugDescription)

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SwiftSpinner
 
 class NewsDetailViewController: UIViewController {
     
@@ -37,6 +38,8 @@ class NewsDetailViewController: UIViewController {
     }
     
     @objc func handleFetch(_ sender: AnyObject) {
+        // show loading spinner
+        SwiftSpinner.show("Loading News Detail", animated: true)
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/\(self.status.key.id    )?api-key=\(self.status.key.apiKey)&show-blocks=all")!)
@@ -85,6 +88,9 @@ class NewsDetailViewController: UIViewController {
                         self.labelDate.text = dateFormatterTo.string(from: date!)
                         
                         self.labelDescription.attributedText = self.status.value.description.htmlToAttributedString
+                        
+                        // hide loading spinner
+                        SwiftSpinner.hide()
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
@@ -159,7 +165,12 @@ extension String {
             return NSAttributedString()
         }
     }
+    
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
+    }
+    
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
     }
 }

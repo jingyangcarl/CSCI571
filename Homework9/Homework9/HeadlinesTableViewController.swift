@@ -9,6 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 import SwiftyJSON
+import SwiftSpinner
 
 class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, NewsBookmarkDelegate {
     
@@ -115,7 +116,8 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     }
     
     @objc func handleRefresh(_ ender: AnyObject) {
-        print(self.restorationIdentifier!)
+        // show loading spinner
+        SwiftSpinner.show("Loading \(self.restorationIdentifier!.capitalizingFirstLetter()) Page", animated: true)
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "http://content.guardianapis.com/\(self.restorationIdentifier! )?api-key=\(guardianKey)&show-blocks=all")!)
@@ -147,9 +149,11 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                         }
                     }
                     
-                    // reload news cell
                     DispatchQueue.main.async {
+                        // reload news cell
                         self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+                        // hide loading spinner
+                        SwiftSpinner.hide()
                     }
                     
                 } catch DecodingError.dataCorrupted(let context) {
