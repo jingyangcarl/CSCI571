@@ -48,17 +48,9 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         // Configure the cell...
         if !self.status.newsDict.isEmpty {
             
+            // check if the news is already in the bookmark list
             var news = Array(self.status.newsDict.values)[indexPath.row]
-            
-            if self.newsBookmarkDetailDelegate != nil {
-                // check if the news is already in the bookmark list
-                if self.newsBookmarkDetailDelegate.existBookmark(id: news.id) {
-                    news.bookmark = true
-                } else {
-                    news.bookmark = false
-                }
-            }
-            
+            news.bookmark = self.newsBookmarkDetailDelegate.existBookmark(id: news.id)
             cell.setNews(news: news, indexPath: indexPath)
         }
 
