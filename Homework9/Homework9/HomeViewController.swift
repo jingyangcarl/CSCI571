@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsTableViewCellDelegate, NewsDetailDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsBookmarkDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -148,7 +148,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
-            cell.newsTableViewCellDelegate = self
+            cell.newsBookmarkDelegate = self
             return cell
         } else {
             let cell = UITableViewCell()
@@ -356,10 +356,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].bookmark
         newsDetailViewController.status.key.apiKey = guardianKey
         newsDetailViewController.status.key.indexPath = self.status.selectedIndexPath
-        newsDetailViewController.newsDetailDelegate = self
+        newsDetailViewController.newsBookmarkDelegate = self
     }
     
-    func didBookmarkClickedFromCell(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
         self.status.newsDict[cell.id]?.bookmark = bookmark
@@ -373,25 +373,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
-        
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
-        self.status.newsDict[cell.id]?.bookmark = bookmark
-        
-        DispatchQueue.main.async {
-            if bookmark {
-                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            } else {
-                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            }
-        }
-    }
+//    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+//
+//        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
+//        self.status.newsDict[cell.id]?.bookmark = bookmark
+//
+//        DispatchQueue.main.async {
+//            if bookmark {
+//                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+//            } else {
+//                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+//            }
+//        }
+//    }
 }
 
-protocol NewsTableViewCellDelegate {
-    func didBookmarkClickedFromCell(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+protocol NewsBookmarkDelegate {
+    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }
 
-protocol NewsDetailDelegate {
-    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
-}
+//protocol NewsDetailDelegate {
+//    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+//}

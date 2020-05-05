@@ -19,7 +19,7 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet var buttonBookmark: UIButton!
     
     var status = NewsDetailStatus()
-    var newsDetailDelegate: NewsDetailDelegate!
+    var newsBookmarkDelegate: NewsBookmarkDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,8 +116,8 @@ class NewsDetailViewController: UIViewController {
         }
         
         self.status.key.bookmark = !self.status.key.bookmark
-        if self.newsDetailDelegate != nil {
-            self.newsDetailDelegate.didBookmarkClickedFromDetailView(self.status.key.bookmark, cellForRowAt: self.status.key.indexPath)
+        if self.newsBookmarkDelegate != nil {
+            self.newsBookmarkDelegate.didBookmarkClickedFromSubView(self.status.key.bookmark, cellForRowAt: self.status.key.indexPath)
         }
     }
     
