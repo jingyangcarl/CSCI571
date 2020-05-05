@@ -11,12 +11,14 @@ import UIKit
 
 struct Status {
     var newsDict: [String: News]
-    var selectedNewsIndex: Int
+//    var selectedNewsIndex: Int
+    var selectedIndexPath: IndexPath
     var weather: Weather
     
     init() {
         self.newsDict = [String: News]()
-        self.selectedNewsIndex = 0
+//        self.selectedNewsIndex = 0
+        self.selectedIndexPath = IndexPath()
         self.weather = Weather()
     }
 }

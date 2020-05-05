@@ -94,7 +94,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.status.selectedNewsIndex = indexPath.row
+        self.status.selectedIndexPath = indexPath
         performSegue(withIdentifier: "NewsDetailSegue", sender: self)
     }
     
@@ -179,7 +179,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
         
         // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
         newsDetailViewController.status.key.apiKey = guardianKey
     }
 

@@ -19,11 +19,14 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet var buttonBookmark: UIButton!
     
     var status = NewsDetailStatus()
+    var newsDetailDelegate: NewsDetailDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        // initialize bookmark
         if self.status.key.bookmark {
             self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         } else {
@@ -104,6 +107,18 @@ class NewsDetailViewController: UIViewController {
     
     @IBAction func DidBookmarkClick(_ sender: Any) {
         
+        DispatchQueue.main.async {
+            if self.status.key.bookmark {
+                self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+        }
+        
+        self.status.key.bookmark = !self.status.key.bookmark
+        if self.newsDetailDelegate != nil {
+            self.newsDetailDelegate.didBookmarkClickedFromDetailView(self.status.key.bookmark, cellForRowAt: self.status.key.indexPath)
+        }
     }
     
     @IBAction func DidTwitterClick(_ sender: Any) {

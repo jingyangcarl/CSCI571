@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsTableViewCellDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsTableViewCellDelegate, NewsDetailDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -182,7 +182,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.status.selectedNewsIndex = indexPath.row
+        self.status.selectedIndexPath = indexPath
         performSegue(withIdentifier: "NewsDetailSegue", sender: self)
     }
     
@@ -352,14 +352,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
         
         // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].id
-        newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].bookmark
+        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
+        newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].bookmark
         newsDetailViewController.status.key.apiKey = guardianKey
+        newsDetailViewController.status.key.indexPath = self.status.selectedIndexPath
+        newsDetailViewController.newsDetailDelegate = self
     }
     
     func didBookmarkClickedFromCell(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         
-        // update ui
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
+        self.status.newsDict[cell.id]?.bookmark = bookmark
+        
+        DispatchQueue.main.async {
+            if bookmark {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+        }
+    }
+    
+    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+        
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
         self.status.newsDict[cell.id]?.bookmark = bookmark
         
@@ -375,4 +390,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 protocol NewsTableViewCellDelegate {
     func didBookmarkClickedFromCell(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+}
+
+protocol NewsDetailDelegate {
+    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }
