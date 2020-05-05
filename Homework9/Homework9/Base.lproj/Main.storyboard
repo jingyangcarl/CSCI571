@@ -1252,7 +1252,7 @@
                                                     <outlet property="imageView" destination="8ah-0d-81l" id="3m6-mR-eCz"/>
                                                     <outlet property="labelDate" destination="WXm-BR-lX5" id="myI-Ox-zaZ"/>
                                                     <outlet property="labelSection" destination="UwF-ej-Mhz" id="qAc-T6-rvS"/>
-                                                    <outlet property="labelTitle" destination="8ah-0d-81l" id="tSc-95-ykU"/>
+                                                    <outlet property="labelTitle" destination="joO-sZ-SEg" id="pZs-lT-bM5"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -1278,6 +1278,9 @@
                         <viewLayoutGuide key="safeArea" id="ffb-hY-N5h"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bookmarks" id="FWz-lF-guk"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Qwq-N6-DDA" id="o6I-a8-iRt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6o-Ss-Uz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

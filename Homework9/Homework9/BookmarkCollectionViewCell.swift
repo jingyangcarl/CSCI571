@@ -11,7 +11,7 @@ import UIKit
 class BookmarkCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var labelTitle: UIImageView!
+    @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var labelSection: UILabel!
     
