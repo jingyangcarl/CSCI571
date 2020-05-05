@@ -1259,6 +1259,7 @@
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="160" height="260"/>
                                                 <connections>
+                                                    <outlet property="buttonBookmark" destination="vqb-dE-cIS" id="Vjz-Rk-Yu2"/>
                                                     <outlet property="imageView" destination="8ah-0d-81l" id="3m6-mR-eCz"/>
                                                     <outlet property="labelDate" destination="WXm-BR-lX5" id="myI-Ox-zaZ"/>
                                                     <outlet property="labelSection" destination="UwF-ej-Mhz" id="qAc-T6-rvS"/>

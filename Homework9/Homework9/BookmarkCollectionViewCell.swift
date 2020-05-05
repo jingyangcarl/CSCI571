@@ -14,6 +14,7 @@ class BookmarkCollectionViewCell: UICollectionViewCell {
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var labelSection: UILabel!
+    @IBOutlet var buttonBookmark: UIButton!
     
     @IBAction func DidBookmarkClick(_ sender: Any) {
         

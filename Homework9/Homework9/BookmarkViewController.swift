@@ -37,6 +37,12 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.imageView.image = Array(self.newsDict.values)[indexPath.row].image
             cell.labelTitle.text = Array(self.newsDict.values)[indexPath.row].title
             cell.labelSection.text = Array(self.newsDict.values)[indexPath.row].section
+            
+            if Array(self.newsDict.values)[indexPath.row].bookmark {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
 
             let dateFormatter = Foundation.DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
