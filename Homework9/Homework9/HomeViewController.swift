@@ -372,26 +372,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
-//    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
-//
-//        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
-//        self.status.newsDict[cell.id]?.bookmark = bookmark
-//
-//        DispatchQueue.main.async {
-//            if bookmark {
-//                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-//            } else {
-//                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-//            }
-//        }
-//    }
 }
 
 protocol NewsBookmarkDelegate {
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }
-
-//protocol NewsDetailDelegate {
-//    func didBookmarkClickedFromDetailView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
-//}
