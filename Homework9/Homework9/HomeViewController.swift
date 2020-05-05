@@ -377,8 +377,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.status.newsDict[cell.id]?.bookmark = bookmark
         
         if self.newsBookmarkDetailDelegate != nil {
-            print("here")
-            self.newsBookmarkDetailDelegate.sendBookmarkedNews(news: "News()")
+            if bookmark {
+                self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
+            } else {
+                self.newsBookmarkDetailDelegate.removeBookmark(id: cell.id)
+            }
         }
         
         DispatchQueue.main.async {
