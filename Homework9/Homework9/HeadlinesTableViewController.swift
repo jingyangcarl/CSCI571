@@ -10,13 +10,16 @@ import UIKit
 import XLPagerTabStrip
 import SwiftyJSON
 
-class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider {
+class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, NewsBookmarkDelegate {
+    
     
     // status to save current data
     var status = Status()
     
     // api keys
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
+    
+    var newsBookmarkDetailDelegate: NewsBookmarkDetailDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,10 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl?.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl!)
+        
+        // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
+        guard let bookmarkViewController = self.parent?.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
+        self.newsBookmarkDetailDelegate = bookmarkViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,32 +46,34 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
 
         // Configure the cell...
         if !self.status.newsDict.isEmpty {
-            cell.imageThumbnail.image = Array(self.status.newsDict.values)[indexPath.row].image
-            cell.labelTitle.text = Array(self.status.newsDict.values)[indexPath.row].title
-            cell.labelSection.text = Array(self.status.newsDict.values)[indexPath.row].section
-
-            let dateFormatter = Foundation.DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-
-            let webPublicationDate = dateFormatter.date(from: Array(self.status.newsDict.values)[indexPath.row].date)
-            let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
-            let days = timeInterval! / 86400;
-            let hours = (timeInterval! % 86400) / 3600;
-            let minutes = ((timeInterval! % 86400) % 3600) / 60;
-            let seconds = ((timeInterval! % 86400) % 3600) % 60;
-
-            if days != 0 {
-                cell.labelDate.text = "\(days)d ago";
-            } else if hours != 0 {
-                cell.labelDate.text = "\(hours)h ago";
-            } else if minutes != 0 {
-                cell.labelDate.text = "\(minutes)m ago";
-            } else {
-                cell.labelDate.text = "\(seconds)s ago"
-            }
+            cell.setNews(news: Array(self.status.newsDict.values)[indexPath.row], indexPath: indexPath)
+//            cell.imageThumbnail.image = Array(self.status.newsDict.values)[indexPath.row].image
+//            cell.labelTitle.text = Array(self.status.newsDict.values)[indexPath.row].title
+//            cell.labelSection.text = Array(self.status.newsDict.values)[indexPath.row].section
+//
+//            let dateFormatter = Foundation.DateFormatter()
+//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+//
+//            let webPublicationDate = dateFormatter.date(from: Array(self.status.newsDict.values)[indexPath.row].date)
+//            let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
+//            let days = timeInterval! / 86400;
+//            let hours = (timeInterval! % 86400) / 3600;
+//            let minutes = ((timeInterval! % 86400) % 3600) / 60;
+//            let seconds = ((timeInterval! % 86400) % 3600) % 60;
+//
+//            if days != 0 {
+//                cell.labelDate.text = "\(days)d ago";
+//            } else if hours != 0 {
+//                cell.labelDate.text = "\(hours)h ago";
+//            } else if minutes != 0 {
+//                cell.labelDate.text = "\(minutes)m ago";
+//            } else {
+//                cell.labelDate.text = "\(seconds)s ago"
+//            }
             
         }
 
+        cell.newsBookmarkDelegate = self
         return cell
     }
     
@@ -181,6 +190,28 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         // prepare data will be used in Detail View
         newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
         newsDetailViewController.status.key.apiKey = guardianKey
+    }
+    
+    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+        
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
+        self.status.newsDict[cell.id]?.bookmark = bookmark
+        
+        if self.newsBookmarkDetailDelegate != nil {
+            if bookmark {
+                self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
+            } else {
+                self.newsBookmarkDetailDelegate.removeBookmark(id: cell.id)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            if bookmark {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+        }
     }
 
 }

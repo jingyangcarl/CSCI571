@@ -222,11 +222,11 @@
             <objects>
                 <viewController id="VPw-Y4-1UV" customClass="NewsDetailViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2X5-Ge-yW5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-Jy-jM6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-GZ-9Ke">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -387,6 +387,9 @@
                                                 <constraint firstAttribute="height" constant="22" id="rw6-mB-qcn"/>
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="DidBookmarkClick:" destination="PHq-id-LBN" eventType="touchUpInside" id="UIa-ew-f9l"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6U-8m-szE">
                                             <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -448,7 +451,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageView" destination="I4z-jQ-GfJ" id="i8I-RG-23N"/>
+                                    <outlet property="buttonBookmark" destination="oe6-ai-eFx" id="5eP-hO-fd4"/>
+                                    <outlet property="imageThumbnail" destination="I4z-jQ-GfJ" id="hKH-VE-Pka"/>
                                     <outlet property="labelDate" destination="ttP-F3-nEv" id="cTU-sT-nEL"/>
                                     <outlet property="labelSection" destination="2Ms-ID-pWC" id="M5W-xV-kxU"/>
                                     <outlet property="labelTitle" destination="MgI-K8-Mfz" id="NVf-ND-CtW"/>
@@ -497,6 +501,9 @@
                                                 <constraint firstAttribute="height" constant="22" id="Txe-UV-FEg"/>
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="DidBookmarkClick:" destination="f0Y-Tq-Crr" eventType="touchUpInside" id="Xb3-Cf-3zZ"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEX-iB-tPb">
                                             <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -558,7 +565,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageView" destination="UFT-Uc-doG" id="hLn-fB-Ynf"/>
+                                    <outlet property="buttonBookmark" destination="w2c-zE-zZU" id="s4q-TY-USt"/>
+                                    <outlet property="imageThumbnail" destination="UFT-Uc-doG" id="35r-6a-Trf"/>
                                     <outlet property="labelDate" destination="303-Em-3bT" id="7Cp-Pf-LdI"/>
                                     <outlet property="labelSection" destination="WmO-LC-UOR" id="kVR-I7-pc2"/>
                                     <outlet property="labelTitle" destination="Zfx-BU-VET" id="MvX-EA-HQg"/>
@@ -607,6 +615,9 @@
                                                 <constraint firstAttribute="height" constant="22" id="Arh-nK-tUV"/>
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="DidBookmarkClick:" destination="XEz-QK-BhJ" eventType="touchUpInside" id="2Yd-KL-CFO"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0Q-X1-MVf">
                                             <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -668,7 +679,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="imageView" destination="nG2-3K-3Ez" id="3aE-oG-eJ9"/>
+                                    <outlet property="buttonBookmark" destination="S2A-L4-ioy" id="Igc-2n-cwC"/>
+                                    <outlet property="imageThumbnail" destination="nG2-3K-3Ez" id="keV-2Z-nEC"/>
                                     <outlet property="labelDate" destination="PJD-vt-kjo" id="1ak-z1-INM"/>
                                     <outlet property="labelSection" destination="5ie-gk-Wa1" id="bmS-No-YuY"/>
                                     <outlet property="labelTitle" destination="1tQ-es-x4U" id="PcJ-l8-EGZ"/>
@@ -717,6 +729,9 @@
                                                 <constraint firstAttribute="width" constant="17.5" id="f26-qz-x4v"/>
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="DidBookmarkClick:" destination="GbL-g4-7Sc" eventType="touchUpInside" id="rH4-aA-TZ6"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3W-Is-6Pi">
                                             <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -778,6 +793,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="buttonBookmark" destination="sTB-Mz-w1K" id="mrp-4k-3bf"/>
+                                    <outlet property="imageThumbnail" destination="g5l-Jm-axN" id="bKz-Gs-ICj"/>
                                     <outlet property="imageView" destination="g5l-Jm-axN" id="MUz-a2-VpQ"/>
                                     <outlet property="labelDate" destination="rjo-6W-htw" id="GXN-KD-5XI"/>
                                     <outlet property="labelSection" destination="4Ex-sd-WeL" id="RVz-OG-HNA"/>
@@ -827,6 +844,9 @@
                                                 <constraint firstAttribute="height" constant="22" id="D3Z-5d-jIY"/>
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="DidBookmarkClick:" destination="gbv-pR-mLh" eventType="touchUpInside" id="aAv-AN-Aoz"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUu-PP-lpD">
                                             <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -888,6 +908,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="buttonBookmark" destination="Keg-Ra-66H" id="IZU-qY-JdR"/>
+                                    <outlet property="imageThumbnail" destination="MaO-Vv-L0w" id="NgL-27-QBU"/>
                                     <outlet property="imageView" destination="MaO-Vv-L0w" id="tYc-IQ-jtr"/>
                                     <outlet property="labelDate" destination="1q5-3h-hod" id="AgR-Xh-7UA"/>
                                     <outlet property="labelSection" destination="ren-U2-2Uj" id="7Qf-SW-O32"/>
@@ -937,6 +959,9 @@
                                                 <constraint firstAttribute="height" constant="22" id="rxD-e2-GBe"/>
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="DidBookmarkClick:" destination="7BR-bc-5VH" eventType="touchUpInside" id="r0E-YD-ziw"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q37-4l-fWe">
                                             <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -998,6 +1023,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="buttonBookmark" destination="Oux-U5-SEW" id="JOV-w3-lrB"/>
+                                    <outlet property="imageThumbnail" destination="eai-sU-rO8" id="JLz-Pp-wGW"/>
                                     <outlet property="imageView" destination="eai-sU-rO8" id="Xr1-wJ-zoK"/>
                                     <outlet property="labelDate" destination="4Um-l6-WCn" id="J6Q-01-hGo"/>
                                     <outlet property="labelSection" destination="ivH-SR-ieI" id="zcm-O0-TT9"/>
@@ -1376,7 +1403,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n3v-O6-Zes"/>
+        <segue reference="1VV-MD-al0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
