@@ -44,6 +44,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
+    var newsBookmarkDetailDelegate: NewsBookmarkDetailDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -64,6 +66,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        
+        // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
+        guard let bookmarkViewController = self.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
+        self.newsBookmarkDetailDelegate = bookmarkViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -349,20 +355,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      This function is used to prepare data and segue to Detialed View
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
         
-        // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
-        newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].bookmark
-        newsDetailViewController.status.key.apiKey = guardianKey
-        newsDetailViewController.status.key.indexPath = self.status.selectedIndexPath
-        newsDetailViewController.newsBookmarkDelegate = self
+        if segue.identifier == "NewsDetailSegue" {
+
+            guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+            
+            // prepare data will be used in Detail View
+            newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
+            newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].bookmark
+            newsDetailViewController.status.key.apiKey = guardianKey
+            newsDetailViewController.status.key.indexPath = self.status.selectedIndexPath
+            newsDetailViewController.newsBookmarkDelegate = self
+        } else {
+            
+        }
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
         self.status.newsDict[cell.id]?.bookmark = bookmark
+        
+        if self.newsBookmarkDetailDelegate != nil {
+            print("here")
+            self.newsBookmarkDetailDelegate.sendBookmarkedNews(news: "News()")
+        }
         
         DispatchQueue.main.async {
             if bookmark {
@@ -371,6 +388,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
             }
         }
+        
     }
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookmarkViewController: UIViewController {
+class BookmarkViewController: UIViewController, NewsBookmarkDetailDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,15 +16,11 @@ class BookmarkViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func sendBookmarkedNews(news: String) {
+        print(news)
     }
-    */
+}
 
+protocol NewsBookmarkDetailDelegate {
+    func sendBookmarkedNews(news: String)
 }

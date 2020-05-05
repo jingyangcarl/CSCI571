@@ -161,14 +161,9 @@
 		EC4E94502456AE4C00563783 /* Headlines View */ = {
 			isa = PBXGroup;
 			children = (
+				EC4E947124612B2300563783 /* Sections */,
 				EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */,
 				EC4E94642456CC0D00563783 /* HeadlinesTableViewController.swift */,
-				EC4E94542456B43700563783 /* WorldTableViewController.swift */,
-				EC4E94582456B92E00563783 /* BusinessTableViewController.swift */,
-				EC4E945A2456C95700563783 /* PoliticsTableViewController.swift */,
-				EC4E945C2456C96A00563783 /* SportsTableViewController.swift */,
-				EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */,
-				EC4E94602456C98700563783 /* ScienceTableViewController.swift */,
 			);
 			name = "Headlines View";
 			sourceTree = "<group>";
@@ -200,6 +195,19 @@
 				EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */,
 			);
 			name = "Bookmark View";
+			sourceTree = "<group>";
+		};
+		EC4E947124612B2300563783 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EC4E94542456B43700563783 /* WorldTableViewController.swift */,
+				EC4E94582456B92E00563783 /* BusinessTableViewController.swift */,
+				EC4E945A2456C95700563783 /* PoliticsTableViewController.swift */,
+				EC4E945C2456C96A00563783 /* SportsTableViewController.swift */,
+				EC4E945E2456C97A00563783 /* TechnologyTableViewController.swift */,
+				EC4E94602456C98700563783 /* ScienceTableViewController.swift */,
+			);
+			name = Sections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
