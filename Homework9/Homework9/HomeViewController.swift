@@ -17,7 +17,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // init location manager status
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
-
+    
     // init pull to refresh
     let refreshControl = UIRefreshControl()
     
@@ -111,16 +111,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "News Cell") as! NewsTableViewCell
             
             // set up news cell
-            if !self.status.newsList.isEmpty {
+            if !self.status.newsDict.isEmpty {
                 
-                cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
-                cell.labelTitle.text = self.status.newsList[indexPath.row].title
-                cell.labelSection.text = self.status.newsList[indexPath.row].section
+                cell.imageThumbnail.image = Array(self.status.newsDict.values)[indexPath.row].image
+                cell.labelTitle.text = Array(self.status.newsDict.values)[indexPath.row].title
+                cell.labelSection.text = Array(self.status.newsDict.values)[indexPath.row].section
                 
                 let dateFormatter = Foundation.DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                 
-                let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].date)
+                let webPublicationDate = dateFormatter.date(from: Array(self.status.newsDict.values)[indexPath.row].date)
                 let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
                 let days = timeInterval! / 86400;
                 let hours = (timeInterval! % 86400) / 3600;
@@ -147,12 +147,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
-
+            
             let twitterMenu = UIAction(title: "Share with Twitter", image: UIImage(named: "twitter")) { action in
                 // share
-
+                
                 let tweetText = "Check out this Article!"
-                let tweetUrl = self.status.newsList[indexPath.row].url
+                let tweetUrl = Array(self.status.newsDict.values)[indexPath.row].url
                 let tweetHashtag = "CSCI_571_NewsApp"
                 
                 let shareUrl = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)&hashtags=\(tweetHashtag)"
@@ -192,7 +192,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if section == HomeSession.Weather.rawValue {
             return 1
         } else if section == HomeSession.News.rawValue {
-            return self.status.newsList.count
+            return self.status.newsDict.count
         } else {
             return 0
         }
@@ -276,8 +276,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      This function is used to perform refreshing from Guardian news
      */
     @objc func handleRefresh(_ sender: AnyObject) {
-        // clear current news list
-        self.status.newsList.removeAll()
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/search?orderby=newest&show-fields=starRating,headline,thumbnail,short-url&api-key=\(guardianKey)")!)
@@ -303,8 +301,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let id: String = result["id"].stringValue
                         let url: String = result["webUrl"].stringValue
                         
-                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
-                        self.status.newsList.append(news)
+                        if self.status.newsDict[id] == nil {
+                            let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
+                            self.status.newsDict[id] = news
+                        }
                     }
                     
                     // reload news cell
@@ -341,8 +341,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
         
         // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = self.status.newsList[self.status.selectedNewsIndex].id
-        newsDetailViewController.status.key.apiKey  = guardianKey
+        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.key.apiKey = guardianKey
     }
 }
 

@@ -38,15 +38,15 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         let cell = tableView.dequeueReusableCell(withIdentifier: "News Cell", for: indexPath) as! NewsTableViewCell
 
         // Configure the cell...
-        if !self.status.newsList.isEmpty {
-            cell.imageThumbnail.image = self.status.newsList[indexPath.row].image
-            cell.labelTitle.text = self.status.newsList[indexPath.row].title
-            cell.labelSection.text = self.status.newsList[indexPath.row].section
+        if !self.status.newsDict.isEmpty {
+            cell.imageThumbnail.image = Array(self.status.newsDict.values)[indexPath.row].image
+            cell.labelTitle.text = Array(self.status.newsDict.values)[indexPath.row].title
+            cell.labelSection.text = Array(self.status.newsDict.values)[indexPath.row].section
 
             let dateFormatter = Foundation.DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
-            let webPublicationDate = dateFormatter.date(from: self.status.newsList[indexPath.row].date)
+            let webPublicationDate = dateFormatter.date(from: Array(self.status.newsDict.values)[indexPath.row].date)
             let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
             let days = timeInterval! / 86400;
             let hours = (timeInterval! % 86400) / 3600;
@@ -75,7 +75,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                 // share
 
                 let tweetText = "Check out this Article!"
-                let tweetUrl = self.status.newsList[indexPath.row].url
+                let tweetUrl = Array(self.status.newsDict.values)[indexPath.row].url
                 let tweetHashtag = "CSCI_571_NewsApp"
                 
                 let shareUrl = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)&hashtags=\(tweetHashtag)"
@@ -105,7 +105,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.status.newsList.count
+        return self.status.newsDict.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,9 +119,6 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     
     @objc func handleRefresh(_ ender: AnyObject) {
         print(self.restorationIdentifier!)
-        
-        // clear current news List
-        self.status.newsList.removeAll()
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "http://content.guardianapis.com/\(self.restorationIdentifier! )?api-key=\(guardianKey)&show-blocks=all")!)
@@ -147,8 +144,10 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                         let id: String = result["id"].stringValue
                         let url: String = result["webUrl"].stringValue
                         
-                        let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
-                        self.status.newsList.append(news)
+                        if self.status.newsDict[id] == nil {
+                            let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
+                            self.status.newsDict[id] = news
+                        }
                     }
                     
                     // reload news cell
@@ -180,7 +179,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
         
         // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = self.status.newsList[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].id
         newsDetailViewController.status.key.apiKey = guardianKey
     }
 

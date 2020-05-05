@@ -122,10 +122,10 @@
 		EC4E94112452BF3C00563783 /* Homework9 */ = {
 			isa = PBXGroup;
 			children = (
-				EC4E946624593ADB00563783 /* Shared Cell */,
 				EC4E942C2453C0F600563783 /* JSON */,
 				EC4E9441245522FF00563783 /* Home View */,
 				EC4E94502456AE4C00563783 /* Headlines View */,
+				EC4E946624593ADB00563783 /* Shared Cell */,
 				EC4E946B245F9F0D00563783 /* Trending View */,
 				EC4E946E2460D36600563783 /* Bookmark View */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,

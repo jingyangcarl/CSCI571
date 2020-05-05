@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 struct Status {
-    var newsList: [News]
+    var newsDict: [String: News]
     var selectedNewsIndex: Int
     var weather: Weather
     
     init() {
-        self.newsList = [News]()
+        self.newsDict = [String: News]()
         self.selectedNewsIndex = 0
         self.weather = Weather()
     }
