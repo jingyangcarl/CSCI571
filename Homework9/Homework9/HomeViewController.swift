@@ -119,7 +119,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // set up news cell
             if !self.status.newsDict.isEmpty {
-                cell.setNews(news: Array(self.status.newsDict.values)[indexPath.row], indexPath: indexPath)
+                
+                var news = Array(self.status.newsDict.values)[indexPath.row]
+                
+                if self.newsBookmarkDetailDelegate != nil {
+                    // check if the news is already in the bookmark list
+                    if self.newsBookmarkDetailDelegate.existBookmark(id: news.id) {
+                        news.bookmark = true
+                    } else {
+                        news.bookmark = false
+                    }
+                }
+                
+                cell.setNews(news: news, indexPath: indexPath)
             }
             
             cell.newsBookmarkDelegate = self

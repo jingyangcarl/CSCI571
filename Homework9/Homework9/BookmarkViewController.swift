@@ -57,9 +57,14 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.newsDict.removeValue(forKey: id)
         collectionView?.reloadData()
     }
+    
+    func existBookmark(id: String) -> Bool {
+        return self.newsDict[id] != nil
+    }
 }
 
 protocol NewsBookmarkDetailDelegate {
     func addBookmark(id: String, news: News)
     func removeBookmark(id: String)
+    func existBookmark(id: String) -> Bool
 }
