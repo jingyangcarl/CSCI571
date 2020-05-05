@@ -26,15 +26,6 @@ class NewsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
-        // initialize bookmark
-        if self.status.key.bookmark {
-            self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        }
-        
         guard let bookmarkViewController = self.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
         self.newsBookmarkDetailDelegate = bookmarkViewController
         
@@ -107,6 +98,8 @@ class NewsDetailViewController: UIViewController {
         }.resume()
     }
     
+    // MARK: - Set Widget Content
+    
     func setBookmark(bookmark: Bool) {
         self.buttonBookmark.setImage(bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
     }
@@ -143,6 +136,8 @@ class NewsDetailViewController: UIViewController {
         self.labelDescription.attributedText = description.htmlToAttributedString
     }
     
+    // MARK: - Handle Button Click
+    
     @IBAction func didBookmarkClicked(_ sender: Any) {
         
         DispatchQueue.main.async {
@@ -155,7 +150,7 @@ class NewsDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func DidTwitterClick(_ sender: Any) {
+    @IBAction func didTwitterClicked(_ sender: Any) {
         let tweetText = "Check out this Article!"
         let tweetUrl = self.status.value.url
         let tweetHashtag = "CSCI_571_NewsApp"
@@ -167,7 +162,7 @@ class NewsDetailViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
-    @IBAction func DidViewMoreClick(_ sender: Any) {
+    @IBAction func didViewMoreClicked(_ sender: Any) {
         guard let url = URL(string: self.status.value.url) else { return }
         UIApplication.shared.open(url)
     }

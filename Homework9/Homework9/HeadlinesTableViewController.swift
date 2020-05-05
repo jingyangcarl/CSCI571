@@ -52,6 +52,9 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
             var news = Array(self.status.newsDict.values)[indexPath.row]
             news.bookmark = self.newsBookmarkDetailDelegate.existBookmark(id: news.id)
             cell.setNews(news: news, indexPath: indexPath)
+            
+            // update status
+            self.status.newsDict[news.id]?.bookmark = news.bookmark
         }
 
         cell.newsBookmarkDelegate = self
@@ -61,11 +64,13 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
 
+            var news: News = Array(self.status.newsDict.values)[indexPath.row]
+            
             let twitterMenu = UIAction(title: "Share with Twitter", image: UIImage(named: "twitter")) { action in
                 // share
-
+                
                 let tweetText = "Check out this Article!"
-                let tweetUrl = Array(self.status.newsDict.values)[indexPath.row].url
+                let tweetUrl = news.url
                 let tweetHashtag = "CSCI_571_NewsApp"
                 
                 let shareUrl = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)&hashtags=\(tweetHashtag)"
@@ -74,12 +79,14 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                 
                 UIApplication.shared.open(url)
             }
-            let bookMarkMenu = UIAction(title: "Bookmark", image: UIImage(systemName: "bookmark")) { action in
+            let bookmarkMenu = UIAction(title: "Bookmark", image: news.bookmark ?  UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")) { action in
                 //
+                news.bookmark = !news.bookmark
+                self.didBookmarkClickedFromSubView(news.bookmark, cellForRowAt: indexPath)
             }
             
             // Create and return a UIMenu with the share action
-            return UIMenu(title: "Main Menu", children: [twitterMenu, bookMarkMenu])
+            return UIMenu(title: "Main Menu", children: [twitterMenu, bookmarkMenu])
         })
     }
     
@@ -179,21 +186,19 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
-        self.status.newsDict[cell.id]?.bookmark = bookmark
         
+        // update bookmark UI
+        self.status.newsDict[cell.id]?.bookmark = bookmark
+        DispatchQueue.main.async {
+            cell.buttonBookmark.setImage(bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
+        }
+        
+        // update bookmark collection view
         if self.newsBookmarkDetailDelegate != nil {
             if bookmark {
                 self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
             } else {
                 self.newsBookmarkDetailDelegate.removeBookmark(id: cell.id)
-            }
-        }
-        
-        DispatchQueue.main.async {
-            if bookmark {
-                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            } else {
-                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
             }
         }
     }

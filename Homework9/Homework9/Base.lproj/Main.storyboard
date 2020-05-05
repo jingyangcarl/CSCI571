@@ -285,7 +285,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="View Full Article"/>
                                         <connections>
-                                            <action selector="DidViewMoreClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="eKB-Md-uYt"/>
+                                            <action selector="didViewMoreClicked:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="eKB-Md-uYt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -327,7 +327,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="twitter"/>
                                     <connections>
-                                        <action selector="DidTwitterClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="96q-wT-Ghc"/>
+                                        <action selector="didTwitterClicked:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="96q-wT-Ghc"/>
                                     </connections>
                                 </button>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
