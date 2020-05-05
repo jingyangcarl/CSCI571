@@ -45,7 +45,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
-    var newsBookmarkDetailDelegate: NewsBookmarkDetailDelegate!
+    var newsBookmarkDetailDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()

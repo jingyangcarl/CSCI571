@@ -20,7 +20,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     // api keys
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
-    var newsBookmarkDetailDelegate: NewsBookmarkDetailDelegate!
+    var newsBookmarkDetailDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()

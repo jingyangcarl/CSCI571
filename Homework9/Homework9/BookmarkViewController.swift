@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkDetailDelegate {
+class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -63,7 +63,7 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
 }
 
-protocol NewsBookmarkDetailDelegate {
+protocol NewsBookmarkOperationDelegate {
     func addBookmark(id: String, news: News)
     func removeBookmark(id: String)
     func existBookmark(id: String) -> Bool

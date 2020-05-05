@@ -21,6 +21,7 @@ class NewsDetailViewController: UIViewController {
     
     var status = NewsDetailStatus()
     var newsBookmarkDelegate: NewsBookmarkDelegate!
+    var newsBookmarkDetailDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,18 @@ class NewsDetailViewController: UIViewController {
             self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
         
+        guard let bookmarkViewController = self.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
+        self.newsBookmarkDetailDelegate = bookmarkViewController
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // check bookmark
+        self.status.key.bookmark = self.newsBookmarkDetailDelegate.existBookmark(id: self.status.key.id)
+        self.setBookmark(bookmark: self.status.key.bookmark)
+        
+        // fetch data
         handleFetch(self)
     }
     
@@ -65,29 +78,12 @@ class NewsDetailViewController: UIViewController {
                     
                     // reload news cell
                     DispatchQueue.main.async {
-                        
-                        self.navigationItem.title = self.status.value.title
-                        
-                        if self.status.value.imageUrl.isEmpty {
-                            self.status.value.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
-                        }
-                        if let imageData = try? Data(contentsOf: URL(string: self.status.value.imageUrl)!) {
-                            if let image = UIImage(data: imageData) {
-                                self.imageView.image = image;
-                            }
-                        }
-                        
-                        self.labelTitle.text = self.status.value.title
-                        self.labelSection.text = self.status.value.section
-                        
-                        let dateFormatterFrom = Foundation.DateFormatter()
-                        let dateFormatterTo = Foundation.DateFormatter()
-                        dateFormatterFrom.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-                        dateFormatterTo.dateFormat = "dd MMM yyyy"
-                        let date = dateFormatterFrom.date(from: self.status.value.date)
-                        self.labelDate.text = dateFormatterTo.string(from: date!)
-                        
-                        self.labelDescription.attributedText = self.status.value.description.htmlToAttributedString
+                        // do
+                        self.setImage(imageUrl: self.status.value.imageUrl)
+                        self.setTitle(title: self.status.value.title)
+                        self.setSection(section: self.status.value.section)
+                        self.setDate(date: self.status.value.date)
+                        self.setDescription(description: self.status.value.description)
                         
                         // hide loading spinner
                         SwiftSpinner.hide()
@@ -111,14 +107,46 @@ class NewsDetailViewController: UIViewController {
         }.resume()
     }
     
-    @IBAction func DidBookmarkClick(_ sender: Any) {
+    func setBookmark(bookmark: Bool) {
+        self.buttonBookmark.setImage(bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
+    }
+    
+    func setImage(imageUrl: String) {
+        if self.status.value.imageUrl.isEmpty {
+            self.status.value.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
+        }
+        if let imageData = try? Data(contentsOf: URL(string: self.status.value.imageUrl)!) {
+            if let image = UIImage(data: imageData) {
+                self.imageView.image = image;
+            }
+        }
+    }
+    
+    func setTitle(title: String) {
+        self.navigationItem.title = title
+        self.labelTitle.text = title
+    }
+    
+    func setSection(section: String) {
+        self.labelSection.text = section
+    }
+    
+    func setDate(date: String) {
+        let dateFormatterFrom = Foundation.DateFormatter()
+        let dateFormatterTo = Foundation.DateFormatter()
+        dateFormatterFrom.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatterTo.dateFormat = "dd MMM yyyy"
+        self.labelDate.text = dateFormatterTo.string(from: dateFormatterFrom.date(from: date)!)
+    }
+    
+    func setDescription(description: String) {
+        self.labelDescription.attributedText = description.htmlToAttributedString
+    }
+    
+    @IBAction func didBookmarkClicked(_ sender: Any) {
         
         DispatchQueue.main.async {
-            if self.status.key.bookmark {
-                self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            } else {
-                self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            }
+            self.buttonBookmark.setImage(self.status.key.bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
         }
         
         self.status.key.bookmark = !self.status.key.bookmark
@@ -143,16 +171,6 @@ class NewsDetailViewController: UIViewController {
         guard let url = URL(string: self.status.value.url) else { return }
         UIApplication.shared.open(url)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 

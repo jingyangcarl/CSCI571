@@ -338,7 +338,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="   " image="bookmark" catalog="system"/>
                                     <connections>
-                                        <action selector="DidBookmarkClick:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="NLk-PH-YHh"/>
+                                        <action selector="didBookmarkClicked:" destination="VPw-Y4-1UV" eventType="touchUpInside" id="NLk-PH-YHh"/>
                                     </connections>
                                 </button>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1185,7 +1185,7 @@
         <!--Bookmarks-->
         <scene sceneID="OAw-FX-v7f">
             <objects>
-                <viewController id="YM8-ca-pEo" customClass="BookmarkViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Bookmark View" id="YM8-ca-pEo" customClass="BookmarkViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BMG-dD-NZF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
