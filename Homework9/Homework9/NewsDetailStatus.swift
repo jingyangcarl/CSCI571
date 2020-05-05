@@ -10,35 +10,37 @@ import Foundation
 import UIKit
 
 struct NewsDetailStatus {
-    var key: Key;
-    var value: Value;
+    var key: Key
+    var value: Value
     
     init() {
-        self.key = Key();
-        self.value = Value();
+        self.key = Key()
+        self.value = Value()
     }
 }
 
 struct Key {
-    var id: String;
-    var apiKey: String;
+    var id: String
+    var apiKey: String
+    var bookmark: Bool
     
     init() {
-        self.id = "";
-        self.apiKey = "";
+        self.id = ""
+        self.apiKey = ""
+        self.bookmark = false
     }
 }
 
 struct Value {
-    var imageUrl: String;
-    var title: String;
-    var date: String;
-    var section: String;
-    var description: String;
-    var url: String;
+    var imageUrl: String
+    var title: String
+    var date: String
+    var section: String
+    var description: String
+    var url: String
     
     init() {
-        self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png";
+        self.imageUrl = "https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png"
         self.title = "title"
         self.date = "2020-04-26T03:02:14Z"
         self.section = "section"

@@ -353,15 +353,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // prepare data will be used in Detail View
         newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].id
+        newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].bookmark
         newsDetailViewController.status.key.apiKey = guardianKey
     }
     
-    func didBookmarkClickedFromCell(_ id: String, _ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
-        // update bookmark status
-        self.status.newsDict[id]?.bookmark = bookmark
+    func didBookmarkClickedFromCell(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         
         // update ui
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
+        self.status.newsDict[cell.id]?.bookmark = bookmark
         
         DispatchQueue.main.async {
             if bookmark {
@@ -374,5 +374,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 protocol NewsTableViewCellDelegate {
-    func didBookmarkClickedFromCell(_ id: String, _ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+    func didBookmarkClickedFromCell(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }

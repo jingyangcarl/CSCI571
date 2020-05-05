@@ -35,7 +35,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBAction func DidBookmarkClick(_ sender: Any) {
         self.bookmark = !self.bookmark
         if self.newsTableViewCellDelegate != nil {
-            self.newsTableViewCellDelegate.didBookmarkClickedFromCell(self.id, self.bookmark, cellForRowAt: self.indexPath)
+            self.newsTableViewCellDelegate.didBookmarkClickedFromCell(self.bookmark, cellForRowAt: self.indexPath)
         }
     }
     

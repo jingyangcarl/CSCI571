@@ -16,6 +16,7 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var labelSection: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
+    @IBOutlet var buttonBookmark: UIButton!
     
     var status = NewsDetailStatus()
     
@@ -23,6 +24,11 @@ class NewsDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        if self.status.key.bookmark {
+            self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
         
         handleFetch(self)
     }
@@ -97,6 +103,7 @@ class NewsDetailViewController: UIViewController {
     }
     
     @IBAction func DidBookmarkClick(_ sender: Any) {
+        
     }
     
     @IBAction func DidTwitterClick(_ sender: Any) {

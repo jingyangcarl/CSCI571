@@ -335,6 +335,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonBookmark" destination="9Eo-Of-9ic" id="FEE-AZ-03v"/>
                         <outlet property="imageView" destination="aF7-GZ-9Ke" id="01I-ac-8aS"/>
                         <outlet property="labelDate" destination="vTj-8X-DYL" id="lAT-x8-Ekv"/>
                         <outlet property="labelDescription" destination="6zA-3h-dgl" id="N0p-uJ-dHO"/>
