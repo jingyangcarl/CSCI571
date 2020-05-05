@@ -106,6 +106,9 @@
                                                         <constraint firstAttribute="height" constant="22" id="rbt-YS-8bx"/>
                                                     </constraints>
                                                     <state key="normal" image="bookmark" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="DidBookmarkClick:" destination="NLM-p7-EqO" eventType="touchUpInside" id="z5A-sw-3vR"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wb-e4-2KI">
                                                     <rect key="frame" x="148" y="107" width="213.5" height="22"/>
@@ -169,6 +172,7 @@
                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
+                                            <outlet property="buttonBookmark" destination="JhL-Sr-Qsm" id="7Yp-kH-9b7"/>
                                             <outlet property="imageThumbnail" destination="h9p-Hz-VnR" id="qfb-2R-lu4"/>
                                             <outlet property="labelDate" destination="U5h-l0-r6R" id="j1D-Lm-5S4"/>
                                             <outlet property="labelSection" destination="cX9-Tb-4ZR" id="MKE-yH-7Z2"/>
@@ -1356,7 +1360,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="u9w-CZ-oy3"/>
+        <segue reference="GU2-FO-IxI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>

@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsTableViewCellDelegate {
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -116,6 +117,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.imageThumbnail.image = Array(self.status.newsDict.values)[indexPath.row].image
                 cell.labelTitle.text = Array(self.status.newsDict.values)[indexPath.row].title
                 cell.labelSection.text = Array(self.status.newsDict.values)[indexPath.row].section
+                cell.id = Array(self.status.newsDict.values)[indexPath.row].id
+                cell.bookmark = Array(self.status.newsDict.values)[indexPath.row].bookmark
+                cell.indexPath = indexPath
+                
+                if cell.bookmark {
+                    cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                } else {
+                    cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                }
                 
                 let dateFormatter = Foundation.DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -138,6 +148,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
+            cell.newsTableViewCellDelegate = self
             return cell
         } else {
             let cell = UITableViewCell()
@@ -344,5 +355,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedNewsIndex].id
         newsDetailViewController.status.key.apiKey = guardianKey
     }
+    
+    func didBookmarkClickedFromCell(_ id: String, _ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+        // update bookmark status
+        self.status.newsDict[id]?.bookmark = bookmark
+        
+        // update ui
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
+        
+        DispatchQueue.main.async {
+            if bookmark {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                cell.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+        }
+    }
 }
 
+protocol NewsTableViewCellDelegate {
+    func didBookmarkClickedFromCell(_ id: String, _ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+}

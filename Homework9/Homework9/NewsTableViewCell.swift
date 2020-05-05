@@ -14,6 +14,12 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelSection: UILabel!
+    @IBOutlet var buttonBookmark: UIButton!
+    
+    var id: String!
+    var bookmark: Bool = false
+    var indexPath: IndexPath!
+    var newsTableViewCellDelegate: NewsTableViewCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +31,12 @@ class NewsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func DidBookmarkClick(_ sender: Any) {
+        self.bookmark = !self.bookmark
+        if self.newsTableViewCellDelegate != nil {
+            self.newsTableViewCellDelegate.didBookmarkClickedFromCell(self.id, self.bookmark, cellForRowAt: self.indexPath)
+        }
+    }
+    
 }

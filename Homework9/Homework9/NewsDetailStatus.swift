@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct NewsStatus {
+struct NewsDetailStatus {
     var key: Key;
     var value: Value;
     

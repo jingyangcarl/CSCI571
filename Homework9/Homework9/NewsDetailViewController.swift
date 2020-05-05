@@ -17,7 +17,7 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     
-    var status = NewsStatus()
+    var status = NewsDetailStatus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
