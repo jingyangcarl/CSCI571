@@ -119,7 +119,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // set up news cell
             if !self.status.newsDict.isEmpty {
-                cell.setNews(news: Array(self.status.newsDict.values)[indexPath.row])
+                cell.setNews(news: Array(self.status.newsDict.values)[indexPath.row], indexPath: indexPath)
             }
             
             cell.newsBookmarkDelegate = self

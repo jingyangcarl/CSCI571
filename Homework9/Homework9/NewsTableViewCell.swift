@@ -39,13 +39,14 @@ class NewsTableViewCell: UITableViewCell {
         }
     }
     
-    func setNews(news: News) {
+    func setNews(news: News, indexPath: IndexPath) {
         setImage(image: news.image)
         setTitle(title: news.title)
         setSection(section: news.section)
         setId(id: news.id)
         setBookmark(bookmark: news.bookmark)
         setDate(date: news.date)
+        setIndexPath(indexPath: indexPath)
     }
     
     func setImage(image: UIImage) {
