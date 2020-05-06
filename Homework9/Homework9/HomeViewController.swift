@@ -364,6 +364,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
                 
                 // toast
+                print(self.view)
                 self.view.hideAllToasts()
                 self.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
             } else {

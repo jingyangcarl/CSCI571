@@ -29,6 +29,7 @@ class BookmarkCollectionViewCell: UICollectionViewCell {
 
 extension BookmarkCollectionViewCell {
     
+    
     func setId(id: String) {
         self.id = id
     }

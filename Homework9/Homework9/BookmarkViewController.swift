@@ -65,12 +65,9 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         newsDetailViewController.newsBookmarkDelegate = self
     }
     
+    // used to handle when open a news from bookmark and cancel bookmark from inside detailed view
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         removeBookmark(id: Array(self.newsDict.values)[indexPath.row].id)
-        
-        // toast
-        self.view.hideAllToasts()
-        self.view.makeToast("Article Removed from Bookmarks")
     }
 }
 
@@ -90,6 +87,10 @@ extension BookmarkViewController {
     func removeBookmark(id: String) {
         self.newsDict.removeValue(forKey: id)
         collectionView?.reloadData()
+        
+        // toast
+        self.view.hideAllToasts()
+        self.view.makeToast("Article Removed from Bookmarks")
     }
     
     func existBookmark(id: String) -> Bool {
