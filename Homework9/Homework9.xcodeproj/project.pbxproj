@@ -10,7 +10,6 @@
 		C6BEF0003661B46D3DC7445A /* Pods_Homework9.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18C185235D232992003E8A5 /* Pods_Homework9.framework */; };
 		EC4E94132452BF3C00563783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94122452BF3C00563783 /* AppDelegate.swift */; };
 		EC4E94152452BF3C00563783 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94142452BF3C00563783 /* SceneDelegate.swift */; };
-		EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94162452BF3C00563783 /* HomeViewController.swift */; };
 		EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */; };
 		EC4E941C2452BF3C00563783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4E941A2452BF3C00563783 /* Main.storyboard */; };
 		EC4E941E2452BF3E00563783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC4E941D2452BF3E00563783 /* Assets.xcassets */; };
@@ -44,7 +43,6 @@
 		EC4E940F2452BF3C00563783 /* Homework9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4E94122452BF3C00563783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC4E94142452BF3C00563783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC4E94162452BF3C00563783 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EC4E94182452BF3C00563783 /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
 		EC4E941B2452BF3C00563783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC4E941D2452BF3E00563783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		EC4E9441245522FF00563783 /* Home View */ = {
 			isa = PBXGroup;
 			children = (
-				EC4E94162452BF3C00563783 /* HomeViewController.swift */,
 				ECFE1D4A246375F600E59A88 /* HomeTableViewController.swift */,
 			);
 			name = "Home View";
@@ -340,7 +337,6 @@
 				ECFE1D4B246375F600E59A88 /* HomeTableViewController.swift in Sources */,
 				EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */,
 				EC4E94552456B43700563783 /* WorldTableViewController.swift in Sources */,
-				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
 				EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */,
 				EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
