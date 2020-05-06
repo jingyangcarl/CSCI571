@@ -20,7 +20,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var labelSection: UILabel!
     @IBOutlet var buttonBookmark: UIButton!
     
-    var newsBookmarkDelegate: NewsBookmarkDelegate!
+    var newsBookmarkClickDelegate: NewsBookmarkClickDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,8 +35,8 @@ class NewsTableViewCell: UITableViewCell {
     
     @IBAction func didBookmarkClicked(_ sender: Any) {
         self.bookmark = !self.bookmark
-        if self.newsBookmarkDelegate != nil {
-            self.newsBookmarkDelegate.didBookmarkClickedFromSubView(self.bookmark, cellForRowAt: self.indexPath)
+        if self.newsBookmarkClickDelegate != nil {
+            self.newsBookmarkClickDelegate.didBookmarkClickedFromSubView(self.bookmark, cellForRowAt: self.indexPath)
         }
     }
     

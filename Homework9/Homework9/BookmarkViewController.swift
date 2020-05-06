@@ -9,7 +9,7 @@
 import UIKit
 import Toast_Swift
 
-class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, NewsBookmarkDelegate {
+class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, NewsBookmarkClickDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -62,7 +62,7 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         // prepare data will be used in Detail View
         newsDetailViewController.status.key.id = Array(self.newsDict.values)[indexPath.row].id
         newsDetailViewController.status.key.indexPath = indexPath
-        newsDetailViewController.newsBookmarkDelegate = self
+        newsDetailViewController.newsBookmarkClickDelegate = self
     }
     
     // used to handle when open a news from bookmark and cancel bookmark from inside detailed view

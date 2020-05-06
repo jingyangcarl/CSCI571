@@ -12,7 +12,7 @@ import SwiftyJSON
 import SwiftSpinner
 import Toast_Swift
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsBookmarkDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsBookmarkClickDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
-    var newsBookmarkDetailDelegate: NewsBookmarkOperationDelegate!
+    var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
         guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
-        self.newsBookmarkDetailDelegate = bookmarkViewController
+        self.newsBookmarkOperationDelegate = bookmarkViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,14 +123,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 // check if the news is already in the bookmark list
                 var news = Array(self.status.newsDict.values)[indexPath.row]
-                news.bookmark = self.newsBookmarkDetailDelegate.existBookmark(id: news.id)
+                news.bookmark = self.newsBookmarkOperationDelegate.existBookmark(id: news.id)
                 cell.setNews(news: news, indexPath: indexPath)
                 
                 // update status
                 self.status.newsDict[news.id]?.bookmark = news.bookmark
             }
             
-            cell.newsBookmarkDelegate = self
+            cell.newsBookmarkClickDelegate = self
             return cell
         } else {
             let cell = UITableViewCell()
@@ -345,7 +345,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // prepare data will be used in Detail View
         newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
         newsDetailViewController.status.key.indexPath = indexPath
-        newsDetailViewController.newsBookmarkDelegate = self
+        newsDetailViewController.newsBookmarkClickDelegate = self
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
@@ -359,16 +359,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         // update bookmark collection view
-        if self.newsBookmarkDetailDelegate != nil {
+        if self.newsBookmarkOperationDelegate != nil {
             if bookmark {
-                self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
+                self.newsBookmarkOperationDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
                 
                 // toast
-                print(self.view)
                 self.view.hideAllToasts()
                 self.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
             } else {
-                self.newsBookmarkDetailDelegate.removeBookmark(id: cell.id)
+                self.newsBookmarkOperationDelegate.removeBookmark(id: cell.id)
                 
                 // toast
                 self.view.hideAllToasts()
@@ -379,6 +378,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 }
 
-protocol NewsBookmarkDelegate {
+protocol NewsBookmarkClickDelegate {
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }

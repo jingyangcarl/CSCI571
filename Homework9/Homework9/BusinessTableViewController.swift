@@ -13,7 +13,6 @@ class BusinessTableViewController: HeadlinesTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.parent)
     }
     
     override func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

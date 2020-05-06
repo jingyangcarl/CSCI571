@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import SwiftyJSON
 import SwiftSpinner
 
-class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, NewsBookmarkDelegate {
+class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, NewsBookmarkClickDelegate {
     
     // status to save current data
     var status = Status()
@@ -56,7 +56,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
             self.status.newsDict[news.id]?.bookmark = news.bookmark
         }
 
-        cell.newsBookmarkDelegate = self
+        cell.newsBookmarkClickDelegate = self
         return cell
     }
     
@@ -180,7 +180,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         // prepare data will be used in Detail View
         newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
         newsDetailViewController.status.key.indexPath = indexPath
-        newsDetailViewController.newsBookmarkDelegate = self
+        newsDetailViewController.newsBookmarkClickDelegate = self
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
