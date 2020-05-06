@@ -38,9 +38,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     enum HomeSession: Int {
-        case Search = 0
-        case Weather = 1
-        case News = 2
+        case Weather = 0
+        case News = 1
     }
     
     // api keys
@@ -55,6 +54,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // prepare tableview
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        // prepare searchbar
+        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController?.searchBar.showsCancelButton
+        self.navigationItem.searchController?.searchBar.delegate = self
+        self.navigationItem.searchController?.searchBar.placeholder = "Enter keyword ..."
+        
         
         // For use when the app is open & in the background
         locationManager.requestAlwaysAuthorization()
@@ -87,11 +93,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == HomeSession.Search.rawValue {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Search Cell") as! SearchTableViewCell
-            cell.searchBar.delegate = self
-            return cell
-        } else if indexPath.section == HomeSession.Weather.rawValue {
+        if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell") as! WeatherTableViewCell
             
@@ -177,9 +179,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == HomeSession.Search.rawValue {
-            return 56.5
-        } else if indexPath.section == HomeSession.Weather.rawValue {
+        if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             return 110
         } else if indexPath.section == HomeSession.News.rawValue {
@@ -191,9 +191,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == HomeSession.Search.rawValue {
-            return 1
-        }else if section == HomeSession.Weather.rawValue {
+        if section == HomeSession.Weather.rawValue {
             return 1
         } else if section == HomeSession.News.rawValue {
             return self.status.newsDict.count
@@ -383,10 +381,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
     }
 }
 

@@ -20,34 +20,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Search Cell" id="8hz-ll-2dv" customClass="SearchTableViewCell" customModule="Homework9" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="56.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8hz-ll-2dv" id="1Md-ep-bCW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <searchBar contentMode="redraw" text="" placeholder="Enter keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-pj-dSe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </searchBar>
-                                            </subviews>
-                                            <gestureRecognizers/>
-                                            <constraints>
-                                                <constraint firstItem="Yjl-pj-dSe" firstAttribute="leading" secondItem="1Md-ep-bCW" secondAttribute="leading" id="8Lt-89-DP2"/>
-                                                <constraint firstItem="Yjl-pj-dSe" firstAttribute="top" secondItem="1Md-ep-bCW" secondAttribute="top" id="eal-kT-4hE"/>
-                                                <constraint firstAttribute="bottom" secondItem="Yjl-pj-dSe" secondAttribute="bottom" id="ssD-6t-Jah"/>
-                                                <constraint firstAttribute="trailing" secondItem="Yjl-pj-dSe" secondAttribute="trailing" id="vr0-5f-Tce"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outlet property="searchBar" destination="Yjl-pj-dSe" id="Ny4-ef-p0b"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Weather Cell" rowHeight="110" id="cVm-BR-IPy" customClass="WeatherTableViewCell" customModule="Homework9" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84.5" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cVm-BR-IPy" id="iul-vl-IKV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -109,7 +83,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="News Cell" rowHeight="140" id="NLM-p7-EqO" customClass="NewsTableViewCell" customModule="Homework9" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="194.5" width="414" height="140"/>
+                                        <rect key="frame" x="0.0" y="138" width="414" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NLM-p7-EqO" id="wH0-Ga-0v7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
@@ -229,11 +203,11 @@
             <objects>
                 <viewController id="VPw-Y4-1UV" customClass="NewsDetailViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2X5-Ge-yW5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-Jy-jM6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-GZ-9Ke">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -1060,12 +1034,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Enter keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="8aU-x1-gHY">
-                                <rect key="frame" x="0.0" y="140" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAY-q6-GjP">
+                                <rect key="frame" x="0.0" y="212" width="414" height="601"/>
+                            </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KQ0-Am-IjC" customClass="ButtonBarView" customModule="XLPagerTabStrip">
-                                <rect key="frame" x="0.0" y="196" width="414" height="64"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="64"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="O6U-JD-1Hk"/>
@@ -1078,22 +1051,15 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAY-q6-GjP">
-                                <rect key="frame" x="0.0" y="268" width="414" height="545"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="XAY-q6-GjP" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="2kl-Kr-73W"/>
                             <constraint firstItem="XAY-q6-GjP" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="5Xn-pQ-NGt"/>
-                            <constraint firstItem="8aU-x1-gHY" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="EFt-Zg-1U7"/>
                             <constraint firstItem="KQ0-Am-IjC" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="U3S-t8-FFS"/>
-                            <constraint firstItem="8aU-x1-gHY" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="V1W-FH-oSR"/>
-                            <constraint firstItem="KQ0-Am-IjC" firstAttribute="top" secondItem="8aU-x1-gHY" secondAttribute="bottom" id="j4B-lW-HEL"/>
                             <constraint firstItem="XAY-q6-GjP" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="jQh-UO-9TM"/>
                             <constraint firstItem="KQ0-Am-IjC" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="lQr-lA-7Cy"/>
-                            <constraint firstItem="8aU-x1-gHY" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="nlK-DC-RY5"/>
-                            <constraint firstItem="8aU-x1-gHY" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="nth-WU-uqo"/>
+                            <constraint firstItem="KQ0-Am-IjC" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="ohg-Hy-YA6"/>
                             <constraint firstItem="XAY-q6-GjP" firstAttribute="top" secondItem="KQ0-Am-IjC" secondAttribute="bottom" constant="8" id="xsC-bX-fNR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
@@ -1106,7 +1072,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1075" y="2875"/>
+            <point key="canvasLocation" x="-1075.3623188405797" y="2874.7767857142858"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1411,7 +1377,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n3v-O6-Zes"/>
+        <segue reference="u9w-CZ-oy3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>

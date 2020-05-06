@@ -9,9 +9,15 @@
 import UIKit
 import XLPagerTabStrip
 
-class HeadlinesViewController: ButtonBarPagerTabStripViewController {
+class HeadlinesViewController: ButtonBarPagerTabStripViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
+        
+        // prepare searchbar
+        self.navigationItem.searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController?.searchBar.showsCancelButton
+        self.navigationItem.searchController?.searchBar.delegate = self
+        self.navigationItem.searchController?.searchBar.placeholder = "Enter keyword ..."
         
         // change selected bar color
         settings.style.buttonBarBackgroundColor = .white
