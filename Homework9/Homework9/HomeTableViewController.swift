@@ -11,8 +11,7 @@ import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
 
-class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, NewsBookmarkClickDelegate {
-    
+class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, NewsBookmarkClickDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
     
     // init location manager status
     let locationManager = CLLocationManager()
@@ -49,7 +48,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         self.definesPresentationContext = true
         self.navigationItem.searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController?.searchBar.showsCancelButton = true
-//        self.navigationItem.searchController?.searchBar.delegate = self
+        self.navigationItem.searchController?.searchBar.delegate = self
         self.navigationItem.searchController?.searchBar.placeholder = "Enter keyword ..."
         
         // For use when the app is open & in the background
@@ -388,12 +387,8 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if self.isFirstLetter {
-            //            self.navigationItem.searchController?.isActive = false
-            //            performSegue(withIdentifier: "SearchSegue", sender: searchBar)
-            //            searchBar.text = searchText
-            let tableView = UITableViewController()
-            //            self.navigationController?.pushViewController(tableView, animated: true)
-            self.navigationController?.pushViewController(tableView, animated: false)
+            let tableView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "search")
+            self.navigationItem.searchController?.present(tableView, animated: true, completion: nil)
             self.isFirstLetter = false
         }
         
@@ -403,4 +398,8 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         self.isFirstLetter = true
     }
     
+}
+
+protocol NewsBookmarkClickDelegate {
+    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }
