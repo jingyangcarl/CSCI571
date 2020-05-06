@@ -38,8 +38,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     enum HomeSession: Int {
-        case Weather = 0
-        case News = 1
+        case Search = 0
+        case Weather = 1
+        case News = 2
     }
     
     // api keys
@@ -86,7 +87,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == HomeSession.Weather.rawValue {
+        if indexPath.section == HomeSession.Search.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Search Cell") as! SearchTableViewCell
+            
+            return cell
+        } else if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell") as! WeatherTableViewCell
             
@@ -133,8 +138,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.newsBookmarkClickDelegate = self
             return cell
         } else {
-            let cell = UITableViewCell()
-            return cell
+            return UITableViewCell()
         }
     }
     
@@ -173,7 +177,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section == HomeSession.Weather.rawValue {
+        if indexPath.section == HomeSession.Search.rawValue {
+            return 56.5
+        } else if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             return 110
         } else if indexPath.section == HomeSession.News.rawValue {
@@ -185,7 +191,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == HomeSession.Weather.rawValue {
+        if section == HomeSession.Search.rawValue {
+            return 1
+        }else if section == HomeSession.Weather.rawValue {
             return 1
         } else if section == HomeSession.News.rawValue {
             return self.status.newsDict.count
@@ -195,7 +203,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     /*
@@ -282,7 +290,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 // error
-                return
+                return 
             }
             
             if httpResponse.statusCode == 200 {

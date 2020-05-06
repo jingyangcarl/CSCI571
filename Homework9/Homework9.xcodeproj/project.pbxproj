@@ -35,6 +35,7 @@
 		EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E9467245955AC00563783 /* GuardianWorld.json */; };
 		EC4E946D245FB40400563783 /* Trending.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E946C245FB40400563783 /* Trending.json */; };
 		EC4E94702460D83100563783 /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */; };
+		ECFE1D49246267D200E59A88 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D48246267D200E59A88 /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		EC4E9467245955AC00563783 /* GuardianWorld.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GuardianWorld.json; sourceTree = "<group>"; };
 		EC4E946C245FB40400563783 /* Trending.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trending.json; sourceTree = "<group>"; };
 		EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECFE1D48246267D200E59A88 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 		EC4E946624593ADB00563783 /* Shared Cell */ = {
 			isa = PBXGroup;
 			children = (
+				ECFE1D48246267D200E59A88 /* SearchTableViewCell.swift */,
 				EC4E943F245514DC00563783 /* WeatherTableViewCell.swift */,
 				EC4E943B24550C6300563783 /* NewsTableViewCell.swift */,
 				EC4E944624555C4800563783 /* Status.swift */,
@@ -339,6 +342,7 @@
 				EC4E94172452BF3C00563783 /* HomeViewController.swift in Sources */,
 				EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */,
 				EC4E94592456B92E00563783 /* BusinessTableViewController.swift in Sources */,
+				ECFE1D49246267D200E59A88 /* SearchTableViewCell.swift in Sources */,
 				EC4E94292452C4C400563783 /* TrendingViewController.swift in Sources */,
 				EC4E945D2456C96A00563783 /* SportsTableViewController.swift in Sources */,
 				EC4E943C24550C6300563783 /* NewsTableViewCell.swift in Sources */,
