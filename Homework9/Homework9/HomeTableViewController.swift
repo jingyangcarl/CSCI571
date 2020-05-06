@@ -1,8 +1,8 @@
 //
-//  FirstViewController.swift
+//  HomeTableViewController.swift
 //  Homework9
 //
-//  Created by Jing Yang on 4/23/20.
+//  Created by Jing Yang on 5/6/20.
 //  Copyright © 2020 Jing Yang. All rights reserved.
 //
 
@@ -10,19 +10,13 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
-import Toast_Swift
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate, NewsBookmarkClickDelegate {
+class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, NewsBookmarkClickDelegate {
     
-    
-    @IBOutlet weak var tableView: UITableView!
     
     // init location manager status
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
-    
-    // init pull to refresh
-    let refreshControl = UIRefreshControl()
     
     // status to save current data
     var status = Status()
@@ -51,15 +45,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // prepare tableview
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
         // prepare searchbar
         self.definesPresentationContext = true
         self.navigationItem.searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController?.searchBar.showsCancelButton = true
-        self.navigationItem.searchController?.searchBar.delegate = self
+//        self.navigationItem.searchController?.searchBar.delegate = self
         self.navigationItem.searchController?.searchBar.placeholder = "Enter keyword ..."
         
         // For use when the app is open & in the background
@@ -70,10 +60,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             locationManager.startUpdatingLocation()
         }
         
-        // enable pull down to refresh for table view
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
-        tableView.addSubview(refreshControl)
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl?.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(self.refreshControl!)
         
         // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
         guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
@@ -81,18 +71,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // refersh tableview
         handleRefresh(self)
     }
     
     // MARK: - Table view data source
     
-    /*
-     Description:
-     This function is used to describe how each cell should look like.
-     */
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Configure the cell...
         if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell") as! WeatherTableViewCell
@@ -144,7 +130,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
             
             var news: News = Array(self.status.newsDict.values)[indexPath.row]
@@ -173,12 +159,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
             return 110
@@ -190,7 +175,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == HomeSession.Weather.rawValue {
             return 1
         } else if section == HomeSession.News.rawValue {
@@ -200,7 +185,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 3
     }
     
@@ -288,7 +274,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 // error
-                return 
+                return
             }
             
             if httpResponse.statusCode == 200 {
@@ -336,10 +322,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }.resume()
         
-        refreshControl.endRefreshing()
+        self.refreshControl?.endRefreshing()
     }
-    
-    // MARK: - Table view segue
     
     /*
      This function is used to prepare data and segue to Detialed View
@@ -360,7 +344,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
-        
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
         
         // update bookmark UI
@@ -385,7 +368,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.view.makeToast("Article Removed from Bookmarks")
             }
         }
-        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -406,11 +388,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if self.isFirstLetter {
-//            self.navigationItem.searchController?.isActive = false
-//            performSegue(withIdentifier: "SearchSegue", sender: searchBar)
-//            searchBar.text = searchText
+            //            self.navigationItem.searchController?.isActive = false
+            //            performSegue(withIdentifier: "SearchSegue", sender: searchBar)
+            //            searchBar.text = searchText
             let tableView = UITableViewController()
-//            self.navigationController?.pushViewController(tableView, animated: true)
+            //            self.navigationController?.pushViewController(tableView, animated: true)
             self.navigationController?.pushViewController(tableView, animated: false)
             self.isFirstLetter = false
         }
@@ -420,8 +402,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.isFirstLetter = true
     }
-}
-
-protocol NewsBookmarkClickDelegate {
-    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+    
 }
