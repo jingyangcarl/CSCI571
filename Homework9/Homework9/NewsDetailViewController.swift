@@ -26,7 +26,7 @@ class NewsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let bookmarkViewController = self.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
+        guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
         self.newsBookmarkDetailDelegate = bookmarkViewController
     }
     

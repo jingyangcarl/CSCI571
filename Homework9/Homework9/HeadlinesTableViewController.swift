@@ -32,7 +32,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         self.tableView.addSubview(refreshControl!)
         
         // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
-        guard let bookmarkViewController = self.parent?.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
+        guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
         self.newsBookmarkDetailDelegate = bookmarkViewController
     }
     
