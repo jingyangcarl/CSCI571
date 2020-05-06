@@ -345,13 +345,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      This function is used to prepare data and segue to Detialed View
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
-        guard let indexPath = sender as? IndexPath else { return }
         
-        // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
-        newsDetailViewController.status.key.indexPath = indexPath
-        newsDetailViewController.newsBookmarkClickDelegate = self
+        if segue.identifier == "NewsDetailSegue" {
+            guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+            guard let indexPath = sender as? IndexPath else { return }
+            
+            // prepare data will be used in Detail View
+            newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
+            newsDetailViewController.status.key.indexPath = indexPath
+            newsDetailViewController.newsBookmarkClickDelegate = self
+        } else if segue.identifier == "SearchSegue" {
+            print("here")
+        }
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
@@ -380,6 +385,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.view.makeToast("Article Removed from Bookmarks")
             }
         }
+        
+    }
+    
+    var searchTextPrevious: String!
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchTextPrevious = searchBar.text
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if self.searchTextPrevious.isEmpty {
+            performSegue(withIdentifier: "SearchSegue", sender: nil)
+        } else {
+            
+        }
+        
+        self.searchTextPrevious = searchText
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
     }
 }
