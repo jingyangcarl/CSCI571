@@ -167,8 +167,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.status.selectedIndexPath = indexPath
-        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+        performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -311,7 +310,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         // hide loading spinner
                         SwiftSpinner.hide()
                     }
-
+                    
                     
                 } catch DecodingError.dataCorrupted(let context) {
                     print(context.debugDescription)
@@ -339,20 +338,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      This function is used to prepare data and segue to Detialed View
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+        guard let indexPath = sender as? IndexPath else { return }
         
-        if segue.identifier == "NewsDetailSegue" {
-
-            guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
-            
-            // prepare data will be used in Detail View
-            newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
-            newsDetailViewController.status.key.bookmark = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].bookmark
-            newsDetailViewController.status.key.apiKey = guardianKey
-            newsDetailViewController.status.key.indexPath = self.status.selectedIndexPath
-            newsDetailViewController.newsBookmarkDelegate = self
-        } else {
-            
-        }
+        // prepare data will be used in Detail View
+        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
+        newsDetailViewController.status.key.indexPath = indexPath
+        newsDetailViewController.newsBookmarkDelegate = self
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {

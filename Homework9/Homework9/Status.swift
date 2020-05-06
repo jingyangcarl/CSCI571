@@ -11,12 +11,10 @@ import UIKit
 
 struct Status {
     var newsDict: [String: News]
-    var selectedIndexPath: IndexPath
     var weather: Weather
     
     init() {
         self.newsDict = [String: News]()
-        self.selectedIndexPath = IndexPath()
         self.weather = Weather()
     }
 }

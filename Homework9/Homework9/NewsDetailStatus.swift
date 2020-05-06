@@ -21,13 +21,11 @@ struct NewsDetailStatus {
 
 struct Key {
     var id: String
-    var apiKey: String
     var bookmark: Bool
     var indexPath: IndexPath
     
     init() {
         self.id = ""
-        self.apiKey = ""
         self.bookmark = false
         self.indexPath = IndexPath()
     }

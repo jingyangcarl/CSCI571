@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate {
+class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, NewsBookmarkDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -38,6 +38,10 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 160, height: 260)
     }
@@ -48,6 +52,20 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+        guard let indexPath = sender as? IndexPath else { return }
+        
+        // prepare data will be used in Detail View
+        newsDetailViewController.status.key.id = Array(self.newsDict.values)[indexPath.row].id
+        newsDetailViewController.status.key.indexPath = indexPath
+        newsDetailViewController.newsBookmarkDelegate = self
+    }
+    
+    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+        removeBookmark(id: Array(self.newsDict.values)[indexPath.row].id)
     }
 }
 

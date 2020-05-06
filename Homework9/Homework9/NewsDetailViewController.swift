@@ -19,21 +19,23 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet var buttonBookmark: UIButton!
     
+    let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
+    
     var status = NewsDetailStatus()
     var newsBookmarkDelegate: NewsBookmarkDelegate!
-    var newsBookmarkDetailDelegate: NewsBookmarkOperationDelegate!
+    var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
-        self.newsBookmarkDetailDelegate = bookmarkViewController
+        self.newsBookmarkOperationDelegate = bookmarkViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         // check bookmark
-        self.status.key.bookmark = self.newsBookmarkDetailDelegate.existBookmark(id: self.status.key.id)
+        self.status.key.bookmark = self.newsBookmarkOperationDelegate.existBookmark(id: self.status.key.id)
         self.setBookmark(bookmark: self.status.key.bookmark)
         
         // fetch data
@@ -45,7 +47,7 @@ class NewsDetailViewController: UIViewController {
         SwiftSpinner.show("Loading News Detail", animated: true)
         
         // prepare request
-        let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/\(self.status.key.id    )?api-key=\(self.status.key.apiKey)&show-blocks=all")!)
+        let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/\(self.status.key.id    )?api-key=\(guardianKey)&show-blocks=all")!)
         
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {

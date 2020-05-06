@@ -13,14 +13,13 @@ import SwiftSpinner
 
 class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, NewsBookmarkDelegate {
     
-    
     // status to save current data
     var status = Status()
     
     // api keys
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
-    var newsBookmarkDetailDelegate: NewsBookmarkOperationDelegate!
+    var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         
         // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
         guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
-        self.newsBookmarkDetailDelegate = bookmarkViewController
+        self.newsBookmarkOperationDelegate = bookmarkViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +49,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
             
             // check if the news is already in the bookmark list
             var news = Array(self.status.newsDict.values)[indexPath.row]
-            news.bookmark = self.newsBookmarkDetailDelegate.existBookmark(id: news.id)
+            news.bookmark = self.newsBookmarkOperationDelegate.existBookmark(id: news.id)
             cell.setNews(news: news, indexPath: indexPath)
             
             // update status
@@ -91,8 +90,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.status.selectedIndexPath = indexPath
-        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+        performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -177,10 +175,12 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+        guard let indexPath = sender as? IndexPath else { return }
         
         // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[self.status.selectedIndexPath.row].id
-        newsDetailViewController.status.key.apiKey = guardianKey
+        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
+        newsDetailViewController.status.key.indexPath = indexPath
+        newsDetailViewController.newsBookmarkDelegate = self
     }
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
@@ -194,11 +194,11 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         }
         
         // update bookmark collection view
-        if self.newsBookmarkDetailDelegate != nil {
+        if self.newsBookmarkOperationDelegate != nil {
             if bookmark {
-                self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
+                self.newsBookmarkOperationDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
             } else {
-                self.newsBookmarkDetailDelegate.removeBookmark(id: cell.id)
+                self.newsBookmarkOperationDelegate.removeBookmark(id: cell.id)
             }
         }
     }

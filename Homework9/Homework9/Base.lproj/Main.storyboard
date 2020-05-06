@@ -356,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMT-oU-iv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1075" y="2875"/>
+            <point key="canvasLocation" x="-330" y="2178"/>
         </scene>
         <!--World Table View Controller-->
         <scene sceneID="Uvq-5d-H1Q">
@@ -470,7 +470,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xQ-EG-syD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="2140"/>
+            <point key="canvasLocation" x="419" y="2875"/>
         </scene>
         <!--Business Table View Controller-->
         <scene sceneID="49U-WB-cBW">
@@ -584,7 +584,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nys-DL-2a5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="2140"/>
+            <point key="canvasLocation" x="1158" y="2875"/>
         </scene>
         <!--Politics Table View Controller-->
         <scene sceneID="ScL-5u-AmP">
@@ -698,7 +698,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bX-oZ-0qW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="2140"/>
+            <point key="canvasLocation" x="1929" y="2875"/>
         </scene>
         <!--Sports Table View Controller-->
         <scene sceneID="sDz-h4-2Qq">
@@ -813,7 +813,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ses-CQ-qky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2677" y="2140"/>
+            <point key="canvasLocation" x="2674" y="2875"/>
         </scene>
         <!--Technology Table View Controller-->
         <scene sceneID="VOo-LO-BON">
@@ -928,7 +928,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBN-vo-pZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3455" y="2140"/>
+            <point key="canvasLocation" x="3449" y="2875"/>
         </scene>
         <!--Science Table View Controller-->
         <scene sceneID="xU0-IR-Xpj">
@@ -1043,7 +1043,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMi-vZ-i4n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4223" y="2140"/>
+            <point key="canvasLocation" x="4212" y="2875"/>
         </scene>
         <!--Headlines-->
         <scene sceneID="wg7-f3-ORb">
@@ -1099,7 +1099,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-330" y="2140"/>
+            <point key="canvasLocation" x="-1075" y="2875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1319,6 +1319,7 @@
                     <navigationItem key="navigationItem" title="Bookmarks" id="FWz-lF-guk"/>
                     <connections>
                         <outlet property="collectionView" destination="Qwq-N6-DDA" id="o6I-a8-iRt"/>
+                        <segue destination="VPw-Y4-1UV" kind="show" identifier="NewsDetailSegue" id="y8f-nP-T6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6o-Ss-Uz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1403,7 +1404,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Q8w-UY-5hl"/>
+        <segue reference="1VV-MD-al0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
