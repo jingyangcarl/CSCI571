@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // prepare searchbar
         self.navigationItem.searchController = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController?.searchBar.showsCancelButton
+        self.navigationItem.searchController?.searchBar.showsCancelButton = true
         self.navigationItem.searchController?.searchBar.delegate = self
         self.navigationItem.searchController?.searchBar.placeholder = "Enter keyword ..."
         
