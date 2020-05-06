@@ -22,14 +22,6 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.newsDict.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 260)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Bookmark Cell", for: indexPath) as! BookmarkCollectionViewCell
         
@@ -46,9 +38,26 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 160, height: 260)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.newsDict.count
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+}
+
+protocol NewsBookmarkOperationDelegate {
+    func addBookmark(id: String, news: News)
+    func removeBookmark(id: String)
+    func existBookmark(id: String) -> Bool
+}
+
+extension BookmarkViewController {
     
     func addBookmark(id: String, news: News) {
         self.newsDict[id] = news
@@ -63,10 +72,4 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
     func existBookmark(id: String) -> Bool {
         return self.newsDict[id] != nil
     }
-}
-
-protocol NewsBookmarkOperationDelegate {
-    func addBookmark(id: String, news: News)
-    func removeBookmark(id: String)
-    func existBookmark(id: String) -> Bool
 }

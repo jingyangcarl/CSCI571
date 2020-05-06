@@ -47,11 +47,9 @@ class TrendingViewController: UIViewController, UISearchBarDelegate {
                     let jsonObject = try JSON(data: data!)
                     
                     self.chartDataEntries = [ChartDataEntry]()
-                    
                     for (index, result): (String, JSON) in jsonObject["default"]["timelineData"] {
                         self.chartDataEntries.append(ChartDataEntry(x: (index as NSString).doubleValue, y: result["value"][0].double!))
                     }
-                    
                     let dataSet = LineChartDataSet(entries: self.chartDataEntries, label: "Trending Chart for \(self.keyword!)")
                     let data = LineChartData(dataSet: dataSet)
                     
@@ -79,15 +77,5 @@ class TrendingViewController: UIViewController, UISearchBarDelegate {
         
         searchBar.endEditing(true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

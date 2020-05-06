@@ -110,7 +110,7 @@
                                                             </constraints>
                                                             <state key="normal" image="bookmark" catalog="system"/>
                                                             <connections>
-                                                                <action selector="DidBookmarkClick:" destination="NLM-p7-EqO" eventType="touchUpInside" id="z5A-sw-3vR"/>
+                                                                <action selector="didBookmarkClicked:" destination="NLM-p7-EqO" eventType="touchUpInside" id="z5A-sw-3vR"/>
                                                             </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wb-e4-2KI">
@@ -388,7 +388,7 @@
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
                                             <connections>
-                                                <action selector="DidBookmarkClick:" destination="PHq-id-LBN" eventType="touchUpInside" id="UIa-ew-f9l"/>
+                                                <action selector="didBookmarkClicked:" destination="PHq-id-LBN" eventType="touchUpInside" id="UIa-ew-f9l"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6U-8m-szE">
@@ -502,7 +502,7 @@
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
                                             <connections>
-                                                <action selector="DidBookmarkClick:" destination="f0Y-Tq-Crr" eventType="touchUpInside" id="Xb3-Cf-3zZ"/>
+                                                <action selector="didBookmarkClicked:" destination="f0Y-Tq-Crr" eventType="touchUpInside" id="Xb3-Cf-3zZ"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEX-iB-tPb">
@@ -616,7 +616,7 @@
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
                                             <connections>
-                                                <action selector="DidBookmarkClick:" destination="XEz-QK-BhJ" eventType="touchUpInside" id="2Yd-KL-CFO"/>
+                                                <action selector="didBookmarkClicked:" destination="XEz-QK-BhJ" eventType="touchUpInside" id="2Yd-KL-CFO"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0Q-X1-MVf">
@@ -730,7 +730,7 @@
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
                                             <connections>
-                                                <action selector="DidBookmarkClick:" destination="GbL-g4-7Sc" eventType="touchUpInside" id="rH4-aA-TZ6"/>
+                                                <action selector="didBookmarkClicked:" destination="GbL-g4-7Sc" eventType="touchUpInside" id="rH4-aA-TZ6"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3W-Is-6Pi">
@@ -845,7 +845,7 @@
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
                                             <connections>
-                                                <action selector="DidBookmarkClick:" destination="gbv-pR-mLh" eventType="touchUpInside" id="aAv-AN-Aoz"/>
+                                                <action selector="didBookmarkClicked:" destination="gbv-pR-mLh" eventType="touchUpInside" id="aAv-AN-Aoz"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUu-PP-lpD">
@@ -960,7 +960,7 @@
                                             </constraints>
                                             <state key="normal" image="bookmark" catalog="system"/>
                                             <connections>
-                                                <action selector="DidBookmarkClick:" destination="7BR-bc-5VH" eventType="touchUpInside" id="r0E-YD-ziw"/>
+                                                <action selector="didBookmarkClicked:" destination="7BR-bc-5VH" eventType="touchUpInside" id="r0E-YD-ziw"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q37-4l-fWe">

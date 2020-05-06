@@ -9,6 +9,10 @@
 import UIKit
 
 class NewsTableViewCell: UITableViewCell {
+    
+    var id: String!
+    var bookmark: Bool = false
+    var indexPath: IndexPath!
 
     @IBOutlet var imageThumbnail: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
@@ -16,9 +20,6 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var labelSection: UILabel!
     @IBOutlet var buttonBookmark: UIButton!
     
-    var id: String!
-    var bookmark: Bool = false
-    var indexPath: IndexPath!
     var newsBookmarkDelegate: NewsBookmarkDelegate!
     
     override func awakeFromNib() {
@@ -32,21 +33,33 @@ class NewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func DidBookmarkClick(_ sender: Any) {
+    @IBAction func didBookmarkClicked(_ sender: Any) {
         self.bookmark = !self.bookmark
         if self.newsBookmarkDelegate != nil {
             self.newsBookmarkDelegate.didBookmarkClickedFromSubView(self.bookmark, cellForRowAt: self.indexPath)
         }
     }
     
+}
+
+extension NewsTableViewCell {
+    
     func setNews(news: News, indexPath: IndexPath) {
+        setId(id: news.id)
+        setIndexPath(indexPath: indexPath)
         setImage(image: news.image)
         setTitle(title: news.title)
-        setSection(section: news.section)
-        setId(id: news.id)
-        setBookmark(bookmark: news.bookmark)
         setDate(date: news.date)
-        setIndexPath(indexPath: indexPath)
+        setSection(section: news.section)
+        setBookmark(bookmark: news.bookmark)
+    }
+    
+    func setId(id: String){
+        self.id = id
+    }
+    
+    func setIndexPath(indexPath: IndexPath) {
+        self.indexPath = indexPath
     }
     
     func setImage(image: UIImage) {
@@ -89,20 +102,6 @@ class NewsTableViewCell: UITableViewCell {
     
     func setBookmark(bookmark: Bool) {
         self.bookmark = bookmark
-        
-        if bookmark {
-            self.buttonBookmark.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            self.buttonBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        }
+        self.buttonBookmark.setImage(self.bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
     }
-    
-    func setId(id: String){
-        self.id = id
-    }
-    
-    func setIndexPath(indexPath: IndexPath) {
-        self.indexPath = indexPath
-    }
-    
 }

@@ -28,7 +28,6 @@ class NewsDetailViewController: UIViewController {
         
         guard let bookmarkViewController = self.parent?.parent?.children[3].children[0] as? BookmarkViewController else { return }
         self.newsBookmarkDetailDelegate = bookmarkViewController
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +97,11 @@ class NewsDetailViewController: UIViewController {
         }.resume()
     }
     
-    // MARK: - Set Widget Content
+    
+}
+
+// MARK: - Set Widget Content
+extension NewsDetailViewController {
     
     func setBookmark(bookmark: Bool) {
         self.buttonBookmark.setImage(bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
@@ -135,8 +138,10 @@ class NewsDetailViewController: UIViewController {
     func setDescription(description: String) {
         self.labelDescription.attributedText = description.htmlToAttributedString
     }
-    
-    // MARK: - Handle Button Click
+}
+
+// MARK: - Handle Button Click
+extension NewsDetailViewController {
     
     @IBAction func didBookmarkClicked(_ sender: Any) {
         
@@ -166,8 +171,8 @@ class NewsDetailViewController: UIViewController {
         guard let url = URL(string: self.status.value.url) else { return }
         UIApplication.shared.open(url)
     }
-    
 }
+
 
 extension String {
     var htmlToAttributedString: NSAttributedString? {
