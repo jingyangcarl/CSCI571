@@ -12,7 +12,7 @@ import SwiftyJSON
 import SwiftSpinner
 import Toast_Swift
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsBookmarkClickDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate, NewsBookmarkClickDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if indexPath.section == HomeSession.Search.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Search Cell") as! SearchTableViewCell
-            
+            cell.searchBar.delegate = self
             return cell
         } else if indexPath.section == HomeSession.Weather.rawValue {
             // this should be the weather cell
@@ -383,6 +383,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
 
