@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, NewsBookmarkDelegate {
     
@@ -66,6 +67,10 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         removeBookmark(id: Array(self.newsDict.values)[indexPath.row].id)
+        
+        // toast
+        self.view.hideAllToasts()
+        self.view.makeToast("Article Removed from Bookmarks")
     }
 }
 

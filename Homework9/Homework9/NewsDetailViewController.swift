@@ -149,6 +149,10 @@ extension NewsDetailViewController {
         
         DispatchQueue.main.async {
             self.buttonBookmark.setImage(self.status.key.bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
+            
+            // toast
+            self.view.hideAllToasts()
+            self.view.makeToast(self.status.key.bookmark ? "Article Bookmarked. Check out the Bookmarks tab to view" : "Article Removed from Bookmarks")
         }
         
         self.status.key.bookmark = !self.status.key.bookmark

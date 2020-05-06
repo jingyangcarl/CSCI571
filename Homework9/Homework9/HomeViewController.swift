@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
+import Toast_Swift
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, NewsBookmarkDelegate {
     
@@ -361,8 +362,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if self.newsBookmarkDetailDelegate != nil {
             if bookmark {
                 self.newsBookmarkDetailDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
+                
+                // toast
+                self.view.hideAllToasts()
+                self.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
             } else {
                 self.newsBookmarkDetailDelegate.removeBookmark(id: cell.id)
+                
+                // toast
+                self.view.hideAllToasts()
+                self.view.makeToast("Article Removed from Bookmarks")
             }
         }
         

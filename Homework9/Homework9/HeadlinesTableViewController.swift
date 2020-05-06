@@ -197,8 +197,16 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         if self.newsBookmarkOperationDelegate != nil {
             if bookmark {
                 self.newsBookmarkOperationDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
+                
+                // toast
+                self.view.hideAllToasts()
+                self.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
             } else {
                 self.newsBookmarkOperationDelegate.removeBookmark(id: cell.id)
+                
+                // toast
+                self.view.hideAllToasts()
+                self.view.makeToast("Article Removed from Bookmarks")
             }
         }
     }
