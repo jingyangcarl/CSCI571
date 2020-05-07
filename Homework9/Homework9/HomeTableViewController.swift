@@ -11,7 +11,7 @@ import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
 
-class HomeTableViewController: NavigationTableViewController, CLLocationManagerDelegate, ClickFromSubviewDelegate, ClickOnSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
+class HomeTableViewController: NavigationTableViewController, CLLocationManagerDelegate, ClickOnSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
     
     // init location manager status
     let locationManager = CLLocationManager()
@@ -36,13 +36,17 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
     let bingKey = "79f5b5a589c74be4aa1d102ca11fadd2"
     
-    var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
-    
     var autoSuggestTableViewController: AutoSuggestTableViewController!
     var isFirstSearchLetter: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // redefine session identifier
+        sessionIdentifier = [
+            "weather": 0,
+            "news": 1
+        ]
         
         // prepare searchbar
         self.navigationItem.searchController = UISearchController(searchResultsController: nil)
@@ -61,19 +65,6 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl?.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
-        self.tableView.addSubview(self.refreshControl!)
-        
-        // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
-        guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
-        self.newsBookmarkOperationDelegate = bookmarkViewController
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        handleRefresh(self)
     }
     
     // MARK: - Table view data source
@@ -81,7 +72,7 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Configure the cell...
-        if indexPath.section == HomeSession.Weather.rawValue {
+        if indexPath.section == self.sessionIdentifier["weather"] {
             // this should be the weather cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "Weather Cell") as! WeatherTableViewCell
             
@@ -109,60 +100,9 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
             }
             
             return cell
-        } else if indexPath.section == HomeSession.News.rawValue {
-            // this should be the news cell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "News Cell") as! NewsTableViewCell
-            
-            // set up news cell
-            if !self.status.newsDict.isEmpty {
-                
-                // check if the news is already in the bookmark list
-                var news = Array(self.status.newsDict.values)[indexPath.row]
-                news.bookmark = self.newsBookmarkOperationDelegate.existBookmark(id: news.id)
-                cell.setNews(news: news, indexPath: indexPath)
-                
-                // update status
-                self.status.newsDict[news.id]?.bookmark = news.bookmark
-            }
-            
-            cell.newsBookmarkClickDelegate = self
-            return cell
-        } else {
-            return UITableViewCell()
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
-            
-            var news: News = Array(self.status.newsDict.values)[indexPath.row]
-            
-            let twitterMenu = UIAction(title: "Share with Twitter", image: UIImage(named: "twitter")) { action in
-                // share
-                
-                let tweetText = "Check out this Article!"
-                let tweetUrl = news.url
-                let tweetHashtag = "CSCI_571_NewsApp"
-                
-                let shareUrl = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)&hashtags=\(tweetHashtag)"
-                
-                guard let url = URL(string: shareUrl.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
-                
-                UIApplication.shared.open(url)
-            }
-            let bookmarkMenu = UIAction(title: "Bookmark", image: news.bookmark ?  UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")) { action in
-                //
-                news.bookmark = !news.bookmark
-                self.didCellBookmarkClickedFromSubview(news.bookmark, cellForRowAt: indexPath)
-            }
-            
-            // Create and return a UIMenu with the share action
-            return UIMenu(title: "Main Menu", children: [twitterMenu, bookmarkMenu])
-        })
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
+        
+        return super.tableView(tableView, cellForRowAt: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -188,8 +128,7 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
     
     /*
@@ -265,112 +204,22 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     /*
      This function is used to perform refreshing from Guardian news
      */
-    @objc func handleRefresh(_ sender: AnyObject) {
-        // show loading spinner
-        SwiftSpinner.show("Loading Home Page", animated: true)
+    @objc override func handleRefresh(_ sender: AnyObject) {
         
         // prepare request
         let request = NSMutableURLRequest(url: URL(string: "https://content.guardianapis.com/search?orderby=newest&show-fields=starRating,headline,thumbnail,short-url&api-key=\(guardianKey)")!)
         
-        // fetch data
-        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                // error
-                return
-            }
-            
-            if httpResponse.statusCode == 200 {
-                // Http success
-                do {
-                    // save json as an object
-                    let jsonObject = try JSON(data: data!)
-                    
-                    for (_, result): (String, JSON) in jsonObject["response"]["results"] {
-                        let imageUrl: String = result["fields"]["thumbnail"].stringValue
-                        let title: String = result["webTitle"].stringValue
-                        let date: String = result["webPublicationDate"].stringValue
-                        let section: String = result["sectionId"].stringValue
-                        let id: String = result["id"].stringValue
-                        let url: String = result["webUrl"].stringValue
-                        
-                        if self.status.newsDict[id] == nil {
-                            let news: News = News(imageUrl: imageUrl, title: title, date: date, section: section, id: id, url: url)
-                            self.status.newsDict[id] = news
-                        }
-                    }
-                    
-                    DispatchQueue.main.async {
-                        // reload news cell
-                        self.tableView.reloadData()
-                        // hide loading spinner
-                        SwiftSpinner.hide()
-                    }
-                    
-                    
-                } catch DecodingError.dataCorrupted(let context) {
-                    print(context.debugDescription)
-                } catch DecodingError.keyNotFound(let key, let context) {
-                    print("\(key.stringValue) was not found, \(context.debugDescription)")
-                } catch DecodingError.typeMismatch(let type, let context) {
-                    print("\(type) was expected, \(context.debugDescription)")
-                } catch DecodingError.valueNotFound(let type, let context) {
-                    print("no value was found for \(type), \(context.debugDescription)")
-                } catch let error {
-                    print(error)
-                }
-            } else {
-                // Http error
-            }
-            
-        }.resume()
-        
-        self.refreshControl?.endRefreshing()
+        return super.handleRefresh(request)
     }
     
-    /*
-     This function is used to prepare data and segue to Detialed View
-     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "NewsDetailSegue" {
-            guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
-            guard let indexPath = sender as? IndexPath else { return }
-            
-            // prepare data will be used in Detail View
-            newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
-            newsDetailViewController.status.key.indexPath = indexPath
-            newsDetailViewController.newsBookmarkClickDelegate = self
-        } else if segue.identifier == "SearchResultSegue" {
+        if segue.identifier == SegueIdentifier.SearchResult.rawValue {
             guard let searchResultTableViewController = segue.destination as? SearchResultTableViewController else { return }
             guard let keyword = sender as? String else { return }
             searchResultTableViewController.keyword = keyword
-        }
-    }
-    
-    func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
-        
-        // update bookmark UI
-        self.status.newsDict[cell.id]?.bookmark = bookmark
-        DispatchQueue.main.async {
-            cell.buttonBookmark.setImage(bookmark ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark"), for: .normal)
-        }
-        
-        // update bookmark collection view
-        if self.newsBookmarkOperationDelegate != nil {
-            if bookmark {
-                self.newsBookmarkOperationDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
-                
-                // toast
-                self.parent?.view.hideAllToasts()
-                self.parent?.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view", position: .bottom)
-            } else {
-                self.newsBookmarkOperationDelegate.removeBookmark(id: cell.id)
-                
-                // toast
-                self.parent?.view.hideAllToasts()
-                self.parent?.view.makeToast("Article Removed from Bookmarks")
-            }
         }
     }
     
@@ -439,10 +288,6 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
         searchBar.endEditing(true)
     }
     
-}
-
-protocol ClickFromSubviewDelegate {
-    func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }
 
 protocol ClickOnSubviewDelegate {
