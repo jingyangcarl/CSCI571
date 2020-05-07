@@ -116,7 +116,7 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
         case self.sessionIdentifier["weather"]:
             return 110
         case self.sessionIdentifier["news"]:
-            return 140
+            return 150
         default:
             return 0
         }

@@ -96,6 +96,9 @@ extension BookmarkViewController {
         // toast
         self.view.hideAllToasts()
         self.view.makeToast("Article Removed from Bookmarks")
+        
+        // check
+        labelView.isHidden = self.newsDict.count != 0
     }
     
     func existBookmark(id: String) -> Bool {
