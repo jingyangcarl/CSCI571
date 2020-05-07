@@ -45,7 +45,6 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         super.viewDidLoad()
         
         // prepare searchbar
-        self.definesPresentationContext = true
         self.navigationItem.searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController?.searchBar.showsCancelButton = true
         self.navigationItem.searchController?.searchBar.delegate = self
@@ -373,15 +372,6 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         searchBar.endEditing(true)
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("end")
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-        print("begin")
-    }
-    
     var isFirstLetter: Bool = true
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -389,6 +379,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         if self.isFirstLetter {
             let tableView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "search")
             self.navigationItem.searchController?.present(tableView, animated: true, completion: nil)
+            searchBar.becomeFirstResponder()
             self.isFirstLetter = false
         }
         
