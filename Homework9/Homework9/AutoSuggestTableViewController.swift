@@ -11,6 +11,7 @@ import UIKit
 class AutoSuggestTableViewController: UITableViewController {
     
     var suggestions: [String]!
+    var clickFromSubviewDelegate: ClickFromSubviewDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class AutoSuggestTableViewController: UITableViewController {
         cell.textLabel?.text = suggestions[indexPath.row]
         return cell
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

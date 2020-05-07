@@ -11,7 +11,7 @@ import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
 
-class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, NewsBookmarkClickDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
+class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, ClickFromSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
     
     // init location manager status
     let locationManager = CLLocationManager()
@@ -156,7 +156,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
             let bookmarkMenu = UIAction(title: "Bookmark", image: news.bookmark ?  UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")) { action in
                 //
                 news.bookmark = !news.bookmark
-                self.didBookmarkClickedFromSubView(news.bookmark, cellForRowAt: indexPath)
+                self.didCellBookmarkClickedFromSubview(news.bookmark, cellForRowAt: indexPath)
             }
             
             // Create and return a UIMenu with the share action
@@ -348,7 +348,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         }
     }
     
-    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+    func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
         
         // update bookmark UI
@@ -438,6 +438,6 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
     
 }
 
-protocol NewsBookmarkClickDelegate {
-    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+protocol ClickFromSubviewDelegate {
+    func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
 }

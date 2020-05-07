@@ -22,7 +22,7 @@ class NewsDetailViewController: UIViewController {
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
     var status = NewsDetailStatus()
-    var newsBookmarkClickDelegate: NewsBookmarkClickDelegate!
+    var newsBookmarkClickDelegate: ClickFromSubviewDelegate!
     var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
@@ -157,7 +157,7 @@ extension NewsDetailViewController {
         
         self.status.key.bookmark = !self.status.key.bookmark
         if self.newsBookmarkClickDelegate != nil {
-            self.newsBookmarkClickDelegate.didBookmarkClickedFromSubView(self.status.key.bookmark, cellForRowAt: self.status.key.indexPath)
+            self.newsBookmarkClickDelegate.didCellBookmarkClickedFromSubview(self.status.key.bookmark, cellForRowAt: self.status.key.indexPath)
         }
     }
     

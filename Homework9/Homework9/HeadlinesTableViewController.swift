@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import SwiftyJSON
 import SwiftSpinner
 
-class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, NewsBookmarkClickDelegate {
+class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, ClickFromSubviewDelegate {
     
     // status to save current data
     var status = Status()
@@ -81,7 +81,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
             let bookmarkMenu = UIAction(title: "Bookmark", image: news.bookmark ?  UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")) { action in
                 //
                 news.bookmark = !news.bookmark
-                self.didBookmarkClickedFromSubView(news.bookmark, cellForRowAt: indexPath)
+                self.didCellBookmarkClickedFromSubview(news.bookmark, cellForRowAt: indexPath)
             }
             
             // Create and return a UIMenu with the share action
@@ -183,7 +183,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         newsDetailViewController.newsBookmarkClickDelegate = self
     }
     
-    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+    func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         
         guard let cell = self.tableView.cellForRow(at: indexPath) as? NewsTableViewCell else { return }
         

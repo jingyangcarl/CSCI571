@@ -9,7 +9,7 @@
 import UIKit
 import Toast_Swift
 
-class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, NewsBookmarkClickDelegate {
+class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, ClickFromSubviewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -66,7 +66,7 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     // used to handle when open a news from bookmark and cancel bookmark from inside detailed view
-    func didBookmarkClickedFromSubView(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
+    func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
         removeBookmark(id: Array(self.newsDict.values)[indexPath.row].id)
     }
 }
