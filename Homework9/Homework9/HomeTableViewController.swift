@@ -21,16 +21,18 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     enum HomeWeather: String {
         case Clear = "clear"
         case Cloudy = "cloudy"
+        case Clouds = "clouds"
+        case Rain = "rain"
         case Rainy = "rainy"
         case Snowy = "snowy"
         case Sunny = "sunny"
         case Thunder = "thunder"
     }
     
-//    enum HomeSession: Int {
-//        case Weather = 0
-//        case News = 1
-//    }
+    //    enum HomeSession: Int {
+    //        case Weather = 0
+    //        case News = 1
+    //    }
     
     // api keys
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
@@ -85,8 +87,12 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
             switch cell.labelWeather.text?.lowercased() {
             case HomeWeather.Clear.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_clear"); break
+            case HomeWeather.Clouds.rawValue:
+                cell.imageWeather.image = UIImage(named: "weather_cloudy"); break
             case HomeWeather.Cloudy.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_cloudy"); break
+            case HomeWeather.Rain.rawValue:
+                cell.imageWeather.image = UIImage(named: "weather_rainy"); break
             case HomeWeather.Rainy.rawValue:
                 cell.imageWeather.image = UIImage(named: "weather_rainy"); break
             case HomeWeather.Snowy.rawValue:
@@ -152,7 +158,7 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
                     // get current location
                     let readableLocation = placemarks?[0]
                     self.status.weather.city = (readableLocation?.locality)!
-                    self.status.weather.state = (readableLocation?.administrativeArea)!
+                    self.status.weather.state = (readableLocation?.administrativeArea) ?? "Unknown"
                     
                     // prepare request
                     let latitude = location.coordinate.latitude
@@ -214,7 +220,7 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == SegueIdentifier.SearchResult.rawValue {

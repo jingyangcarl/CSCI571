@@ -25,6 +25,8 @@ class NewsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,6 +40,10 @@ class NewsTableViewCell: UITableViewCell {
         if self.newsBookmarkClickDelegate != nil {
             self.newsBookmarkClickDelegate.didCellBookmarkClickedFromSubview(self.bookmark, cellForRowAt: self.indexPath)
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
 }

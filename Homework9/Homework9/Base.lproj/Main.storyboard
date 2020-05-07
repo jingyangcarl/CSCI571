@@ -352,7 +352,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-Jy-jM6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-GZ-9Ke">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -473,6 +473,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonBookmark" destination="9Eo-Of-9ic" id="FEE-AZ-03v"/>
+                        <outlet property="buttonTwitter" destination="l7D-FD-Ddz" id="k85-US-Yss"/>
                         <outlet property="imageView" destination="aF7-GZ-9Ke" id="01I-ac-8aS"/>
                         <outlet property="labelDate" destination="vTj-8X-DYL" id="lAT-x8-Ekv"/>
                         <outlet property="labelDescription" destination="6zA-3h-dgl" id="N0p-uJ-dHO"/>
@@ -1416,7 +1417,7 @@
                                         </cells>
                                     </collectionView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-jb-bOj">
-                                        <rect key="frame" x="16" y="331" width="342" height="64"/>
+                                        <rect key="frame" x="16" y="330" width="342" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="hzM-hl-QQk"/>
                                         </constraints>
@@ -1567,7 +1568,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="u9w-CZ-oy3"/>
+        <segue reference="D8V-HD-H7t"/>
         <segue reference="Da7-Pe-Htd"/>
     </inferredMetricsTieBreakers>
     <resources>

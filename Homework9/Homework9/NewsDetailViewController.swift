@@ -18,6 +18,7 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet var buttonBookmark: UIButton!
+    @IBOutlet var buttonTwitter: UIButton!
     
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     
@@ -27,6 +28,8 @@ class NewsDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.buttonTwitter.setImage(UIImage(named: "twitter")?.withRenderingMode(.alwaysTemplate), for: .normal)
         
         guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
         self.newsBookmarkOperationDelegate = bookmarkViewController

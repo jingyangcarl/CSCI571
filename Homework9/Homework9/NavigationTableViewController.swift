@@ -181,7 +181,9 @@ class NavigationTableViewController: UITableViewController, ClickFromSubviewDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
+        if indexPath.section == self.sessionIdentifier["news"] {
+            performSegue(withIdentifier: "NewsDetailSegue", sender: indexPath)
+        }
     }
 }
 
