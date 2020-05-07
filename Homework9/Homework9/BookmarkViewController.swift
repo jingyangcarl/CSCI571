@@ -12,6 +12,7 @@ import Toast_Swift
 class BookmarkViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NewsBookmarkOperationDelegate, ClickFromSubviewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var labelView: UIView!
     
     var newsDict: [String: News] = [String: News]()
     
@@ -21,6 +22,10 @@ class BookmarkViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        labelView.isHidden = self.newsDict.count != 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
