@@ -27,10 +27,10 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
         case Thunder = "thunder"
     }
     
-    enum HomeSession: Int {
-        case Weather = 0
-        case News = 1
-    }
+//    enum HomeSession: Int {
+//        case Weather = 0
+//        case News = 1
+//    }
     
     // api keys
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
@@ -106,23 +106,23 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == HomeSession.Weather.rawValue {
-            // this should be the weather cell
+        switch indexPath.section {
+        case self.sessionIdentifier["weather"]:
             return 110
-        } else if indexPath.section == HomeSession.News.rawValue {
-            // this should be the news cell
+        case self.sessionIdentifier["news"]:
             return 140
-        } else {
-            return 50
+        default:
+            return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == HomeSession.Weather.rawValue {
+        switch section {
+        case self.sessionIdentifier["weather"]:
             return 1
-        } else if section == HomeSession.News.rawValue {
+        case self.sessionIdentifier["news"]:
             return self.status.newsDict.count
-        } else {
+        default:
             return 0
         }
     }
@@ -177,8 +177,9 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
                                 
                                 // reload weather cell
                                 DispatchQueue.main.async {
-                                    let indexPath = IndexPath(row: 0, section: HomeSession.Weather.rawValue)
+                                    let indexPath = IndexPath(row: 0, section: self.sessionIdentifier["weather"]!)
                                     self.tableView.reloadRows(at: [indexPath], with: .right)
+                                    
                                 }
                                 
                             } catch DecodingError.dataCorrupted(let context) {
