@@ -37,6 +37,8 @@
 		ECFE1D4B246375F600E59A88 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D4A246375F600E59A88 /* HomeTableViewController.swift */; };
 		ECFE1D4D2463958C00E59A88 /* AutoSuggest.json in Resources */ = {isa = PBXBuildFile; fileRef = ECFE1D4C2463958C00E59A88 /* AutoSuggest.json */; };
 		ECFE1D4F246396A800E59A88 /* AutoSuggestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */; };
+		ECFE1D512463B6EF00E59A88 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D502463B6EF00E59A88 /* SearchResultTableViewController.swift */; };
+		ECFE1D532463BD6000E59A88 /* SearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = ECFE1D522463BD6000E59A88 /* SearchResult.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		ECFE1D4A246375F600E59A88 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		ECFE1D4C2463958C00E59A88 /* AutoSuggest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoSuggest.json; sourceTree = "<group>"; };
 		ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSuggestTableViewController.swift; sourceTree = "<group>"; };
+		ECFE1D502463B6EF00E59A88 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		ECFE1D522463BD6000E59A88 /* SearchResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResult.json; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +155,7 @@
 				EC4E9467245955AC00563783 /* GuardianWorld.json */,
 				EC4E946C245FB40400563783 /* Trending.json */,
 				ECFE1D4C2463958C00E59A88 /* AutoSuggest.json */,
+				ECFE1D522463BD6000E59A88 /* SearchResult.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				EC4E94482456528B00563783 /* NewsDetailViewController.swift */,
 				EC4E944A2456570700563783 /* NewsDetailStatus.swift */,
 				ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */,
+				ECFE1D502463B6EF00E59A88 /* SearchResultTableViewController.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			files = (
 				EC4E946D245FB40400563783 /* Trending.json in Resources */,
 				EC4E942E2453C13B00563783 /* OpenWeather.json in Resources */,
+				ECFE1D532463BD6000E59A88 /* SearchResult.json in Resources */,
 				EC4E9468245955AC00563783 /* GuardianWorld.json in Resources */,
 				EC4E94212452BF3E00563783 /* LaunchScreen.storyboard in Resources */,
 				EC4E941E2452BF3E00563783 /* Assets.xcassets in Resources */,
@@ -357,6 +364,7 @@
 				EC4E945F2456C97A00563783 /* TechnologyTableViewController.swift in Sources */,
 				EC4E944B2456570700563783 /* NewsDetailStatus.swift in Sources */,
 				EC4E9440245514DC00563783 /* WeatherTableViewCell.swift in Sources */,
+				ECFE1D512463B6EF00E59A88 /* SearchResultTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

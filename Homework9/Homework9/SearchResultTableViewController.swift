@@ -1,19 +1,19 @@
 //
-//  HeadlinesTableViewController.swift
+//  SearchResultTableViewController.swift
 //  Homework9
 //
-//  Created by Jing Yang on 4/27/20.
+//  Created by Jing Yang on 5/6/20.
 //  Copyright © 2020 Jing Yang. All rights reserved.
 //
 
 import UIKit
-import XLPagerTabStrip
-import SwiftyJSON
 import SwiftSpinner
+import SwiftyJSON
 
-class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, ClickFromSubviewDelegate {
+class SearchResultTableViewController: UITableViewController, ClickFromSubviewDelegate {
     
-    // status to save current data
+    var keyword: String!
+    
     var status = Status()
     
     // api keys
@@ -24,12 +24,6 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // enable pull down to refresh for table view
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl?.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
-        self.tableView.addSubview(refreshControl!)
-        
         // init bookmark delegte, since Bookmark View Controler will not load early than Home View Controller, initialization should be done here
         guard let bookmarkViewController = UIApplication.shared.windows.first!.rootViewController?.children[3].children[0] as? BookmarkViewController else { return }
         self.newsBookmarkOperationDelegate = bookmarkViewController
@@ -38,12 +32,13 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
     override func viewWillAppear(_ animated: Bool) {
         handleRefresh(self)
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "News Cell", for: indexPath) as! NewsTableViewCell
-
+        
         // Configure the cell...
         if !self.status.newsDict.isEmpty {
             
@@ -55,14 +50,14 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
             // update status
             self.status.newsDict[news.id]?.bookmark = news.bookmark
         }
-
+        
         cell.newsBookmarkClickDelegate = self
         return cell
     }
     
     override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: {suggestedActions in
-
+            
             var news: News = Array(self.status.newsDict.values)[indexPath.row]
             
             let twitterMenu = UIAction(title: "Share with Twitter", image: UIImage(named: "twitter")) { action in
@@ -107,16 +102,12 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
         return 1
     }
     
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "HOME")
-    }
-    
     @objc func handleRefresh(_ ender: AnyObject) {
         // show loading spinner
-        SwiftSpinner.show("Loading \(self.restorationIdentifier!.capitalizingFirstLetter()) Page", animated: true)
+        SwiftSpinner.show("Loading Search Page", animated: true)
         
         // prepare request
-        let request = NSMutableURLRequest(url: URL(string: "http://content.guardianapis.com/\(self.restorationIdentifier! )?api-key=\(guardianKey)&show-blocks=all")!)
+        let request = NSMutableURLRequest(url: URL(string: "http://content.guardianapis.com/search?q=\("keyword")&api-key=\(guardianKey)&show-blocks=all")!)
         
         // fetch data
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
@@ -209,5 +200,5 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
             }
         }
     }
-
+    
 }

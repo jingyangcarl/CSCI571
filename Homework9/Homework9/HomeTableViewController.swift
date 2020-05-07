@@ -11,7 +11,7 @@ import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
 
-class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, ClickFromSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
+class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, ClickFromSubviewDelegate, ClickOnSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
     
     // init location manager status
     let locationManager = CLLocationManager()
@@ -56,6 +56,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         
         // initialize
         self.autoSuggestTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "search")
+        self.autoSuggestTableViewController.clickOnSubviewDelegate = self
         
         // For use when the app is open & in the background
         locationManager.requestAlwaysAuthorization()
@@ -343,8 +344,10 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
             newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
             newsDetailViewController.status.key.indexPath = indexPath
             newsDetailViewController.newsBookmarkClickDelegate = self
-        } else if segue.identifier == "SearchSegue" {
-            print("perform")
+        } else if segue.identifier == "SearchResultSegue" {
+            guard let searchResultTableViewController = segue.destination as? SearchResultTableViewController else { return }
+            guard let keyword = sender as? String else { return }
+            searchResultTableViewController.keyword = keyword
         }
     }
     
@@ -375,6 +378,10 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         }
     }
     
+    func didCellClickedOnSubview(cellForRowAt indexPath: IndexPath) {
+        guard let cell = self.autoSuggestTableViewController.tableView.cellForRow(at: indexPath) else { return }
+        performSegue(withIdentifier: "SearchResultSegue", sender: cell.textLabel?.text)
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -440,4 +447,8 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
 
 protocol ClickFromSubviewDelegate {
     func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath)
+}
+
+protocol ClickOnSubviewDelegate {
+    func didCellClickedOnSubview(cellForRowAt indexPath: IndexPath)
 }
