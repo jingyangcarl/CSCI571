@@ -17,9 +17,6 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     let locationManager = CLLocationManager()
     var locationManagerTrigger = 0
     
-    // status to save current data
-    var status = Status()
-    
     // define weather standard
     enum HomeWeather: String {
         case Clear = "clear"
@@ -37,7 +34,6 @@ class HomeTableViewController: NavigationTableViewController, CLLocationManagerD
     
     // api keys
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
-    let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
     let bingKey = "79f5b5a589c74be4aa1d102ca11fadd2"
     
     var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!

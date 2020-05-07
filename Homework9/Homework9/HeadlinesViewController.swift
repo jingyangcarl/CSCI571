@@ -62,6 +62,15 @@ class HeadlinesViewController: ButtonBarPagerTabStripViewController, ClickOnSubv
         return [worldTable, businessTable, politicsTable, sportsTable, technologyTable, scienceTable]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchResultSegue" {
+            guard let searchResultTableViewController = segue.destination as? SearchResultTableViewController else { return }
+            guard let keyword = sender as? String else { return }
+            print(keyword)
+            searchResultTableViewController.keyword = keyword
+        }
+    }
+    
     func didCellClickedOnSubview(cellForRowAt indexPath: IndexPath) {
         guard let cell = self.autoSuggestTableViewController.tableView.cellForRow(at: indexPath) else { return }
         performSegue(withIdentifier: "SearchResultSegue", sender: cell.textLabel?.text)

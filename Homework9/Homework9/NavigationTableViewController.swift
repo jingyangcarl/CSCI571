@@ -9,6 +9,12 @@
 import UIKit
 
 class NavigationTableViewController: UITableViewController {
+    
+    // status to save current data
+    var status = Status()
+    
+    // api keys
+    let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
 
     override func viewDidLoad() {
         super.viewDidLoad()

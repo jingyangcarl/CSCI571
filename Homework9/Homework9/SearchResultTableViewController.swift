@@ -107,7 +107,7 @@ class SearchResultTableViewController: UITableViewController, ClickFromSubviewDe
         SwiftSpinner.show("Loading Search Page", animated: true)
         
         // prepare request
-        let request = NSMutableURLRequest(url: URL(string: "http://content.guardianapis.com/search?q=\("keyword")&api-key=\(guardianKey)&show-blocks=all")!)
+        let request = NSMutableURLRequest(url: URL(string: "http://content.guardianapis.com/search?q=\(keyword!)&api-key=\(guardianKey)&show-blocks=all".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
         
         // fetch data
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in

@@ -13,12 +13,6 @@ import SwiftSpinner
 
 class HeadlinesTableViewController: NavigationTableViewController, IndicatorInfoProvider, ClickFromSubviewDelegate {
     
-    // status to save current data
-    var status = Status()
-    
-    // api keys
-    let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
-    
     var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
     
     override func viewDidLoad() {
@@ -173,13 +167,16 @@ class HeadlinesTableViewController: NavigationTableViewController, IndicatorInfo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
-        guard let indexPath = sender as? IndexPath else { return }
         
-        // prepare data will be used in Detail View
-        newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
-        newsDetailViewController.status.key.indexPath = indexPath
-        newsDetailViewController.newsBookmarkClickDelegate = self
+        if segue.identifier == "NewsDetailSegue" {
+            guard let newsDetailViewController = segue.destination as? NewsDetailViewController else { return }
+            guard let indexPath = sender as? IndexPath else { return }
+            
+            // prepare data will be used in Detail View
+            newsDetailViewController.status.key.id = Array(self.status.newsDict.values)[indexPath.row].id
+            newsDetailViewController.status.key.indexPath = indexPath
+            newsDetailViewController.newsBookmarkClickDelegate = self
+        }
     }
     
     func didCellBookmarkClickedFromSubview(_ bookmark: Bool, cellForRowAt indexPath: IndexPath) {
