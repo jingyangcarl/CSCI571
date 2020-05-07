@@ -38,8 +38,12 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
     // api keys
     let openWeatherKey = "d32dc17259016e9927d18628475376ea"
     let guardianKey = "70e39bf2-86c6-4c5f-a252-ab34d91a4946"
+    let bingKey = "79f5b5a589c74be4aa1d102ca11fadd2"
     
     var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
+    
+    var autoSuggestTableViewController: AutoSuggestTableViewController!
+    var isFirstSearchLetter: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,9 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         self.navigationItem.searchController?.searchBar.showsCancelButton = true
         self.navigationItem.searchController?.searchBar.delegate = self
         self.navigationItem.searchController?.searchBar.placeholder = "Enter keyword ..."
+        
+        // initialize
+        self.autoSuggestTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "search")
         
         // For use when the app is open & in the background
         locationManager.requestAlwaysAuthorization()
@@ -368,25 +375,65 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
         }
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    var isFirstLetter: Bool = true
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if self.isFirstLetter {
-            let tableView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "search")
-            self.navigationItem.searchController?.present(tableView, animated: true, completion: nil)
+        if self.isFirstSearchLetter {
+            self.navigationItem.searchController?.present(self.autoSuggestTableViewController, animated: true, completion: nil)
             searchBar.becomeFirstResponder()
-            self.isFirstLetter = false
+            self.isFirstSearchLetter = false
         }
+        
+        let request = NSMutableURLRequest(url: URL(string: "https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=\(searchText)")!)
+        request.setValue(bingKey, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+        
+        // fetch data
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            
+            if httpResponse.statusCode == 200 {
+                // Http success
+                do {
+                    // save json as an object
+                    let jsonObject = try JSON(data: data!)
+                    
+                    self.autoSuggestTableViewController.suggestions.removeAll()
+                    
+                    for (_, suggestion): (String, JSON) in jsonObject["suggestionGroups"][0]["searchSuggestions"] {
+                        self.autoSuggestTableViewController.suggestions.append(suggestion["query"].stringValue)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.autoSuggestTableViewController.tableView.reloadData()
+                    }
+                    
+                    
+                } catch DecodingError.dataCorrupted(let context) {
+                    print(context.debugDescription)
+                } catch DecodingError.keyNotFound(let key, let context) {
+                    print("\(key.stringValue) was not found, \(context.debugDescription)")
+                } catch DecodingError.typeMismatch(let type, let context) {
+                    print("\(type) was expected, \(context.debugDescription)")
+                } catch DecodingError.valueNotFound(let type, let context) {
+                    print("no value was found for \(type), \(context.debugDescription)")
+                } catch let error {
+                    print(error)
+                }
+            } else {
+                // Http error
+            }
+            
+        }.resume()
+        
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.isFirstLetter = true
+        self.isFirstSearchLetter = true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
     
 }

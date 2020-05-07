@@ -35,6 +35,8 @@
 		EC4E946D245FB40400563783 /* Trending.json in Resources */ = {isa = PBXBuildFile; fileRef = EC4E946C245FB40400563783 /* Trending.json */; };
 		EC4E94702460D83100563783 /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */; };
 		ECFE1D4B246375F600E59A88 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D4A246375F600E59A88 /* HomeTableViewController.swift */; };
+		ECFE1D4D2463958C00E59A88 /* AutoSuggest.json in Resources */ = {isa = PBXBuildFile; fileRef = ECFE1D4C2463958C00E59A88 /* AutoSuggest.json */; };
+		ECFE1D4F246396A800E59A88 /* AutoSuggestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		EC4E946C245FB40400563783 /* Trending.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trending.json; sourceTree = "<group>"; };
 		EC4E946F2460D83100563783 /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECFE1D4A246375F600E59A88 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		ECFE1D4C2463958C00E59A88 /* AutoSuggest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoSuggest.json; sourceTree = "<group>"; };
+		ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSuggestTableViewController.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,7 +129,7 @@
 				EC4E942C2453C0F600563783 /* JSON */,
 				EC4E9441245522FF00563783 /* Home View */,
 				EC4E94502456AE4C00563783 /* Headlines View */,
-				EC4E946624593ADB00563783 /* Shared Cell */,
+				EC4E946624593ADB00563783 /* Shared */,
 				EC4E946B245F9F0D00563783 /* Trending View */,
 				EC4E946E2460D36600563783 /* Bookmark View */,
 				EC4E94142452BF3C00563783 /* SceneDelegate.swift */,
@@ -146,6 +150,7 @@
 				EC4E944C24565C5900563783 /* GuardianHomeDetail.json */,
 				EC4E9467245955AC00563783 /* GuardianWorld.json */,
 				EC4E946C245FB40400563783 /* Trending.json */,
+				ECFE1D4C2463958C00E59A88 /* AutoSuggest.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -168,7 +173,7 @@
 			name = "Headlines View";
 			sourceTree = "<group>";
 		};
-		EC4E946624593ADB00563783 /* Shared Cell */ = {
+		EC4E946624593ADB00563783 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				EC4E943F245514DC00563783 /* WeatherTableViewCell.swift */,
@@ -176,8 +181,9 @@
 				EC4E944624555C4800563783 /* Status.swift */,
 				EC4E94482456528B00563783 /* NewsDetailViewController.swift */,
 				EC4E944A2456570700563783 /* NewsDetailStatus.swift */,
+				ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */,
 			);
-			name = "Shared Cell";
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		EC4E946B245F9F0D00563783 /* Trending View */ = {
@@ -277,6 +283,7 @@
 				EC4E941E2452BF3E00563783 /* Assets.xcassets in Resources */,
 				EC4E94432455319C00563783 /* GuardianHome.json in Resources */,
 				EC4E944D24565C5900563783 /* GuardianHomeDetail.json in Resources */,
+				ECFE1D4D2463958C00E59A88 /* AutoSuggest.json in Resources */,
 				EC4E941C2452BF3C00563783 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +342,7 @@
 				EC4E94492456528B00563783 /* NewsDetailViewController.swift in Sources */,
 				EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */,
 				ECFE1D4B246375F600E59A88 /* HomeTableViewController.swift in Sources */,
+				ECFE1D4F246396A800E59A88 /* AutoSuggestTableViewController.swift in Sources */,
 				EC4E94192452BF3C00563783 /* HeadlinesViewController.swift in Sources */,
 				EC4E94552456B43700563783 /* WorldTableViewController.swift in Sources */,
 				EC4E94652456CC0D00563783 /* HeadlinesTableViewController.swift in Sources */,

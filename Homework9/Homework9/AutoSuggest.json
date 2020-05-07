@@ -1,0 +1,61 @@
+{
+  "queryContext" : {
+    "originalQuery" : "V"
+  },
+  "_type" : "Suggestions",
+  "suggestionGroups" : [
+    {
+      "searchSuggestions" : [
+        {
+          "query" : "verizon wireless",
+          "url" : "https:\/\/www.bing.com\/search?q=verizon+wireless&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "verizon wireless"
+        },
+        {
+          "query" : "vons",
+          "url" : "https:\/\/www.bing.com\/search?q=vons&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "vons"
+        },
+        {
+          "query" : "vitacost",
+          "url" : "https:\/\/www.bing.com\/search?q=vitacost&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "vitacost"
+        },
+        {
+          "query" : "vanguard",
+          "url" : "https:\/\/www.bing.com\/search?q=vanguard&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "vanguard"
+        },
+        {
+          "query" : "victoria's secret",
+          "url" : "https:\/\/www.bing.com\/search?q=victoria%27s+secret&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "victoria's secret"
+        },
+        {
+          "query" : "vudu",
+          "url" : "https:\/\/www.bing.com\/search?q=vudu&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "vudu"
+        },
+        {
+          "query" : "viagra",
+          "url" : "https:\/\/www.bing.com\/search?q=viagra&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "viagra"
+        },
+        {
+          "query" : "vans",
+          "url" : "https:\/\/www.bing.com\/search?q=vans&FORM=USBAPI",
+          "searchKind" : "WebSearch",
+          "displayText" : "vans"
+        }
+      ],
+      "name" : "Web"
+    }
+  ]
+}

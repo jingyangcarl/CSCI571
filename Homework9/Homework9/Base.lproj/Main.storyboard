@@ -188,16 +188,16 @@
             </objects>
             <point key="canvasLocation" x="-1075" y="1440"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Auto Suggest Table View Controller-->
         <scene sceneID="5PV-rm-mfO">
             <objects>
-                <tableViewController storyboardIdentifier="search" modalPresentationStyle="overCurrentContext" id="O5v-z1-TAt" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="search" modalPresentationStyle="overCurrentContext" id="O5v-z1-TAt" customClass="AutoSuggestTableViewController" customModule="Homework9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o4e-1a-D4i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="f64-TN-FtR" style="IBUITableViewCellStyleDefault" id="FHh-hF-GOM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Suggection Cell" textLabel="f64-TN-FtR" style="IBUITableViewCellStyleDefault" id="FHh-hF-GOM">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FHh-hF-GOM" id="g7r-85-YWz">
