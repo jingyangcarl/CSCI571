@@ -39,6 +39,7 @@
 		ECFE1D4F246396A800E59A88 /* AutoSuggestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */; };
 		ECFE1D512463B6EF00E59A88 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D502463B6EF00E59A88 /* SearchResultTableViewController.swift */; };
 		ECFE1D532463BD6000E59A88 /* SearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = ECFE1D522463BD6000E59A88 /* SearchResult.json */; };
+		ECFE1D552463CE8C00E59A88 /* NavigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFE1D542463CE8C00E59A88 /* NavigationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSuggestTableViewController.swift; sourceTree = "<group>"; };
 		ECFE1D502463B6EF00E59A88 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		ECFE1D522463BD6000E59A88 /* SearchResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResult.json; sourceTree = "<group>"; };
+		ECFE1D542463CE8C00E59A88 /* NavigationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTableViewController.swift; sourceTree = "<group>"; };
 		F18C185235D232992003E8A5 /* Pods_Homework9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 				EC4E944A2456570700563783 /* NewsDetailStatus.swift */,
 				ECFE1D4E246396A800E59A88 /* AutoSuggestTableViewController.swift */,
 				ECFE1D502463B6EF00E59A88 /* SearchResultTableViewController.swift */,
+				ECFE1D542463CE8C00E59A88 /* NavigationTableViewController.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC4E94612456C98700563783 /* ScienceTableViewController.swift in Sources */,
+				ECFE1D552463CE8C00E59A88 /* NavigationTableViewController.swift in Sources */,
 				EC4E945B2456C95700563783 /* PoliticsTableViewController.swift in Sources */,
 				EC4E94492456528B00563783 /* NewsDetailViewController.swift in Sources */,
 				EC4E942B2452C57000563783 /* BookmarkViewController.swift in Sources */,

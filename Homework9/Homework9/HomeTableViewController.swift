@@ -11,7 +11,7 @@ import CoreLocation
 import SwiftyJSON
 import SwiftSpinner
 
-class HomeTableViewController: UITableViewController, CLLocationManagerDelegate, ClickFromSubviewDelegate, ClickOnSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
+class HomeTableViewController: NavigationTableViewController, CLLocationManagerDelegate, ClickFromSubviewDelegate, ClickOnSubviewDelegate, UISearchBarDelegate, UIAdaptivePresentationControllerDelegate {
     
     // init location manager status
     let locationManager = CLLocationManager()
@@ -305,7 +305,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
                     
                     DispatchQueue.main.async {
                         // reload news cell
-                        self.tableView.reloadSections(IndexSet(arrayLiteral: HomeSession.News.rawValue), with: .automatic)
+                        self.tableView.reloadData()
                         // hide loading spinner
                         SwiftSpinner.hide()
                     }
@@ -366,14 +366,14 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
                 self.newsBookmarkOperationDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
                 
                 // toast
-                self.view.hideAllToasts()
-                self.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
+                self.parent?.view.hideAllToasts()
+                self.parent?.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view", position: .bottom)
             } else {
                 self.newsBookmarkOperationDelegate.removeBookmark(id: cell.id)
                 
                 // toast
-                self.view.hideAllToasts()
-                self.view.makeToast("Article Removed from Bookmarks")
+                self.parent?.view.hideAllToasts()
+                self.parent?.view.makeToast("Article Removed from Bookmarks")
             }
         }
     }

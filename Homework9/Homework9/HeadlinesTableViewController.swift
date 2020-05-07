@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import SwiftyJSON
 import SwiftSpinner
 
-class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider, ClickFromSubviewDelegate {
+class HeadlinesTableViewController: NavigationTableViewController, IndicatorInfoProvider, ClickFromSubviewDelegate {
     
     // status to save current data
     var status = Status()
@@ -147,7 +147,7 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                     
                     DispatchQueue.main.async {
                         // reload news cell
-                        self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+                        self.tableView.reloadData()
                         // hide loading spinner
                         SwiftSpinner.hide()
                     }
@@ -198,14 +198,14 @@ class HeadlinesTableViewController: UITableViewController, IndicatorInfoProvider
                 self.newsBookmarkOperationDelegate.addBookmark(id: cell.id, news: self.status.newsDict[cell.id]!)
                 
                 // toast
-                self.view.hideAllToasts()
-                self.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
+                self.parent?.view.hideAllToasts()
+                self.parent?.view.makeToast("Article Bookmarked. Check out the Bookmarks tab to view")
             } else {
                 self.newsBookmarkOperationDelegate.removeBookmark(id: cell.id)
                 
                 // toast
-                self.view.hideAllToasts()
-                self.view.makeToast("Article Removed from Bookmarks")
+                self.parent?.view.hideAllToasts()
+                self.parent?.view.makeToast("Article Removed from Bookmarks")
             }
         }
     }
