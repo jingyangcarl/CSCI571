@@ -384,7 +384,7 @@ class HomeTableViewController: UITableViewController, CLLocationManagerDelegate,
             self.isFirstSearchLetter = false
         }
         
-        let request = NSMutableURLRequest(url: URL(string: "https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=\(searchText)")!)
+        let request = NSMutableURLRequest(url: URL(string: "https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=\(searchText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
         request.setValue(bingKey, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
         
         // fetch data
