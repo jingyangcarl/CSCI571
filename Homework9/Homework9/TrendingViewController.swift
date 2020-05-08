@@ -32,7 +32,7 @@ class TrendingViewController: UIViewController, UISearchBarDelegate {
         self.keyword = searchBar.text == "" ? "coronavirus": searchBar.text!
         
         // prepare request
-        let request = NSMutableURLRequest(url: URL(string: "http://ec2-3-22-175-5.us-east-2.compute.amazonaws.com:5000/trending/\(self.keyword!)")!)
+        let request = NSMutableURLRequest(url: URL(string: "http://ec2-3-22-175-5.us-east-2.compute.amazonaws.com:5000/trending/\(self.keyword!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
         
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
