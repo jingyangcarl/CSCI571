@@ -19,6 +19,14 @@ class BookmarkCollectionViewCell: UICollectionViewCell {
     
     var newsBookmarkOperationDelegate: NewsBookmarkOperationDelegate!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 0.5
+    }
+
+    
     @IBAction func didBookmarkClicked(_ sender: Any) {
         // only need to perform bookmark remove
         if newsBookmarkOperationDelegate != nil {
@@ -43,25 +51,11 @@ extension BookmarkCollectionViewCell {
     }
     
     func setDate(date: String) {
-        let dateFormatter = Foundation.DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        
-        let webPublicationDate = dateFormatter.date(from: date)
-        let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
-        let days = timeInterval! / 86400;
-        let hours = (timeInterval! % 86400) / 3600;
-        let minutes = ((timeInterval! % 86400) % 3600) / 60;
-        let seconds = ((timeInterval! % 86400) % 3600) % 60;
-        
-        if days != 0 {
-            self.labelDate.text = "\(days)d ago";
-        } else if hours != 0 {
-            self.labelDate.text = "\(hours)h ago";
-        } else if minutes != 0 {
-            self.labelDate.text = "\(minutes)m ago";
-        } else {
-            self.labelDate.text = "\(seconds)s ago"
-        }
+        let dateFormatterFrom = Foundation.DateFormatter()
+        let dateFormatterTo = Foundation.DateFormatter()
+        dateFormatterFrom.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatterTo.dateFormat = "dd MMM yyyy"
+        self.labelDate.text = dateFormatterTo.string(from: dateFormatterFrom.date(from: date)!)
     }
     
     func setSection(section: String) {
