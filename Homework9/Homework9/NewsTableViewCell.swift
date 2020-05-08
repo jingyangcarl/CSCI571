@@ -25,7 +25,7 @@ class NewsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -84,7 +84,7 @@ extension NewsTableViewCell {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         
         let webPublicationDate = dateFormatter.date(from: date)
-        let timeInterval = webPublicationDate!.timeIntervalSinceNow as Double
+        let timeInterval = webPublicationDate!.timeIntervalSinceNow.magnitude as Double
         
         let timeIntervalSeconds = Int(timeInterval)
         let days = timeIntervalSeconds / 86400;
