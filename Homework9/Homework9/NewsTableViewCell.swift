@@ -84,11 +84,13 @@ extension NewsTableViewCell {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         
         let webPublicationDate = dateFormatter.date(from: date)
-        let timeInterval = webPublicationDate?.timeIntervalSinceNow.exponent
-        let days = timeInterval! / 86400;
-        let hours = (timeInterval! % 86400) / 3600;
-        let minutes = ((timeInterval! % 86400) % 3600) / 60;
-        let seconds = ((timeInterval! % 86400) % 3600) % 60;
+        let timeInterval = webPublicationDate!.timeIntervalSinceNow as Double
+        
+        let timeIntervalSeconds = Int(timeInterval)
+        let days = timeIntervalSeconds / 86400;
+        let hours = (timeIntervalSeconds % 86400) / 3600;
+        let minutes = ((timeIntervalSeconds % 86400) % 3600) / 60;
+        let seconds = ((timeIntervalSeconds % 86400) % 3600) % 60;
         
         if days != 0 {
             self.labelDate.text = "\(days)d ago";
