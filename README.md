@@ -28,7 +28,7 @@ In addition the course will also cover the following subsidiary topics:
 * Become familiar with HTML and CSS technologies
 * Learn how to imitate two web pages
 ### Reference Video (Click on the image to view)
-[![](http://img.youtube.com/vi/eCuGxuPYqMQ/0.jpg)](http://www.youtube.com/watch?v=eCuGxuPYqMQ "Reference Video")
+[![](http://img.youtube.com/vi/eCuGxuPYqMQ/maxresdefault.jpg)](http://www.youtube.com/watch?v=eCuGxuPYqMQ "Reference Video")
 
 ## Homework 4: JSON
 ### Objective: 
@@ -36,7 +36,7 @@ In addition the course will also cover the following subsidiary topics:
 * Use of JSON.parse parser and synchronous XMLHttpRequest;
 * Transform the content of a JSON document into an HTML page. 
 ### Reference Video (Click on the image to view)
-[![](http://img.youtube.com/vi/kjgjszI00uU/0.jpg)](http://www.youtube.com/watch?v=kjgjszI00uU "Reference Video")
+[![](http://img.youtube.com/vi/kjgjszI00uU/maxresdefault.jpg)](http://www.youtube.com/watch?v=kjgjszI00uU "Reference Video")
 
 ## Homework 5: Cloud Setup (Python)
 
@@ -48,7 +48,7 @@ In addition the course will also cover the following subsidiary topics:
 * Get experience using Flask and Django in Python.
 * Getting hands-on experience in GCP, AWS or Azure.
 ### Reference Video (Click on the image to view)
-[![](http://img.youtube.com/vi/HdbUzkQcMJg/0.jpg)](http://www.youtube.com/watch?v=HdbUzkQcMJg "Reference Video")
+[![](http://img.youtube.com/vi/HdbUzkQcMJg/maxresdefault.jpg)](http://www.youtube.com/watch?v=HdbUzkQcMJg "Reference Video")
 
 ## Homework 7: Cloud Setup (NodeJS)
 
@@ -63,7 +63,7 @@ Get familiar with the AJAX and JSON technologies.
 ### Reference Video (Click on the image to view)
 |Web View|Mobile View|
 |:---:|:---:|
-|[![](http://img.youtube.com/vi/FIbPKygGKVs/0.jpg)](http://www.youtube.com/watch?v=FIbPKygGKVs "Reference Video")|[![](http://img.youtube.com/vi/tnBelUqY2h0/0.jpg)](http://www.youtube.com/watch?v=tnBelUqY2h0 "Reference Video")|
+|[![](http://img.youtube.com/vi/FIbPKygGKVs/maxresdefault.jpg)](http://www.youtube.com/watch?v=FIbPKygGKVs "Reference Video")|[![](http://img.youtube.com/vi/tnBelUqY2h0/maxresdefault.jpg)](http://www.youtube.com/watch?v=tnBelUqY2h0 "Reference Video")|
 
 
 
@@ -75,4 +75,4 @@ Get familiar with the AJAX and JSON technologies.
 * Learn to integrate APIs and iOS SDK
 * Manage and use third-party libraries by CocoaPods
 ### Reference Video (Click on the image to view)
-[![](http://img.youtube.com/vi/Jzet_z5NGKk/0.jpg)](http://www.youtube.com/watch?v=Jzet_z5NGKk "Reference Video")
+[![](http://img.youtube.com/vi/Jzet_z5NGKk/maxresdefault.jpg)](http://www.youtube.com/watch?v=Jzet_z5NGKk "Reference Video")
