@@ -2,7 +2,7 @@
 ## Homework 1: Piazza and Class List Sign Up
 ## Homework 2: Course Homework Page & GitHub Classroom
 ## Homrwork 3: HTML and CSS
-[![Reference Video]()](https://www.youtube.com/watch?v=eCuGxuPYqMQ)
+[![](http://img.youtube.com/vi/eCuGxuPYqMQ/0.jpg)](http://www.youtube.com/watch?v=eCuGxuPYqMQ "Reference Video")
 ## Homework 4: JSON
 [![Reference Video]()](https://www.youtube.com/watch?v=kjgjszI00uU)
 
