@@ -61,8 +61,11 @@ Get familiar with the AJAX and JSON technologies.
 * Get hands-on experience of Amazon Web Services/Google Cloud App Engine/Microsoft Azure.
 * Learn to use APIs such as Guardian News API, New York Times API, Comment - box API, Bing Autosuggest API.
 ### Reference Video (Click on the image to view)
-[![](http://img.youtube.com/vi/FIbPKygGKVs/0.jpg)](http://www.youtube.com/watch?v=FIbPKygGKVs "Reference Video")
-[![](http://img.youtube.com/vi/tnBelUqY2h0/0.jpg)](http://www.youtube.com/watch?v=tnBelUqY2h0 "Reference Video")
+|Web View|Mobile View|
+|:---:|:---:|
+|[![](http://img.youtube.com/vi/FIbPKygGKVs/0.jpg)](http://www.youtube.com/watch?v=FIbPKygGKVs "Reference Video")|[![](http://img.youtube.com/vi/tnBelUqY2h0/0.jpg)](http://www.youtube.com/watch?v=tnBelUqY2h0 "Reference Video")|
+
+
 
 ## Homework 9: Mobile App Development (Final Comprehensive Project)
 ### Objective: 
